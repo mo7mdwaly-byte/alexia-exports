@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mo7mdwaly-byte.github.io/alexia-exports/sitemap.xml
