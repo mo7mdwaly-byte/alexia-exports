@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alexia Exports | Egyptian Fresh and Frozen Food Exporter</title>
+<meta name="description" content="Alexia Exports ships fresh fruit, vegetables and frozen foods from Egypt to importers and wholesalers worldwide. Request a quote.">
+<meta property="og:title" content="Alexia Exports | Egyptian Fresh and Frozen Food Exporter">
+<meta property="og:description" content="Alexia Exports ships fresh fruit, vegetables and frozen foods from Egypt to importers and wholesalers worldwide. Request a quote.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo.png">
+<meta name="theme-color" content="#0A2A66">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#0B2557; --muted:#46567A; --line:#D3DCEB;
+  --navy:#0A2A66; --blue:#1E7BD6; --green:#2F7A22; --gold:#C9971C; --gold-soft:#E8C96A;
+  --soft:#E4ECF8; --on-navy:#F2F6FF; --on-navy-muted:#B9C9E6;
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+html[lang="ar"]{ --display:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif; --body:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;color-scheme:light}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;margin:0;
+  padding-block:16px 36px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:70rem;margin-inline:auto;display:flex;flex-direction:column;gap:clamp(3rem,8vw,5.5rem)}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.1}
+h1{font-size:clamp(2.5rem,7vw,4.6rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.6vw,2.9rem);font-weight:700}
+h3{font-size:1.3rem;font-weight:700}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35;letter-spacing:0}
+html[lang="ar"] h1{font-size:clamp(2.1rem,6vw,3.6rem)}
+html[lang="ar"] h2{font-size:clamp(1.7rem,4.2vw,2.4rem)}
+p{margin:0} a{color:inherit}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem}
+html[lang="ar"] .eyebrow{letter-spacing:0;font-size:.9rem}
+.lede{color:var(--muted);max-width:40rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.5rem}
+.top .logo img{display:block;height:64px;width:auto;max-width:100%}
+.top nav{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.4rem;font-size:.95rem;font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.top nav a.lang{border:1.5px solid var(--navy);padding:.15rem .8rem;border-radius:999px;font-weight:600}
+
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font:inherit;font-weight:700;text-decoration:none;padding:.85rem 1.5rem;border:0;border-radius:4px;cursor:pointer}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+.btn.navy{background:var(--navy);color:#fff}
+
+.sign{position:relative;background:var(--navy);color:var(--on-navy);border-radius:18px;padding:12px;overflow:hidden}
+.sign::before{content:"";position:absolute;inset:7px;border:2px solid var(--gold);border-radius:13px;pointer-events:none}
+.sign-in{position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.2rem 3rem;align-items:center;padding:clamp(1.6rem,5vw,3.4rem)}
+.sign-copy{display:flex;flex-direction:column;gap:1.3rem;min-width:0}
+.sign .eyebrow{color:var(--gold-soft)}
+.sign .lede{color:var(--on-navy-muted)}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.4rem}
+.tel{font-weight:600;font-variant-numeric:tabular-nums;color:var(--gold-soft)}
+.facts{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.2rem;border-inline-start:2px solid var(--gold);padding-inline-start:1.4rem;font-size:.95rem}
+.facts dt{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);padding-top:.2rem}
+html[lang="ar"] .facts dt{letter-spacing:0;font-size:.85rem}
+.facts dd{margin:0;min-width:0}
+.wave{position:absolute;inset-inline:0;bottom:0;height:40px;opacity:.9;pointer-events:none}
+
+.head{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.8rem}
+.groups{border-top:2px solid var(--navy)}
+.group{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:.8rem 2rem;padding-block:1.4rem;border-bottom:1px solid var(--line)}
+.group h3 small{display:block;font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted);margin-top:.25rem}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.chips li{border:1px solid var(--line);background:var(--surface);padding:.3rem .8rem;border-radius:3px;font-size:.95rem}
+.onreq{margin-top:1.1rem;color:var(--muted);font-size:.95rem}
+
+.now{display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin:0 0 1.2rem}
+.now strong{color:var(--green)}
+.scroll-x{overflow-x:auto;border-top:2px solid var(--navy)}
+.cal{min-width:40rem;display:grid;grid-template-columns:8.5rem repeat(12,minmax(0,1fr));gap:3px;padding-block:.8rem;align-items:center;font-variant-numeric:tabular-nums}
+.cal .m{text-align:center;font-size:.72rem;font-weight:600;color:var(--muted);padding-bottom:.3rem}
+.cal .m.cur-m{color:var(--green)}
+.cal .rowname{font-size:.95rem;font-weight:500;padding-inline-end:.5rem}
+.cal .c{height:1.3rem;background:var(--soft)}
+.cal .c.on{background:var(--green)}
+.cal .c.cur{outline:2px solid var(--gold);outline-offset:-2px}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:.88rem;color:var(--muted);margin-top:.8rem}
+.legend i{display:inline-block;width:.9rem;height:.9rem;vertical-align:-.1rem;margin-inline-end:.4rem;background:var(--green)}
+.legend i.cur{background:transparent;outline:2px solid var(--gold);outline-offset:-2px}
+.note{color:var(--muted);font-size:.9rem;margin-top:.6rem;max-width:44rem}
+
+.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 3rem;border-top:2px solid var(--navy);padding-top:1.6rem}
+.why div{display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.why p{color:var(--muted)}
+
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.6rem 1.2rem;border-top:2px solid var(--navy);padding-top:1.4rem}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:2.6rem;font-weight:700;line-height:1;color:var(--gold)}
+.steps p{color:var(--muted);font-size:.93rem}
+
+.quote{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:2.5rem 3rem;align-items:start}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.f{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.f.full{grid-column:1/-1}
+label{font-size:.85rem;font-weight:600}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:.7rem .8rem;width:100%;min-width:0}
+textarea{min-height:5.5rem;resize:vertical}
+.contact{display:flex;flex-direction:column;gap:1.1rem;border-inline-start:2px solid var(--navy);padding-inline-start:1.6rem;min-width:0}
+.contact .num{font-family:var(--display);font-weight:700;font-size:1.9rem;font-variant-numeric:tabular-nums;user-select:all}
+html[lang="ar"] .contact .num{font-family:var(--body)}
+.contact small{display:block;color:var(--muted);font-size:.85rem}
+.contact .btn.ghost{color:var(--navy);align-self:flex-start}
+.result{grid-column:1/-1;border:2px solid var(--green);background:var(--surface);padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.result[hidden]{display:none}
+.result textarea{min-height:11rem;font-size:.92rem}
+.acts{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.status{font-size:.9rem;color:var(--green);font-weight:600}
+
+footer{border-top:2px solid var(--navy);padding-top:1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;font-size:.88rem;color:var(--muted)}
+
+@media (max-width:860px){
+  .sign-in,.quote{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{border-inline-start:0;padding-inline-start:0;border-top:2px solid var(--navy);padding-top:1.4rem}
+}
+@media (max-width:620px){
+  .group{grid-template-columns:minmax(0,1fr)}
+  .why,form,.steps{grid-template-columns:minmax(0,1fr)}
+  .top .logo img{height:52px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#top"><img src="logo.png" alt="Alexia Exports logo" width="120" height="64"></a>
+    <nav aria-label="Main">
+      <a href="#products">Products</a>
+      <a href="#seasons">Seasons</a>
+      <a href="#why">How we work</a>
+      <a href="#process">Process</a>
+      <a href="#quote">Request a quote</a>
+      <a class="lang" href="ar.html" hreflang="ar">العربية</a>
+    </nav>
+  </header>
+
+  <section class="sign" id="top">
+    <div class="sign-in">
+      <div class="sign-copy">
+        <div>
+          <p class="eyebrow">Egyptian food exporter</p>
+          <h1>Egyptian produce, packed for your market.</h1>
+        </div>
+        <p class="lede">Alexia Exports supplies fresh fruit, fresh vegetables and frozen foods from Egyptian growers to importers, wholesalers and food manufacturers. Tell us what you need and where it is going. We agree the specification before anything ships.</p>
+        <div class="cta-row">
+          <a class="btn" href="#quote">Request a quote</a>
+          <span>or call <a class="tel" href="tel:+201222126102">+20 122 212 6102</a></span>
+        </div>
+      </div>
+      <dl class="facts"><dt>Origin</dt><dd>Egypt</dd><dt>Range</dt><dd>Fresh, frozen and dry foods</dd><dt>Shipped</dt><dd>Sea freight, full containers</dd><dt>Temp</dt><dd>Chilled and frozen (reefer)</dd></dl>
+    </div>
+    <svg class="wave" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 28 C 150 6, 300 6, 450 22 S 750 38, 900 18 S 1100 6, 1200 22 L1200 40 L0 40 Z" fill="#1E7BD6" opacity=".55"/><path d="M0 34 C 200 14, 380 14, 560 28 S 900 40, 1200 24 L1200 40 L0 40 Z" fill="#2F7A22" opacity=".5"/></svg>
+  </section>
+
+  <section id="products">
+    <div class="head"><p class="eyebrow">Products</p><h2>What we ship</h2><p class="lede">Packing, size grades and labels are set per order to match your destination market.</p></div>
+    <div class="groups"><div class="group"><h3>Fresh fruit<small>5 products</small></h3><ul class="chips"><li>Orange</li><li>Tangerine</li><li>Strawberries</li><li>Pomegranates</li><li>Dates</li></ul></div><div class="group"><h3>Fresh vegetables<small>4 products</small></h3><ul class="chips"><li>Sweet potato</li><li>Onions</li><li>Garlic</li><li>Tomatoes</li></ul></div><div class="group"><h3>Frozen foods<small>17 products, available all year</small></h3><ul class="chips"><li>Strawberries</li><li>Pomegranates</li><li>Mangoes</li><li>Carrots</li><li>Broccoli</li><li>Cauliflower florets</li><li>Mixed vegetables</li><li>Peas &amp; carrots</li><li>Green peas</li><li>Green beans</li><li>Peeled broad beans</li><li>Okra</li><li>Spinach</li><li>Molokhia</li><li>Artichokes</li><li>Colocasia</li><li>Taro root</li></ul></div><div class="group"><h3>Dry goods &amp; pantry<small>5 categories</small></h3><ul class="chips"><li>Grains</li><li>Pulses</li><li>Herbs &amp; spices</li><li>Edible oils</li><li>Sugar &amp; salt</li></ul></div></div>
+    <p class="onreq">Also sourced on request: meat and poultry, seafood, dairy products.</p>
+  </section>
+
+  <section id="seasons">
+    <div class="head"><p class="eyebrow">Seasons</p><h2>When fresh produce ships</h2></div>
+    <p class="now" id="nowLine"></p>
+    <div class="scroll-x"><div class="cal" id="cal" role="table"></div></div>
+    <div class="legend"><span><i></i>Typical shipping window</span><span><i class="cur"></i>This month</span></div>
+    <p class="note">Windows are indicative and move with the weather each year. We confirm availability, variety and size when we quote. The frozen range is not seasonal.</p>
+  </section>
+
+  <section id="why">
+    <div class="head"><p class="eyebrow">Why Alexia</p><h2>How we work with buyers</h2></div>
+    <div class="why"><div><h3>Sourced from Egyptian growers</h3><p>We buy from suppliers we know and pick produce for the grade you ask for.</p></div><div><h3>Specification first</h3><p>Variety, size, packing, labelling and the market you sell into are written down and agreed before shipping.</p></div><div><h3>Clear paperwork</h3><p>Shipments go with the export documents your customs and quarantine authorities ask for. Tell us the requirements early.</p></div><div><h3>Cold chain where it counts</h3><p>Fresh and frozen cargo moves in refrigerated containers set to the temperature your product needs.</p></div><div><h3>One point of contact</h3><p>You deal directly with us from first enquiry to delivery, in English or Arabic.</p></div></div>
+  </section>
+
+  <section id="process">
+    <div class="head"><p class="eyebrow">Process</p><h2>How an order works</h2></div>
+    <ol class="steps"><li><h3>Enquiry</h3><p>Send the product, quantity and destination port.</p></li><li><h3>Specification</h3><p>We agree variety, size, packing and labels, and send samples if needed.</p></li><li><h3>Quotation</h3><p>You receive a price on the terms you choose, such as FOB or CIF.</p></li><li><h3>Packing &amp; loading</h3><p>Goods are packed, checked and loaded into the container.</p></li><li><h3>Shipping &amp; documents</h3><p>The container sails and the export documents follow.</p></li></ol>
+  </section>
+
+  <section id="quote" class="quote">
+    <div>
+      <div class="head"><p class="eyebrow">Request a quote</p><h2>Tell us what you need</h2><p class="lede">Fill in what you know. The form prepares a message that you send to us on WhatsApp.</p></div>
+      <form id="qform">
+        <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+        <div class="f"><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
+        <div class="f"><label for="country">Destination country</label><input id="country" name="country" autocomplete="country-name" required></div>
+        <div class="f"><label for="product">Product</label><select id="product" name="product" required><option value="" selected disabled>Choose a product</option><optgroup label="Fresh fruit"><option>Orange</option><option>Tangerine</option><option>Strawberries</option><option>Pomegranates</option><option>Dates</option></optgroup><optgroup label="Fresh vegetables"><option>Sweet potato</option><option>Onions</option><option>Garlic</option><option>Tomatoes</option></optgroup><optgroup label="Frozen foods"><option>Frozen Strawberries</option><option>Frozen Pomegranates</option><option>Frozen Mangoes</option><option>Frozen Carrots</option><option>Frozen Broccoli</option><option>Frozen Cauliflower florets</option><option>Frozen Mixed vegetables</option><option>Frozen Peas &amp; carrots</option><option>Frozen Green peas</option><option>Frozen Green beans</option><option>Frozen Peeled broad beans</option><option>Frozen Okra</option><option>Frozen Spinach</option><option>Frozen Molokhia</option><option>Frozen Artichokes</option><option>Frozen Colocasia</option><option>Frozen Taro root</option></optgroup><optgroup label="Dry goods &amp; pantry"><option>Grains</option><option>Pulses</option><option>Herbs &amp; spices</option><option>Edible oils</option><option>Sugar &amp; salt</option></optgroup><optgroup label="Other"><option>Other (describe in notes)</option></optgroup></select></div>
+        <div class="f"><label for="qty">Quantity and packing</label><input id="qty" name="qty" placeholder="e.g. 1 x 40ft container, 10 kg cartons"></div>
+        <div class="f"><label for="terms">Delivery terms</label><select id="terms" name="terms"><option>Not sure yet</option><option>FOB</option><option>CFR</option><option>CIF</option></select></div>
+        <div class="f full"><label for="notes">Notes</label><textarea id="notes" name="notes" placeholder="Destination port, size grade, labels, target delivery month"></textarea></div>
+        <div class="f full"><button class="btn navy" type="submit">Prepare my request</button></div>
+        <div class="result" id="result" hidden>
+          <p class="status">Your request is ready. It has not been sent yet.</p>
+          <textarea id="msg" readonly aria-label="Your request message"></textarea>
+          <div class="acts">
+            <a class="btn" id="wa" href="https://wa.me/201222126102" target="_blank" rel="noopener">Send on WhatsApp</a>
+            <button class="btn ghost" type="button" id="copy">Copy message</button>
+            <span class="status" id="copied" aria-live="polite"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <aside class="contact">
+      <div><h3>Prefer to talk?</h3><p class="lede">Call or message us directly.</p></div>
+      <div><div class="num">+20 122 212 6102</div><small>Phone and WhatsApp</small></div>
+      <a class="btn ghost" href="tel:+201222126102">Call now</a>
+    </aside>
+  </section>
+
+  <footer><span>© 2026 Alexia Exports. All rights reserved.</span><span>Import &amp; export · Egypt</span></footer>
+</div>
+<script>window.__ALEXIA__={"mon": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "monFull": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "sep": ", ", "frozenOnly": "frozen range available all year", "seasons": [{"n": "Orange", "m": [11, 12, 1, 2, 3, 4, 5, 6]}, {"n": "Tangerine", "m": [11, 12, 1, 2]}, {"n": "Strawberries", "m": [12, 1, 2, 3, 4]}, {"n": "Pomegranates", "m": [8, 9, 10, 11]}, {"n": "Dates", "m": [9, 10, 11, 12]}, {"n": "Sweet potato", "m": [8, 9, 10, 11, 12, 1]}, {"n": "Onions", "m": [3, 4, 5, 6, 7, 8]}, {"n": "Garlic", "m": [5, 6, 7, 8, 9, 10, 11, 12]}, {"n": "Tomatoes", "m": [10, 11, 12, 1, 2, 3, 4, 5, 6]}], "msg": {"hello": "Hello Alexia Exports, I would like a quote.", "name": "Name", "company": "Company", "country": "Destination country", "product": "Product", "qty": "Quantity and packing", "terms": "Delivery terms", "notes": "Notes"}, "copied": "Copied", "copyFail": "Message selected. Copy it manually."};</script>
+<script>
+(function(){
+  var D=window.__ALEXIA__;
+  var now=new Date().getMonth()+1;
+  var cal=document.getElementById('cal');
+  var h='<div></div>';
+  D.mon.forEach(function(l,i){h+='<div class="m'+(i+1===now?' cur-m':'')+'" title="'+D.monFull[i]+'">'+l+'</div>';});
+  D.seasons.forEach(function(s){
+    h+='<div class="rowname">'+s.n+'</div>';
+    for(var i=1;i<=12;i++){
+      var on=s.m.indexOf(i)>-1;
+      h+='<div class="c'+(on?' on':'')+(i===now?' cur':'')+'" title="'+s.n+', '+D.monFull[i-1]+'"></div>';
+    }
+  });
+  cal.innerHTML=h;
+  var inS=D.seasons.filter(function(s){return s.m.indexOf(now)>-1;}).map(function(s){return s.n;});
+  document.getElementById('nowLine').innerHTML='<strong>'+D.monFull[now-1]+':</strong> <span>'+(inS.length?inS.join(D.sep):D.frozenOnly)+'</span>';
+
+  var form=document.getElementById('qform'),result=document.getElementById('result'),
+      msg=document.getElementById('msg'),wa=document.getElementById('wa'),copied=document.getElementById('copied');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim();};
+    var L=D.msg;
+    msg.value=[L.hello,'',
+      L.name+': '+v('name'),
+      L.company+': '+(v('company')||'-'),
+      L.country+': '+v('country'),
+      L.product+': '+v('product'),
+      L.qty+': '+(v('qty')||'-'),
+      L.terms+': '+v('terms'),
+      L.notes+': '+(v('notes')||'-')].join('\n');
+    wa.href='https://wa.me/201222126102?text='+encodeURIComponent(msg.value);
+    copied.textContent='';
+    result.hidden=false;
+    result.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var ok=function(){copied.textContent=D.copied;};
+    var fb=function(){msg.focus();msg.select();copied.textContent=D.copyFail;};
+    try{navigator.clipboard.writeText(msg.value).then(ok,fb);}catch(err){fb();}
+  });
+})();
+</script>
+</body>
+</html>
