@@ -1,0 +1,1637 @@
+{
+ "version": 1,
+ "company": {
+  "email": "info@alexiaexports.com",
+  "phone1": "+20 104 270 3542",
+  "phone2": "+20 109 331 9608",
+  "whatsapp": "201042703542",
+  "base_url": "https://mo7mdwaly-byte.github.io/alexia-exports/"
+ },
+ "text": {
+  "title": {
+   "en": "ALEXIA EXPORTS | Quality Beyond Borders",
+   "ar": "ألكسيا للتصدير | جودة تتخطى الحدود"
+  },
+  "desc": {
+   "en": "ALEXIA EXPORTS connects international buyers with carefully sourced agricultural, food and mineral products from Egypt and beyond. Request a tailored quote.",
+   "ar": "ألكسيا للتصدير تربط المشترين الدوليين بمنتجات زراعية وغذائية ومعدنية مختارة بعناية من مصر وخارجها. اطلب عرض سعر مخصصًا."
+  },
+  "alt": {
+   "en": "ALEXIA EXPORTS logo",
+   "ar": "شعار ألكسيا للتصدير"
+  },
+  "brand": {
+   "en": "ALEXIA EXPORTS",
+   "ar": "ألكسيا للتصدير"
+  },
+  "strip_l": {
+   "en": "Egyptian origin. Global reach.",
+   "ar": "منشأ مصري. وصول عالمي."
+  },
+  "strip_r": {
+   "en": "International enquiries:",
+   "ar": "الاستفسارات الدولية:"
+  },
+  "quote": {
+   "en": "Request a Quote",
+   "ar": "اطلب عرض سعر"
+  },
+  "menu": {
+   "en": "Menu",
+   "ar": "القائمة"
+  },
+  "skip": {
+   "en": "Skip to content",
+   "ar": "تخطَّ إلى المحتوى"
+  },
+  "hero_eyebrow": {
+   "en": "Your global sourcing partner",
+   "ar": "شريكك العالمي في التوريد"
+  },
+  "lede": {
+   "en": "ALEXIA EXPORTS connects international buyers with carefully sourced agricultural, food and mineral products from Egypt and beyond, with clear communication, tailored specifications and export-focused service.",
+   "ar": "ألكسيا للتصدير تربط المشترين الدوليين بمنتجات زراعية وغذائية ومعدنية مختارة بعناية من مصر وخارجها، مع تواصل واضح ومواصفات مخصصة وخدمة موجهة للتصدير."
+  },
+  "cta1": {
+   "en": "Explore our products",
+   "ar": "استعرض منتجاتنا"
+  },
+  "cta2": {
+   "en": "Discuss your requirements",
+   "ar": "ناقش احتياجاتك"
+  },
+  "brief_title": {
+   "en": "Enquiry brief",
+   "ar": "ملخص الطلب"
+  },
+  "brief_chip": {
+   "en": "What we ask for",
+   "ar": "ما نحتاج معرفته"
+  },
+  "brief_foot": {
+   "en": "Send it on WhatsApp or by email.",
+   "ar": "أرسله عبر واتساب أو البريد الإلكتروني."
+  },
+  "origin": {
+   "en": "Egypt",
+   "ar": "مصر"
+  },
+  "p_eye": {
+   "en": "Our product portfolio",
+   "ar": "محفظة منتجاتنا"
+  },
+  "p_h": {
+   "en": "Source with confidence. Choose what you need.",
+   "ar": "وفّر بثقة. اختر ما تحتاجه."
+  },
+  "p_lede": {
+   "en": "Explore our key product categories. Varieties, grades, packaging, order quantities and availability can be tailored to your market and purchase requirements.",
+   "ar": "استعرض فئات منتجاتنا الرئيسية. يمكن تخصيص الأصناف والدرجات والتعبئة وكميات الطلب والتوفر بما يناسب سوقك ومتطلبات الشراء."
+  },
+  "search": {
+   "en": "Search products",
+   "ar": "ابحث في المنتجات"
+  },
+  "search_ph": {
+   "en": "Search products…",
+   "ar": "ابحث في المنتجات…"
+  },
+  "none": {
+   "en": "No products match your search. Try another word, or tell us what you need in the form below.",
+   "ar": "لا توجد منتجات مطابقة لبحثك. جرّب كلمة أخرى، أو أخبرنا بما تحتاجه في النموذج أدناه."
+  },
+  "add": {
+   "en": "Add to enquiry",
+   "ar": "أضف إلى الاستفسار"
+  },
+  "added": {
+   "en": "Added to enquiry",
+   "ar": "تمت الإضافة"
+  },
+  "discuss": {
+   "en": "Discuss your needs",
+   "ar": "ناقش احتياجاتك"
+  },
+  "fine": {
+   "en": "Product listing is indicative. Availability, specifications, certifications, packaging and minimum order quantities must be confirmed for each enquiry.",
+   "ar": "قائمة المنتجات إرشادية. يجب تأكيد التوفر والمواصفات والشهادات والتعبئة والحد الأدنى للطلب لكل استفسار."
+  },
+  "s_eye": {
+   "en": "Seasonal guide",
+   "ar": "دليل المواسم"
+  },
+  "s_h": {
+   "en": "When fresh produce is typically available",
+   "ar": "متى تتوفر المنتجات الطازجة عادةً"
+  },
+  "s_lede": {
+   "en": "A rough guide to the main fresh-produce windows from Egypt. Use it to time your enquiry, then we confirm exact availability for your order.",
+   "ar": "دليل تقريبي لأهم فترات المنتجات الطازجة من مصر. استخدمه لتحديد توقيت استفسارك، ثم نؤكد لك التوفر الدقيق لطلبك."
+  },
+  "s_now": {
+   "en": "Now",
+   "ar": "الآن"
+  },
+  "s_none": {
+   "en": "Contact us for current availability",
+   "ar": "تواصل معنا لمعرفة التوفر الحالي"
+  },
+  "s_sep": {
+   "en": ", ",
+   "ar": "، "
+  },
+  "s_note": {
+   "en": "Indicative only. Harvest timing moves with the weather and the variety, so confirm availability for each enquiry. Olives, oils, frozen foods, salt and processed foods are quoted per enquiry.",
+   "ar": "للإرشاد فقط. يتغير موعد الحصاد مع الطقس والصنف، لذا نؤكد التوفر لكل استفسار. الزيتون والزيوت والأغذية المجمدة والملح والأغذية المصنّعة يُسعَّر كل منها حسب الاستفسار."
+  },
+  "a_eye": {
+   "en": "About ALEXIA EXPORTS",
+   "ar": "عن ألكسيا للتصدير"
+  },
+  "a_h": {
+   "en": "Trade built on clarity, quality and trust.",
+   "ar": "تجارة قائمة على الوضوح والجودة والثقة."
+  },
+  "a_btn": {
+   "en": "Talk to our export team",
+   "ar": "تحدث مع فريق التصدير"
+  },
+  "plaque": {
+   "en": "Egyptian origin · Global outlook",
+   "ar": "منشأ مصري · رؤية عالمية"
+  },
+  "pr_eye": {
+   "en": "Simple, transparent process",
+   "ar": "عملية بسيطة وشفافة"
+  },
+  "pr_h": {
+   "en": "From your enquiry to shipment planning.",
+   "ar": "من استفسارك إلى تخطيط الشحن."
+  },
+  "pr_lede": {
+   "en": "Every order is different. These are the typical steps we use to understand requirements and prepare a relevant proposal.",
+   "ar": "كل طلب مختلف. هذه هي الخطوات المعتادة التي نتبعها لفهم المتطلبات وإعداد عرض مناسب."
+  },
+  "t_eye": {
+   "en": "Trade terms",
+   "ar": "شروط التجارة"
+  },
+  "t_h": {
+   "en": "Choose how the shipment is shared.",
+   "ar": "اختر كيف تُقسَّم مسؤوليات الشحنة."
+  },
+  "t_lede": {
+   "en": "Tell us your preferred trade term in the enquiry, or leave it open and we will advise. Here is a plain-language view of the four terms we list.",
+   "ar": "أخبرنا بشرط التجارة المفضل لديك في الاستفسار، أو اتركه مفتوحًا وسننصحك. هذه نظرة مبسطة على الشروط الأربعة المتاحة."
+  },
+  "tins": {
+   "en": "Seller also arranges minimum insurance",
+   "ar": "يرتب البائع أيضًا الحد الأدنى من التأمين"
+  },
+  "tnote": {
+   "en": "Simplified guide. The exact obligations follow Incoterms® 2020 and the terms agreed for your order.",
+   "ar": "دليل مبسط. تتبع الالتزامات الدقيقة قواعد الإنكوترمز 2020 والشروط المتفق عليها لطلبك."
+  },
+  "pk_h": {
+   "en": "Packaging options we can discuss",
+   "ar": "خيارات التعبئة التي يمكننا مناقشتها"
+  },
+  "f_eye": {
+   "en": "Questions",
+   "ar": "أسئلة"
+  },
+  "f_h": {
+   "en": "Frequently asked questions",
+   "ar": "الأسئلة الشائعة"
+  },
+  "c_eye": {
+   "en": "Let's discuss your requirements",
+   "ar": "لنناقش متطلباتك"
+  },
+  "c_h": {
+   "en": "Tell us what your market needs.",
+   "ar": "أخبرنا بما يحتاجه سوقك."
+  },
+  "c_lede": {
+   "en": "For a faster response, include the product name, destination, estimated quantity and packaging preference.",
+   "ar": "لرد أسرع، اذكر اسم المنتج والوجهة والكمية التقديرية وتفضيل التعبئة."
+  },
+  "c_email": {
+   "en": "Email our team",
+   "ar": "راسل فريقنا"
+  },
+  "c_call": {
+   "en": "Call / WhatsApp",
+   "ar": "اتصال / واتساب"
+  },
+  "c_more": {
+   "en": "Additional contact",
+   "ar": "رقم إضافي"
+  },
+  "c_based": {
+   "en": "Based in",
+   "ar": "المقر"
+  },
+  "c_egypt": {
+   "en": "Egypt",
+   "ar": "مصر"
+  },
+  "fm_h": {
+   "en": "Buyer inquiry form",
+   "ar": "نموذج استفسار المشتري"
+  },
+  "fm_p": {
+   "en": "Fields marked * are required. Please do not include confidential information.",
+   "ar": "الحقول المعلّمة بـ * مطلوبة. يرجى عدم إدراج معلومات سرية."
+  },
+  "submit": {
+   "en": "Prepare inquiry",
+   "ar": "جهّز الاستفسار"
+  },
+  "wnote": {
+   "en": "Nothing is sent until you press one of the buttons that appear after this step.",
+   "ar": "لا يُرسل شيء قبل أن تضغط أحد الأزرار التي تظهر بعد هذه الخطوة."
+  },
+  "r_h": {
+   "en": "Your enquiry is ready. Choose how to send it.",
+   "ar": "استفسارك جاهز. اختر طريقة الإرسال."
+  },
+  "r_wa": {
+   "en": "Send on WhatsApp",
+   "ar": "أرسل عبر واتساب"
+  },
+  "r_mail": {
+   "en": "Send by email",
+   "ar": "أرسل بالبريد الإلكتروني"
+  },
+  "r_copy": {
+   "en": "Copy message",
+   "ar": "انسخ الرسالة"
+  },
+  "float_wa": {
+   "en": "Chat on WhatsApp",
+   "ar": "تحدث عبر واتساب"
+  },
+  "pill": {
+   "en": "Enquiry list",
+   "ar": "قائمة الاستفسار"
+  },
+  "foot_p": {
+   "en": "Connecting international buyers with agricultural, food and mineral products through clear communication and export-focused sourcing.",
+   "ar": "نربط المشترين الدوليين بمنتجات زراعية وغذائية ومعدنية عبر تواصل واضح وتوريد موجّه للتصدير."
+  },
+  "f_explore": {
+   "en": "Explore",
+   "ar": "استكشف"
+  },
+  "f_cats": {
+   "en": "Key categories",
+   "ar": "الفئات الرئيسية"
+  },
+  "f_contact": {
+   "en": "Contact",
+   "ar": "تواصل معنا"
+  },
+  "copy_l": {
+   "en": "© 2026 ALEXIA EXPORTS. All rights reserved.",
+   "ar": "© 2026 ألكسيا للتصدير. جميع الحقوق محفوظة."
+  },
+  "copy_r": {
+   "en": "Quality Beyond Borders.",
+   "ar": "جودة تتخطى الحدود."
+  },
+  "egypt_line": {
+   "en": "Egypt · International enquiries",
+   "ar": "مصر · الاستفسارات الدولية"
+  },
+  "wa_text": {
+   "en": "Hello ALEXIA EXPORTS, I would like to discuss an enquiry.",
+   "ar": "مرحبًا ألكسيا للتصدير، أودّ مناقشة استفسار."
+  },
+  "jsonld_desc": {
+   "en": "International sourcing and export of agricultural, food and mineral products from Egypt.",
+   "ar": "توريد وتصدير منتجات زراعية وغذائية ومعدنية من مصر إلى الأسواق الدولية."
+  },
+  "bar.0": {
+   "en": "Quality Beyond Borders",
+   "ar": "جودة تتخطى الحدود"
+  },
+  "s_key.0": {
+   "en": "Typical window",
+   "ar": "الفترة المعتادة"
+  },
+  "tkey.0": {
+   "en": "Arranged by seller",
+   "ar": "يتولاه البائع"
+  },
+  "bar.1": {
+   "en": "Egyptian origin · Global outlook",
+   "ar": "منشأ مصري · رؤية عالمية"
+  },
+  "s_key.1": {
+   "en": "This month",
+   "ar": "هذا الشهر"
+  },
+  "tkey.1": {
+   "en": "Arranged by buyer",
+   "ar": "يتولاه المشتري"
+  },
+  "ui.basketEmpty": {
+   "en": "No products added yet.",
+   "ar": "لم تتم إضافة منتجات بعد."
+  },
+  "ui.remove": {
+   "en": "Remove",
+   "ar": "إزالة"
+  },
+  "ui.showing": {
+   "en": "Showing {n} of {t} categories",
+   "ar": "عرض {n} من {t} فئة"
+  },
+  "ui.notSpecified": {
+   "en": "Not specified",
+   "ar": "غير محدد"
+  },
+  "ui.needProduct": {
+   "en": "Add at least one product, or describe what you need in the message.",
+   "ar": "أضف منتجًا واحدًا على الأقل، أو صف ما تحتاجه في الرسالة."
+  },
+  "ui.copied": {
+   "en": "Copied",
+   "ar": "تم النسخ"
+  },
+  "ui.copyFail": {
+   "en": "Message selected. Copy it manually.",
+   "ar": "تم تحديد الرسالة. انسخها يدويًا."
+  },
+  "msg.hello": {
+   "en": "Hello ALEXIA EXPORTS, I would like to discuss an enquiry.",
+   "ar": "مرحبًا ألكسيا للتصدير، أودّ مناقشة استفسار."
+  },
+  "msg.name": {
+   "en": "Name",
+   "ar": "الاسم"
+  },
+  "msg.company": {
+   "en": "Company",
+   "ar": "الشركة"
+  },
+  "msg.email": {
+   "en": "Email",
+   "ar": "البريد الإلكتروني"
+  },
+  "msg.country": {
+   "en": "Destination country",
+   "ar": "بلد الوجهة"
+  },
+  "msg.products": {
+   "en": "Products",
+   "ar": "المنتجات"
+  },
+  "msg.qty": {
+   "en": "Estimated quantity",
+   "ar": "الكمية التقديرية"
+  },
+  "msg.pack": {
+   "en": "Packaging",
+   "ar": "التعبئة"
+  },
+  "msg.term": {
+   "en": "Trade term",
+   "ar": "شرط التجارة"
+  },
+  "msg.message": {
+   "en": "Message",
+   "ar": "الرسالة"
+  },
+  "msg.subject": {
+   "en": "Buyer enquiry",
+   "ar": "استفسار مشترٍ"
+  },
+  "fl.name": {
+   "en": "Full name *",
+   "ar": "الاسم الكامل *"
+  },
+  "fl.company": {
+   "en": "Company name *",
+   "ar": "اسم الشركة *"
+  },
+  "fl.email": {
+   "en": "Business email *",
+   "ar": "البريد الإلكتروني للعمل *"
+  },
+  "fl.country": {
+   "en": "Destination country *",
+   "ar": "بلد الوجهة *"
+  },
+  "fl.products": {
+   "en": "Products of interest",
+   "ar": "المنتجات المطلوبة"
+  },
+  "fl.pick": {
+   "en": "Add a product",
+   "ar": "أضف منتجًا"
+  },
+  "fl.pick_ph": {
+   "en": "Choose a category to add",
+   "ar": "اختر فئة لإضافتها"
+  },
+  "fl.other": {
+   "en": "Other / multiple products",
+   "ar": "أخرى / عدة منتجات"
+  },
+  "fl.qty": {
+   "en": "Estimated quantity",
+   "ar": "الكمية التقديرية"
+  },
+  "fl.qty_ph": {
+   "en": "e.g. 1 container, 20 tonnes",
+   "ar": "مثال: حاوية واحدة، 20 طنًا"
+  },
+  "fl.pack": {
+   "en": "Packaging preference",
+   "ar": "تفضيل التعبئة"
+  },
+  "fl.term": {
+   "en": "Preferred trade term",
+   "ar": "شرط التجارة المفضل"
+  },
+  "fl.message": {
+   "en": "Product specifications / message",
+   "ar": "مواصفات المنتج / الرسالة"
+  },
+  "fl.message_ph": {
+   "en": "Variety, grade, pack size, target delivery month…",
+   "ar": "الصنف، الدرجة، حجم العبوة، شهر التسليم المطلوب…"
+  },
+  "h1a": {
+   "en": "Connecting quality products to",
+   "ar": "نصل بالمنتجات الجيدة إلى"
+  },
+  "h1b": {
+   "en": "global markets.",
+   "ar": "الأسواق العالمية."
+  }
+ },
+ "lists": {
+  "nav": [
+   {
+    "id": "products",
+    "label": {
+     "en": "Products",
+     "ar": "المنتجات"
+    }
+   },
+   {
+    "id": "seasons",
+    "label": {
+     "en": "Seasons",
+     "ar": "المواسم"
+    }
+   },
+   {
+    "id": "about",
+    "label": {
+     "en": "About",
+     "ar": "من نحن"
+    }
+   },
+   {
+    "id": "process",
+    "label": {
+     "en": "How we work",
+     "ar": "طريقة عملنا"
+    }
+   },
+   {
+    "id": "terms",
+    "label": {
+     "en": "Trade terms",
+     "ar": "شروط التجارة"
+    }
+   },
+   {
+    "id": "faq",
+    "label": {
+     "en": "FAQ",
+     "ar": "الأسئلة الشائعة"
+    }
+   },
+   {
+    "id": "contact",
+    "label": {
+     "en": "Contact",
+     "ar": "تواصل معنا"
+    }
+   }
+  ],
+  "checks": [
+   {
+    "text": {
+     "en": "Buyer-focused sourcing",
+     "ar": "توريد يركّز على المشتري"
+    }
+   },
+   {
+    "text": {
+     "en": "Export documentation",
+     "ar": "مستندات التصدير"
+    }
+   },
+   {
+    "text": {
+     "en": "Tailored quotations",
+     "ar": "عروض أسعار مخصصة"
+    }
+   }
+  ],
+  "brief": [
+   {
+    "label": {
+     "en": "Product",
+     "ar": "المنتج"
+    },
+    "value": {
+     "en": "Your product",
+     "ar": "منتجك"
+    }
+   },
+   {
+    "label": {
+     "en": "Destination",
+     "ar": "الوجهة"
+    },
+    "value": {
+     "en": "Country / port",
+     "ar": "الدولة / الميناء"
+    }
+   },
+   {
+    "label": {
+     "en": "Quantity",
+     "ar": "الكمية"
+    },
+    "value": {
+     "en": "Estimated volume",
+     "ar": "الحجم التقديري"
+    }
+   },
+   {
+    "label": {
+     "en": "Packaging",
+     "ar": "التعبئة"
+    },
+    "value": {
+     "en": "Retail, food-service, bulk",
+     "ar": "تجزئة، خدمات غذائية، سائب"
+    }
+   },
+   {
+    "label": {
+     "en": "Trade term",
+     "ar": "شرط التجارة"
+    },
+    "value": {
+     "en": "EXW, FOB, CFR, CIF",
+     "ar": "EXW · FOB · CFR · CIF"
+    }
+   }
+  ],
+  "trust": [
+   {
+    "icon": "leaf",
+    "title": {
+     "en": "Carefully sourced",
+     "ar": "توريد بعناية"
+    },
+    "text": {
+     "en": "Products to your specs",
+     "ar": "منتجات وفق مواصفاتك"
+    }
+   },
+   {
+    "icon": "globe",
+    "title": {
+     "en": "Trade without borders",
+     "ar": "تجارة بلا حدود"
+    },
+    "text": {
+     "en": "Built around your market",
+     "ar": "مصممة حول سوقك"
+    }
+   },
+   {
+    "icon": "tag",
+    "title": {
+     "en": "Product-led sourcing",
+     "ar": "توريد يقوده المنتج"
+    },
+    "text": {
+     "en": "Clear product requirements",
+     "ar": "متطلبات منتج واضحة"
+    }
+   },
+   {
+    "icon": "shield",
+    "title": {
+     "en": "Quality coordination",
+     "ar": "تنسيق الجودة"
+    },
+    "text": {
+     "en": "Specs and checks aligned",
+     "ar": "مواصفات وفحوصات متسقة"
+    }
+   },
+   {
+    "icon": "doc",
+    "title": {
+     "en": "Export documentation",
+     "ar": "مستندات التصدير"
+    },
+    "text": {
+     "en": "Order-specific paperwork",
+     "ar": "أوراق خاصة بكل طلب"
+    }
+   },
+   {
+    "icon": "chat",
+    "title": {
+     "en": "Responsive communication",
+     "ar": "تواصل سريع الاستجابة"
+    },
+    "text": {
+     "en": "One point of contact",
+     "ar": "جهة اتصال واحدة"
+    }
+   }
+  ],
+  "steps": [
+   {
+    "title": {
+     "en": "Share your requirements",
+     "ar": "شاركنا متطلباتك"
+    },
+    "text": {
+     "en": "Tell us the product, destination country, estimated quantity and any required specification.",
+     "ar": "أخبرنا بالمنتج وبلد الوجهة والكمية التقديرية وأي مواصفات مطلوبة."
+    }
+   },
+   {
+    "title": {
+     "en": "Review the proposal",
+     "ar": "راجع العرض"
+    },
+    "text": {
+     "en": "Discuss product options, packing, availability, documentation and commercial terms.",
+     "ar": "ناقش خيارات المنتج والتعبئة والتوفر والمستندات والشروط التجارية."
+    }
+   },
+   {
+    "title": {
+     "en": "Confirm order details",
+     "ar": "أكّد تفاصيل الطلب"
+    },
+    "text": {
+     "en": "Align the final specification, quantity, quality checks, schedule and agreed Incoterms.",
+     "ar": "نوفّق بين المواصفات النهائية والكمية وفحوصات الجودة والجدول الزمني وشروط الإنكوترمز المتفق عليها."
+    }
+   },
+   {
+    "title": {
+     "en": "Coordinate shipment",
+     "ar": "نسّق الشحن"
+    },
+    "text": {
+     "en": "Plan required documents and logistics with the relevant parties for the confirmed order.",
+     "ar": "نخطط للمستندات والخدمات اللوجستية المطلوبة مع الأطراف المعنية للطلب المؤكد."
+    }
+   }
+  ],
+  "values": [
+   {
+    "title": {
+     "en": "Buyer-led sourcing",
+     "ar": "توريد يقوده المشتري"
+    },
+    "text": {
+     "en": "Requirements guide the proposal.",
+     "ar": "متطلباتك توجّه العرض."
+    }
+   },
+   {
+    "title": {
+     "en": "Clear specifications",
+     "ar": "مواصفات واضحة"
+    },
+    "text": {
+     "en": "Align product, grade and pack.",
+     "ar": "نوفّق بين المنتج والدرجة والتعبئة."
+    }
+   },
+   {
+    "title": {
+     "en": "Export coordination",
+     "ar": "تنسيق التصدير"
+    },
+    "text": {
+     "en": "Plan documents and logistics.",
+     "ar": "نخطط للمستندات والخدمات اللوجستية."
+    }
+   },
+   {
+    "title": {
+     "en": "Long-term mindset",
+     "ar": "رؤية طويلة المدى"
+    },
+    "text": {
+     "en": "Build reliable trade relationships.",
+     "ar": "نبني علاقات تجارية موثوقة."
+    }
+   }
+  ],
+  "faq": [
+   {
+    "q": {
+     "en": "What should I include in an enquiry?",
+     "ar": "ماذا أذكر في الاستفسار؟"
+    },
+    "a": {
+     "en": "Product name, destination country, estimated quantity and packaging preference. A preferred trade term and any specification help us respond faster.",
+     "ar": "اسم المنتج وبلد الوجهة والكمية التقديرية وتفضيل التعبئة. ويساعدنا شرط التجارة المفضل وأي مواصفات على الرد بشكل أسرع."
+    }
+   },
+   {
+    "q": {
+     "en": "Can specifications be tailored?",
+     "ar": "هل يمكن تخصيص المواصفات؟"
+    },
+    "a": {
+     "en": "Yes. Varieties, grades, packaging, order quantities and availability can be tailored to your market and purchase requirements, subject to availability.",
+     "ar": "نعم. يمكن تخصيص الأصناف والدرجات والتعبئة وكميات الطلب والتوفر بما يناسب سوقك ومتطلبات الشراء، حسب التوفر."
+    }
+   },
+   {
+    "q": {
+     "en": "What is the minimum order quantity?",
+     "ar": "ما الحد الأدنى للطلب؟"
+    },
+    "a": {
+     "en": "It depends on the product, packaging and shipping method, so we confirm it for each enquiry.",
+     "ar": "يعتمد على المنتج والتعبئة وطريقة الشحن، لذلك نؤكده لكل استفسار."
+    }
+   },
+   {
+    "q": {
+     "en": "Which documents do you provide?",
+     "ar": "ما المستندات التي توفرونها؟"
+    },
+    "a": {
+     "en": "Documents are prepared for the specific order. The set depends on the product and destination, so tell us your import requirements early.",
+     "ar": "تُعدّ المستندات للطلب المحدد. وتعتمد المجموعة على المنتج والوجهة، لذا أخبرنا بمتطلبات الاستيراد لديك مبكرًا."
+    }
+   },
+   {
+    "q": {
+     "en": "Which trade terms are available?",
+     "ar": "ما شروط التجارة المتاحة؟"
+    },
+    "a": {
+     "en": "EXW, FOB, CFR and CIF, or leave it open and we will advise on the best fit.",
+     "ar": "EXW وFOB وCFR وCIF، أو اتركه مفتوحًا وسننصحك بالأنسب."
+    }
+   },
+   {
+    "q": {
+     "en": "Do you work with buyers worldwide?",
+     "ar": "هل تتعاملون مع مشترين حول العالم؟"
+    },
+    "a": {
+     "en": "We work with international buyers. We confirm shipping options for each destination when we prepare your proposal.",
+     "ar": "نعمل مع مشترين دوليين، ونؤكد خيارات الشحن لكل وجهة عند إعداد عرضك."
+    }
+   }
+  ],
+  "packaging": [
+   {
+    "text": {
+     "en": "Retail packaging",
+     "ar": "تعبئة التجزئة"
+    }
+   },
+   {
+    "text": {
+     "en": "Food-service packaging",
+     "ar": "تعبئة الخدمات الغذائية"
+    }
+   },
+   {
+    "text": {
+     "en": "Bulk / industrial packaging",
+     "ar": "تعبئة سائبة / صناعية"
+    }
+   },
+   {
+    "text": {
+     "en": "Cartons / crates",
+     "ar": "كراتين / صناديق"
+    }
+   },
+   {
+    "text": {
+     "en": "Buyer specification",
+     "ar": "مواصفات المشتري"
+    }
+   }
+  ],
+  "categories": [
+   {
+    "text": {
+     "en": "Fresh produce",
+     "ar": "منتجات طازجة"
+    }
+   },
+   {
+    "text": {
+     "en": "Food products",
+     "ar": "منتجات غذائية"
+    }
+   },
+   {
+    "text": {
+     "en": "Frozen foods",
+     "ar": "أغذية مجمدة"
+    }
+   },
+   {
+    "text": {
+     "en": "Salt & minerals",
+     "ar": "ملح ومعادن"
+    }
+   }
+  ],
+  "about": [
+   {
+    "text": {
+     "en": "We support international buyers seeking dependable access to agricultural, food and mineral products. Our approach begins with understanding your specifications, market, packaging preferences and shipment requirements, then coordinating a suitable supply proposal.",
+     "ar": "ندعم المشترين الدوليين الباحثين عن وصول موثوق إلى منتجات زراعية وغذائية ومعدنية. يبدأ نهجنا بفهم مواصفاتك وسوقك وتفضيلات التعبئة ومتطلبات الشحن، ثم تنسيق عرض توريد مناسب."
+    }
+   },
+   {
+    "text": {
+     "en": "From the first enquiry to shipment planning, we aim to make international sourcing straightforward, transparent and responsive.",
+     "ar": "من أول استفسار حتى تخطيط الشحن، نسعى لجعل التوريد الدولي مباشرًا وشفافًا وسريع الاستجابة."
+    }
+   }
+  ],
+  "segments": [
+   {
+    "text": {
+     "en": "Goods made ready",
+     "ar": "تجهيز البضاعة"
+    }
+   },
+   {
+    "text": {
+     "en": "Export clearance and loading",
+     "ar": "التخليص التصديري والتحميل"
+    }
+   },
+   {
+    "text": {
+     "en": "Main sea freight",
+     "ar": "الشحن البحري الرئيسي"
+    }
+   },
+   {
+    "text": {
+     "en": "Import clearance and delivery",
+     "ar": "التخليص الاستيرادي والتسليم"
+    }
+   }
+  ],
+  "packopts": [
+   {
+    "text": {
+     "en": "Not specified",
+     "ar": "غير محدد"
+    }
+   },
+   {
+    "text": {
+     "en": "Retail packaging",
+     "ar": "تعبئة التجزئة"
+    }
+   },
+   {
+    "text": {
+     "en": "Food-service packaging",
+     "ar": "تعبئة الخدمات الغذائية"
+    }
+   },
+   {
+    "text": {
+     "en": "Bulk / industrial packaging",
+     "ar": "تعبئة سائبة / صناعية"
+    }
+   },
+   {
+    "text": {
+     "en": "Cartons / crates",
+     "ar": "كراتين / صناديق"
+    }
+   },
+   {
+    "text": {
+     "en": "Buyer specification",
+     "ar": "مواصفات المشتري"
+    }
+   }
+  ],
+  "termopts": [
+   {
+    "text": {
+     "en": "Not specified",
+     "ar": "غير محدد"
+    }
+   },
+   {
+    "text": {
+     "en": "EXW",
+     "ar": "EXW"
+    }
+   },
+   {
+    "text": {
+     "en": "FOB",
+     "ar": "FOB"
+    }
+   },
+   {
+    "text": {
+     "en": "CFR",
+     "ar": "CFR"
+    }
+   },
+   {
+    "text": {
+     "en": "CIF",
+     "ar": "CIF"
+    }
+   },
+   {
+    "text": {
+     "en": "Other / open to advice",
+     "ar": "أخرى / أحتاج نصيحة"
+    }
+   }
+  ],
+  "groups": [
+   {
+    "id": "all",
+    "label": {
+     "en": "All products",
+     "ar": "كل المنتجات"
+    }
+   },
+   {
+    "id": "fresh",
+    "label": {
+     "en": "Fresh produce",
+     "ar": "منتجات طازجة"
+    }
+   },
+   {
+    "id": "food",
+    "label": {
+     "en": "Food products",
+     "ar": "منتجات غذائية"
+    }
+   },
+   {
+    "id": "frozen",
+    "label": {
+     "en": "Frozen foods",
+     "ar": "أغذية مجمدة"
+    }
+   },
+   {
+    "id": "salt",
+    "label": {
+     "en": "Salt & minerals",
+     "ar": "ملح ومعادن"
+    }
+   },
+   {
+    "id": "ingredients",
+    "label": {
+     "en": "Ingredients",
+     "ar": "مكونات"
+    }
+   }
+  ],
+  "footerlinks": [
+   {
+    "id": "products",
+    "label": {
+     "en": "Product portfolio",
+     "ar": "محفظة المنتجات"
+    }
+   },
+   {
+    "id": "about",
+    "label": {
+     "en": "About ALEXIA",
+     "ar": "عن ألكسيا"
+    }
+   },
+   {
+    "id": "process",
+    "label": {
+     "en": "How we work",
+     "ar": "طريقة عملنا"
+    }
+   },
+   {
+    "id": "contact",
+    "label": {
+     "en": "Buyer inquiry",
+     "ar": "استفسار المشتري"
+    }
+   }
+  ],
+  "terms": [
+   {
+    "id": "EXW",
+    "title": {
+     "en": "Ex Works",
+     "ar": "تسليم أرض المصنع"
+    },
+    "text": {
+     "en": "The seller makes the goods available at its premises. The buyer arranges export clearance, transport, freight and everything after.",
+     "ar": "يتيح البائع البضاعة في مقره. ويتولى المشتري التخليص التصديري والنقل والشحن وكل ما بعده."
+    },
+    "seller": [
+     0
+    ],
+    "insurance": false
+   },
+   {
+    "id": "FOB",
+    "title": {
+     "en": "Free On Board",
+     "ar": "تسليم ظهر السفينة"
+    },
+    "text": {
+     "en": "The seller clears the goods for export and loads them on the vessel at the port of shipment. The buyer arranges freight and everything after.",
+     "ar": "يخلّص البائع البضاعة للتصدير ويحمّلها على السفينة في ميناء الشحن. ويتولى المشتري الشحن وكل ما بعده."
+    },
+    "seller": [
+     0,
+     1
+    ],
+    "insurance": false
+   },
+   {
+    "id": "CFR",
+    "title": {
+     "en": "Cost and Freight",
+     "ar": "التكلفة والشحن"
+    },
+    "text": {
+     "en": "The seller pays the sea freight to the destination port. Risk passes to the buyer once the goods are loaded on the vessel.",
+     "ar": "يدفع البائع أجرة الشحن البحري حتى ميناء الوصول. وتنتقل المخاطر إلى المشتري عند تحميل البضاعة على السفينة."
+    },
+    "seller": [
+     0,
+     1,
+     2
+    ],
+    "insurance": false
+   },
+   {
+    "id": "CIF",
+    "title": {
+     "en": "Cost, Insurance and Freight",
+     "ar": "التكلفة والتأمين والشحن"
+    },
+    "text": {
+     "en": "As CFR, with the seller also arranging minimum insurance to the destination port. Risk still passes to the buyer at loading.",
+     "ar": "مثل CFR، ويرتب البائع أيضًا الحد الأدنى من التأمين حتى ميناء الوصول. وتنتقل المخاطر إلى المشتري عند التحميل."
+    },
+    "seller": [
+     0,
+     1,
+     2
+    ],
+    "insurance": true
+   }
+  ]
+ },
+ "products": [
+  {
+   "id": "citrus",
+   "group": "fresh",
+   "icon": "citrus",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Citrus & Oranges",
+    "ar": "الحمضيات والبرتقال"
+   },
+   "desc": {
+    "en": "Egyptian Navel and Valencia oranges, mandarins, tangerines, lemons and grapefruit for retail and wholesale channels.",
+    "ar": "برتقال مصري نافل وفالنسيا، ويوسفي ومندرين وليمون وجريب فروت لقنوات التجزئة والجملة."
+   },
+   "tags": {
+    "en": [
+     "Navel",
+     "Valencia",
+     "Mandarins",
+     "Seasonal"
+    ],
+    "ar": [
+     "نافل",
+     "فالنسيا",
+     "مندرين",
+     "موسمي"
+    ]
+   }
+  },
+  {
+   "id": "grapes",
+   "group": "fresh",
+   "icon": "grapes",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Grapes",
+    "ar": "العنب"
+   },
+   "desc": {
+    "en": "Seedless and seeded grape varieties selected to match destination-market requirements and seasonal availability.",
+    "ar": "أصناف عنب بذور وبدون بذور تُختار لتناسب متطلبات سوق الوجهة والتوفر الموسمي."
+   },
+   "tags": {
+    "en": [
+     "Early Sweet",
+     "Thompson",
+     "Crimson",
+     "Red Globe"
+    ],
+    "ar": [
+     "إيرلي سويت",
+     "تومسون",
+     "كريمزون",
+     "ريد جلوب"
+    ]
+   }
+  },
+  {
+   "id": "fruits",
+   "group": "fresh",
+   "icon": "mango",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Seasonal Fruits",
+    "ar": "فواكه موسمية"
+   },
+   "desc": {
+    "en": "Mangoes, strawberries, pomegranates, dates, figs, melons and watermelons sourced according to season.",
+    "ar": "مانجو وفراولة ورمان وتمور وتين وشمام وبطيخ، يتم توريدها حسب الموسم."
+   },
+   "tags": {
+    "en": [
+     "Mango",
+     "Strawberry",
+     "Pomegranate",
+     "Dates"
+    ],
+    "ar": [
+     "مانجو",
+     "فراولة",
+     "رمان",
+     "تمور"
+    ]
+   }
+  },
+  {
+   "id": "veg",
+   "group": "fresh",
+   "icon": "onion",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Vegetables & Herbs",
+    "ar": "الخضروات والأعشاب"
+   },
+   "desc": {
+    "en": "Potatoes, sweet potatoes, onions, garlic, tomatoes and selected herbs for importers and food-service buyers.",
+    "ar": "بطاطس وبطاطا وبصل وثوم وطماطم وأعشاب مختارة للمستوردين ومشتري الخدمات الغذائية."
+   },
+   "tags": {
+    "en": [
+     "Potatoes",
+     "Onions",
+     "Garlic",
+     "Herbs"
+    ],
+    "ar": [
+     "بطاطس",
+     "بصل",
+     "ثوم",
+     "أعشاب"
+    ]
+   }
+  },
+  {
+   "id": "olives",
+   "group": "food",
+   "icon": "olive",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Olives & Olive Products",
+    "ar": "الزيتون ومنتجات الزيتون"
+   },
+   "desc": {
+    "en": "Green and black table olives with product styles and packing options discussed for your target market.",
+    "ar": "زيتون مائدة أخضر وأسود، مع مناقشة أنماط المنتج وخيارات التعبئة بما يناسب سوقك المستهدف."
+   },
+   "tags": {
+    "en": [
+     "Manzanilla",
+     "Whole / pitted",
+     "Stuffed",
+     "Sliced"
+    ],
+    "ar": [
+     "منزانيلو",
+     "كامل / منزوع النوى",
+     "محشي",
+     "شرائح"
+    ]
+   }
+  },
+  {
+   "id": "oils",
+   "group": "food",
+   "icon": "oil",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Edible Oils",
+    "ar": "الزيوت الغذائية"
+   },
+   "desc": {
+    "en": "Olive oils and selected edible oils with grades, formats and packaging aligned to the buyer's brief.",
+    "ar": "زيت زيتون وزيوت غذائية مختارة، بدرجات وأحجام وتعبئة وفق طلب المشتري."
+   },
+   "tags": {
+    "en": [
+     "Extra virgin",
+     "Virgin",
+     "Bulk options"
+    ],
+    "ar": [
+     "بكر ممتاز",
+     "بكر",
+     "خيارات سائبة"
+    ]
+   }
+  },
+  {
+   "id": "frozen",
+   "group": "frozen",
+   "icon": "frozen",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Frozen Fruits & Vegetables",
+    "ar": "فواكه وخضروات مجمدة"
+   },
+   "desc": {
+    "en": "IQF and other frozen product enquiries, subject to product availability, processing specifications and packing requirements.",
+    "ar": "استفسارات عن المنتجات المجمدة IQF وغيرها، حسب التوفر ومواصفات التصنيع ومتطلبات التعبئة."
+   },
+   "tags": {
+    "en": [
+     "IQF options",
+     "Fruit",
+     "Vegetables"
+    ],
+    "ar": [
+     "خيارات IQF",
+     "فواكه",
+     "خضروات"
+    ]
+   }
+  },
+  {
+   "id": "dates",
+   "group": "food",
+   "icon": "palm",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Dates & Dried Fruits",
+    "ar": "التمور والفواكه المجففة"
+   },
+   "desc": {
+    "en": "Selected Egyptian date varieties and dried fruit options for distributors, wholesalers and food manufacturers.",
+    "ar": "أصناف مختارة من التمور المصرية وخيارات الفواكه المجففة للموزعين وتجار الجملة ومصنّعي الأغذية."
+   },
+   "tags": {
+    "en": [
+     "Medjool",
+     "Siwi",
+     "Hayany",
+     "Zaghloul"
+    ],
+    "ar": [
+     "مجدول",
+     "سيوي",
+     "حياني",
+     "زغلول"
+    ]
+   }
+  },
+  {
+   "id": "salt",
+   "group": "salt",
+   "icon": "salt",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Salt & Mineral Products",
+    "ar": "منتجات الملح والمعادن"
+   },
+   "desc": {
+    "en": "Food-grade and industrial salt enquiries, plus selected mineral products subject to technical and commercial review.",
+    "ar": "استفسارات عن الملح الغذائي والصناعي، ومنتجات معدنية مختارة تخضع للمراجعة الفنية والتجارية."
+   },
+   "tags": {
+    "en": [
+     "Fine salt",
+     "Coarse salt",
+     "Bulk / bags"
+    ],
+    "ar": [
+     "ملح ناعم",
+     "ملح خشن",
+     "سائب / أكياس"
+    ]
+   }
+  },
+  {
+   "id": "ingr",
+   "group": "ingredients",
+   "icon": "flask",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Agricultural & Food Ingredients",
+    "ar": "المكونات الزراعية والغذائية"
+   },
+   "desc": {
+    "en": "Ingredient and commodity sourcing for manufacturers and professional buyers, subject to specification and availability.",
+    "ar": "توريد المكونات والسلع لمصنّعي الأغذية والمشترين المحترفين، حسب المواصفات والتوفر."
+   },
+   "tags": {
+    "en": [
+     "Commodities",
+     "Ingredients",
+     "Bulk supply"
+    ],
+    "ar": [
+     "سلع",
+     "مكونات",
+     "توريد بالجملة"
+    ]
+   }
+  },
+  {
+   "id": "processed",
+   "group": "food",
+   "icon": "can",
+   "image": "",
+   "hidden": false,
+   "discuss": false,
+   "name": {
+    "en": "Processed Foods",
+    "ar": "الأغذية المصنّعة"
+   },
+   "desc": {
+    "en": "Enquire about tomato paste and other processed food products with available pack sizes and documentation.",
+    "ar": "استفسر عن معجون الطماطم ومنتجات غذائية مصنّعة أخرى مع أحجام العبوات والمستندات المتاحة."
+   },
+   "tags": {
+    "en": [
+     "Tomato paste",
+     "Retail packs",
+     "Food service"
+    ],
+    "ar": [
+     "معجون طماطم",
+     "عبوات تجزئة",
+     "خدمات غذائية"
+    ]
+   }
+  },
+  {
+   "id": "dairy",
+   "group": "food",
+   "icon": "drop",
+   "image": "",
+   "hidden": false,
+   "discuss": true,
+   "name": {
+    "en": "Dairy & Other Foodstuffs",
+    "ar": "الألبان وأغذية أخرى"
+   },
+   "desc": {
+    "en": "Share your required product, target market and volumes so we can review suitable sourcing possibilities.",
+    "ar": "أخبرنا بالمنتج المطلوب والسوق المستهدف والكميات لنراجع إمكانيات التوريد المناسبة."
+   },
+   "tags": {
+    "en": [
+     "Buyer-led sourcing",
+     "Bulk enquiries"
+    ],
+    "ar": [
+     "توريد حسب طلب المشتري",
+     "استفسارات الجملة"
+    ]
+   }
+  }
+ ],
+ "seasons": [
+  {
+   "id": "navel",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "name": {
+    "en": "Navel oranges",
+    "ar": "برتقال نافل"
+   }
+  },
+  {
+   "id": "valencia",
+   "months": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "name": {
+    "en": "Valencia oranges",
+    "ar": "برتقال فالنسيا"
+   }
+  },
+  {
+   "id": "mandarin",
+   "months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "name": {
+    "en": "Mandarins",
+    "ar": "مندرين"
+   }
+  },
+  {
+   "id": "grapes",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "name": {
+    "en": "Grapes",
+    "ar": "عنب"
+   }
+  },
+  {
+   "id": "mango",
+   "months": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "name": {
+    "en": "Mango",
+    "ar": "مانجو"
+   }
+  },
+  {
+   "id": "strawberry",
+   "months": [
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "name": {
+    "en": "Strawberries",
+    "ar": "فراولة"
+   }
+  },
+  {
+   "id": "pomegranate",
+   "months": [
+    8,
+    9,
+    10,
+    11
+   ],
+   "name": {
+    "en": "Pomegranates",
+    "ar": "رمان"
+   }
+  },
+  {
+   "id": "dates",
+   "months": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "name": {
+    "en": "Dates",
+    "ar": "تمور"
+   }
+  },
+  {
+   "id": "potato",
+   "months": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    11,
+    12
+   ],
+   "name": {
+    "en": "Potatoes",
+    "ar": "بطاطس"
+   }
+  },
+  {
+   "id": "onion",
+   "months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "name": {
+    "en": "Onions",
+    "ar": "بصل"
+   }
+  },
+  {
+   "id": "garlic",
+   "months": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "name": {
+    "en": "Garlic",
+    "ar": "ثوم"
+   }
+  }
+ ]
+}
