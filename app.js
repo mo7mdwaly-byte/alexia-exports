@@ -97,6 +97,24 @@
   $('#search').addEventListener('input', function (e) { q = e.target.value.trim().toLowerCase(); apply(); });
   apply();
 
+  /* header search: opens a bar, filters the products and jumps to them */
+  var sBtn = $('.search-btn'), sBar = $('#gsearch-bar'), sIn = $('#gsearch');
+  if (sBtn && sBar && sIn) {
+    var openS = function (o) {
+      sBar.hidden = !o; sBtn.setAttribute('aria-expanded', o ? 'true' : 'false');
+      if (o) sIn.focus();
+    };
+    sBtn.addEventListener('click', function () { openS(sBar.hidden); });
+    sIn.addEventListener('input', function () {
+      var main = $('#search'); main.value = sIn.value; main.dispatchEvent(new Event('input'));
+      if (sIn.value.trim()) { var all = $('.pill[data-group="all"]'); if (all) all.click(); }
+    });
+    sIn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); $('#products').scrollIntoView({ behavior: 'smooth' }); sIn.blur(); }
+      if (e.key === 'Escape') openS(false);
+    });
+  }
+
   /* trade terms tabs */
   var tabs = $$('.tab'), panels = $$('.panel');
   var show = function (i, focus) {

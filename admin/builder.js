@@ -187,10 +187,11 @@
 '  <span class="links"><span>' + esc(T('strip_r')) + '</span> <a href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a> <a href="tel:' + PH1T + '">' + ltr(esc(PH1)) + '</a></span>\n</div></div>\n\n' +
 '<header class="top"><div class="wrap">\n' +
 '  <a class="brand" href="#top" aria-label="' + esc(T('brand')) + '"><img src="logo.png" width="106" height="56" alt="' + esc(alt) + '"></a>\n' +
+'  <button class="search-btn" type="button" aria-label="' + esc(T('search')) + '" aria-expanded="false" aria-controls="gsearch-bar">' + sm('search') + '</button>\n' +
 '  <button class="menu-btn" type="button" aria-label="' + esc(T('menu')) + '" aria-expanded="false" aria-controls="nav"><span></span></button>\n' +
 '  <nav class="main" id="nav" aria-label="' + esc(T('menu')) + '">' + nav + '\n' +
 '    <a class="lang" href="' + G.other + '" hreflang="' + G.otherCode + '" lang="' + G.otherCode + '">' + G.otherLabel + '</a>\n' +
-'    <a class="btn btn-gold btn-sm" href="#contact">' + esc(T('quote')) + '</a>\n  </nav>\n</div></header>\n\n' +
+'    <a class="btn btn-gold btn-sm" href="#contact">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  <div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>\n</header>\n\n' +
 '<main id="top">\n<section class="hero">\n  <div class="wrap">\n    <div class="hero-copy">\n' +
 '      <p class="eyebrow">' + esc(T('hero_eyebrow')) + '</p>\n      <h1>' + h1 + '</h1>\n      <p class="lede">' + esc(T('lede')) + '</p>\n' +
 '      <div class="cta-row">\n        <a class="btn btn-gold" href="#products">' + esc(T('cta1')) + arrow() + '</a>\n        <a class="btn btn-ghost" href="#contact">' + esc(T('cta2')) + '</a>\n      </div>\n' +
