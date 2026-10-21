@@ -1381,7 +1381,24 @@
           "خضروات"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/frozen-mvi06qg8smv.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/frozen-mvi06qh4fon.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/frozen-mvi06qhzuj8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/frozen-mvi06qiwe5g.jpg"
+        }
+      ]
     },
     {
       "id": "dates",
