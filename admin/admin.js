@@ -7,7 +7,7 @@
   /* ---------- interface language ---------- */
   var I = {
     en: {
-      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', products: 'Products', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
+      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', products: 'Products', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
       connectH: 'Connect your website', connectP: 'This dashboard edits your website directly on GitHub. It needs a private access key (token) that only works for this one repository. You create it once.',
       s1: 'Open GitHub in Safari (desktop site) and go to Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.',
       s2: 'Name it “Alexia dashboard”, set expiration to 1 year, and under “Repository access” choose Only select repositories → alexia-exports.',
@@ -20,6 +20,8 @@
       quick: 'Quick links', viewSite: 'View live website', viewAr: 'View Arabic page', backup: 'Download backup', restoreFile: 'Restore from backup file', badFile: 'This file is not a valid backup.', imported: 'Backup loaded. Review it, then publish.',
       addProduct: 'Add product', search: 'Search…', nameEn: 'Product name', desc: 'Description', tags: 'Tags (comma separated)', group: 'Category', icon: 'Icon', photo: 'Photo (optional)', upload: 'Upload photo', removePhoto: 'Remove photo', hideP: 'Hide from website', discussP: 'Button says “Discuss” instead of “Add to enquiry”', moveUp: 'Move up', moveDown: 'Move down', del: 'Delete', dup: 'Duplicate', confirmDel: 'Delete this item? This cannot be undone before publishing.', hiddenBadge: 'Hidden', newProduct: 'New product',
       photoHint: 'Photos are resized automatically. Shown on top of the product card.', noResults: 'Nothing matches.',
+      mediaH: 'Photos & videos', addPhotos: 'Add photos', addVideo: 'Add video', mediaHint: 'Photos and videos play one after another automatically on the product card. Photos are resized for you. Videos: MP4, short (10–15 seconds), under 30 MB.', videoTooBig: 'This video is larger than 30 MB. Please use a shorter or compressed MP4.', processing: 'Processing…', earlier: 'Move earlier', later: 'Move later', remove: 'Remove', videoBadge: 'Video', noMedia: 'No photos or videos yet.', badMedia: 'This file type is not supported. Use JPG/PNG photos or MP4 videos.',
+      bannerH: 'Website banner', bannerHint: 'Appears below the trust section on both the English and Arabic pages.', mOff: 'No banner', mFixed: 'Fixed banner (one photo or video)', mCarousel: 'Rotating banner (several photos and videos)', interval: 'Seconds per slide', slideN: 'Slide', addSlidePhoto: 'Add photo', addSlideVideo: 'Add video', replaceMedia: 'Replace file', headline: 'Headline (optional)', subtext: 'Short text (optional)', btnText: 'Button text (optional)', btnLink: 'Button link (e.g. #contact or https://…)', onlyFirst: 'Fixed mode shows only the first slide.', noSlides: 'No slides yet. Add a photo or video.', mbTotal: 'Files to upload',
       seasonAdd: 'Add season', seasonName: 'Product / season name', months: 'Months available', mlist: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], seasonHint: 'Highlighted months show in the website calendar. Please confirm these against your real harvest and shipping calendar.',
       textsH: 'Page texts', textsHint: 'Every sentence on the website. Orange fields have no Arabic yet, so the Arabic page will show the English text.', filter: 'Filter texts…', advanced: 'Technical texts', blocksH: 'Sections and lists', add: 'Add', itemN: 'Item',
       companyH: 'Contact details & website address', email: 'Email', phone1: 'Main phone', phone2: 'Second phone (optional)', whatsapp: 'WhatsApp number (digits only, with country code)', baseUrl: 'Website address', baseHint: 'Include the final slash. When you buy your domain, change this to https://yourdomain.com/ and publish.',
@@ -30,7 +32,7 @@
       draftFound: 'Found unpublished edits from your last visit. Restore them?', copied: 'Copied', saved: 'Draft saved on this device', langBtn: 'العربية', leave: 'You have unpublished changes.'
     },
     ar: {
-      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', products: 'المنتجات', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
+      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', products: 'المنتجات', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
       connectH: 'اربط موقعك', connectP: 'تعدّل هذه اللوحة موقعك مباشرة على GitHub. تحتاج إلى مفتاح وصول خاص (Token) يعمل لهذا المستودع فقط. تنشئه مرة واحدة.',
       s1: 'افتح GitHub في Safari (نسخة الكمبيوتر) ثم Settings ← Developer settings ← Personal access tokens ← Fine-grained tokens ← Generate new token.',
       s2: 'سمِّه “Alexia dashboard” واجعل الصلاحية سنة، وفي “Repository access” اختر Only select repositories ← alexia-exports.',
@@ -43,6 +45,8 @@
       quick: 'روابط سريعة', viewSite: 'عرض الموقع المنشور', viewAr: 'عرض الصفحة العربية', backup: 'تحميل نسخة احتياطية', restoreFile: 'استرجاع من ملف نسخة احتياطية', badFile: 'هذا الملف ليس نسخة احتياطية صحيحة.', imported: 'تم تحميل النسخة. راجعها ثم انشر.',
       addProduct: 'إضافة منتج', search: 'بحث…', nameEn: 'اسم المنتج', desc: 'الوصف', tags: 'الوسوم (مفصولة بفاصلة)', group: 'التصنيف', icon: 'الأيقونة', photo: 'صورة (اختياري)', upload: 'رفع صورة', removePhoto: 'حذف الصورة', hideP: 'إخفاء من الموقع', discussP: 'الزر يقول “ناقش” بدل “أضف للاستفسار”', moveUp: 'أعلى', moveDown: 'أسفل', del: 'حذف', dup: 'نسخ', confirmDel: 'حذف هذا العنصر؟ لا يمكن التراجع قبل النشر.', hiddenBadge: 'مخفي', newProduct: 'منتج جديد',
       photoHint: 'تُصغَّر الصور تلقائيًا وتظهر أعلى بطاقة المنتج.', noResults: 'لا نتائج.',
+      mediaH: 'الصور والفيديو', addPhotos: 'إضافة صور', addVideo: 'إضافة فيديو', mediaHint: 'تُعرض الصور والفيديوهات تلقائيًا واحدة تلو الأخرى على بطاقة المنتج. تُصغَّر الصور تلقائيًا. الفيديو: MP4 قصير (10–15 ثانية) وأقل من 30 ميجابايت.', videoTooBig: 'حجم الفيديو أكبر من 30 ميجابايت. استخدم فيديو MP4 أقصر أو مضغوطًا.', processing: 'جارٍ المعالجة…', earlier: 'تقديم', later: 'تأخير', remove: 'حذف', videoBadge: 'فيديو', noMedia: 'لا توجد صور أو فيديوهات بعد.', badMedia: 'نوع الملف غير مدعوم. استخدم صور JPG/PNG أو فيديو MP4.',
+      bannerH: 'بانر الموقع', bannerHint: 'يظهر أسفل قسم الثقة في الصفحتين العربية والإنجليزية.', mOff: 'بدون بانر', mFixed: 'بانر ثابت (صورة أو فيديو واحد)', mCarousel: 'بانر متحرك (عدة صور وفيديوهات)', interval: 'عدد الثواني لكل شريحة', slideN: 'شريحة', addSlidePhoto: 'إضافة صورة', addSlideVideo: 'إضافة فيديو', replaceMedia: 'استبدال الملف', headline: 'العنوان (اختياري)', subtext: 'نص قصير (اختياري)', btnText: 'نص الزر (اختياري)', btnLink: 'رابط الزر (مثل #contact أو https://…)', onlyFirst: 'البانر الثابت يعرض الشريحة الأولى فقط.', noSlides: 'لا توجد شرائح. أضف صورة أو فيديو.', mbTotal: 'ملفات للرفع',
       seasonAdd: 'إضافة موسم', seasonName: 'اسم المنتج / الموسم', months: 'أشهر التوفر', mlist: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'], seasonHint: 'الأشهر المظللة تظهر في تقويم الموقع. يرجى مطابقتها مع تقويم الحصاد والشحن الفعلي لديك.',
       textsH: 'نصوص الصفحة', textsHint: 'كل جملة في الموقع. الحقول البرتقالية بلا ترجمة عربية بعد، فتظهر الإنجليزية في الصفحة العربية.', filter: 'تصفية النصوص…', advanced: 'نصوص تقنية', blocksH: 'الأقسام والقوائم', add: 'إضافة', itemN: 'عنصر',
       companyH: 'بيانات التواصل وعنوان الموقع', email: 'البريد الإلكتروني', phone1: 'الهاتف الرئيسي', phone2: 'هاتف ثانٍ (اختياري)', whatsapp: 'رقم واتساب (أرقام فقط مع رمز الدولة)', baseUrl: 'عنوان الموقع', baseHint: 'أضف الشرطة المائلة الأخيرة. عند شراء الدومين غيّره إلى https://yourdomain.com/ ثم انشر.',
@@ -63,9 +67,21 @@
   var S = {
     ui: LS.get('alexia_ui') === 'ar' ? 'ar' : 'en',
     cfg: { token: LS.get('alexia_token') || '', repo: LS.get('alexia_repo') || 'mo7mdwaly-byte/alexia-exports', branch: LS.get('alexia_branch') || 'main' },
-    content: null, original: '', headSha: '', pending: {}, tab: 'overview', open: {}, prev: { lang: 'en', phone: false }, history: null, busy: false, log: ''
+    content: null, blobs: {}, original: '', headSha: '', pending: {}, tab: 'overview', open: {}, prev: { lang: 'en', phone: false }, history: null, busy: false, log: ''
   };
   function t(k) { var d = I[S.ui]; return k.split('.').reduce(function (o, p) { return o == null ? o : o[p]; }, d) || k; }
+  function normalize(c) {
+    if (!c.banner || typeof c.banner !== 'object') c.banner = { mode: 'off', interval: 5, slides: [] };
+    if (!Array.isArray(c.banner.slides)) c.banner.slides = [];
+    if (!c.banner.mode) c.banner.mode = 'off';
+    if (!c.banner.interval) c.banner.interval = 5;
+    (c.products || []).forEach(function (p) {
+      if (!Array.isArray(p.media)) p.media = p.image ? [{ type: 'image', src: p.image }] : [];
+      p.image = '';
+    });
+    [['ui.prev', 'Previous', 'السابق'], ['ui.next', 'Next', 'التالي'], ['ui.slide', 'Slide {n}', 'الشريحة {n}']].forEach(function (d) { if (!c.text[d[0]]) c.text[d[0]] = { en: d[1], ar: d[2] }; });
+    return c;
+  }
   function canon(c) { return JSON.stringify(c, null, 2) + '\n'; }
   function dirty() { return !!S.content && (canon(S.content) !== S.original || Object.keys(S.pending).length > 0); }
 
@@ -119,7 +135,7 @@
     draftTimer = setTimeout(function () {
       if (!S.content) return;
       if (!dirty()) { LS.del('alexia_draft'); return; }
-      LS.set('alexia_draft', JSON.stringify({ content: S.content, pending: S.pending }));
+      if (!LS.set('alexia_draft', JSON.stringify({ content: S.content, pending: S.pending }))) LS.set('alexia_draft', JSON.stringify({ content: S.content, lost: Object.keys(S.pending) }));
     }, 600);
   }
 
@@ -176,11 +192,11 @@
   }
 
   /* ---------- image handling ---------- */
-  function resizeImage(file) {
+  function resizeImage(file, max) {
     return new Promise(function (res, rej) {
       var url = URL.createObjectURL(file), img = new Image();
       img.onload = function () {
-        var max = 1000, w = img.naturalWidth, hgt = img.naturalHeight, s = Math.min(1, max / Math.max(w, hgt));
+        var w = img.naturalWidth, hgt = img.naturalHeight, s = Math.min(1, max / Math.max(w, hgt));
         var c = document.createElement('canvas'); c.width = Math.round(w * s); c.height = Math.round(hgt * s);
         var cx = c.getContext('2d'); cx.fillStyle = '#fff'; cx.fillRect(0, 0, c.width, c.height); cx.drawImage(img, 0, 0, c.width, c.height);
         URL.revokeObjectURL(url);
@@ -191,8 +207,60 @@
     });
   }
   function siteRoot() { try { return new URL('../', location.href).href; } catch (e) { return S.content.company.base_url; } }
+  var MAX_VIDEO = 30 * 1024 * 1024;
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 5); }
+  function readB64(file) { return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.onerror = rej; r.readAsDataURL(file); }); }
+  function addMedia(file, base, maxPx) {
+    if (/^image\//.test(file.type)) {
+      return resizeImage(file, maxPx).then(function (b64) { var path = 'images/' + slug(base) + '-' + uid() + '.jpg'; S.pending[path] = b64; return { type: 'image', src: path }; });
+    }
+    if (/^video\//.test(file.type)) {
+      if (file.size > MAX_VIDEO) return Promise.reject(new Error('big'));
+      var ext = file.type === 'video/webm' ? 'webm' : file.type === 'video/quicktime' ? 'mov' : 'mp4';
+      return readB64(file).then(function (b64) { var path = 'videos/' + slug(base) + '-' + uid() + '.' + ext; S.pending[path] = b64; S.blobs[path] = URL.createObjectURL(file); return { type: 'video', src: path }; });
+    }
+    return Promise.reject(new Error('type'));
+  }
+  function dropMedia(path) { delete S.pending[path]; if (S.blobs[path]) { try { URL.revokeObjectURL(S.blobs[path]); } catch (e) {} delete S.blobs[path]; } }
+  function mediaError(e) { alert(e && e.message === 'big' ? t('videoTooBig') : e && e.message === 'type' ? t('badMedia') : 'Error'); }
+  function pickFiles(accept, multiple, onFiles) {
+    var inp = h('input', { type: 'file', accept: accept, multiple: multiple ? true : null, class: 'hide' });
+    document.body.appendChild(inp);
+    inp.addEventListener('change', function () { var fs = Array.prototype.slice.call(inp.files); inp.remove(); if (fs.length) onFiles(fs); });
+    inp.click();
+  }
+  function mediaTile(m, ctl) {
+    var vis = m.type === 'video' ? h('video', { src: imgUrl(m.src) + '#t=0.1', muted: true, playsinline: true, preload: 'metadata' }) : h('img', { src: imgUrl(m.src), alt: '' });
+    return h('div', { class: 'tile' }, vis, m.type === 'video' ? h('span', { class: 'badge vid' }, '▶ ' + t('videoBadge')) : null, h('div', { class: 'tile-acts' }, ctl));
+  }
+  function mediaEditor(owner, key, o) {
+    var list = owner[key] = owner[key] || [], wrap = h('div', { class: 'field' }), status = h('span', { class: 'muted small' });
+    var grid = h('div', { class: 'tiles' });
+    list.forEach(function (m, i) {
+      grid.appendChild(mediaTile(m, [
+        h('button', { class: 'btn sm ghost icon', type: 'button', 'aria-label': t('earlier'), title: t('earlier'), onclick: function () { if (move(list, i, -1)) { touch(); render(); } } }, '←'),
+        h('button', { class: 'btn sm ghost icon', type: 'button', 'aria-label': t('later'), title: t('later'), onclick: function () { if (move(list, i, 1)) { touch(); render(); } } }, '→'),
+        h('button', { class: 'btn sm danger icon', type: 'button', 'aria-label': t('remove'), title: t('remove'), onclick: function () { dropMedia(m.src); list.splice(i, 1); touch(); render(); } }, '✕')]));
+    });
+    if (!list.length) grid.appendChild(h('p', { class: 'muted small' }, t('noMedia')));
+    var add = function (accept, multiple) {
+      pickFiles(accept, multiple, function (files) {
+        status.textContent = t('processing');
+        files.reduce(function (chain, f) { return chain.then(function () { return addMedia(f, o.base, o.max).then(function (it) { list.push(it); }); }); }, Promise.resolve())
+          .then(function () { touch(); render(); }, function (e) { status.textContent = ''; mediaError(e); touch(); render(); });
+      });
+    };
+    wrap.appendChild(h('span', { class: 'lbl' }, t('mediaH')));
+    wrap.appendChild(grid);
+    wrap.appendChild(h('div', { class: 'acts', style: 'display:flex;gap:.5rem;flex-wrap:wrap;align-items:center' },
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { add('image/*', true); } }, '+ ' + t('addPhotos')),
+      o.video === false ? null : h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { add('video/mp4,video/webm,video/quicktime,video/*', false); } }, '+ ' + t('addVideo')), status));
+    wrap.appendChild(h('p', { class: 'hint' }, t('mediaHint')));
+    return wrap;
+  }
   function imgUrl(p) {
     if (!p) return '';
+    if (S.blobs[p]) return S.blobs[p];
     if (S.pending[p]) return 'data:image/jpeg;base64,' + S.pending[p];
     return siteRoot() + p;
   }
@@ -204,6 +272,7 @@
     c.products.forEach(function (p) { chk(p.name, (p.name.en || p.id) + ' · name', 'products'); chk(p.desc, (p.name.en || p.id) + ' · description', 'products'); });
     c.seasons.forEach(function (s) { chk(s.name, 'Season: ' + (s.name.en || s.id), 'seasons'); if (!s.months.length) out.push({ where: 'Season has no months: ' + (s.name.en || s.id), tab: 'seasons' }); });
     Object.keys(c.text).forEach(function (k) { chk(c.text[k], 'Text: ' + k, 'texts'); });
+    (c.banner.slides || []).forEach(function (sl, i) { ['title', 'text', 'cta'].forEach(function (f) { var v = sl[f]; if (v && (v.en || '').trim() && !(v.ar || '').trim()) out.push({ where: 'Banner slide ' + (i + 1) + ' · ' + f, tab: 'banner' }); }); });
     BLOCKS.forEach(function (def) {
       (c.lists[def.key] || []).forEach(function (it, i) { def.fields.forEach(function (f) { if (f.type === 'bi' || f.type === 'bit') chk(it[f.k], def.title + ' #' + (i + 1) + ' · ' + f.label, 'blocks'); }); });
     });
@@ -260,7 +329,7 @@
     var file = h('input', { type: 'file', accept: 'application/json,.json', class: 'hide' });
     file.addEventListener('change', function () {
       var f = file.files[0]; if (!f) return; var r = new FileReader();
-      r.onload = function () { try { var o = JSON.parse(r.result); if (!o.products || !o.text || !o.lists || !o.company) throw 0; S.content = o; S.pending = {}; touch(); toast(t('imported')); render(); } catch (e) { alert(t('badFile')); } };
+      r.onload = function () { try { var o = JSON.parse(r.result); if (!o.products || !o.text || !o.lists || !o.company) throw 0; S.content = normalize(o); S.pending = {}; touch(); toast(t('imported')); render(); } catch (e) { alert(t('badFile')); } };
       r.readAsText(f);
     });
     box.appendChild(h('div', { class: 'card' }, h('h3', null, t('quick')), h('div', { class: 'acts', style: 'gap:.5rem;display:flex;flex-wrap:wrap' },
@@ -293,7 +362,7 @@
     };
     search.addEventListener('input', function () { S.pq = search.value; paint(); });
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.products')), h('button', { class: 'btn gold', type: 'button', onclick: function () {
-      var p = { id: uniqueId('new-product'), group: (c.lists.groups.filter(function (g) { return g.id !== 'all'; })[0] || { id: 'fresh' }).id, icon: 'citrus', image: '', hidden: false, discuss: false, name: { en: '', ar: '' }, desc: { en: '', ar: '' }, tags: { en: [], ar: [] } };
+      var p = { id: uniqueId('new-product'), group: (c.lists.groups.filter(function (g) { return g.id !== 'all'; })[0] || { id: 'fresh' }).id, icon: 'citrus', image: '', media: [], hidden: false, discuss: false, name: { en: '', ar: '' }, desc: { en: '', ar: '' }, tags: { en: [], ar: [] } };
       c.products.unshift(p); S.open['p:' + p.id] = true; S.pq = ''; touch(); render();
     } }, '+ ' + t('addProduct'))));
     box.appendChild(h('div', { class: 'field' }, search));
@@ -304,9 +373,11 @@
   function productItem(p, i) {
     var c = S.content;
     var thumb = h('span', { class: 'thumb' });
-    thumb.innerHTML = p.image ? '' : svgBig(p.icon);
-    if (p.image) thumb.appendChild(h('img', { src: imgUrl(p.image), alt: '' }));
-    var sum = [thumb, h('span', { class: 'tt' }, p.name.en || t('newProduct')), p.hidden ? h('span', { class: 'badge off' }, t('hiddenBadge')) : null];
+    var m0 = (p.media || [])[0];
+    thumb.innerHTML = m0 && m0.type === 'image' ? '' : svgBig(p.icon);
+    if (m0 && m0.type === 'image') thumb.appendChild(h('img', { src: imgUrl(m0.src), alt: '' }));
+    var mcount = (p.media || []).length;
+    var sum = [thumb, h('span', { class: 'tt' }, p.name.en || t('newProduct')), mcount ? h('span', { class: 'badge' }, String(mcount)) : null, p.hidden ? h('span', { class: 'badge off' }, t('hiddenBadge')) : null];
     var body = [];
     body.push(biField(p, 'name', t('nameEn')));
     body.push(biField(p, 'desc', t('desc'), true));
@@ -321,23 +392,56 @@
     sel.addEventListener('change', function () { p.group = sel.value; touch(); });
     body.push(h('div', { class: 'field' }, h('label', null, t('group')), sel));
     body.push(iconPicker(p, 'icon', B.ICON_NAMES, false));
-    var file = h('input', { type: 'file', accept: 'image/*', class: 'hide' });
-    file.addEventListener('change', function () {
-      var f = file.files[0]; if (!f) return;
-      resizeImage(f).then(function (b64) { var path = 'images/' + slug(p.id) + '-' + Date.now().toString(36) + '.jpg'; S.pending[path] = b64; p.image = path; touch(); render(); }).catch(function () { alert('Image error'); });
-    });
-    body.push(h('div', { class: 'field' }, h('span', { class: 'lbl' }, t('photo')), h('div', { class: 'photo-box' },
-      p.image ? h('img', { src: imgUrl(p.image), alt: '' }) : null,
-      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { file.click(); } }, t('upload')),
-      p.image ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () { delete S.pending[p.image]; p.image = ''; touch(); render(); } }, t('removePhoto')) : null, file),
-      h('p', { class: 'hint' }, t('photoHint'))));
+    body.push(mediaEditor(p, 'media', { base: p.id, max: 1000 }));
     body.push(boolField(p, 'hidden', t('hideP')));
     body.push(boolField(p, 'discuss', t('discussP')));
     body.push(rowActions(c.products, i, function () { touch(); render(); }, { dup: function () {
-      var cp = JSON.parse(JSON.stringify(p)); cp.id = uniqueId(p.id); cp.image = ''; cp.name.en += ' (copy)'; c.products.splice(i + 1, 0, cp); S.open['p:' + cp.id] = true; touch(); render();
+      var cp = JSON.parse(JSON.stringify(p)); cp.id = uniqueId(p.id); cp.image = ''; cp.media = (p.media || []).map(function (m) { return { type: m.type, src: m.src }; }); cp.name.en += ' (copy)'; c.products.splice(i + 1, 0, cp); S.open['p:' + cp.id] = true; touch(); render();
     } }));
     return detailsItem('p:' + p.id, sum, body);
   }
+
+
+  VIEWS.banner = function () {
+    var b = S.content.banner, box = h('div'), slides = b.slides;
+    box.appendChild(h('div', { class: 'head' }, h('h2', null, t('bannerH'))));
+    box.appendChild(h('p', { class: 'hint' }, t('bannerHint')));
+    var chips = h('div', { class: 'chips', style: 'margin-bottom:.9rem' });
+    [['off', 'mOff'], ['fixed', 'mFixed'], ['carousel', 'mCarousel']].forEach(function (m) {
+      chips.appendChild(h('button', { class: 'chip', type: 'button', 'aria-pressed': b.mode === m[0] ? 'true' : 'false', onclick: function () { b.mode = m[0]; touch(); render(); } }, t(m[1])));
+    });
+    box.appendChild(chips);
+    if (b.mode === 'off') return box;
+    if (b.mode === 'carousel') box.appendChild(h('div', { class: 'field', style: 'max-width:14rem' }, h('label', null, t('interval')), (function () {
+      var inp = h('input', { type: 'number', min: 2, max: 30, value: b.interval, dir: 'ltr' }); inp.addEventListener('input', function () { b.interval = Math.max(2, Math.min(30, Number(inp.value) || 5)); touch(); }); return inp; })()));
+    if (b.mode === 'fixed' && slides.length > 1) box.appendChild(h('p', { class: 'notice warn' }, t('onlyFirst')));
+    var addBtn = function (label, accept) {
+      return h('button', { class: 'btn gold sm', type: 'button', onclick: function () {
+        pickFiles(accept, false, function (files) {
+          addMedia(files[0], 'banner', 1920).then(function (it) {
+            slides.push({ type: it.type, src: it.src, title: { en: '', ar: '' }, text: { en: '', ar: '' }, cta: { en: '', ar: '' }, link: '' });
+            S.open['bn:' + (slides.length - 1)] = true; touch(); render();
+          }, mediaError);
+        });
+      } }, '+ ' + label);
+    };
+    var bar = h('div', { class: 'head' }, addBtn(t('addSlidePhoto'), 'image/*'), addBtn(t('addSlideVideo'), 'video/mp4,video/webm,video/quicktime,video/*'));
+    box.appendChild(bar);
+    if (!slides.length) box.appendChild(h('p', { class: 'muted' }, t('noSlides')));
+    slides.forEach(function (sl, i) {
+      var tile = mediaTile(sl, []);
+      var body = [h('div', { class: 'tiles', style: 'margin-bottom:.8rem' }, tile,
+        h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
+          pickFiles('image/*,video/mp4,video/webm,video/quicktime,video/*', false, function (files) {
+            addMedia(files[0], 'banner', 1920).then(function (it) { dropMedia(sl.src); sl.type = it.type; sl.src = it.src; touch(); render(); }, mediaError);
+          });
+        } }, t('replaceMedia'))),
+        biField(sl, 'title', t('headline')), biField(sl, 'text', t('subtext')), biField(sl, 'cta', t('btnText')), strField(sl, 'link', t('btnLink'), { dir: 'ltr' }),
+        rowActions(slides, i, function () { touch(); render(); }, { onDelete: function () { dropMedia(sl.src); } })];
+      box.appendChild(detailsItem('bn:' + i, [h('span', { class: 'tt' }, t('slideN') + ' ' + (i + 1) + (sl.title && sl.title.en ? ' · ' + sl.title.en : '')), h('span', { class: 'badge' }, sl.type === 'video' ? t('videoBadge') : 'IMG')], body));
+    });
+    return box;
+  };
 
   VIEWS.seasons = function () {
     var c = S.content, box = h('div');
@@ -472,7 +576,7 @@
     btn.addEventListener('click', function () { publish(note.value.trim(), logEl, btn); });
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('publishH'))));
     box.appendChild(h('div', { class: 'card' },
-      dirty() ? h('p', { class: 'notice warn' }, t('willPublish') + ': ' + S.content.products.length + ' ' + t('products').toLowerCase() + (n ? ' + ' + n + ' ' + t('pendingImgs') : '')) : h('p', { class: 'notice ok' }, t('nothing')),
+      dirty() ? h('p', { class: 'notice warn' }, t('willPublish') + ': ' + S.content.products.length + ' ' + t('products').toLowerCase() + (n ? ' + ' + n + ' ' + t('pendingImgs') + ' (' + (Object.keys(S.pending).reduce(function (a, k) { return a + S.pending[k].length * 0.75; }, 0) / 1048576).toFixed(1) + ' MB)' : '')) : h('p', { class: 'notice ok' }, t('nothing')),
       h('div', { class: 'field' }, h('label', null, t('note')), note), btn));
     box.appendChild(logEl);
     return box;
@@ -497,8 +601,12 @@
       treeSha = cm.tree.sha; var tree = [], names = Object.keys(files), imgs = Object.keys(pend);
       logTo(logEl, '3/6 Uploading ' + (names.length + imgs.length) + ' files…');
       var jobs = names.map(function (nm) { return gh('/git/blobs', { method: 'POST', body: { content: files[nm], encoding: 'utf-8' } }).then(function (b) { tree.push({ path: nm, mode: '100644', type: 'blob', sha: b.sha }); }); })
-        .concat(imgs.map(function (p) { return gh('/git/blobs', { method: 'POST', body: { content: pend[p], encoding: 'base64' } }).then(function (b) { tree.push({ path: p, mode: '100644', type: 'blob', sha: b.sha }); }); }));
-      return Promise.all(jobs).then(function () { return tree; });
+      ;
+      return Promise.all(jobs).then(function () {
+        return imgs.reduce(function (chain, p) {
+          return chain.then(function () { logTo(logEl, '   ' + p); return gh('/git/blobs', { method: 'POST', body: { content: pend[p], encoding: 'base64' } }).then(function (b) { tree.push({ path: p, mode: '100644', type: 'blob', sha: b.sha }); }); });
+        }, Promise.resolve());
+      }).then(function () { return tree; });
     }).then(function (tree) {
       logTo(logEl, '4/6 Creating version…');
       return gh('/git/trees', { method: 'POST', body: { base_tree: treeSha, tree: tree } });
@@ -529,7 +637,7 @@
       S.history.forEach(function (c) {
         list.appendChild(h('div', { class: 'card' }, h('div', { class: 'head', style: 'margin:0' }, h('div', { style: 'flex:1;min-width:10rem' }, h('b', null, c.commit.message.split('\n')[0]), h('div', { class: 'muted small' }, new Date(c.commit.author.date).toLocaleString(S.ui === 'ar' ? 'ar-EG' : 'en-GB'))),
           h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
-            fetchContent(c.sha).then(function (txt) { var o = JSON.parse(txt); S.content = o; S.pending = {}; touch(); toast(t('restored')); go('overview'); }).catch(function (e) { alert(t('failed') + e.message); });
+            fetchContent(c.sha).then(function (txt) { var o = normalize(JSON.parse(txt)); S.content = o; S.pending = {}; touch(); toast(t('restored')); go('overview'); }).catch(function (e) { alert(t('failed') + e.message); });
           } }, t('restore')))));
       });
     }
@@ -539,7 +647,7 @@
   };
 
   /* ---------- shell ---------- */
-  var TABS = ['overview', 'products', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
+  var TABS = ['overview', 'products', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
   function setDir() { document.documentElement.lang = S.ui; document.documentElement.dir = S.ui === 'ar' ? 'rtl' : 'ltr'; }
   function toggleLang() { S.ui = S.ui === 'ar' ? 'en' : 'ar'; LS.set('alexia_ui', S.ui); setDir(); render(); }
 
@@ -594,12 +702,15 @@
       if (r.permissions && r.permissions.push === false) { var e = new Error('push'); e.code = 'errPush'; throw e; }
       return fetchContent();
     }).then(function (txt) {
-      var o = JSON.parse(txt); S.content = o; S.raw = txt; S.original = canon(o); S.pending = {}; S.history = null;
+      var o = normalize(JSON.parse(txt)); S.content = o; S.raw = txt; S.original = canon(o); S.pending = {}; S.history = null;
     });
   }
   function offerDraft() {
     var d = LS.get('alexia_draft'); if (!d) return;
-    try { var o = JSON.parse(d); if (o.content && JSON.stringify(o.content, null, 2) + '\n' !== S.original && confirm(t('draftFound'))) { S.content = o.content; S.pending = o.pending || {}; render(); } else LS.del('alexia_draft'); } catch (e) { LS.del('alexia_draft'); }
+    try { var o = JSON.parse(d); if (o.content && canon(normalize(o.content)) !== S.original && confirm(t('draftFound'))) {
+      S.content = o.content; S.pending = o.pending || {};
+      if (o.lost && o.lost.length) { var gone = function (m) { return o.lost.indexOf(m.src) < 0; }; S.content.products.forEach(function (p) { p.media = p.media.filter(gone); }); S.content.banner.slides = S.content.banner.slides.filter(gone); }
+      render(); } else LS.del('alexia_draft'); } catch (e) { LS.del('alexia_draft'); }
   }
   window.addEventListener('beforeunload', function (e) { if (dirty()) { e.preventDefault(); e.returnValue = t('leave'); return t('leave'); } });
 

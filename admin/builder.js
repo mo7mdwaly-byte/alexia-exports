@@ -63,6 +63,15 @@
   function sm(name, cls) {
     return '<svg' + (cls ? ' class="' + cls + '"' : '') + ' viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (SMALL[name] || SMALL.check) + '</svg>';
   }
+
+  function safeLink(u) {
+    u = String(u || '').trim();
+    return /^(#|\/|https?:\/\/|mailto:|tel:|[a-z0-9_.\-]+\.html)/i.test(u) ? u : '';
+  }
+  function mediaOf(p) {
+    if (p.media && p.media.length) return p.media;
+    return p.image ? [{ type: 'image', src: p.image }] : [];
+  }
   function arrow() { return sm('arrow', 'arrow'); }
   function ltr(s) { return '<span class="ltr">' + s + '</span>'; }
   function digits(s) { return String(s).replace(/\D/g, ''); }
@@ -89,6 +98,29 @@
     var PH1T = '+' + digits(PH1), PH2T = '+' + digits(PH2);
     var WA = digits(co.whatsapp || PH1);
 
+
+    function carousel(items, o) {
+      /* o: label, interval (ms), cls, T, captions[] (html per slide), pick */
+      if (!items.length) return '';
+      var multi = items.length > 1;
+      var slides = items.map(function (m, i) {
+        var src = esc(imageSrc(m.src));
+        var inner = m.type === 'video'
+          ? '<video src="' + src + '#t=0.1" muted playsinline preload="metadata"' + (multi ? '' : ' loop') + ' aria-label="' + esc(o.label) + '"></video>'
+          : '<img src="' + src + '" alt="' + esc(o.label) + '"' + (i ? ' loading="lazy"' : '') + '>';
+        return '<div class="mc-slide' + (i === 0 ? ' is-active' : '') + '"' + (i === 0 ? '' : ' aria-hidden="true"') + '>' + inner + ((o.captions && o.captions[i]) || '') + '</div>';
+      }).join('');
+      var nav = multi
+        ? '<button class="mc-prev" type="button" aria-label="' + esc(o.T('ui.prev') || 'Previous') + '">' + sm('arrow') + '</button>' +
+          '<button class="mc-next" type="button" aria-label="' + esc(o.T('ui.next') || 'Next') + '">' + sm('arrow') + '</button>' +
+          '<div class="mc-dots">' + items.map(function (m, i) {
+            return '<button type="button" aria-label="' + esc((o.T('ui.slide') || 'Slide {n}').replace('{n}', i + 1)) + '"' + (i === 0 ? ' aria-current="true"' : '') + '></button>';
+          }).join('') + '</div>'
+        : '';
+      return '<div class="mc ' + (o.cls || '') + '" data-interval="' + (o.interval || 4000) + '" data-count="' + items.length + '" role="region" aria-roledescription="carousel" aria-label="' + esc(o.label) + '">' +
+        '<div class="mc-track">' + slides + '</div>' + nav + '</div>';
+    }
+
     function page(langKey) {
       var G = LANGS[langKey], ar = langKey === 'ar';
       var pick = function (o) { return o ? (o[langKey] || o.en || '') : ''; };
@@ -111,7 +143,7 @@
         var tags = (p.tags && p.tags[langKey] && p.tags[langKey].length ? p.tags[langKey] : (p.tags && p.tags.en) || []);
         var gl = glabel[p.group] || '';
         var text = (n + ' ' + d + ' ' + tags.join(' ') + ' ' + gl).toLowerCase();
-        var photo = p.image ? '<img class="photo" src="' + esc(imageSrc(p.image)) + '" alt="' + esc(n) + '" loading="lazy">' : '';
+        var photo = carousel(mediaOf(p), { label: n, interval: 4000, cls: 'card-mc', T: T });
         return '<article class="card" data-group="' + esc(p.group) + '" data-text="' + esc(text) + '">' + photo + '<div class="top"><div class="ic">' + big(p.icon) + '</div><span class="grp">' + esc(gl) + '</span></div>' +
           '<h3>' + esc(n) + '</h3><p>' + esc(d) + '</p><ul class="tags">' + tags.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
           '<button class="add" type="button" data-id="' + esc(p.id) + '" aria-pressed="false"><span class="off">' + esc(p.discuss ? T('discuss') : T('add')) + '</span><span class="on">' + esc(T('added')) + '</span>' + sm('plus') + '</button></article>';
@@ -151,6 +183,19 @@
       var flinks = list('footerlinks').map(function (l) { return '<li><a href="#' + esc(l.id) + '">' + esc(pick(l.label)) + '</a></li>'; }).join('');
       var fcats = list('categories').map(function (c) { return '<li>' + esc(pick(c.text)) + '</li>'; }).join('');
       var checks = list('checks').map(function (c) { return '<li>' + sm('check') + esc(pick(c.text)) + '</li>'; }).join('');
+
+
+      var bnr = content.banner || {}, bslides = (bnr.slides || []).filter(function (x) { return x && x.src; });
+      if (bnr.mode === 'fixed') bslides = bslides.slice(0, 1);
+      var bannerHtml = '';
+      if ((bnr.mode === 'fixed' || bnr.mode === 'carousel') && bslides.length) {
+        var caps = bslides.map(function (x) {
+          var hd = pick(x.title), tx = pick(x.text), cta = pick(x.cta), lk = safeLink(x.link);
+          if (!hd && !tx && !(cta && lk)) return '';
+          return '<div class="mc-cap">' + (hd ? '<h3>' + esc(hd) + '</h3>' : '') + (tx ? '<p>' + esc(tx) + '</p>' : '') + (cta && lk ? '<a class="btn btn-gold btn-sm" href="' + esc(lk) + '">' + esc(cta) + arrow() + '</a>' : '') + '</div>';
+        });
+        bannerHtml = '<section class="banner" aria-label="ALEXIA EXPORTS"><div class="wrap">' + carousel(bslides, { label: pick(bslides[0].title) || 'ALEXIA EXPORTS', interval: Math.max(2, Math.min(30, Number(bnr.interval) || 5)) * 1000, cls: 'banner-mc', T: T, captions: caps }) + '</div></section>\n\n';
+      }
 
       var uiObj = {}, msgObj = {};
       Object.keys(content.text).forEach(function (k) {
@@ -199,7 +244,7 @@
 '      <div class="brief">\n        <header><h2>' + esc(T('brief_title')) + '</h2><span class="chip">' + esc(T('brief_chip')) + '</span></header>\n        <dl>' + brief + '</dl>\n' +
 '        <footer>' + sm('wa') + '<span>' + esc(T('brief_foot')) + '</span></footer>\n      </div>\n    </div>\n  </div>\n' +
 '  <div class="tagline-bar"><div class="wrap"><span>' + esc(T('bar.0')) + '</span><span>' + esc(T('bar.1')) + '</span></div></div>\n</section>\n\n' +
-'<div class="wrap"><div class="trust">' + trust + '</div></div>\n\n' +
+'<div class="wrap"><div class="trust">' + trust + '</div></div>\n\n' + bannerHtml +
 '<section class="sec" id="products">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('p_eye')) + '</p><h2>' + esc(T('p_h')) + '</h2><p class="lede">' + esc(T('p_lede')) + '</p></div>\n' +
 '    <div class="tools">\n      <div class="filters" role="group" aria-label="' + esc(T('p_eye')) + '">' + pills + '</div>\n' +
 '      <div class="search">' + sm('search') + '<input id="search" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div>\n    </div>\n' +

@@ -27,6 +27,11 @@ Without the dashboard: edit `content.json`, then run `node tools/build.js` and c
 | `admin/index.html`, `admin.js`, `admin.css` | The dashboard |
 | `tools/build.js` | Node runner for the builder |
 
+## Photos, videos and banner
+- Each product can have several photos and short videos (MP4, under 30 MB). They play one after another on the product card.
+- The Banner tab offers no banner, one fixed banner, or a rotating banner of photos and videos with optional headline and button. It appears below the trust section.
+- Media files are stored in `images/` and `videos/`.
+
 ## Notes
 - To use a custom domain, add a `CNAME` file, then set the new address in the dashboard under Contact and publish.
 - The seasonal calendar is a rough guide. Check the months before relying on it.

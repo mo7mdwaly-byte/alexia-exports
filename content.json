@@ -471,6 +471,18 @@
     "h1b": {
       "en": "global markets.",
       "ar": "الأسواق العالمية."
+    },
+    "ui.prev": {
+      "en": "Previous",
+      "ar": "السابق"
+    },
+    "ui.next": {
+      "en": "Next",
+      "ar": "التالي"
+    },
+    "ui.slide": {
+      "en": "Slide {n}",
+      "ar": "الشريحة {n}"
     }
   },
   "lists": {
@@ -1132,7 +1144,7 @@
       "id": "citrus",
       "group": "fresh",
       "icon": "citrus",
-      "image": "images/citrus-mvhq2l7q.jpg",
+      "image": "",
       "hidden": false,
       "discuss": false,
       "name": {
@@ -1156,13 +1168,19 @@
           "مندرين",
           "موسمي"
         ]
-      }
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "images/citrus-mvhq2l7q.jpg"
+        }
+      ]
     },
     {
       "id": "grapes",
       "group": "fresh",
       "icon": "grapes",
-      "image": "images/grapes-mvhxuu92.jpg",
+      "image": "",
       "hidden": false,
       "discuss": false,
       "name": {
@@ -1186,7 +1204,13 @@
           "كريمزون",
           "ريد جلوب"
         ]
-      }
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "images/grapes-mvhxuu92.jpg"
+        }
+      ]
     },
     {
       "id": "fruits",
@@ -1216,7 +1240,8 @@
           "رمان",
           "تمور"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "veg",
@@ -1246,7 +1271,8 @@
           "ثوم",
           "أعشاب"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "olives",
@@ -1276,7 +1302,8 @@
           "محشي",
           "شرائح"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "oils",
@@ -1304,7 +1331,8 @@
           "بكر",
           "خيارات سائبة"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "frozen",
@@ -1332,7 +1360,8 @@
           "فواكه",
           "خضروات"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "dates",
@@ -1362,7 +1391,8 @@
           "حياني",
           "زغلول"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "salt",
@@ -1390,7 +1420,8 @@
           "ملح خشن",
           "سائب / أكياس"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "ingr",
@@ -1418,7 +1449,8 @@
           "مكونات",
           "توريد بالجملة"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "processed",
@@ -1446,7 +1478,8 @@
           "عبوات تجزئة",
           "خدمات غذائية"
         ]
-      }
+      },
+      "media": []
     },
     {
       "id": "dairy",
@@ -1472,7 +1505,8 @@
           "توريد حسب طلب المشتري",
           "استفسارات الجملة"
         ]
-      }
+      },
+      "media": []
     }
   ],
   "seasons": [
@@ -1633,5 +1667,10 @@
         "ar": "ثوم"
       }
     }
-  ]
+  ],
+  "banner": {
+    "mode": "off",
+    "interval": 5,
+    "slides": []
+  }
 }
