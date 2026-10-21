@@ -1241,7 +1241,12 @@
           "تمور"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/fruits-mvhzxp3yc8e.jpg"
+        }
+      ]
     },
     {
       "id": "veg",
@@ -1272,7 +1277,12 @@
           "أعشاب"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/veg-mvhzxyvxvbg.jpg"
+        }
+      ]
     },
     {
       "id": "olives",
@@ -1303,7 +1313,12 @@
           "شرائح"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/olives-mvhzy8cnmoi.jpg"
+        }
+      ]
     },
     {
       "id": "oils",
@@ -1332,7 +1347,12 @@
           "خيارات سائبة"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/oils-mvhzyhx3ket.jpg"
+        }
+      ]
     },
     {
       "id": "frozen",
