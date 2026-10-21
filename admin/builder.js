@@ -96,7 +96,7 @@
     var EMAIL = co.email.trim();
     var PH1 = co.phone1.trim(), PH2 = (co.phone2 || '').trim();
     var PH1T = '+' + digits(PH1), PH2T = '+' + digits(PH2);
-    var WA = digits(co.whatsapp || PH1);
+    var WA_EN = digits(co.whatsapp || PH1), WA_AR = digits(co.whatsapp_ar || co.whatsapp || PH1);
 
 
     function carousel(items, o) {
@@ -122,6 +122,7 @@
     }
 
     function page(langKey) {
+      var WA = langKey === 'ar' ? WA_AR : WA_EN;
       var G = LANGS[langKey], ar = langKey === 'ar';
       var pick = function (o) { return o ? (o[langKey] || o.en || '') : ''; };
       var T = function (k) { return pick(content.text[k]); };
@@ -184,6 +185,14 @@
       var fcats = list('categories').map(function (c) { return '<li>' + esc(pick(c.text)) + '</li>'; }).join('');
       var checks = list('checks').map(function (c) { return '<li>' + sm('check') + esc(pick(c.text)) + '</li>'; }).join('');
 
+
+
+      var certItems = list('certs'), certsHtml = '';
+      if (certItems.length) {
+        certsHtml = '<section class="sec certs" id="quality">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('q_eye')) + '</p><h2>' + esc(T('q_h')) + '</h2><p class="lede">' + esc(T('q_lede')) + '</p></div>\n' +
+          '    <ul class="badges">' + certItems.map(function (c) { return '<li class="seal"><span class="seal-ic">' + sm(c.icon || 'shield') + '</span><b>' + esc(pick(c.text)) + '</b></li>'; }).join('') + '</ul>\n' +
+          (T('q_note') ? '    <p class="note">' + esc(T('q_note')) + '</p>\n' : '') + '  </div>\n</section>\n\n';
+      }
 
       var bnr = content.banner || {}, bslides = (bnr.slides || []).filter(function (x) { return x && x.src; });
       if (bnr.mode === 'fixed') bslides = bslides.slice(0, 1);
@@ -255,6 +264,7 @@
 '    <div class="scroll"><div class="cal">' + cal + '</div></div>\n' +
 '    <div class="legend"><span><i></i>' + esc(T('s_key.0')) + '</span><span><i class="cur"></i>' + esc(T('s_key.1')) + '</span></div>\n' +
 '    <p class="note">' + esc(T('s_note')) + '</p>\n  </div>\n</section>\n\n' +
+certsHtml +
 '<section class="sec" id="about">\n  <div class="wrap about">\n    <div class="about-copy">\n      <p class="eyebrow">' + esc(T('a_eye')) + '</p>\n      <h2>' + esc(T('a_h')) + '</h2>\n      ' + ap + '\n' +
 '      <a class="btn btn-navy" href="#contact">' + esc(T('a_btn')) + arrow() + '</a>\n    </div>\n' +
 '    <div class="plaque"><img src="logo.png" alt="' + esc(alt) + '" width="352" height="186" loading="lazy"><p>' + esc(T('plaque')) + '</p><div class="values">' + values + '</div></div>\n  </div>\n</section>\n\n' +

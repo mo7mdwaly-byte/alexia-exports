@@ -367,3 +367,15 @@ html[dir=rtl] .mc-prev svg{transform:none}
 .mc-cap p{max-width:38rem;color:#E4ECFA}
 @media (max-width:620px){.mc.banner-mc{aspect-ratio:4/3}.mc-cap{padding-bottom:2rem}.banner-mc .mc-prev,.banner-mc .mc-next{display:none}}
 @media (prefers-reduced-motion:reduce){.mc-slide,.mc-slide.is-active{transition:none}}
+
+/* quality assurance seals */
+.certs{background:linear-gradient(180deg,#fff,var(--tint))}
+.badges{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1rem}
+.seal{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem .8rem 1.2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.9rem;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s}
+.seal:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--gold)}
+.seal-ic{width:3.7rem;height:3.7rem;border-radius:50%;display:grid;place-items:center;color:var(--navy);background:radial-gradient(circle at 30% 25%,#fff,#F4E4B2);box-shadow:0 0 0 2px var(--gold),0 0 0 5px #fff,0 0 0 6px rgba(201,151,28,.45)}
+.seal-ic svg{width:1.7rem;height:1.7rem}
+.seal b{font-size:.95rem;font-weight:800;letter-spacing:.03em;color:var(--navy);line-height:1.3}
+.certs .note{margin-top:1.4rem}
+@media (max-width:620px){.badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}}
+.seal b{unicode-bidi:plaintext}
