@@ -5,8 +5,7 @@
     "phone1": "+20 104 270 3542",
     "phone2": "+20 109 331 9608",
     "whatsapp": "201042703542",
-    "base_url": "https://mo7mdwaly-byte.github.io/alexia-exports/",
-    "whatsapp_ar": "201093319608"
+    "base_url": "https://mo7mdwaly-byte.github.io/alexia-exports/"
   },
   "text": {
     "title": {
@@ -484,22 +483,6 @@
     "ui.slide": {
       "en": "Slide {n}",
       "ar": "الشريحة {n}"
-    },
-    "q_eye": {
-      "en": "Quality assurance",
-      "ar": "ضمان الجودة"
-    },
-    "q_h": {
-      "en": "Certified partner factories",
-      "ar": "مصانع شريكة معتمدة"
-    },
-    "q_lede": {
-      "en": "Our supplier network meets the highest international food safety and quality standards.",
-      "ar": "تلتزم شبكة مورّدينا بأعلى المعايير الدولية لسلامة الغذاء والجودة."
-    },
-    "q_note": {
-      "en": "Certification scope and validity vary by facility and product. Documents are available on request.",
-      "ar": "يختلف نطاق الشهادات وصلاحيتها حسب المصنع والمنتج. المستندات متاحة عند الطلب."
     }
   },
   "lists": {
@@ -1074,13 +1057,6 @@
         }
       },
       {
-        "id": "quality",
-        "label": {
-          "en": "Quality assurance",
-          "ar": "ضمان الجودة"
-        }
-      },
-      {
         "id": "process",
         "label": {
           "en": "How we work",
@@ -1160,71 +1136,6 @@
           2
         ],
         "insurance": true
-      }
-    ],
-    "certs": [
-      {
-        "icon": "shield",
-        "text": {
-          "en": "ISO 22000",
-          "ar": "ISO 22000"
-        }
-      },
-      {
-        "icon": "check",
-        "text": {
-          "en": "HACCP",
-          "ar": "HACCP"
-        }
-      },
-      {
-        "icon": "shield",
-        "text": {
-          "en": "BRCGS",
-          "ar": "BRCGS"
-        }
-      },
-      {
-        "icon": "shield",
-        "text": {
-          "en": "IFS Food",
-          "ar": "IFS Food"
-        }
-      },
-      {
-        "icon": "doc",
-        "text": {
-          "en": "FDA Registered",
-          "ar": "مسجّل لدى FDA"
-        }
-      },
-      {
-        "icon": "leaf",
-        "text": {
-          "en": "GLOBALG.A.P.",
-          "ar": "GLOBALG.A.P."
-        }
-      },
-      {
-        "icon": "check",
-        "text": {
-          "en": "Halal",
-          "ar": "حلال"
-        }
-      },
-      {
-        "icon": "check",
-        "text": {
-          "en": "Kosher",
-          "ar": "كوشر"
-        }
-      },
-      {
-        "icon": "leaf",
-        "text": {
-          "en": "EU/USDA Organic",
-          "ar": "عضوي EU/USDA"
-        }
       }
     ]
   },
@@ -1518,7 +1429,68 @@
           "زغلول"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx1f1tz.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx1zsae.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx2jok8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx32azd.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx3l4en.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx44mrp.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx4ojch.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx57emq.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx5r55z.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx6ctqw.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx6v48t.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx7eysk.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx7yopy.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx8hjpx.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/dates-mvifyx919tt.jpg"
+        }
+      ]
     },
     {
       "id": "salt",
