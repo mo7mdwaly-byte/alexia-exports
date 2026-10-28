@@ -5,7 +5,8 @@
     "phone1": "+20 104 270 3542",
     "phone2": "+20 109 331 9608",
     "whatsapp": "201042703542",
-    "base_url": "https://mo7mdwaly-byte.github.io/alexia-exports/"
+    "base_url": "https://mo7mdwaly-byte.github.io/alexia-exports/",
+    "whatsapp_ar": "201093319608"
   },
   "text": {
     "title": {
@@ -483,6 +484,126 @@
     "ui.slide": {
       "en": "Slide {n}",
       "ar": "الشريحة {n}"
+    },
+    "qv": {
+      "en": "Quick view",
+      "ar": "نظرة سريعة"
+    },
+    "qv_quote": {
+      "en": "Request a quote for this product",
+      "ar": "اطلب عرض سعر لهذا المنتج"
+    },
+    "close": {
+      "en": "Close",
+      "ar": "إغلاق"
+    },
+    "qm_h": {
+      "en": "Request a quote",
+      "ar": "اطلب عرض سعر"
+    },
+    "qm_p": {
+      "en": "Tell us what you need. We will prepare your request and you can send it by WhatsApp or email.",
+      "ar": "أخبرنا بما تحتاجه. سنجهّز طلبك ويمكنك إرساله عبر واتساب أو البريد الإلكتروني."
+    },
+    "qm_submit": {
+      "en": "Prepare my request",
+      "ar": "جهّز طلبي"
+    },
+    "pt_eye": {
+      "en": "Distribution partners",
+      "ar": "شركاء التوزيع"
+    },
+    "pt_h": {
+      "en": "Become a distribution partner",
+      "ar": "كن شريك توزيع"
+    },
+    "pt_lede": {
+      "en": "Importers, wholesalers and retailers: tell us your market and volumes and we will propose a supply plan.",
+      "ar": "للمستوردين وتجار الجملة والتجزئة: أخبرنا عن سوقك وكمياتك لنقترح خطة توريد."
+    },
+    "pt_btn": {
+      "en": "Apply as a distributor",
+      "ar": "قدّم كموزّع"
+    },
+    "pt_p": {
+      "en": "Share your details. We will review your application and reply.",
+      "ar": "شاركنا بياناتك وسنراجع طلبك ونرد عليك."
+    },
+    "pt_submit": {
+      "en": "Prepare my application",
+      "ar": "جهّز طلب الشراكة"
+    },
+    "pf.phone": {
+      "en": "Phone / WhatsApp",
+      "ar": "الهاتف / واتساب"
+    },
+    "pf.city": {
+      "en": "City",
+      "ar": "المدينة"
+    },
+    "pf.volume": {
+      "en": "Estimated monthly volume",
+      "ar": "الكمية الشهرية التقريبية"
+    },
+    "pf.products": {
+      "en": "Products of interest",
+      "ar": "المنتجات المهتم بها"
+    },
+    "pf.details": {
+      "en": "Business details",
+      "ar": "نبذة عن نشاطك"
+    },
+    "pack_eye": {
+      "en": "Packing solutions",
+      "ar": "حلول التعبئة"
+    },
+    "pack_h": {
+      "en": "Packaging to match your market",
+      "ar": "تعبئة تناسب سوقك"
+    },
+    "pack_lede": {
+      "en": "Choose the format that suits your channel. Final options depend on the product and destination.",
+      "ar": "اختر الشكل المناسب لقناة البيع. تعتمد الخيارات النهائية على المنتج والوجهة."
+    },
+    "msg.p_hello": {
+      "en": "Hello ALEXIA EXPORTS, I would like to apply as a distribution partner.",
+      "ar": "مرحبًا ALEXIA EXPORTS، أرغب في التقديم كشريك توزيع."
+    },
+    "msg.p_subject": {
+      "en": "Distribution partner application",
+      "ar": "طلب شراكة توزيع"
+    },
+    "msg.phone": {
+      "en": "Phone",
+      "ar": "الهاتف"
+    },
+    "msg.city": {
+      "en": "City",
+      "ar": "المدينة"
+    },
+    "msg.volume": {
+      "en": "Monthly volume",
+      "ar": "الكمية الشهرية"
+    },
+    "msg.details": {
+      "en": "Business details",
+      "ar": "نبذة عن النشاط"
+    },
+    "q_eye": {
+      "en": "Quality assurance",
+      "ar": "ضمان الجودة"
+    },
+    "q_h": {
+      "en": "Certified partner factories",
+      "ar": "مصانع شريكة معتمدة"
+    },
+    "q_lede": {
+      "en": "Our supplier network meets the highest international food safety and quality standards.",
+      "ar": "تلتزم شبكة مورّدينا بأعلى المعايير الدولية لسلامة الغذاء والجودة."
+    },
+    "q_note": {
+      "en": "Certification scope and validity vary by facility and product. Documents are available on request.",
+      "ar": "يختلف نطاق الشهادات وصلاحيتها حسب المصنع والمنتج. المستندات متاحة عند الطلب."
     }
   },
   "lists": {
@@ -1057,6 +1178,20 @@
         }
       },
       {
+        "id": "quality",
+        "label": {
+          "en": "Quality assurance",
+          "ar": "ضمان الجودة"
+        }
+      },
+      {
+        "id": "packing",
+        "label": {
+          "en": "Packing solutions",
+          "ar": "حلول التعبئة"
+        }
+      },
+      {
         "id": "process",
         "label": {
           "en": "How we work",
@@ -1068,6 +1203,13 @@
         "label": {
           "en": "Buyer inquiry",
           "ar": "استفسار المشتري"
+        }
+      },
+      {
+        "id": "partner",
+        "label": {
+          "en": "Distribution partners",
+          "ar": "شركاء التوزيع"
         }
       }
     ],
@@ -1136,6 +1278,148 @@
           2
         ],
         "insurance": true
+      }
+    ],
+    "packs": [
+      {
+        "title": {
+          "en": "Cartons",
+          "ar": "كراتين"
+        },
+        "text": {
+          "en": "Strong cartons in sizes to suit retail, food-service and wholesale needs.",
+          "ar": "كراتين متينة بمقاسات تناسب التجزئة والمطاعم والجملة."
+        },
+        "image": ""
+      },
+      {
+        "title": {
+          "en": "Plastic crates",
+          "ar": "صناديق بلاستيكية"
+        },
+        "text": {
+          "en": "Ventilated crates that protect fresh produce on the way to market.",
+          "ar": "صناديق مهوّاة تحمي المنتجات الطازجة أثناء النقل للسوق."
+        },
+        "image": ""
+      },
+      {
+        "title": {
+          "en": "Bulk bins and bags",
+          "ar": "عبوات وأكياس كبيرة"
+        },
+        "text": {
+          "en": "Large-volume formats for industrial and processing buyers.",
+          "ar": "عبوات كبيرة الحجم للمشترين الصناعيين والتصنيع."
+        },
+        "image": ""
+      },
+      {
+        "title": {
+          "en": "Retail packs",
+          "ar": "عبوات تجزئة"
+        },
+        "text": {
+          "en": "Consumer-ready packs sized and labelled for your shelves.",
+          "ar": "عبوات جاهزة للمستهلك بحجم وملصقات تناسب رفوفك."
+        },
+        "image": ""
+      },
+      {
+        "title": {
+          "en": "Custom and private label",
+          "ar": "تعبئة خاصة وعلامة خاصة"
+        },
+        "text": {
+          "en": "Packaging and labels prepared to your specification, subject to product and order size.",
+          "ar": "تعبئة وملصقات حسب مواصفاتك، حسب المنتج وحجم الطلب."
+        },
+        "image": ""
+      }
+    ],
+    "partnerpoints": [
+      {
+        "text": {
+          "en": "A dedicated point of contact",
+          "ar": "جهة اتصال مخصصة"
+        }
+      },
+      {
+        "text": {
+          "en": "Supply proposals built on your specifications",
+          "ar": "عروض توريد مبنية على مواصفاتك"
+        }
+      },
+      {
+        "text": {
+          "en": "Documents and packing prepared for each order",
+          "ar": "مستندات وتعبئة مجهّزة لكل طلب"
+        }
+      }
+    ],
+    "certs": [
+      {
+        "icon": "shield",
+        "text": {
+          "en": "ISO 22000",
+          "ar": "ISO 22000"
+        }
+      },
+      {
+        "icon": "check",
+        "text": {
+          "en": "HACCP",
+          "ar": "HACCP"
+        }
+      },
+      {
+        "icon": "shield",
+        "text": {
+          "en": "BRCGS",
+          "ar": "BRCGS"
+        }
+      },
+      {
+        "icon": "shield",
+        "text": {
+          "en": "IFS Food",
+          "ar": "IFS Food"
+        }
+      },
+      {
+        "icon": "doc",
+        "text": {
+          "en": "FDA Registered",
+          "ar": "مسجّل لدى FDA"
+        }
+      },
+      {
+        "icon": "leaf",
+        "text": {
+          "en": "GLOBALG.A.P.",
+          "ar": "GLOBALG.A.P."
+        }
+      },
+      {
+        "icon": "check",
+        "text": {
+          "en": "Halal",
+          "ar": "حلال"
+        }
+      },
+      {
+        "icon": "check",
+        "text": {
+          "en": "Kosher",
+          "ar": "كوشر"
+        }
+      },
+      {
+        "icon": "leaf",
+        "text": {
+          "en": "EU/USDA Organic",
+          "ar": "عضوي EU/USDA"
+        }
       }
     ]
   },

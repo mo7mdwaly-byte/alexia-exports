@@ -54,6 +54,57 @@
     }
   };
 
+
+  var B2 = function (en, ar) { return { en: en, ar: ar }; };
+  var DEFAULT_TEXT = {
+    'qv': B2('Quick view', 'نظرة سريعة'),
+    'qv_quote': B2('Request a quote for this product', 'اطلب عرض سعر لهذا المنتج'),
+    'close': B2('Close', 'إغلاق'),
+    'qm_h': B2('Request a quote', 'اطلب عرض سعر'),
+    'qm_p': B2('Tell us what you need. We will prepare your request and you can send it by WhatsApp or email.', 'أخبرنا بما تحتاجه. سنجهّز طلبك ويمكنك إرساله عبر واتساب أو البريد الإلكتروني.'),
+    'qm_submit': B2('Prepare my request', 'جهّز طلبي'),
+    'pt_eye': B2('Distribution partners', 'شركاء التوزيع'),
+    'pt_h': B2('Become a distribution partner', 'كن شريك توزيع'),
+    'pt_lede': B2('Importers, wholesalers and retailers: tell us your market and volumes and we will propose a supply plan.', 'للمستوردين وتجار الجملة والتجزئة: أخبرنا عن سوقك وكمياتك لنقترح خطة توريد.'),
+    'pt_btn': B2('Apply as a distributor', 'قدّم كموزّع'),
+    'pt_p': B2('Share your details. We will review your application and reply.', 'شاركنا بياناتك وسنراجع طلبك ونرد عليك.'),
+    'pt_submit': B2('Prepare my application', 'جهّز طلب الشراكة'),
+    'pf.phone': B2('Phone / WhatsApp', 'الهاتف / واتساب'),
+    'pf.city': B2('City', 'المدينة'),
+    'pf.volume': B2('Estimated monthly volume', 'الكمية الشهرية التقريبية'),
+    'pf.products': B2('Products of interest', 'المنتجات المهتم بها'),
+    'pf.details': B2('Business details', 'نبذة عن نشاطك'),
+    'pack_eye': B2('Packing solutions', 'حلول التعبئة'),
+    'pack_h': B2('Packaging to match your market', 'تعبئة تناسب سوقك'),
+    'pack_lede': B2('Choose the format that suits your channel. Final options depend on the product and destination.', 'اختر الشكل المناسب لقناة البيع. تعتمد الخيارات النهائية على المنتج والوجهة.'),
+    'msg.p_hello': B2('Hello ALEXIA EXPORTS, I would like to apply as a distribution partner.', 'مرحبًا ALEXIA EXPORTS، أرغب في التقديم كشريك توزيع.'),
+    'msg.p_subject': B2('Distribution partner application', 'طلب شراكة توزيع'),
+    'msg.phone': B2('Phone', 'الهاتف'),
+    'msg.city': B2('City', 'المدينة'),
+    'msg.volume': B2('Monthly volume', 'الكمية الشهرية'),
+    'msg.details': B2('Business details', 'نبذة عن النشاط')
+  };
+  var DEFAULT_LISTS = {
+    packs: [
+      { title: B2('Cartons', 'كراتين'), text: B2('Strong cartons in sizes to suit retail, food-service and wholesale needs.', 'كراتين متينة بمقاسات تناسب التجزئة والمطاعم والجملة.'), image: '' },
+      { title: B2('Plastic crates', 'صناديق بلاستيكية'), text: B2('Ventilated crates that protect fresh produce on the way to market.', 'صناديق مهوّاة تحمي المنتجات الطازجة أثناء النقل للسوق.'), image: '' },
+      { title: B2('Bulk bins and bags', 'عبوات وأكياس كبيرة'), text: B2('Large-volume formats for industrial and processing buyers.', 'عبوات كبيرة الحجم للمشترين الصناعيين والتصنيع.'), image: '' },
+      { title: B2('Retail packs', 'عبوات تجزئة'), text: B2('Consumer-ready packs sized and labelled for your shelves.', 'عبوات جاهزة للمستهلك بحجم وملصقات تناسب رفوفك.'), image: '' },
+      { title: B2('Custom and private label', 'تعبئة خاصة وعلامة خاصة'), text: B2('Packaging and labels prepared to your specification, subject to product and order size.', 'تعبئة وملصقات حسب مواصفاتك، حسب المنتج وحجم الطلب.'), image: '' }
+    ],
+    partnerpoints: [
+      { text: B2('A dedicated point of contact', 'جهة اتصال مخصصة') },
+      { text: B2('Supply proposals built on your specifications', 'عروض توريد مبنية على مواصفاتك') },
+      { text: B2('Documents and packing prepared for each order', 'مستندات وتعبئة مجهّزة لكل طلب') }
+    ]
+  };
+  function withDefaults(c) {
+    c.text = c.text || {}; c.lists = c.lists || {};
+    Object.keys(DEFAULT_TEXT).forEach(function (k) { if (!c.text[k]) c.text[k] = JSON.parse(JSON.stringify(DEFAULT_TEXT[k])); });
+    Object.keys(DEFAULT_LISTS).forEach(function (k) { if (!c.lists[k]) c.lists[k] = JSON.parse(JSON.stringify(DEFAULT_LISTS[k])); });
+    return c;
+  }
+
   function esc(s) {
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
   }
@@ -90,6 +141,7 @@
 
   function build(content, opts) {
     opts = opts || {};
+    withDefaults(content);
     var imageSrc = opts.imageSrc || function (p) { return p; };
     var co = content.company;
     var BASE = co.base_url.replace(/\/?$/, '/');
@@ -147,7 +199,7 @@
         var photo = carousel(mediaOf(p), { label: n, interval: 4000, cls: 'card-mc', T: T });
         return '<article class="card" data-group="' + esc(p.group) + '" data-text="' + esc(text) + '">' + photo + '<div class="top"><div class="ic">' + big(p.icon) + '</div><span class="grp">' + esc(gl) + '</span></div>' +
           '<h3>' + esc(n) + '</h3><p>' + esc(d) + '</p><ul class="tags">' + tags.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
-          '<button class="add" type="button" data-id="' + esc(p.id) + '" aria-pressed="false"><span class="off">' + esc(p.discuss ? T('discuss') : T('add')) + '</span><span class="on">' + esc(T('added')) + '</span>' + sm('plus') + '</button></article>';
+          '<div class="card-acts"><button class="qv" type="button" data-id="' + esc(p.id) + '">' + esc(T('qv')) + '</button><button class="add" type="button" data-id="' + esc(p.id) + '" aria-pressed="false"><span class="off">' + esc(p.discuss ? T('discuss') : T('add')) + '</span><span class="on">' + esc(T('added')) + '</span>' + sm('plus') + '</button></div></article>';
       }).join('');
 
       var cal = '<div></div>';
@@ -193,6 +245,50 @@
           '    <ul class="badges">' + certItems.map(function (c) { return '<li class="seal"><span class="seal-ic">' + sm(c.icon || 'shield') + '</span><b>' + esc(pick(c.text)) + '</b></li>'; }).join('') + '</ul>\n' +
           (T('q_note') ? '    <p class="note">' + esc(T('q_note')) + '</p>\n' : '') + '  </div>\n</section>\n\n';
       }
+
+
+      var packs = list('packs'), packsHtml = '';
+      if (packs.length) {
+        packsHtml = '<section class="sec packing" id="packing">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('pack_eye')) + '</p><h2>' + esc(T('pack_h')) + '</h2><p class="lede">' + esc(T('pack_lede')) + '</p></div>\n' +
+          '    <div class="packs">' + packs.map(function (pk) {
+            var img = pk.image ? '<img class="pack-img" src="' + esc(imageSrc(pk.image)) + '" alt="' + esc(pick(pk.title)) + '" loading="lazy">' : '<div class="pack-ph">' + big('salt') + '</div>';
+            return '<article class="pack">' + img + '<div class="pack-b"><h3>' + esc(pick(pk.title)) + '</h3><p>' + esc(pick(pk.text)) + '</p></div></article>';
+          }).join('') + '</div>\n  </div>\n</section>\n\n';
+      }
+      var pts = list('partnerpoints');
+      var partnerHtml = '<section class="sec partner" id="partner">\n  <div class="wrap partner-wrap">\n    <div><p class="eyebrow">' + esc(T('pt_eye')) + '</p><h2>' + esc(T('pt_h')) + '</h2><p class="lede">' + esc(T('pt_lede')) + '</p>' +
+        (pts.length ? '<ul class="checks">' + pts.map(function (x) { return '<li>' + sm('check') + esc(pick(x.text)) + '</li>'; }).join('') + '</ul>' : '') + '</div>\n' +
+        '    <div class="partner-cta"><button class="btn btn-gold" type="button" data-open="partner-dialog">' + esc(T('pt_btn')) + arrow() + '</button></div>\n  </div>\n</section>\n\n';
+      function fld(name, label, o) {
+        o = o || {};
+        var id = o.pre + '-' + name, req = o.req ? ' required' : '';
+        var ctl = o.area ? '<textarea id="' + id + '" name="' + name + '"' + req + '></textarea>'
+          : o.html ? o.html
+          : '<input id="' + id + '" name="' + name + '"' + (o.type ? ' type="' + o.type + '"' : '') + req + (o.dir ? ' dir="' + o.dir + '"' : '') + (o.ac ? ' autocomplete="' + o.ac + '"' : '') + '>';
+        return '<div class="f' + (o.full ? ' full' : '') + '"><label for="' + id + '">' + esc(label) + '</label>' + ctl + '</div>';
+      }
+      var resultBlock = '<div class="result" hidden><strong>' + esc(T('r_h')) + '</strong><textarea readonly aria-label="' + esc(T('r_h')) + '"></textarea><div class="acts">' +
+        '<a class="btn btn-gold btn-sm" data-r="wa" href="https://wa.me/' + WA + '" target="_blank" rel="noopener">' + sm('wa') + esc(T('r_wa')) + '</a>' +
+        '<a class="btn btn-navy btn-sm" data-r="mail" href="mailto:' + esc(EMAIL) + '">' + sm('mail') + esc(T('r_mail')) + '</a>' +
+        '<button class="btn btn-ghost btn-sm" type="button" data-r="copy">' + esc(T('r_copy')) + '</button><span class="copied" aria-live="polite"></span></div></div>';
+      function dlg(id, title, intro, body, cls) {
+        return '<dialog class="dlg' + (cls ? ' ' + cls : '') + '" id="' + id + '" aria-labelledby="' + id + '-t"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="' + esc(T('close')) + '">×</button>' +
+          '<h3 id="' + id + '-t">' + esc(title) + '</h3>' + (intro ? '<p class="dlg-p">' + esc(intro) + '</p>' : '') + body + '</div></dialog>\n';
+      }
+      var qSel = '<select id="qd-product" name="product">' + pickOpts + '</select>';
+      var dialogsHtml =
+        dlg('quote-dialog', T('qm_h'), T('qm_p'),
+          '<form class="dform" data-kind="quote">' + fld('name', T('fl.name'), { pre: 'qd', req: 1, ac: 'name' }) + fld('company', T('fl.company'), { pre: 'qd', req: 1, ac: 'organization' }) +
+          fld('email', T('fl.email'), { pre: 'qd', req: 1, type: 'email', dir: 'ltr', ac: 'email' }) + fld('country', T('fl.country'), { pre: 'qd', req: 1, ac: 'country-name' }) +
+          fld('product', T('fl.pick'), { pre: 'qd', full: 1, html: qSel }) + fld('qty', T('fl.qty'), { pre: 'qd', full: 1 }) + fld('message', T('fl.message'), { pre: 'qd', full: 1, area: 1 }) +
+          '<div class="f full"><p class="err" role="alert"></p><button class="btn btn-navy" type="submit">' + esc(T('qm_submit')) + arrow() + '</button></div>' + resultBlock + '</form>') +
+        dlg('partner-dialog', T('pt_h'), T('pt_p'),
+          '<form class="dform" data-kind="partner">' + fld('name', T('fl.name'), { pre: 'pd', req: 1, ac: 'name' }) + fld('company', T('fl.company'), { pre: 'pd', req: 1, ac: 'organization' }) +
+          fld('email', T('fl.email'), { pre: 'pd', req: 1, type: 'email', dir: 'ltr', ac: 'email' }) + fld('phone', T('pf.phone'), { pre: 'pd', req: 1, type: 'tel', dir: 'ltr', ac: 'tel' }) +
+          fld('country', T('fl.country'), { pre: 'pd', req: 1, ac: 'country-name' }) + fld('city', T('pf.city'), { pre: 'pd', req: 1, ac: 'address-level2' }) +
+          fld('volume', T('pf.volume'), { pre: 'pd', full: 1 }) + fld('products', T('pf.products'), { pre: 'pd', full: 1 }) + fld('details', T('pf.details'), { pre: 'pd', full: 1, area: 1 }) +
+          '<div class="f full"><p class="err" role="alert"></p><button class="btn btn-navy" type="submit">' + esc(T('pt_submit')) + arrow() + '</button></div>' + resultBlock + '</form>') +
+        dlg('qv-dialog', '', '', '<div class="qv-media"></div><div class="qv-body"></div><div class="qv-acts"><span class="qv-slot"></span><button class="btn btn-gold btn-sm" type="button" data-qq>' + esc(T('qv_quote')) + '</button></div>', 'dlg-wide');
 
       var bnr = content.banner || {}, bslides = (bnr.slides || []).filter(function (x) { return x && x.src; });
       if (bnr.mode === 'fixed') bslides = bslides.slice(0, 1);
@@ -245,10 +341,10 @@
 '  <button class="menu-btn" type="button" aria-label="' + esc(T('menu')) + '" aria-expanded="false" aria-controls="nav"><span></span></button>\n' +
 '  <nav class="main" id="nav" aria-label="' + esc(T('menu')) + '">' + nav + '\n' +
 '    <a class="lang" href="' + G.other + '" hreflang="' + G.otherCode + '" lang="' + G.otherCode + '">' + G.otherLabel + '</a>\n' +
-'    <a class="btn btn-gold btn-sm" href="#contact">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  <div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>\n</header>\n\n' +
+'    <a class="btn btn-gold btn-sm" href="#contact" data-open="quote-dialog">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  <div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>\n</header>\n\n' +
 '<main id="top">\n<section class="hero">\n  <div class="wrap">\n    <div class="hero-copy">\n' +
 '      <p class="eyebrow">' + esc(T('hero_eyebrow')) + '</p>\n      <h1>' + h1 + '</h1>\n      <p class="lede">' + esc(T('lede')) + '</p>\n' +
-'      <div class="cta-row">\n        <a class="btn btn-gold" href="#products">' + esc(T('cta1')) + arrow() + '</a>\n        <a class="btn btn-ghost" href="#contact">' + esc(T('cta2')) + '</a>\n      </div>\n' +
+'      <div class="cta-row">\n        <a class="btn btn-gold" href="#products">' + esc(T('cta1')) + arrow() + '</a>\n        <a class="btn btn-ghost" href="#contact" data-open="quote-dialog">' + esc(T('cta2')) + '</a>\n      </div>\n' +
 '      <ul class="checks">' + checks + '</ul>\n    </div>\n    <div class="hero-visual">\n      ' + ROUTES + '\n      <span class="origin-tag">' + esc(T('origin')) + '</span>\n' +
 '      <div class="brief">\n        <header><h2>' + esc(T('brief_title')) + '</h2><span class="chip">' + esc(T('brief_chip')) + '</span></header>\n        <dl>' + brief + '</dl>\n' +
 '        <footer>' + sm('wa') + '<span>' + esc(T('brief_foot')) + '</span></footer>\n      </div>\n    </div>\n  </div>\n' +
@@ -270,10 +366,12 @@ certsHtml +
 '    <div class="plaque"><img src="logo.png" alt="' + esc(alt) + '" width="352" height="186" loading="lazy"><p>' + esc(T('plaque')) + '</p><div class="values">' + values + '</div></div>\n  </div>\n</section>\n\n' +
 '<section class="sec process" id="process">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('pr_eye')) + '</p><h2>' + esc(T('pr_h')) + '</h2><p class="lede">' + esc(T('pr_lede')) + '</p></div>\n' +
 '    <ol class="steps">' + steps + '</ol>\n  </div>\n</section>\n\n' +
+packsHtml +
 '<section class="sec" id="terms">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('t_eye')) + '</p><h2>' + esc(T('t_h')) + '</h2><p class="lede">' + esc(T('t_lede')) + '</p></div>\n' +
 '    <div class="tabs" role="tablist" aria-label="' + esc(T('t_eye')) + '">' + tabs + '</div>\n    ' + panels + '\n    <p class="note">' + esc(T('tnote')) + '</p>\n' +
 '    <div class="pack"><h3>' + esc(T('pk_h')) + '</h3><ul>' + pk + '</ul></div>\n  </div>\n</section>\n\n' +
 '<section class="sec faq" id="faq">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('f_eye')) + '</p><h2>' + esc(T('f_h')) + '</h2></div>\n    <div class="list">' + faq + '</div>\n  </div>\n</section>\n\n' +
+partnerHtml +
 '<section class="sec" id="contact">\n  <div class="wrap contact">\n    <div>\n      <div class="head"><p class="eyebrow">' + esc(T('c_eye')) + '</p><h2>' + esc(T('c_h')) + '</h2><p class="lede">' + esc(T('c_lede')) + '</p></div>\n      <div class="cinfo">\n' +
 '        <a class="ccard" href="mailto:' + esc(EMAIL) + '"><span class="ico">' + sm('mail') + '</span><span><small>' + esc(T('c_email')) + '</small><b>' + esc(EMAIL) + '</b></span></a>\n' +
 '        <a class="ccard" href="tel:' + PH1T + '"><span class="ico">' + sm('phone') + '</span><span><small>' + esc(T('c_call')) + '</small><b>' + ltr(esc(PH1)) + '</b></span></a>\n' +
@@ -300,6 +398,7 @@ certsHtml +
 '    <div><h4>' + esc(T('f_contact')) + '</h4><ul><li><a href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a></li><li><a href="tel:' + PH1T + '">' + ltr(esc(PH1)) + '</a></li>' +
 (PH2 ? '<li><a href="tel:' + PH2T + '">' + ltr(esc(PH2)) + '</a></li>' : '') + '<li>' + esc(T('egypt_line')) + '</li></ul></div>\n  </div>\n' +
 '  <div class="fbottom"><span>' + esc(T('copy_l')) + '</span><span>' + esc(T('copy_r')) + '</span></div>\n</div></footer>\n\n' +
+dialogsHtml +
 '<button class="float pillb" id="pillb" type="button" hidden>' + esc(T('pill')) + ' <b>0</b></button>\n' +
 '<a class="float wa" href="https://wa.me/' + WA + '?text=' + waText + '" target="_blank" rel="noopener" aria-label="' + esc(T('float_wa')) + '">' + sm('wa') + '<span class="lbl2">' + esc(T('float_wa')) + '</span></a>\n\n' +
 '<script>window.ALEXIA=' + jsonForScript(data) + ';</script>\n<script src="app.js" defer></script>\n</body>\n</html>\n';
@@ -316,5 +415,5 @@ certsHtml +
     return out;
   }
 
-  return { build: build, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
+  return { build: build, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
 });

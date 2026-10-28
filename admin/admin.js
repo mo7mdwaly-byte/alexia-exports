@@ -27,7 +27,7 @@
       companyH: 'Contact details & website address', email: 'Email', phone1: 'Main phone', phone2: 'Second phone (optional)', whatsapp: 'WhatsApp number (digits only, with country code)', baseUrl: 'Website address', baseHint: 'Include the final slash. When you buy your domain, change this to https://yourdomain.com/ and publish.',
       previewH: 'Live preview', previewHint: 'This is your draft, not yet published.', phone: 'Phone', desktop: 'Desktop', refresh: 'Refresh',
       publishH: 'Publish changes', note: 'Short note (optional)', notePh: 'e.g. Added mango season', publish: 'Publish to website', nothing: 'No changes to publish.', publishing: 'Publishing…',
-      conflict: 'The website content was changed somewhere else since you opened this page. Publishing now will replace those changes. Continue?', done: 'Published. Your website updates in about 1–2 minutes.', failed: 'Publishing failed: ', willPublish: 'This will publish', pendingImgs: 'new photo(s)',
+      merged: 'The website was changed elsewhere since you opened this page. Your edits were merged with those changes.', conflict: 'The website content was changed somewhere else since you opened this page. Publishing now will replace those changes. Continue?', done: 'Published. Your website updates in about 1–2 minutes.', failed: 'Publishing failed: ', willPublish: 'This will publish', pendingImgs: 'new photo(s)',
       historyH: 'Version history', historyHint: 'Every publish is saved. Restoring loads the old version into the editor; you still need to publish it.', restore: 'Restore this version', restored: 'Version loaded. Review it, then publish.', load: 'Load history', noHist: 'No history yet.',
       draftFound: 'Found unpublished edits from your last visit. Restore them?', copied: 'Copied', saved: 'Draft saved on this device', langBtn: 'العربية', leave: 'You have unpublished changes.'
     },
@@ -52,7 +52,7 @@
       companyH: 'بيانات التواصل وعنوان الموقع', email: 'البريد الإلكتروني', phone1: 'الهاتف الرئيسي', phone2: 'هاتف ثانٍ (اختياري)', whatsapp: 'رقم واتساب (أرقام فقط مع رمز الدولة)', baseUrl: 'عنوان الموقع', baseHint: 'أضف الشرطة المائلة الأخيرة. عند شراء الدومين غيّره إلى https://yourdomain.com/ ثم انشر.',
       previewH: 'معاينة مباشرة', previewHint: 'هذه مسودتك وليست منشورة بعد.', phone: 'هاتف', desktop: 'كمبيوتر', refresh: 'تحديث',
       publishH: 'نشر التغييرات', note: 'ملاحظة قصيرة (اختياري)', notePh: 'مثال: إضافة موسم المانجو', publish: 'نشر على الموقع', nothing: 'لا توجد تغييرات للنشر.', publishing: 'جارٍ النشر…',
-      conflict: 'تم تغيير محتوى الموقع من مكان آخر بعد فتحك لهذه الصفحة. النشر الآن سيستبدل تلك التغييرات. متابعة؟', done: 'تم النشر. يتحدث موقعك خلال دقيقة إلى دقيقتين.', failed: 'فشل النشر: ', willPublish: 'سيتم نشر', pendingImgs: 'صورة جديدة',
+      merged: 'تغيّر الموقع من مكان آخر منذ فتحك للصفحة. تم دمج تعديلاتك مع تلك التغييرات.', conflict: 'تم تغيير محتوى الموقع من مكان آخر بعد فتحك لهذه الصفحة. النشر الآن سيستبدل تلك التغييرات. متابعة؟', done: 'تم النشر. يتحدث موقعك خلال دقيقة إلى دقيقتين.', failed: 'فشل النشر: ', willPublish: 'سيتم نشر', pendingImgs: 'صورة جديدة',
       historyH: 'سجل الإصدارات', historyHint: 'كل عملية نشر محفوظة. الاسترجاع يحمّل النسخة القديمة في المحرر وما زلت بحاجة إلى نشرها.', restore: 'استرجاع هذه النسخة', restored: 'تم تحميل النسخة. راجعها ثم انشر.', load: 'تحميل السجل', noHist: 'لا يوجد سجل بعد.',
       draftFound: 'وجدنا تعديلات غير منشورة من زيارتك السابقة. استرجاعها؟', copied: 'تم النسخ', saved: 'حُفظت المسودة على هذا الجهاز', langBtn: 'English', leave: 'لديك تغييرات غير منشورة.'
     }
@@ -80,7 +80,31 @@
       p.image = '';
     });
     [['ui.prev', 'Previous', 'السابق'], ['ui.next', 'Next', 'التالي'], ['ui.slide', 'Slide {n}', 'الشريحة {n}']].forEach(function (d) { if (!c.text[d[0]]) c.text[d[0]] = { en: d[1], ar: d[2] }; });
+    if (B.withDefaults) B.withDefaults(c);
     return c;
+  }
+  function same(a, b) { return JSON.stringify(a) === JSON.stringify(b); }
+  function isObj(x) { return x && typeof x === 'object' && !Array.isArray(x); }
+  /* three-way merge: keeps changes made elsewhere (theirs) and my edits (mine), relative to the version I loaded (base) */
+  function merge3(base, mine, theirs) {
+    if (same(mine, theirs)) return mine;
+    if (base === undefined && Array.isArray(mine) && !mine.length) return theirs;
+    if (same(mine, base)) return theirs;
+    if (same(theirs, base)) return mine;
+    if (isObj(base) && isObj(mine) && isObj(theirs)) {
+      var out = {}, keys = {};
+      [base, mine, theirs].forEach(function (o) { Object.keys(o).forEach(function (k) { keys[k] = 1; }); });
+      Object.keys(keys).forEach(function (k) {
+        var inB = k in base, inM = k in mine, inT = k in theirs;
+        if (!inM && !inT) return;
+        if (!inB) { out[k] = inM && inT ? merge3(undefined, mine[k], theirs[k]) : (inM ? mine[k] : theirs[k]); return; }
+        if (!inM) { if (!same(theirs[k], base[k])) out[k] = theirs[k]; return; }
+        if (!inT) { if (!same(mine[k], base[k])) out[k] = mine[k]; return; }
+        out[k] = merge3(base[k], mine[k], theirs[k]);
+      });
+      return out;
+    }
+    return mine;
   }
   function canon(c) { return JSON.stringify(c, null, 2) + '\n'; }
   function dirty() { return !!S.content && (canon(S.content) !== S.original || Object.keys(S.pending).length > 0); }
@@ -233,6 +257,16 @@
     var vis = m.type === 'video' ? h('video', { src: imgUrl(m.src) + '#t=0.1', muted: true, playsinline: true, preload: 'metadata' }) : h('img', { src: imgUrl(m.src), alt: '' });
     return h('div', { class: 'tile' }, vis, m.type === 'video' ? h('span', { class: 'badge vid' }, '▶ ' + t('videoBadge')) : null, h('div', { class: 'tile-acts' }, ctl));
   }
+  function photoField(obj, key) {
+    var wrap = h('div', { class: 'field' }, h('span', { class: 'lbl' }, t('photo')));
+    if (obj[key]) wrap.appendChild(h('div', { class: 'tiles' }, mediaTile({ type: 'image', src: obj[key] }, [])));
+    wrap.appendChild(h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap' },
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
+        pickFiles('image/*', false, function (files) { addMedia(files[0], 'pack', 1200).then(function (it) { if (obj[key]) dropMedia(obj[key]); obj[key] = it.src; touch(); render(); }, mediaError); });
+      } }, t('upload')),
+      obj[key] ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () { dropMedia(obj[key]); obj[key] = ''; touch(); render(); } }, t('removePhoto')) : null));
+    return wrap;
+  }
   function mediaEditor(owner, key, o) {
     var list = owner[key] = owner[key] || [], wrap = h('div', { class: 'field' }), status = h('span', { class: 'muted small' });
     var grid = h('div', { class: 'tiles' });
@@ -286,6 +320,8 @@
     { key: 'brief', title: 'Hero enquiry card rows', fields: [{ k: 'label', type: 'bi', label: 'Label' }, { k: 'value', type: 'bi', label: 'Value' }], sum: function (x) { return x.label.en + ': ' + x.value.en; }, make: function () { return { label: { en: '', ar: '' }, value: { en: '', ar: '' } }; } },
     { key: 'trust', title: 'Trust highlights', fields: [{ k: 'icon', type: 'icon', label: 'Icon' }, { k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { icon: 'check', title: { en: '', ar: '' }, text: { en: '', ar: '' } }; } },
     { key: 'certs', title: 'Quality certifications (badges)', hint: 'Shown in the Quality assurance section. Add, rename, reorder or remove any badge.', fields: [{ k: 'icon', type: 'icon', label: 'Icon' }, { k: 'text', type: 'bi', label: 'Badge name' }], sum: function (x) { return x.text.en; }, make: function () { return { icon: 'shield', text: { en: '', ar: '' } }; } },
+    { key: 'packs', title: 'Packing solutions (cards)', hint: 'Each card can have a photo. Without a photo an icon is shown.', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bit', label: 'Description' }, { k: 'image', type: 'photo' }], sum: function (x) { return x.title.en; }, make: function () { return { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' }; }, onDelete: function (i) { var x = S.content.lists.packs[i]; if (x && x.image) dropMedia(x.image); } },
+    { key: 'partnerpoints', title: 'Distribution partner: benefits list', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
     { key: 'about', title: 'About paragraphs', fields: [{ k: 'text', type: 'bit', label: 'Paragraph' }], sum: function (x) { return x.text.en.slice(0, 60); }, make: function () { return { text: { en: '', ar: '' } }; } },
     { key: 'values', title: 'About: values card', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { title: { en: '', ar: '' }, text: { en: '', ar: '' } }; } },
     { key: 'steps', title: 'How it works (steps)', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bit', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { title: { en: '', ar: '' }, text: { en: '', ar: '' } }; } },
@@ -300,6 +336,9 @@
     { key: 'footerlinks', title: 'Footer: links', fields: [{ k: 'id', type: 'str', label: 'Section ID' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en; }, make: function () { return { id: 'contact', label: { en: '', ar: '' } }; } }
   ];
   var TEXT_SECTIONS = [
+    ['Popups (quote & quick view)', /^(qv|qm_|close$)/],
+    ['Distribution partner', /^(pt_|pf\.)/],
+    ['Packing solutions', /^pack_/],
     ['Page & header', /^(title|desc|alt|brand|strip_l|strip_r|quote|menu|skip)$/],
     ['Hero', /^(hero_eyebrow|h1a|h1b|lede|cta1|cta2|brief_|origin|bar\.)/],
     ['Products', /^(p_|search|none$|add$|added$|discuss$|fine$)/],
@@ -503,8 +542,7 @@
     var c = S.content, box = h('div');
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('blocksH'))));
     BLOCKS.forEach(function (def) {
-      if (!c.lists[def.key]) c.lists[def.key] = [];
-      var arr = c.lists[def.key];
+      var arr = c.lists[def.key] || [];
       var sec = h('details', { class: 'item' });
       sec.appendChild(h('summary', null, h('span', { class: 'tt' }, def.title), h('span', { class: 'meta' }, String(arr.length))));
       var body = h('div', { class: 'body' });
@@ -516,6 +554,7 @@
           if (f.type === 'str') return strField(it, f.k, f.label);
           if (f.type === 'icon') return iconPicker(it, f.k, B.TRUST_ICONS.concat(Object.keys(B.SMALL).filter(function (x) { return B.TRUST_ICONS.indexOf(x) < 0; })), true);
           if (f.type === 'bool') return boolField(it, f.k, f.label);
+          if (f.type === 'photo') return photoField(it, f.k);
           if (f.type === 'sellers') {
             var w = h('div', { class: 'field' }, h('span', { class: 'lbl' }, f.label));
             (c.lists.segments || []).forEach(function (sg, n) {
@@ -532,7 +571,7 @@
         if (locked) inner.appendChild(rowActions(arr, i, function () { touch(); render(); }, { nodelete: true }));
         body.appendChild(detailsItem('b:' + def.key + ':' + i, h('span', { class: 'tt' }, def.sum(it) || (t('itemN') + ' ' + (i + 1))), inner));
       });
-      body.appendChild(h('button', { class: 'btn sm gold', type: 'button', onclick: function () { arr.push(def.make()); S.open['b:' + def.key + ':' + (arr.length - 1)] = true; touch(); render(); } }, '+ ' + t('add')));
+      body.appendChild(h('button', { class: 'btn sm gold', type: 'button', onclick: function () { if (!c.lists[def.key]) c.lists[def.key] = arr; arr.push(def.make()); S.open['b:' + def.key + ':' + (arr.length - 1)] = true; touch(); render(); } }, '+ ' + t('add')));
       if (S.open['sec:' + def.key]) sec.open = true;
       sec.addEventListener('toggle', function () { S.open['sec:' + def.key] = sec.open; });
       sec.appendChild(body); box.appendChild(sec);
@@ -542,7 +581,6 @@
 
   VIEWS.company = function () {
     var co = S.content.company, base = (co.base_url || '').replace(/\/?$/, '/');
-    if (co.whatsapp_ar == null) co.whatsapp_ar = co.whatsapp || '';
     var texts = [
       [t('waEnText'), 'Hello, and thank you for contacting ALEXIA EXPORTS. To prepare your quote faster, please fill in our short enquiry form: ' + base + '#contact\nOr reply with your product, destination country, estimated quantity and packaging.'],
       [t('waArText'), 'أهلًا بك، وشكرًا لتواصلك مع ALEXIA EXPORTS. لتجهيز عرض السعر بشكل أسرع يرجى تعبئة نموذج الاستفسار: ' + base + 'ar.html#contact\nأو أرسل لنا المنتج والدولة والكمية التقريبية والتعبئة.']
@@ -607,7 +645,10 @@
       headSha = r.object.sha;
       return fetchContent(headSha).catch(function (e) { if (e.status === 404) return S.raw; throw e; });
     }).then(function (remote) {
-      if (remote !== S.raw && !confirm(t('conflict'))) { var x = new Error('cancelled'); x.cancel = true; throw x; }
+      if (remote !== S.raw) {
+        try { S.content = normalize(merge3(JSON.parse(S.raw), S.content, JSON.parse(remote))); snapshot = canon(S.content); logTo(logEl, t('merged')); }
+        catch (e0) { if (!confirm(t('conflict'))) { var x = new Error('cancelled'); x.cancel = true; throw x; } }
+      }
       logTo(logEl, '2/6 Building pages…');
       files = B.build(S.content);
       files['content.json'] = snapshot;

@@ -117,7 +117,7 @@
 
   /* media carousels: auto-rotating photos and short videos (product cards and banner) */
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  $$('.mc').forEach(function (root) {
+  var initMc = function (root) {
     var slides = $$('.mc-slide', root), dots = $$('.mc-dots button', root), n = slides.length;
     var interval = Number(root.getAttribute('data-interval')) || 4000;
     var cur = 0, timer = null, visible = false, hold = false;
@@ -172,7 +172,85 @@
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { start(es[0].isIntersecting); }, { threshold: 0.35 }).observe(root);
     else start(true);
     document.addEventListener('visibilitychange', run);
+  };
+  $$('.mc').forEach(initMc);
+
+  /* popups: quote request, product quick view, distribution partner */
+  var openDlg = function (d) {
+    if (!d) return;
+    if (d.showModal) { try { d.showModal(); } catch (e) { d.setAttribute('open', ''); } } else d.setAttribute('open', '');
+    document.documentElement.classList.add('dlg-open');
+  };
+  var closeDlg = function (d) {
+    if (d.close) { try { d.close(); } catch (e) { d.removeAttribute('open'); } } else d.removeAttribute('open');
+    document.documentElement.classList.remove('dlg-open');
+    $$('video', d).forEach(function (v) { v.pause(); });
+  };
+  $$('dialog.dlg').forEach(function (d) {
+    d.addEventListener('click', function (e) { if (e.target === d || (e.target.closest && e.target.closest('[data-close]'))) closeDlg(d); });
+    d.addEventListener('close', function () { document.documentElement.classList.remove('dlg-open'); $$('video', d).forEach(function (v) { v.pause(); }); });
   });
+  $$('[data-open]').forEach(function (b) {
+    b.addEventListener('click', function (e) {
+      var d = document.getElementById(b.getAttribute('data-open'));
+      if (!d) return;
+      e.preventDefault(); openDlg(d);
+    });
+  });
+  $$('form.dform').forEach(function (form) {
+    var kind = form.getAttribute('data-kind');
+    var errEl = $('.err', form), res = $('.result', form), box = $('textarea', res);
+    var waL = $('[data-r=wa]', form), mailL = $('[data-r=mail]', form), cp = $('[data-r=copy]', form), done = $('.copied', form);
+    var v = function (n) { var el = form.elements[n]; return el ? el.value.trim() : ''; };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); errEl.textContent = '';
+      var L = D.msg, lines;
+      if (kind === 'partner') {
+        lines = [L.p_hello, '', L.name + ': ' + v('name'), L.company + ': ' + v('company'), L.email + ': ' + v('email'), L.phone + ': ' + v('phone'),
+          L.country + ': ' + v('country'), L.city + ': ' + v('city'), L.volume + ': ' + (v('volume') || '-'), L.products + ': ' + (v('products') || '-'), L.details + ': ' + (v('details') || '-')];
+      } else {
+        var picked = basket.map(function (id) { return D.names[id]; });
+        var sel = v('product'); if (sel && basket.indexOf(sel) < 0) picked.push(D.names[sel]);
+        if (!picked.length && !v('message')) { errEl.textContent = D.ui.needProduct; form.elements.product.focus(); return; }
+        lines = [L.hello, '', L.name + ': ' + v('name'), L.company + ': ' + v('company'), L.email + ': ' + v('email'), L.country + ': ' + v('country'),
+          L.products + ': ' + (picked.join(', ') || '-'), L.qty + ': ' + (v('qty') || '-'), L.message + ': ' + (v('message') || '-')];
+      }
+      var text = lines.join('\n'); box.value = text;
+      waL.href = 'https://wa.me/' + D.wa + '?text=' + encodeURIComponent(text);
+      mailL.href = 'mailto:' + D.email + '?subject=' + encodeURIComponent(kind === 'partner' ? L.p_subject : L.subject) + '&body=' + encodeURIComponent(text);
+      done.textContent = ''; res.hidden = false; res.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    });
+    cp.addEventListener('click', function () {
+      var ok = function () { done.textContent = D.ui.copied; };
+      var fb = function () { box.focus(); box.select(); done.textContent = D.ui.copyFail; };
+      try { navigator.clipboard.writeText(box.value).then(ok, fb); } catch (e2) { fb(); }
+    });
+  });
+  var qvD = $('#qv-dialog'), qvId = '';
+  if (qvD) {
+    $$('.qv').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var card = b.closest('.card'); qvId = b.getAttribute('data-id');
+        var media = $('.qv-media', qvD), body = $('.qv-body', qvD), slot = $('.qv-slot', qvD);
+        media.innerHTML = ''; body.innerHTML = ''; slot.innerHTML = '';
+        var mc = $('.mc', card);
+        if (mc) { var c = mc.cloneNode(true); c.classList.remove('card-mc'); media.appendChild(c); initMc(c); }
+        else { var ic = $('.ic', card); var w = document.createElement('div'); w.className = 'qv-ic'; w.innerHTML = ic ? ic.innerHTML : ''; media.appendChild(w); }
+        var ttl = $('#qv-dialog-t', qvD); ttl.textContent = $('h3', card).textContent;
+        var grp = document.createElement('p'); grp.className = 'qv-grp'; grp.textContent = $('.grp', card).textContent;
+        var desc = document.createElement('p'); desc.textContent = $('p', card).textContent;
+        body.appendChild(grp); body.appendChild(desc); var tg = $('.tags', card); if (tg) body.appendChild(tg.cloneNode(true));
+        var addB = $('.add', card).cloneNode(true);
+        addB.addEventListener('click', function () { toggle(qvId); });
+        slot.appendChild(addB); render();
+        openDlg(qvD);
+      });
+    });
+    $('[data-qq]', qvD).addEventListener('click', function () {
+      var q = document.getElementById('quote-dialog'); if (!q) return;
+      closeDlg(qvD); var f = $('form', q); if (f && f.elements.product) f.elements.product.value = qvId; openDlg(q);
+    });
+  }
 
   /* trade terms tabs */
   var tabs = $$('.tab'), panels = $$('.panel');
