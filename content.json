@@ -2618,7 +2618,36 @@
           "Hostelería"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7lrvqc8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7lsqk7g.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7ltkvqu.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7lueynj.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7lv7pqi.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7lw0sll.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/processed-mvvk7lwwaih.jpg"
+        }
+      ]
     },
     {
       "id": "dairy",
@@ -2657,7 +2686,12 @@
           "Consultas a granel"
         ]
       },
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "src": "images/dairy-mvvk70shdyh.jpg"
+        }
+      ]
     }
   ],
   "seasons": [
@@ -2850,15 +2884,21 @@
         "src": "videos/banner-mvvd0vnhn4q.mov",
         "title": {
           "en": "",
-          "ar": ""
+          "ar": "",
+          "fr": "",
+          "es": ""
         },
         "text": {
           "en": "",
-          "ar": ""
+          "ar": "",
+          "fr": "",
+          "es": ""
         },
         "cta": {
           "en": "",
-          "ar": ""
+          "ar": "",
+          "fr": "",
+          "es": ""
         },
         "link": ""
       }
