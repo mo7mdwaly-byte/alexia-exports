@@ -426,3 +426,20 @@ html.dlg-open{overflow:hidden}
   html[lang="ar"] .pack-b h3{font-size:1rem}
   .pack-b p{font-size:.85rem}
 }
+
+/* language menu */
+.lang-menu{position:relative;margin-inline:.4rem}
+.lang-menu summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;border:2px solid var(--navy);border-radius:999px;padding:.3rem .85rem;font-weight:700;font-size:.9rem;color:var(--navy);min-height:2.4rem;user-select:none}
+.lang-menu summary::-webkit-details-marker{display:none}
+.lang-menu summary svg{width:1.05rem;height:1.05rem}
+.lang-menu[open] summary,.lang-menu summary:hover{background:var(--navy);color:#fff}
+.lang-menu ul{list-style:none;margin:.4rem 0 0;padding:.35rem;position:absolute;inset-inline-end:0;top:100%;min-width:9.5rem;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);z-index:60}
+.lang-menu li a{display:block;padding:.6rem .8rem;border-radius:8px;text-decoration:none;font-weight:600;color:var(--ink);white-space:nowrap}
+.lang-menu li a:hover{background:var(--tint)}
+@media (max-width:980px){
+  .lang-menu{margin:.4rem 0 0}
+  .lang-menu summary{width:100%;justify-content:center}
+  .lang-menu ul{position:static;box-shadow:none;margin-top:.3rem;border-color:var(--line)}
+}
+/* longer navigation labels (French, Spanish) */
+html[lang="fr"] nav.main a.nl,html[lang="es"] nav.main a.nl{font-size:.88rem;padding-inline:.55rem}

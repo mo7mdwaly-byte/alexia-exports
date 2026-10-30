@@ -41,18 +41,31 @@
 
   var LANGS = {
     en: {
-      lang: 'en', dir: 'ltr', other: 'ar.html', otherLabel: 'العربية', otherCode: 'ar',
+      lang: 'en', dir: 'ltr', label: 'English', name: 'English', locale: 'en_US', file: 'index.html',
       fonts: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap',
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       mon3: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], arabicDigits: false
     },
     ar: {
-      lang: 'ar', dir: 'rtl', other: 'index.html', otherLabel: 'English', otherCode: 'en',
+      lang: 'ar', dir: 'rtl', label: 'العربية', name: 'Arabic', locale: 'ar_AR', file: 'ar.html',
       fonts: 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap',
       months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
       mon3: ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس'], arabicDigits: true
+    },
+    fr: {
+      lang: 'fr', dir: 'ltr', label: 'Français', name: 'French', locale: 'fr_FR', file: 'fr.html',
+      fonts: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap',
+      months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+      mon3: ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'], arabicDigits: false
+    },
+    es: {
+      lang: 'es', dir: 'ltr', label: 'Español', name: 'Spanish', locale: 'es_ES', file: 'es.html',
+      fonts: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap',
+      months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      mon3: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], arabicDigits: false
     }
   };
+  var LANG_ORDER = ['en', 'ar', 'fr', 'es'];
 
 
   var B2 = function (en, ar) { return { en: en, ar: ar }; };
@@ -142,6 +155,8 @@
   function build(content, opts) {
     opts = opts || {};
     withDefaults(content);
+    var enabled = LANG_ORDER.filter(function (l) { return l === 'en' || (content.languages || ['en', 'ar']).indexOf(l) > -1; });
+    var fileOf = function (l) { return LANGS[l].file; };
     var imageSrc = opts.imageSrc || function (p) { return p; };
     var co = content.company;
     var BASE = co.base_url.replace(/\/?$/, '/');
@@ -311,10 +326,10 @@
       var jsonld = {
         '@context': 'https://schema.org', '@type': 'Organization', name: 'ALEXIA EXPORTS', slogan: T('bar.0'), url: BASE, logo: BASE + 'logo.png',
         email: EMAIL, telephone: PH1T, description: T('jsonld_desc'), address: { '@type': 'PostalAddress', addressCountry: 'EG' },
-        contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: EMAIL, telephone: PH1T, availableLanguage: ['English', 'Arabic'] }]
+        contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: EMAIL, telephone: PH1T, availableLanguage: enabled.map(function (l) { return LANGS[l].name; }) }]
       };
-      var thisUrl = BASE + (ar ? 'ar.html' : '');
-      var enUrl = BASE, arUrl = BASE + 'ar.html';
+      var urlOf = function (l) { return l === 'en' ? BASE : BASE + fileOf(l); };
+      var thisUrl = urlOf(langKey), enUrl = BASE;
       var alt = T('alt'), title = T('title'), desc = T('desc');
       var waText = encodeURIComponent(T('wa_text'));
       var h1 = esc(T('h1a')) + ' <em>' + esc(T('h1b')) + '</em>';
@@ -325,7 +340,7 @@
 '<title>' + esc(title) + '</title>\n' +
 '<meta name="description" content="' + esc(desc) + '">\n<meta name="theme-color" content="#0A2A66">\n' +
 '<link rel="canonical" href="' + thisUrl + '">\n' +
-'<link rel="alternate" hreflang="en" href="' + enUrl + '">\n<link rel="alternate" hreflang="ar" href="' + arUrl + '">\n<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n' +
+enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" href="' + urlOf(l) + '">\n'; }).join('') + '<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n<meta property="og:locale" content="' + G.locale + '">\n' +
 '<meta property="og:type" content="website">\n<meta property="og:site_name" content="ALEXIA EXPORTS">\n<meta property="og:title" content="' + esc(title) + '">\n<meta property="og:description" content="' + esc(desc) + '">\n' +
 '<meta property="og:url" content="' + thisUrl + '">\n<meta property="og:image" content="' + BASE + 'og-image.png">\n<meta name="twitter:card" content="summary_large_image">\n' +
 '<link rel="icon" type="image/png" href="favicon.png">\n<link rel="apple-touch-icon" href="apple-touch-icon.png">\n<link rel="manifest" href="manifest.webmanifest">\n' +
@@ -340,7 +355,7 @@
 '  <button class="search-btn" type="button" aria-label="' + esc(T('search')) + '" aria-expanded="false" aria-controls="gsearch-bar">' + sm('search') + '</button>\n' +
 '  <button class="menu-btn" type="button" aria-label="' + esc(T('menu')) + '" aria-expanded="false" aria-controls="nav"><span></span></button>\n' +
 '  <nav class="main" id="nav" aria-label="' + esc(T('menu')) + '">' + nav + '\n' +
-'    <a class="lang" href="' + G.other + '" hreflang="' + G.otherCode + '" lang="' + G.otherCode + '">' + G.otherLabel + '</a>\n' +
+(enabled.length > 1 ? '    <details class="lang-menu"><summary aria-label="Language">' + sm('globe') + '<span>' + esc(langKey.toUpperCase()) + '</span></summary><ul>' + enabled.filter(function (l) { return l !== langKey; }).map(function (l) { return '<li><a class="lang-link" href="' + fileOf(l) + '" hreflang="' + l + '" lang="' + l + '">' + esc(LANGS[l].label) + '</a></li>'; }).join('') + '</ul></details>\n' : '') +
 '    <a class="btn btn-gold btn-sm" href="#contact" data-open="quote-dialog">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  <div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>\n</header>\n\n' +
 '<main id="top">\n<section class="hero">\n  <div class="wrap">\n    <div class="hero-copy">\n' +
 '      <p class="eyebrow">' + esc(T('hero_eyebrow')) + '</p>\n      <h1>' + h1 + '</h1>\n      <p class="lede">' + esc(T('lede')) + '</p>\n' +
@@ -405,15 +420,15 @@ dialogsHtml +
     }
 
     var out = {};
-    out['index.html'] = page('en');
-    out['ar.html'] = page('ar');
+    enabled.forEach(function (l) { out[fileOf(l)] = page(l); });
     out['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
-      [BASE, BASE + 'ar.html'].map(function (u) {
-        return '  <url><loc>' + u + '</loc>\n    <xhtml:link rel="alternate" hreflang="en" href="' + BASE + '"/>\n    <xhtml:link rel="alternate" hreflang="ar" href="' + BASE + 'ar.html"/></url>\n';
+      enabled.map(function (l) {
+        var u = l === 'en' ? BASE : BASE + fileOf(l);
+        return '  <url><loc>' + u + '</loc>\n' + enabled.map(function (m) { return '    <xhtml:link rel="alternate" hreflang="' + m + '" href="' + (m === 'en' ? BASE : BASE + fileOf(m)) + '"/>\n'; }).join('') + '  </url>\n';
       }).join('') + '</urlset>\n';
     out['robots.txt'] = 'User-agent: *\nAllow: /\nSitemap: ' + BASE + 'sitemap.xml\n';
     return out;
   }
 
-  return { build: build, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
+  return { build: build, LANG_ORDER: LANG_ORDER, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
 });

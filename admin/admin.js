@@ -150,7 +150,9 @@
   function fetchContent(ref) { return gh('/contents/content.json?ref=' + encodeURIComponent(ref || S.cfg.branch), { raw: true }); }
 
   /* ---------- helpers for bilingual objects ---------- */
-  function ensureBi(o, k) { if (!o[k] || typeof o[k] !== 'object') o[k] = { en: '', ar: '' }; if (o[k].en == null) o[k].en = ''; if (o[k].ar == null) o[k].ar = ''; return o[k]; }
+  var LG = ['en', 'ar', 'fr', 'es'];
+  function EMP() { return { en: '', ar: '', fr: '', es: '' }; }
+  function ensureBi(o, k) { if (!o[k] || typeof o[k] !== 'object') o[k] = {}; LG.forEach(function (l) { if (o[k][l] == null) o[k][l] = ''; }); return o[k]; }
   function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'item'; }
   function touch() { updateBar(); saveDraft(); }
   var draftTimer;
@@ -169,13 +171,13 @@
     var mk = function (lang) {
       var cell = h('div', { class: 'cell' });
       var inp = h(multi ? 'textarea' : 'input', { type: multi ? null : 'text', dir: lang === 'ar' ? 'rtl' : 'ltr', lang: lang, value: v[lang], 'aria-label': label + ' (' + lang.toUpperCase() + ')' });
-      var upd = function () { v[lang] = inp.value; if (lang === 'ar') cell.classList.toggle('miss', !inp.value.trim() && !!v.en.trim()); touch(); };
+      var upd = function () { v[lang] = inp.value; if (lang !== 'en') cell.classList.toggle('miss', !inp.value.trim() && !!v.en.trim()); touch(); };
       inp.addEventListener('input', upd);
-      if (lang === 'ar' && !v.ar.trim() && v.en.trim()) cell.classList.add('miss');
+      if (lang !== 'en' && !(v[lang] || '').trim() && v.en.trim()) cell.classList.add('miss');
       add(cell, [inp, h('span', { class: 'tag' }, lang.toUpperCase())]);
       return cell;
     };
-    return h('div', { class: 'field' }, label ? h('span', { class: 'lbl' }, label) : null, h('div', { class: 'bi-row' }, mk('en'), mk('ar')));
+    return h('div', { class: 'field' }, label ? h('span', { class: 'lbl' }, label) : null, h('div', { class: 'bi-row' }, LG.map(mk)));
   }
   function strField(obj, key, label, opts) {
     opts = opts || {};
@@ -302,11 +304,11 @@
   /* ---------- content check ---------- */
   function audit() {
     var out = [], c = S.content;
-    function chk(obj, where, tab) { if (obj && (obj.en || '').trim() && !(obj.ar || '').trim()) out.push({ where: where, tab: tab }); if (obj && !(obj.en || '').trim() && !(obj.ar || '').trim()) out.push({ where: where + ' (empty)', tab: tab }); }
+    function chk(obj, where, tab) { if (!obj) return; var en = (obj.en || '').trim(); var miss = (c.languages || LG).filter(function (l) { return l !== 'en' && !(obj[l] || '').trim(); }); if (en && miss.length) out.push({ where: where + ' [' + miss.map(function (l) { return l.toUpperCase(); }).join(', ') + ']', tab: tab }); if (!en && !(obj.ar || '').trim()) out.push({ where: where + ' (empty)', tab: tab }); }
     c.products.forEach(function (p) { chk(p.name, (p.name.en || p.id) + ' · name', 'products'); chk(p.desc, (p.name.en || p.id) + ' · description', 'products'); });
     c.seasons.forEach(function (s) { chk(s.name, 'Season: ' + (s.name.en || s.id), 'seasons'); if (!s.months.length) out.push({ where: 'Season has no months: ' + (s.name.en || s.id), tab: 'seasons' }); });
     Object.keys(c.text).forEach(function (k) { chk(c.text[k], 'Text: ' + k, 'texts'); });
-    (c.banner.slides || []).forEach(function (sl, i) { ['title', 'text', 'cta'].forEach(function (f) { var v = sl[f]; if (v && (v.en || '').trim() && !(v.ar || '').trim()) out.push({ where: 'Banner slide ' + (i + 1) + ' · ' + f, tab: 'banner' }); }); });
+    (c.banner.slides || []).forEach(function (sl, i) { ['title', 'text', 'cta'].forEach(function (f) { var v = sl[f]; chk(v, 'Banner slide ' + (i + 1) + ' · ' + f, 'banner'); }); });
     BLOCKS.forEach(function (def) {
       (c.lists[def.key] || []).forEach(function (it, i) { def.fields.forEach(function (f) { if (f.type === 'bi' || f.type === 'bit') chk(it[f.k], def.title + ' #' + (i + 1) + ' · ' + f.label, 'blocks'); }); });
     });
@@ -315,25 +317,25 @@
 
   /* ---------- section definitions ---------- */
   var BLOCKS = [
-    { key: 'nav', title: 'Menu links', fields: [{ k: 'id', type: 'str', label: 'Section ID (products, seasons, about, process, terms, faq, contact)' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en; }, make: function () { return { id: 'contact', label: { en: '', ar: '' } }; } },
-    { key: 'checks', title: 'Hero checklist', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'brief', title: 'Hero enquiry card rows', fields: [{ k: 'label', type: 'bi', label: 'Label' }, { k: 'value', type: 'bi', label: 'Value' }], sum: function (x) { return x.label.en + ': ' + x.value.en; }, make: function () { return { label: { en: '', ar: '' }, value: { en: '', ar: '' } }; } },
-    { key: 'trust', title: 'Trust highlights', fields: [{ k: 'icon', type: 'icon', label: 'Icon' }, { k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { icon: 'check', title: { en: '', ar: '' }, text: { en: '', ar: '' } }; } },
-    { key: 'certs', title: 'Quality certifications (badges)', hint: 'Shown in the Quality assurance section. Add, rename, reorder or remove any badge.', fields: [{ k: 'icon', type: 'icon', label: 'Icon' }, { k: 'text', type: 'bi', label: 'Badge name' }], sum: function (x) { return x.text.en; }, make: function () { return { icon: 'shield', text: { en: '', ar: '' } }; } },
-    { key: 'packs', title: 'Packing solutions (cards)', hint: 'Each card can have a photo. Without a photo an icon is shown.', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bit', label: 'Description' }, { k: 'image', type: 'photo' }], sum: function (x) { return x.title.en; }, make: function () { return { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' }; }, onDelete: function (i) { var x = S.content.lists.packs[i]; if (x && x.image) dropMedia(x.image); } },
-    { key: 'partnerpoints', title: 'Distribution partner: benefits list', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'about', title: 'About paragraphs', fields: [{ k: 'text', type: 'bit', label: 'Paragraph' }], sum: function (x) { return x.text.en.slice(0, 60); }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'values', title: 'About: values card', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { title: { en: '', ar: '' }, text: { en: '', ar: '' } }; } },
-    { key: 'steps', title: 'How it works (steps)', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bit', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { title: { en: '', ar: '' }, text: { en: '', ar: '' } }; } },
-    { key: 'groups', title: 'Product categories (filter buttons)', fields: [{ k: 'id', type: 'str', label: 'Category ID (lowercase, no spaces). Keep “all” first.' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en + ' (' + x.id + ')'; }, make: function () { return { id: 'new-category', label: { en: '', ar: '' } }; }, lock: function (x) { return x.id === 'all'; } },
-    { key: 'terms', title: 'Trade terms (Incoterms)', special: 'terms', fields: [{ k: 'id', type: 'str', label: 'Code (e.g. FOB)' }, { k: 'title', type: 'bi', label: 'Name' }, { k: 'text', type: 'bit', label: 'Explanation' }, { k: 'seller', type: 'sellers', label: 'Seller covers these stages' }, { k: 'insurance', type: 'bool', label: 'Show “insurance included” badge' }], sum: function (x) { return x.id + ' · ' + x.title.en; }, make: function () { return { id: 'NEW', title: { en: '', ar: '' }, text: { en: '', ar: '' }, seller: [], insurance: false }; } },
-    { key: 'segments', title: 'Trade terms: stages', fields: [{ k: 'text', type: 'bi', label: 'Stage' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; }, onDelete: function (i) { S.content.lists.terms.forEach(function (tm) { tm.seller = tm.seller.filter(function (n) { return n !== i; }).map(function (n) { return n > i ? n - 1 : n; }); }); } },
-    { key: 'packaging', title: 'Packaging options (list)', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'faq', title: 'FAQ', fields: [{ k: 'q', type: 'bi', label: 'Question' }, { k: 'a', type: 'bit', label: 'Answer' }], sum: function (x) { return x.q.en; }, make: function () { return { q: { en: '', ar: '' }, a: { en: '', ar: '' } }; } },
-    { key: 'packopts', title: 'Enquiry form: packaging choices', hint: 'Keep the first one as “Not specified”.', fields: [{ k: 'text', type: 'bi', label: 'Choice' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'termopts', title: 'Enquiry form: trade term choices', hint: 'Keep the first one as “Not specified”.', fields: [{ k: 'text', type: 'bi', label: 'Choice' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'categories', title: 'Footer: categories', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: { en: '', ar: '' } }; } },
-    { key: 'footerlinks', title: 'Footer: links', fields: [{ k: 'id', type: 'str', label: 'Section ID' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en; }, make: function () { return { id: 'contact', label: { en: '', ar: '' } }; } }
+    { key: 'nav', title: 'Menu links', fields: [{ k: 'id', type: 'str', label: 'Section ID (products, seasons, about, process, terms, faq, contact)' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en; }, make: function () { return { id: 'contact', label: EMP() }; } },
+    { key: 'checks', title: 'Hero checklist', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; } },
+    { key: 'brief', title: 'Hero enquiry card rows', fields: [{ k: 'label', type: 'bi', label: 'Label' }, { k: 'value', type: 'bi', label: 'Value' }], sum: function (x) { return x.label.en + ': ' + x.value.en; }, make: function () { return { label: EMP(), value: EMP() }; } },
+    { key: 'trust', title: 'Trust highlights', fields: [{ k: 'icon', type: 'icon', label: 'Icon' }, { k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { icon: 'check', title: EMP(), text: EMP() }; } },
+    { key: 'certs', title: 'Quality certifications (badges)', hint: 'Shown in the Quality assurance section. Add, rename, reorder or remove any badge.', fields: [{ k: 'icon', type: 'icon', label: 'Icon' }, { k: 'text', type: 'bi', label: 'Badge name' }], sum: function (x) { return x.text.en; }, make: function () { return { icon: 'shield', text: EMP() }; } },
+    { key: 'packs', title: 'Packing solutions (cards)', hint: 'Each card can have a photo. Without a photo an icon is shown.', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bit', label: 'Description' }, { k: 'image', type: 'photo' }], sum: function (x) { return x.title.en; }, make: function () { return { title: EMP(), text: EMP(), image: '' }; }, onDelete: function (i) { var x = S.content.lists.packs[i]; if (x && x.image) dropMedia(x.image); } },
+    { key: 'partnerpoints', title: 'Distribution partner: benefits list', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; } },
+    { key: 'about', title: 'About paragraphs', fields: [{ k: 'text', type: 'bit', label: 'Paragraph' }], sum: function (x) { return x.text.en.slice(0, 60); }, make: function () { return { text: EMP() }; } },
+    { key: 'values', title: 'About: values card', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { title: EMP(), text: EMP() }; } },
+    { key: 'steps', title: 'How it works (steps)', fields: [{ k: 'title', type: 'bi', label: 'Title' }, { k: 'text', type: 'bit', label: 'Text' }], sum: function (x) { return x.title.en; }, make: function () { return { title: EMP(), text: EMP() }; } },
+    { key: 'groups', title: 'Product categories (filter buttons)', fields: [{ k: 'id', type: 'str', label: 'Category ID (lowercase, no spaces). Keep “all” first.' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en + ' (' + x.id + ')'; }, make: function () { return { id: 'new-category', label: EMP() }; }, lock: function (x) { return x.id === 'all'; } },
+    { key: 'terms', title: 'Trade terms (Incoterms)', special: 'terms', fields: [{ k: 'id', type: 'str', label: 'Code (e.g. FOB)' }, { k: 'title', type: 'bi', label: 'Name' }, { k: 'text', type: 'bit', label: 'Explanation' }, { k: 'seller', type: 'sellers', label: 'Seller covers these stages' }, { k: 'insurance', type: 'bool', label: 'Show “insurance included” badge' }], sum: function (x) { return x.id + ' · ' + x.title.en; }, make: function () { return { id: 'NEW', title: EMP(), text: EMP(), seller: [], insurance: false }; } },
+    { key: 'segments', title: 'Trade terms: stages', fields: [{ k: 'text', type: 'bi', label: 'Stage' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; }, onDelete: function (i) { S.content.lists.terms.forEach(function (tm) { tm.seller = tm.seller.filter(function (n) { return n !== i; }).map(function (n) { return n > i ? n - 1 : n; }); }); } },
+    { key: 'packaging', title: 'Packaging options (list)', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; } },
+    { key: 'faq', title: 'FAQ', fields: [{ k: 'q', type: 'bi', label: 'Question' }, { k: 'a', type: 'bit', label: 'Answer' }], sum: function (x) { return x.q.en; }, make: function () { return { q: EMP(), a: EMP() }; } },
+    { key: 'packopts', title: 'Enquiry form: packaging choices', hint: 'Keep the first one as “Not specified”.', fields: [{ k: 'text', type: 'bi', label: 'Choice' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; } },
+    { key: 'termopts', title: 'Enquiry form: trade term choices', hint: 'Keep the first one as “Not specified”.', fields: [{ k: 'text', type: 'bi', label: 'Choice' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; } },
+    { key: 'categories', title: 'Footer: categories', fields: [{ k: 'text', type: 'bi', label: 'Text' }], sum: function (x) { return x.text.en; }, make: function () { return { text: EMP() }; } },
+    { key: 'footerlinks', title: 'Footer: links', fields: [{ k: 'id', type: 'str', label: 'Section ID' }, { k: 'label', type: 'bi', label: 'Label' }], sum: function (x) { return x.label.en; }, make: function () { return { id: 'contact', label: EMP() }; } }
   ];
   var TEXT_SECTIONS = [
     ['Popups (quote & quick view)', /^(qv|qm_|close$)/],
@@ -376,6 +378,8 @@
     box.appendChild(h('div', { class: 'card' }, h('h3', null, t('quick')), h('div', { class: 'acts', style: 'gap:.5rem;display:flex;flex-wrap:wrap' },
       h('a', { class: 'btn ghost', href: base, target: '_blank', rel: 'noopener' }, t('viewSite')),
       h('a', { class: 'btn ghost', href: base + 'ar.html', target: '_blank', rel: 'noopener' }, t('viewAr')),
+      h('a', { class: 'btn ghost', href: base + 'fr.html', target: '_blank', rel: 'noopener' }, 'Français'),
+      h('a', { class: 'btn ghost', href: base + 'es.html', target: '_blank', rel: 'noopener' }, 'Español'),
       h('button', { class: 'btn ghost', type: 'button', onclick: downloadBackup }, t('backup')),
       h('button', { class: 'btn ghost', type: 'button', onclick: function () { file.click(); } }, t('restoreFile')), file)));
     return box;
@@ -403,7 +407,7 @@
     };
     search.addEventListener('input', function () { S.pq = search.value; paint(); });
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.products')), h('button', { class: 'btn gold', type: 'button', onclick: function () {
-      var p = { id: uniqueId('new-product'), group: (c.lists.groups.filter(function (g) { return g.id !== 'all'; })[0] || { id: 'fresh' }).id, icon: 'citrus', image: '', media: [], hidden: false, discuss: false, name: { en: '', ar: '' }, desc: { en: '', ar: '' }, tags: { en: [], ar: [] } };
+      var p = { id: uniqueId('new-product'), group: (c.lists.groups.filter(function (g) { return g.id !== 'all'; })[0] || { id: 'fresh' }).id, icon: 'citrus', image: '', media: [], hidden: false, discuss: false, name: EMP(), desc: EMP(), tags: { en: [], ar: [], fr: [], es: [] } };
       c.products.unshift(p); S.open['p:' + p.id] = true; S.pq = ''; touch(); render();
     } }, '+ ' + t('addProduct'))));
     box.appendChild(h('div', { class: 'field' }, search));
@@ -422,8 +426,8 @@
     var body = [];
     body.push(biField(p, 'name', t('nameEn')));
     body.push(biField(p, 'desc', t('desc'), true));
-    ['en', 'ar'].forEach(function (lang) {
-      if (!p.tags) p.tags = { en: [], ar: [] };
+    LG.forEach(function (lang) {
+      if (!p.tags) p.tags = { en: [], ar: [], fr: [], es: [] };
       var inp = h('input', { type: 'text', dir: lang === 'ar' ? 'rtl' : 'ltr', value: (p.tags[lang] || []).join(', ') });
       inp.addEventListener('input', function () { p.tags[lang] = inp.value.split(/[,،]/).map(function (x) { return x.trim(); }).filter(Boolean); touch(); });
       body.push(h('div', { class: 'field' }, h('label', null, t('tags') + ' · ' + lang.toUpperCase()), inp));
@@ -460,7 +464,7 @@
       return h('button', { class: 'btn gold sm', type: 'button', onclick: function () {
         pickFiles(accept, false, function (files) {
           addMedia(files[0], 'banner', 1920).then(function (it) {
-            slides.push({ type: it.type, src: it.src, title: { en: '', ar: '' }, text: { en: '', ar: '' }, cta: { en: '', ar: '' }, link: '' });
+            slides.push({ type: it.type, src: it.src, title: EMP(), text: EMP(), cta: EMP(), link: '' });
             S.open['bn:' + (slides.length - 1)] = true; touch(); render();
           }, mediaError);
         });
@@ -487,7 +491,7 @@
   VIEWS.seasons = function () {
     var c = S.content, box = h('div');
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.seasons')), h('button', { class: 'btn gold', type: 'button', onclick: function () {
-      var s = { id: 'season-' + Date.now().toString(36), months: [], name: { en: '', ar: '' } }; c.seasons.push(s); S.open['s:' + s.id] = true; touch(); render();
+      var s = { id: 'season-' + Date.now().toString(36), months: [], name: EMP() }; c.seasons.push(s); S.open['s:' + s.id] = true; touch(); render();
     } }, '+ ' + t('seasonAdd'))));
     box.appendChild(h('p', { class: 'notice warn' }, t('seasonHint')));
     c.seasons.forEach(function (s, i) {
@@ -579,15 +583,27 @@
     return box;
   };
 
+  function langCard() {
+    var c = S.content, names = { en: 'English', ar: 'العربية', fr: 'Français', es: 'Español' };
+    var card = h('div', { class: 'card' }, h('h3', null, S.ui === 'ar' ? 'لغات الموقع' : 'Website languages'), h('p', { class: 'hint' }, S.ui === 'ar' ? 'اختر اللغات التي تظهر للزوار. الإنجليزية دائمًا مفعّلة.' : 'Choose which languages visitors can switch to. English is always on.'));
+    LG.forEach(function (l) {
+      var cb = h('input', { type: 'checkbox' }); cb.checked = (c.languages || []).indexOf(l) > -1; if (l === 'en') cb.disabled = true;
+      cb.addEventListener('change', function () { c.languages = LG.filter(function (x) { return x === 'en' || (x === l ? cb.checked : (c.languages || []).indexOf(x) > -1); }); touch(); });
+      card.appendChild(h('label', { class: 'chk' }, cb, names[l]));
+    });
+    return card;
+  }
   VIEWS.company = function () {
     var co = S.content.company, base = (co.base_url || '').replace(/\/?$/, '/');
     var texts = [
       [t('waEnText'), 'Hello, and thank you for contacting ALEXIA EXPORTS. To prepare your quote faster, please fill in our short enquiry form: ' + base + '#contact\nOr reply with your product, destination country, estimated quantity and packaging.'],
-      [t('waArText'), 'أهلًا بك، وشكرًا لتواصلك مع ALEXIA EXPORTS. لتجهيز عرض السعر بشكل أسرع يرجى تعبئة نموذج الاستفسار: ' + base + 'ar.html#contact\nأو أرسل لنا المنتج والدولة والكمية التقريبية والتعبئة.']
+      [t('waArText'), 'أهلًا بك، وشكرًا لتواصلك مع ALEXIA EXPORTS. لتجهيز عرض السعر بشكل أسرع يرجى تعبئة نموذج الاستفسار: ' + base + 'ar.html#contact\nأو أرسل لنا المنتج والدولة والكمية التقريبية والتعبئة.'],
+      ['Français', 'Bonjour, et merci de contacter ALEXIA EXPORTS. Pour préparer votre devis plus rapidement, merci de remplir notre formulaire de demande : ' + base + 'fr.html#contact\nOu répondez avec votre produit, le pays de destination, la quantité estimée et le conditionnement.'],
+      ['Español', 'Hola, y gracias por contactar con ALEXIA EXPORTS. Para preparar su cotización más rápido, complete nuestro formulario de consulta: ' + base + 'es.html#contact\nO responda con su producto, país de destino, cantidad estimada y embalaje.']
     ];
     var help = h('div', { class: 'card' }, h('h3', null, t('waHelpH')), h('p', { class: 'hint' }, t('waHelpP')));
     texts.forEach(function (x, i) {
-      var ta = h('textarea', { readonly: true, dir: i ? 'rtl' : 'ltr', rows: 4, value: x[1] });
+      var ta = h('textarea', { readonly: true, dir: i === 1 ? 'rtl' : 'ltr', rows: 4, value: x[1] });
       help.appendChild(h('div', { class: 'field' }, h('label', null, x[0]), ta, h('button', { class: 'btn sm ghost', type: 'button', style: 'margin-top:.4rem', onclick: function () {
         var done = function () { toast(t('copied')); }; try { navigator.clipboard.writeText(x[1]).then(done, function () { ta.select(); }); } catch (e) { ta.select(); }
       } }, t('copy'))));
@@ -595,7 +611,7 @@
     return h('div', null, h('div', { class: 'head' }, h('h2', null, t('companyH'))), h('div', { class: 'card' },
       strField(co, 'email', t('email'), { type: 'email' }), h('div', { class: 'grid2' }, strField(co, 'phone1', t('phone1'), { type: 'text' }), strField(co, 'phone2', t('phone2'), { type: 'text' })),
       h('div', { class: 'grid2' }, strField(co, 'whatsapp', t('whatsappEn'), { inputmode: 'numeric' }), strField(co, 'whatsapp_ar', t('whatsappAr'), { inputmode: 'numeric' })),
-      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), help);
+      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), langCard(), help);
   };
 
   VIEWS.preview = function () {
@@ -605,21 +621,21 @@
     function paint() {
       try {
         var files = B.build(S.content, { imageSrc: imgUrl });
-        var html = files[P.lang === 'ar' ? 'ar.html' : 'index.html'];
-        var inject = '<base href="' + B.esc(siteRoot()) + '"><script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;var hr=a.getAttribute("href")||"";if(hr.charAt(0)==="#"){e.preventDefault();var el=document.getElementById(hr.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});}else if(a.classList.contains("lang")){e.preventDefault();parent.postMessage({alexiaLang:a.getAttribute("hreflang")},"*");}},true);<\/script>';
+        var html = files[B.LANGS[P.lang] ? B.LANGS[P.lang].file : 'index.html'] || files['index.html'];
+        var inject = '<base href="' + B.esc(siteRoot()) + '"><script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;var hr=a.getAttribute("href")||"";if(hr.charAt(0)==="#"){e.preventDefault();var el=document.getElementById(hr.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});}else if(a.classList.contains("lang-link")){e.preventDefault();parent.postMessage({alexiaLang:a.getAttribute("hreflang")},"*");}},true);<\/script>';
         frame.srcdoc = html.replace('<head>', '<head>' + inject);
       } catch (e) { frame.srcdoc = '<p style="font:16px sans-serif;padding:1rem">Preview error: ' + B.esc(e.message) + '</p>'; }
     }
     function seg(label, active, fn) { return h('button', { class: 'chip', type: 'button', 'aria-pressed': active ? 'true' : 'false', onclick: fn }, label); }
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('previewH')),
-      h('div', { class: 'chips' }, seg('EN', P.lang === 'en', function () { P.lang = 'en'; render(); }), seg('AR', P.lang === 'ar', function () { P.lang = 'ar'; render(); }),
+      h('div', { class: 'chips' }, (S.content.languages || LG).map(function (l) { return seg(l.toUpperCase(), P.lang === l, function () { P.lang = l; render(); }); }),
         seg(t('phone'), P.phone, function () { P.phone = true; render(); }), seg(t('desktop'), !P.phone, function () { P.phone = false; render(); }),
         h('button', { class: 'chip', type: 'button', onclick: paint }, '↻ ' + t('refresh')))));
     box.appendChild(h('p', { class: 'hint' }, t('previewHint')));
     box.appendChild(wrap); paint();
     return box;
   };
-  window.addEventListener('message', function (e) { if (e.data && e.data.alexiaLang && S.tab === 'preview') { S.prev.lang = e.data.alexiaLang === 'ar' ? 'ar' : 'en'; render(); } });
+  window.addEventListener('message', function (e) { if (e.data && e.data.alexiaLang && S.tab === 'preview') { S.prev.lang = LG.indexOf(e.data.alexiaLang) > -1 ? e.data.alexiaLang : 'en'; render(); } });
 
   VIEWS.publish = function () {
     var box = h('div'), n = Object.keys(S.pending).length;

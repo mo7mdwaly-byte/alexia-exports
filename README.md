@@ -1,11 +1,13 @@
 # ALEXIA EXPORTS
 
-Website for ALEXIA EXPORTS, "Quality Beyond Borders". English and Arabic.
+Website for ALEXIA EXPORTS, "Quality Beyond Borders". English, Arabic, French and Spanish.
 
 | File | Purpose |
 | --- | --- |
 | `index.html` | English site |
 | `ar.html` | Arabic site (right to left) |
+| `fr.html` | French site |
+| `es.html` | Spanish site |
 | `style.css` | Shared design |
 | `app.js` | Product filter, enquiry list, trade-term tabs, enquiry form |
 | `logo.png`, `favicon.png`, `apple-touch-icon.png`, `icon-512.png`, `og-image.png` | Logo and icons |
@@ -14,7 +16,7 @@ Website for ALEXIA EXPORTS, "Quality Beyond Borders". English and Arabic.
 Hosted on GitHub Pages (branch `main`, root folder).
 
 ## Dashboard
-Open `/admin/` on the site (for example `https://mo7mdwaly-byte.github.io/alexia-exports/admin/`). It edits `content.json`, rebuilds `index.html`, `ar.html`, `sitemap.xml` and `robots.txt`, and publishes them to `main` in one commit.
+Open `/admin/` on the site (for example `https://mo7mdwaly-byte.github.io/alexia-exports/admin/`). It edits `content.json`, rebuilds `index.html`, `ar.html`, `fr.html`, `es.html`, `sitemap.xml` and `robots.txt`, and publishes them to `main` in one commit.
 
 One-time setup: GitHub, Settings, Developer settings, Personal access tokens, Fine-grained tokens, Generate new token. Select only this repository and set Contents to Read and write. Paste the token (`github_pat_...`) into the dashboard. It is stored only in that browser.
 

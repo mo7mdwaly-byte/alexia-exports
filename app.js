@@ -252,6 +252,13 @@
     });
   }
 
+  /* language menu: close when clicking elsewhere */
+  var lm = $('.lang-menu');
+  if (lm) {
+    document.addEventListener('click', function (e) { if (lm.open && !lm.contains(e.target)) lm.open = false; });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lm.open = false; });
+  }
+
   /* trade terms tabs */
   var tabs = $$('.tab'), panels = $$('.panel');
   var show = function (i, focus) {

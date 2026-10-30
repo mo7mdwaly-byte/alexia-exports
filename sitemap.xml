@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://mo7mdwaly-byte.github.io/alexia-exports/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mo7mdwaly-byte.github.io/alexia-exports/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://mo7mdwaly-byte.github.io/alexia-exports/ar.html"/></url>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mo7mdwaly-byte.github.io/alexia-exports/ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mo7mdwaly-byte.github.io/alexia-exports/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mo7mdwaly-byte.github.io/alexia-exports/es.html"/>
+  </url>
   <url><loc>https://mo7mdwaly-byte.github.io/alexia-exports/ar.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mo7mdwaly-byte.github.io/alexia-exports/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://mo7mdwaly-byte.github.io/alexia-exports/ar.html"/></url>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mo7mdwaly-byte.github.io/alexia-exports/ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mo7mdwaly-byte.github.io/alexia-exports/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mo7mdwaly-byte.github.io/alexia-exports/es.html"/>
+  </url>
+  <url><loc>https://mo7mdwaly-byte.github.io/alexia-exports/fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mo7mdwaly-byte.github.io/alexia-exports/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mo7mdwaly-byte.github.io/alexia-exports/ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mo7mdwaly-byte.github.io/alexia-exports/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mo7mdwaly-byte.github.io/alexia-exports/es.html"/>
+  </url>
+  <url><loc>https://mo7mdwaly-byte.github.io/alexia-exports/es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mo7mdwaly-byte.github.io/alexia-exports/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mo7mdwaly-byte.github.io/alexia-exports/ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mo7mdwaly-byte.github.io/alexia-exports/fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mo7mdwaly-byte.github.io/alexia-exports/es.html"/>
+  </url>
 </urlset>
