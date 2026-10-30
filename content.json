@@ -2084,7 +2084,7 @@
     }
   ],
   "banner": {
-    "mode": "off",
+    "mode": "fixed",
     "interval": 5,
     "slides": []
   }
