@@ -2086,6 +2086,24 @@
   "banner": {
     "mode": "fixed",
     "interval": 5,
-    "slides": []
+    "slides": [
+      {
+        "type": "video",
+        "src": "videos/banner-mvvd0vnhn4q.mov",
+        "title": {
+          "en": "",
+          "ar": ""
+        },
+        "text": {
+          "en": "",
+          "ar": ""
+        },
+        "cta": {
+          "en": "",
+          "ar": ""
+        },
+        "link": ""
+      }
+    ]
   }
 }
