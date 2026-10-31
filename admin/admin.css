@@ -110,3 +110,16 @@ code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85em;bac
 .tile .badge.vid{position:absolute;top:.35rem;inset-inline-start:.35rem;background:rgba(6,26,68,.8);color:#fff}
 .tile-acts{display:flex;gap:.25rem;justify-content:center;padding:.3rem;background:#fff}
 .tiles>p{grid-column:1/-1}
+
+/* order tab, size selector, product page editor */
+.orows{display:grid;gap:.4rem}
+.orow{display:flex;align-items:center;gap:.5rem;padding:.45rem .6rem;border:1px solid var(--line);border-radius:10px;background:#fff}
+.orow.off{background:#F3F4F7;opacity:.7}
+.orow .n{flex:none;width:1.7rem;height:1.7rem;border-radius:50%;background:#E7EEF9;color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:.8rem}
+.orow .tt{flex:1;min-width:0;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.orow .btn.icon{min-width:2.4rem}
+.size-sel{padding:.3rem;background:#fff;border-top:1px solid var(--line)}
+.size-sel select{min-height:2.1rem;padding:.2rem .4rem;font-size:.8rem}
+.field.sub{border:1px dashed var(--line);border-radius:12px;padding:.7rem;background:#FAFBFE}
+.subrow{border:1px solid var(--line);border-radius:10px;padding:.7rem;margin-bottom:.6rem;background:#fff}
+.sub-item{margin-bottom:.9rem;border-color:#bcd3f3}

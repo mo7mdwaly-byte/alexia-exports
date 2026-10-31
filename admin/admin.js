@@ -7,7 +7,7 @@
   /* ---------- interface language ---------- */
   var I = {
     en: {
-      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', products: 'Products', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
+      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', layout: 'Order', products: 'Products', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
       connectH: 'Connect your website', connectP: 'This dashboard edits your website directly on GitHub. It needs a private access key (token) that only works for this one repository. You create it once.',
       s1: 'Open GitHub in Safari (desktop site) and go to Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.',
       s2: 'Name it “Alexia dashboard”, set expiration to 1 year, and under “Repository access” choose Only select repositories → alexia-exports.',
@@ -32,7 +32,7 @@
       draftFound: 'Found unpublished edits from your last visit. Restore them?', copied: 'Copied', saved: 'Draft saved on this device', langBtn: 'العربية', leave: 'You have unpublished changes.'
     },
     ar: {
-      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', products: 'المنتجات', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
+      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', layout: 'الترتيب', products: 'المنتجات', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
       connectH: 'اربط موقعك', connectP: 'تعدّل هذه اللوحة موقعك مباشرة على GitHub. تحتاج إلى مفتاح وصول خاص (Token) يعمل لهذا المستودع فقط. تنشئه مرة واحدة.',
       s1: 'افتح GitHub في Safari (نسخة الكمبيوتر) ثم Settings ← Developer settings ← Personal access tokens ← Fine-grained tokens ← Generate new token.',
       s2: 'سمِّه “Alexia dashboard” واجعل الصلاحية سنة، وفي “Repository access” اختر Only select repositories ← alexia-exports.',
@@ -67,7 +67,7 @@
   var S = {
     ui: LS.get('alexia_ui') === 'ar' ? 'ar' : 'en',
     cfg: { token: LS.get('alexia_token') || '', repo: LS.get('alexia_repo') || 'mo7mdwaly-byte/alexia-exports', branch: LS.get('alexia_branch') || 'main' },
-    content: null, blobs: {}, original: '', headSha: '', pending: {}, tab: 'overview', open: {}, prev: { lang: 'en', phone: false }, history: null, busy: false, log: ''
+    content: null, blobs: {}, origFiles: {}, sizeMode: (LS.get('alexia_sizemode') === 'original' ? 'original' : 'standard'), original: '', headSha: '', pending: {}, tab: 'overview', open: {}, prev: { lang: 'en', phone: false }, history: null, busy: false, log: ''
   };
   function t(k) { var d = I[S.ui]; return k.split('.').reduce(function (o, p) { return o == null ? o : o[p]; }, d) || k; }
   function normalize(c) {
@@ -80,6 +80,14 @@
       p.image = '';
     });
     [['ui.prev', 'Previous', 'السابق'], ['ui.next', 'Next', 'التالي'], ['ui.slide', 'Slide {n}', 'الشريحة {n}']].forEach(function (d) { if (!c.text[d[0]]) c.text[d[0]] = { en: d[1], ar: d[2] }; });
+    (c.products || []).forEach(function (p) {
+      var d = p.detail = (p.detail && typeof p.detail === 'object') ? p.detail : {};
+      if (!d.origin || typeof d.origin !== 'object') d.origin = { en: 'Egypt', ar: 'مصر', fr: 'Égypte', es: 'Egipto' };
+      if (['yes', 'seasonal', 'no'].indexOf(d.availability) < 0) d.availability = 'yes';
+      ['avail_note', 'long'].forEach(function (k) { if (!d[k] || typeof d[k] !== 'object') d[k] = EMP(); });
+      ['apps', 'specs', 'packaging', 'docs', 'extra'].forEach(function (k) { if (!Array.isArray(d[k])) d[k] = []; });
+    });
+    c.layout = B.layoutOf ? B.layoutOf(c) : (c.layout || []);
     if (B.withDefaults) B.withDefaults(c);
     return c;
   }
@@ -151,6 +159,7 @@
 
   /* ---------- helpers for bilingual objects ---------- */
   var LG = ['en', 'ar', 'fr', 'es'];
+  function L(en, ar) { return S.ui === 'ar' ? ar : en; }
   function EMP() { return { en: '', ar: '', fr: '', es: '' }; }
   function ensureBi(o, k) { if (!o[k] || typeof o[k] !== 'object') o[k] = {}; LG.forEach(function (l) { if (o[k][l] == null) o[k][l] = ''; }); return o[k]; }
   function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'item'; }
@@ -236,16 +245,43 @@
   var MAX_VIDEO = 30 * 1024 * 1024;
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 5); }
   function readB64(file) { return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.onerror = rej; r.readAsDataURL(file); }); }
-  function addMedia(file, base, maxPx) {
+  var MAX_ORIG_IMG = 6 * 1024 * 1024, MAX_DOC = 10 * 1024 * 1024;
+  function addMedia(file, base, maxPx, mode) {
+    mode = mode || S.sizeMode;
     if (/^image\//.test(file.type)) {
-      return resizeImage(file, maxPx).then(function (b64) { var path = 'images/' + slug(base) + '-' + uid() + '.jpg'; S.pending[path] = b64; return { type: 'image', src: path }; });
+      var keep = mode === 'original' && file.size <= MAX_ORIG_IMG && /^image\/(jpeg|png|webp|gif)$/.test(file.type);
+      if (keep) {
+        var ext = file.type === 'image/png' ? 'png' : file.type === 'image/webp' ? 'webp' : file.type === 'image/gif' ? 'gif' : 'jpg';
+        return readB64(file).then(function (b64) { var path = 'images/' + slug(base) + '-' + uid() + '.' + ext; S.pending[path] = b64; S.blobs[path] = URL.createObjectURL(file); S.origFiles[path] = file; return { type: 'image', src: path, size: 'original' }; });
+      }
+      return resizeImage(file, mode === 'original' ? 2800 : maxPx).then(function (b64) { var path = 'images/' + slug(base) + '-' + uid() + '.jpg'; S.pending[path] = b64; S.origFiles[path] = file; return { type: 'image', src: path, size: mode }; });
     }
     if (/^video\//.test(file.type)) {
       if (file.size > MAX_VIDEO) return Promise.reject(new Error('big'));
-      var ext = file.type === 'video/webm' ? 'webm' : file.type === 'video/quicktime' ? 'mov' : 'mp4';
-      return readB64(file).then(function (b64) { var path = 'videos/' + slug(base) + '-' + uid() + '.' + ext; S.pending[path] = b64; S.blobs[path] = URL.createObjectURL(file); return { type: 'video', src: path }; });
+      var vext = file.type === 'video/webm' ? 'webm' : file.type === 'video/quicktime' ? 'mov' : 'mp4';
+      return readB64(file).then(function (b64) { var path = 'videos/' + slug(base) + '-' + uid() + '.' + vext; S.pending[path] = b64; S.blobs[path] = URL.createObjectURL(file); return { type: 'video', src: path, size: mode }; });
     }
     return Promise.reject(new Error('type'));
+  }
+  function rerender() { var y = window.scrollY; render(); try { window.scrollTo(0, y); } catch (e) {} }
+  /* per-file size choice: keep the uploaded size/proportions, or the dashboard standard frame */
+  function sizeSel(m, base, max) {
+    var sel = h('select', { 'aria-label': L('Size', 'الحجم') });
+    [['standard', L('Dashboard standard size', 'حجم لوحة التحكم القياسي')], ['original', L('Keep same uploaded size', 'الحفاظ على حجم الرفع')]].forEach(function (o) { var op = h('option', { value: o[0] }, o[1]); if ((m.size || 'standard') === o[0]) op.selected = true; sel.appendChild(op); });
+    sel.addEventListener('change', function () {
+      var mode = sel.value, f = S.origFiles[m.src];
+      if (f && m.type === 'image') {
+        addMedia(f, base, max, mode).then(function (it) { dropMedia(m.src); delete S.origFiles[m.src]; m.src = it.src; m.size = mode; touch(); rerender(); }, mediaError);
+      } else { m.size = mode; touch(); rerender(); }
+    });
+    return h('div', { class: 'size-sel' }, sel);
+  }
+  function sizeDefaultBar() {
+    var bar = h('div', { class: 'chips', style: 'margin:.2rem 0 .6rem;align-items:center' }, h('span', { class: 'small muted' }, L('New uploads:', 'الرفع الجديد:')));
+    [['standard', L('Dashboard standard size', 'حجم لوحة التحكم القياسي')], ['original', L('Keep same uploaded size', 'الحفاظ على حجم الرفع')]].forEach(function (o) {
+      bar.appendChild(h('button', { class: 'chip', type: 'button', 'aria-pressed': S.sizeMode === o[0] ? 'true' : 'false', onclick: function () { S.sizeMode = o[0]; LS.set('alexia_sizemode', o[0]); rerender(); } }, o[1]));
+    });
+    return bar;
   }
   function dropMedia(path) { delete S.pending[path]; if (S.blobs[path]) { try { URL.revokeObjectURL(S.blobs[path]); } catch (e) {} delete S.blobs[path]; } }
   function mediaError(e) { alert(e && e.message === 'big' ? t('videoTooBig') : e && e.message === 'type' ? t('badMedia') : 'Error'); }
@@ -255,18 +291,19 @@
     inp.addEventListener('change', function () { var fs = Array.prototype.slice.call(inp.files); inp.remove(); if (fs.length) onFiles(fs); });
     inp.click();
   }
-  function mediaTile(m, ctl) {
+  function mediaTile(m, ctl, sz) {
     var vis = m.type === 'video' ? h('video', { src: imgUrl(m.src) + '#t=0.1', muted: true, playsinline: true, preload: 'metadata' }) : h('img', { src: imgUrl(m.src), alt: '' });
-    return h('div', { class: 'tile' }, vis, m.type === 'video' ? h('span', { class: 'badge vid' }, '▶ ' + t('videoBadge')) : null, h('div', { class: 'tile-acts' }, ctl));
+    return h('div', { class: 'tile' }, vis, m.type === 'video' ? h('span', { class: 'badge vid' }, '▶ ' + t('videoBadge')) : null, h('div', { class: 'tile-acts' }, ctl), sz || null);
   }
   function photoField(obj, key) {
     var wrap = h('div', { class: 'field' }, h('span', { class: 'lbl' }, t('photo')));
-    if (obj[key]) wrap.appendChild(h('div', { class: 'tiles' }, mediaTile({ type: 'image', src: obj[key] }, [])));
+    if (obj[key]) wrap.appendChild(h('div', { class: 'tiles' }, mediaTile({ type: 'image', src: obj[key] }, [], sizeSel(obj, 'pack', 1200))));
     wrap.appendChild(h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap' },
       h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
-        pickFiles('image/*', false, function (files) { addMedia(files[0], 'pack', 1200).then(function (it) { if (obj[key]) dropMedia(obj[key]); obj[key] = it.src; touch(); render(); }, mediaError); });
+        pickFiles('image/*', false, function (files) { addMedia(files[0], 'pack', 1200).then(function (it) { if (obj[key]) dropMedia(obj[key]); obj[key] = it.src; obj.size = it.size; touch(); render(); }, mediaError); });
       } }, t('upload')),
       obj[key] ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () { dropMedia(obj[key]); obj[key] = ''; touch(); render(); } }, t('removePhoto')) : null));
+    wrap.appendChild(sizeDefaultBar());
     return wrap;
   }
   function mediaEditor(owner, key, o) {
@@ -276,7 +313,7 @@
       grid.appendChild(mediaTile(m, [
         h('button', { class: 'btn sm ghost icon', type: 'button', 'aria-label': t('earlier'), title: t('earlier'), onclick: function () { if (move(list, i, -1)) { touch(); render(); } } }, '←'),
         h('button', { class: 'btn sm ghost icon', type: 'button', 'aria-label': t('later'), title: t('later'), onclick: function () { if (move(list, i, 1)) { touch(); render(); } } }, '→'),
-        h('button', { class: 'btn sm danger icon', type: 'button', 'aria-label': t('remove'), title: t('remove'), onclick: function () { dropMedia(m.src); list.splice(i, 1); touch(); render(); } }, '✕')]));
+        h('button', { class: 'btn sm danger icon', type: 'button', 'aria-label': t('remove'), title: t('remove'), onclick: function () { dropMedia(m.src); list.splice(i, 1); touch(); render(); } }, '✕')], sizeSel(m, o.base, o.max)));
     });
     if (!list.length) grid.appendChild(h('p', { class: 'muted small' }, t('noMedia')));
     var add = function (accept, multiple) {
@@ -291,7 +328,8 @@
     wrap.appendChild(h('div', { class: 'acts', style: 'display:flex;gap:.5rem;flex-wrap:wrap;align-items:center' },
       h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { add('image/*', true); } }, '+ ' + t('addPhotos')),
       o.video === false ? null : h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { add('video/mp4,video/webm,video/quicktime,video/*', false); } }, '+ ' + t('addVideo')), status));
-    wrap.appendChild(h('p', { class: 'hint' }, t('mediaHint')));
+    wrap.appendChild(sizeDefaultBar());
+    wrap.appendChild(h('p', { class: 'hint' }, t('mediaHint') + ' ' + L('“Keep same uploaded size” shows the whole picture without cropping; “Dashboard standard size” fills the standard frame.', '«الحفاظ على حجم الرفع» يعرض الصورة كاملة دون قص، و«حجم لوحة التحكم القياسي» يملأ الإطار القياسي.')));
     return wrap;
   }
   function imgUrl(p) {
@@ -408,6 +446,7 @@
     search.addEventListener('input', function () { S.pq = search.value; paint(); });
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.products')), h('button', { class: 'btn gold', type: 'button', onclick: function () {
       var p = { id: uniqueId('new-product'), group: (c.lists.groups.filter(function (g) { return g.id !== 'all'; })[0] || { id: 'fresh' }).id, icon: 'citrus', image: '', media: [], hidden: false, discuss: false, name: EMP(), desc: EMP(), tags: { en: [], ar: [], fr: [], es: [] } };
+      normalize({ products: [p], text: {}, lists: {}, company: {}, banner: {} });
       c.products.unshift(p); S.open['p:' + p.id] = true; S.pq = ''; touch(); render();
     } }, '+ ' + t('addProduct'))));
     box.appendChild(h('div', { class: 'field' }, search));
@@ -415,6 +454,68 @@
     return box;
   };
   function uniqueId(base) { var ids = S.content.products.map(function (p) { return p.id; }), id = base, n = 2; while (ids.indexOf(id) > -1) id = base + '-' + n++; return id; }
+
+  /* ---------- product page editor ---------- */
+  function rowsEditor(owner, key, title, hint, make, fields, base) {
+    var arr = owner[key], wrap = h('div', { class: 'field sub' });
+    wrap.appendChild(h('span', { class: 'lbl' }, title));
+    if (hint) wrap.appendChild(h('p', { class: 'hint' }, hint));
+    arr.forEach(function (it, i) {
+      var inner = h('div', { class: 'subrow' });
+      fields.forEach(function (f) {
+        if (f.type === 'bi') inner.appendChild(biField(it, f.k, f.label));
+        else if (f.type === 'bit') inner.appendChild(biField(it, f.k, f.label, true));
+        else if (f.type === 'doc') inner.appendChild(docField(it, base));
+      });
+      inner.appendChild(rowActions(arr, i, function () { touch(); rerender(); }, { onDelete: function () { if (it.src) dropMedia(it.src); } }));
+      wrap.appendChild(inner);
+    });
+    wrap.appendChild(h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { arr.push(make()); touch(); rerender(); } }, '+ ' + L('Add', 'إضافة')));
+    return wrap;
+  }
+  function docField(it, base) {
+    var box = h('div', { class: 'field' }, h('span', { class: 'lbl' }, L('File (PDF) or link', 'الملف (PDF) أو رابط')));
+    var name = it.src ? (it.src.indexOf('docs/') === 0 ? it.src.slice(5) : it.src) : L('No file yet', 'لا يوجد ملف بعد');
+    box.appendChild(h('p', { class: 'small', style: 'margin:.1rem 0 .4rem;word-break:break-all' }, (it.src ? '📄 ' : '') + name));
+    box.appendChild(h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap' },
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
+        pickFiles('application/pdf,.pdf,image/*', false, function (files) {
+          var f = files[0];
+          if (f.size > MAX_DOC) { alert(L('This file is larger than 10 MB. Please compress it.', 'حجم الملف أكبر من 10 ميجابايت. يرجى ضغطه.')); return; }
+          var ext = /pdf/i.test(f.type) || /\.pdf$/i.test(f.name) ? 'pdf' : (f.type === 'image/png' ? 'png' : 'jpg');
+          readB64(f).then(function (b64) {
+            if (it.src) dropMedia(it.src);
+            var path = 'docs/' + slug(base + '-' + (it.label && it.label.en || 'doc')) + '-' + uid() + '.' + ext;
+            S.pending[path] = b64; S.blobs[path] = URL.createObjectURL(f); it.src = path; touch(); rerender();
+          });
+        });
+      } }, L('Upload file', 'رفع ملف')),
+      it.src ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () { dropMedia(it.src); it.src = ''; touch(); rerender(); } }, L('Remove file', 'حذف الملف')) : null));
+    var link = h('input', { type: 'url', dir: 'ltr', placeholder: 'https://…', value: it.src && it.src.indexOf('docs/') !== 0 ? it.src : '', style: 'margin-top:.4rem', 'aria-label': 'URL' });
+    link.addEventListener('input', function () { if (it.src && it.src.indexOf('docs/') === 0) dropMedia(it.src); it.src = link.value.trim(); touch(); });
+    box.appendChild(link);
+    return box;
+  }
+  function productPageEditor(p) {
+    var d = p.detail, body = [];
+    var availSel = h('select');
+    [['yes', L('Available', 'متوفر')], ['seasonal', L('Seasonal', 'موسمي')], ['no', L('Not available now', 'غير متوفر حاليًا')]].forEach(function (o) { var op = h('option', { value: o[0] }, o[1]); if (d.availability === o[0]) op.selected = true; availSel.appendChild(op); });
+    availSel.addEventListener('change', function () { d.availability = availSel.value; touch(); });
+    body.push(boolField(p, 'nopage', L('Do NOT create a separate page for this product', 'عدم إنشاء صفحة مستقلة لهذا المنتج')));
+    body.push(h('p', { class: 'hint' }, L('The page shows the product name, the photos and videos above (gallery), the short description above, and its category. Fill in the rest here. Empty parts are not shown.', 'تعرض الصفحة اسم المنتج والصور والفيديوهات أعلاه (المعرض) والوصف المختصر والفئة. املأ الباقي هنا. الأجزاء الفارغة لا تظهر.')));
+    body.push(biField(d, 'origin', L('Country of origin', 'بلد المنشأ')));
+    body.push(h('div', { class: 'field' }, h('label', null, L('Availability', 'التوفر')), availSel));
+    body.push(biField(d, 'avail_note', L('Availability note (optional, e.g. Nov – Apr)', 'ملاحظة التوفر (اختياري، مثل: نوفمبر – أبريل)')));
+    body.push(biField(d, 'long', L('Detailed description (optional)', 'وصف تفصيلي (اختياري)'), true));
+    body.push(rowsEditor(d, 'apps', L('Main applications', 'الاستخدامات الرئيسية'), '', function () { return { text: EMP() }; }, [{ k: 'text', type: 'bi', label: L('Application', 'الاستخدام') }], p.id));
+    body.push(rowsEditor(d, 'specs', L('Specifications (table)', 'المواصفات (جدول)'), L('Example: Size · 60–80 mm, Shelf life · 45 days, Brix · 11–13. Only add values you can confirm.', 'مثال: الحجم · 60–80 مم، فترة الصلاحية · 45 يومًا. أضف فقط القيم التي تستطيع تأكيدها.'), function () { return { label: EMP(), value: EMP() }; }, [{ k: 'label', type: 'bi', label: L('Name', 'الاسم') }, { k: 'value', type: 'bi', label: L('Value', 'القيمة') }], p.id));
+    body.push(rowsEditor(d, 'packaging', L('Packaging (table)', 'التعبئة (جدول)'), L('Example: Carton · 4 kg, Pallet · 120 cartons.', 'مثال: كرتونة · 4 كجم، بالتة · 120 كرتونة.'), function () { return { label: EMP(), value: EMP() }; }, [{ k: 'label', type: 'bi', label: L('Type', 'النوع') }, { k: 'value', type: 'bi', label: L('Details', 'التفاصيل') }], p.id));
+    body.push(rowsEditor(d, 'docs', L('Documents (TDS, COA, catalogues…)', 'المستندات (TDS، COA، كتالوجات…)'), L('Name each file, e.g. “Technical Data Sheet (TDS)” or “Certificate of Analysis (COA)”. PDF up to 10 MB.', 'سمِّ كل ملف، مثل «ورقة البيانات الفنية (TDS)» أو «شهادة التحليل (COA)». PDF حتى 10 ميجابايت.'), function () { return { label: EMP(), src: '' }; }, [{ k: 'label', type: 'bi', label: L('Document name', 'اسم المستند') }, { type: 'doc' }], p.id));
+    body.push(rowsEditor(d, 'extra', L('Extra sections (anything you want)', 'أقسام إضافية (أي شيء تريده)'), L('Each one becomes its own heading and paragraph on the page, e.g. Storage, Shipping, Quality control.', 'كل قسم يصبح عنوانًا وفقرة في الصفحة، مثل التخزين أو الشحن أو مراقبة الجودة.'), function () { return { title: EMP(), text: EMP() }; }, [{ k: 'title', type: 'bi', label: L('Heading', 'العنوان') }, { k: 'text', type: 'bit', label: L('Text', 'النص') }], p.id));
+    var pg = h('details', { class: 'item sub-item' }, h('summary', null, h('span', { class: 'tt' }, '📄 ' + L('Product page details', 'تفاصيل صفحة المنتج'))), h('div', { class: 'body' }, body));
+    var key = 'pg:' + p.id; if (S.open[key]) pg.open = true; pg.addEventListener('toggle', function () { S.open[key] = pg.open; });
+    return pg;
+  }
   function productItem(p, i) {
     var c = S.content;
     var thumb = h('span', { class: 'thumb' });
@@ -437,15 +538,61 @@
     sel.addEventListener('change', function () { p.group = sel.value; touch(); });
     body.push(h('div', { class: 'field' }, h('label', null, t('group')), sel));
     body.push(iconPicker(p, 'icon', B.ICON_NAMES, false));
-    body.push(mediaEditor(p, 'media', { base: p.id, max: 1000 }));
+    body.push(mediaEditor(p, 'media', { base: p.id, max: 1400 }));
+    body.push(productPageEditor(p));
     body.push(boolField(p, 'hidden', t('hideP')));
     body.push(boolField(p, 'discuss', t('discussP')));
     body.push(rowActions(c.products, i, function () { touch(); render(); }, { dup: function () {
-      var cp = JSON.parse(JSON.stringify(p)); cp.id = uniqueId(p.id); cp.image = ''; cp.media = (p.media || []).map(function (m) { return { type: m.type, src: m.src }; }); cp.name.en += ' (copy)'; c.products.splice(i + 1, 0, cp); S.open['p:' + cp.id] = true; touch(); render();
+      var cp = JSON.parse(JSON.stringify(p)); cp.id = uniqueId(p.id); cp.image = ''; cp.media = (p.media || []).map(function (m) { return { type: m.type, src: m.src }; }); cp.name.en += ' (copy)'; (cp.detail && cp.detail.docs || []).forEach(function (x) { if (x.src && x.src.indexOf('docs/') === 0) x.src = ''; }); c.products.splice(i + 1, 0, cp); S.open['p:' + cp.id] = true; touch(); render();
     } }));
     return detailsItem('p:' + p.id, sum, body);
   }
 
+
+
+  /* ---------- order of everything ---------- */
+  var SEC_LABELS = { hero: ['Hero (top of page)', 'الواجهة الرئيسية'], trust: ['Trust highlights', 'مزايا الثقة'], banner: ['Banner', 'البانر'], products: ['Products', 'المنتجات'], seasons: ['Seasons calendar', 'تقويم المواسم'], certs: ['Quality assurance', 'ضمان الجودة'], about: ['About us', 'من نحن'], process: ['How we work', 'طريقة عملنا'], packing: ['Packing solutions', 'حلول التعبئة'], terms: ['Trade terms', 'شروط التجارة'], faq: ['FAQ', 'الأسئلة الشائعة'], partner: ['Distribution partner', 'شريك التوزيع'], contact: ['Contact & enquiry form', 'التواصل ونموذج الاستفسار'] };
+  function orderRows(arr, label, o) {
+    o = o || {};
+    var box = h('div', { class: 'orows' });
+    arr.forEach(function (x, i) {
+      var off = o.isOff && o.isOff(x);
+      var lab; try { lab = label(x, i) || '—'; } catch (e) { lab = '—'; }
+      var row = h('div', { class: 'orow' + (off ? ' off' : '') }, h('span', { class: 'n' }, String(i + 1)), h('span', { class: 'tt' }, lab));
+      if (o.toggle) row.appendChild(h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { o.toggle(x); touch(); rerender(); } }, off ? L('Show', 'إظهار') : L('Hide', 'إخفاء')));
+      row.appendChild(h('button', { class: 'btn sm ghost icon', type: 'button', disabled: i === 0 ? true : null, 'aria-label': L('Move up', 'تحريك لأعلى'), title: L('Move up', 'تحريك لأعلى'), onclick: function () { if (move(arr, i, -1)) { touch(); rerender(); } } }, '↑'));
+      row.appendChild(h('button', { class: 'btn sm ghost icon', type: 'button', disabled: i === arr.length - 1 ? true : null, 'aria-label': L('Move down', 'تحريك لأسفل'), title: L('Move down', 'تحريك لأسفل'), onclick: function () { if (move(arr, i, 1)) { touch(); rerender(); } } }, '↓'));
+      box.appendChild(row);
+    });
+    return box;
+  }
+  function orderGroup(id, title, count, body, openByDefault) {
+    var d = h('details', { class: 'item' }, h('summary', null, h('span', { class: 'tt' }, title), h('span', { class: 'meta' }, String(count))), h('div', { class: 'body' }, body));
+    if (S.open[id] == null) S.open[id] = !!openByDefault;
+    if (S.open[id]) d.open = true;
+    d.addEventListener('toggle', function () { S.open[id] = d.open; });
+    return d;
+  }
+  VIEWS.layout = function () {
+    var c = S.content, box = h('div');
+    box.appendChild(h('div', { class: 'head' }, h('h2', null, L('Order of everything', 'ترتيب كل شيء'))));
+    box.appendChild(h('p', { class: 'hint' }, L('Use ↑ and ↓ to move anything up or down. Changes show in Preview and go live when you publish.', 'استخدم ↑ و↓ لنقل أي عنصر لأعلى أو لأسفل. تظهر التغييرات في المعاينة وتُنشر عند الضغط على نشر.')));
+    box.appendChild(orderGroup('o:sections', L('Website sections (top to bottom)', 'أقسام الموقع (من الأعلى للأسفل)'), c.layout.length,
+      h('div', null, h('p', { class: 'hint' }, L('Hidden sections are removed from the page. If you hide a section, also remove its menu link.', 'الأقسام المخفية تُزال من الصفحة. إذا أخفيت قسمًا فاحذف رابطه من القائمة أيضًا.')),
+        orderRows(c.layout, function (x) { var l = SEC_LABELS[x.id] || [x.id, x.id]; return L(l[0], l[1]); }, { isOff: function (x) { return x.hidden; }, toggle: function (x) { x.hidden = !x.hidden; } })), true));
+    box.appendChild(orderGroup('o:nav', L('Menu links (header)', 'روابط القائمة (الهيدر)'), c.lists.nav.length, orderRows(c.lists.nav, function (x) { return x.label.en; })));
+    box.appendChild(orderGroup('o:banner', L('Banner slides', 'شرائح البانر'), c.banner.slides.length, c.banner.slides.length > 1 ? orderRows(c.banner.slides, function (x, i) { return (x.title && x.title.en) || (L('Slide ', 'شريحة ') + (i + 1) + ' · ' + (x.type === 'video' ? L('video', 'فيديو') : L('photo', 'صورة'))); }) : h('p', { class: 'muted' }, L('Add at least two slides to reorder them.', 'أضف شريحتين على الأقل لإعادة الترتيب.'))));
+    box.appendChild(orderGroup('o:products', L('Products', 'المنتجات'), c.products.length, orderRows(c.products, function (x) { return x.name.en || x.id; }, { isOff: function (x) { return x.hidden; } })));
+    box.appendChild(orderGroup('o:cats', L('Product categories (filter buttons)', 'فئات المنتجات (أزرار التصفية)'), c.lists.groups.length, orderRows(c.lists.groups, function (x) { return x.label.en; })));
+    box.appendChild(orderGroup('o:seasons', L('Seasons calendar rows', 'صفوف تقويم المواسم'), c.seasons.length, orderRows(c.seasons, function (x) { return x.name.en; })));
+    BLOCKS.forEach(function (def) {
+      if (['nav', 'groups', 'segments'].indexOf(def.key) > -1) return;
+      var arr = c.lists[def.key] || [];
+      if (arr.length < 2) return;
+      box.appendChild(orderGroup('o:' + def.key, def.title, arr.length, orderRows(arr, def.sum)));
+    });
+    return box;
+  };
 
   VIEWS.banner = function () {
     var b = S.content.banner, box = h('div'), slides = b.slides;
@@ -464,21 +611,22 @@
       return h('button', { class: 'btn gold sm', type: 'button', onclick: function () {
         pickFiles(accept, false, function (files) {
           addMedia(files[0], 'banner', 1920).then(function (it) {
-            slides.push({ type: it.type, src: it.src, title: EMP(), text: EMP(), cta: EMP(), link: '' });
+            slides.push({ type: it.type, src: it.src, size: it.size, title: EMP(), text: EMP(), cta: EMP(), link: '' });
             S.open['bn:' + (slides.length - 1)] = true; touch(); render();
           }, mediaError);
         });
       } }, '+ ' + label);
     };
+    box.appendChild(sizeDefaultBar());
     var bar = h('div', { class: 'head' }, addBtn(t('addSlidePhoto'), 'image/*'), addBtn(t('addSlideVideo'), 'video/mp4,video/webm,video/quicktime,video/*'));
     box.appendChild(bar);
     if (!slides.length) box.appendChild(h('p', { class: 'muted' }, t('noSlides')));
     slides.forEach(function (sl, i) {
-      var tile = mediaTile(sl, []);
+      var tile = mediaTile(sl, [], sizeSel(sl, 'banner', 1920));
       var body = [h('div', { class: 'tiles', style: 'margin-bottom:.8rem' }, tile,
         h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
           pickFiles('image/*,video/mp4,video/webm,video/quicktime,video/*', false, function (files) {
-            addMedia(files[0], 'banner', 1920).then(function (it) { dropMedia(sl.src); sl.type = it.type; sl.src = it.src; touch(); render(); }, mediaError);
+            addMedia(files[0], 'banner', 1920).then(function (it) { dropMedia(sl.src); sl.type = it.type; sl.src = it.src; sl.size = it.size; touch(); render(); }, mediaError);
           });
         } }, t('replaceMedia'))),
         biField(sl, 'title', t('headline')), biField(sl, 'text', t('subtext')), biField(sl, 'cta', t('btnText')), strField(sl, 'link', t('btnLink'), { dir: 'ltr' }),
@@ -621,21 +769,29 @@
     function paint() {
       try {
         var files = B.build(S.content, { imageSrc: imgUrl });
-        var html = files[B.LANGS[P.lang] ? B.LANGS[P.lang].file : 'index.html'] || files['index.html'];
-        var inject = '<base href="' + B.esc(siteRoot()) + '"><script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;var hr=a.getAttribute("href")||"";if(hr.charAt(0)==="#"){e.preventDefault();var el=document.getElementById(hr.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});}else if(a.classList.contains("lang-link")){e.preventDefault();parent.postMessage({alexiaLang:a.getAttribute("hreflang")},"*");}},true);<\/script>';
+        var fname = (P.page && P.page !== 'home') ? 'product-' + P.page + (P.lang === 'en' ? '' : '-' + P.lang) + '.html' : (B.LANGS[P.lang] ? B.LANGS[P.lang].file : 'index.html');
+        var html = files[fname] || files[B.LANGS[P.lang] ? B.LANGS[P.lang].file : 'index.html'] || files['index.html'];
+        var inject = '<base href="' + B.esc(siteRoot()) + '"><script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;var hr=a.getAttribute("href")||"";if(hr.charAt(0)==="#"){e.preventDefault();var el=document.getElementById(hr.slice(1));if(el)el.scrollIntoView({behavior:"smooth"});}else if(/^[A-Za-z0-9_.\-]+\.html(#.*)?$/.test(hr)){e.preventDefault();parent.postMessage({alexiaHref:hr.split("#")[0]},"*");}},true);<\/script>';
         frame.srcdoc = html.replace('<head>', '<head>' + inject);
       } catch (e) { frame.srcdoc = '<p style="font:16px sans-serif;padding:1rem">Preview error: ' + B.esc(e.message) + '</p>'; }
     }
     function seg(label, active, fn) { return h('button', { class: 'chip', type: 'button', 'aria-pressed': active ? 'true' : 'false', onclick: fn }, label); }
     box.appendChild(h('div', { class: 'head' }, h('h2', null, t('previewH')),
       h('div', { class: 'chips' }, (S.content.languages || LG).map(function (l) { return seg(l.toUpperCase(), P.lang === l, function () { P.lang = l; render(); }); }),
+        (function () { var sel = h('select', { 'aria-label': L('Page', 'الصفحة'), style: 'width:auto;min-height:2.2rem;padding:.2rem .5rem' }); sel.appendChild(h('option', { value: 'home' }, L('Home page', 'الصفحة الرئيسية'))); S.content.products.filter(function (x) { return !x.hidden && !x.nopage; }).forEach(function (x) { var o = h('option', { value: x.id }, x.name.en || x.id); if (P.page === x.id) o.selected = true; sel.appendChild(o); }); sel.addEventListener('change', function () { P.page = sel.value; render(); }); return sel; })(),
         seg(t('phone'), P.phone, function () { P.phone = true; render(); }), seg(t('desktop'), !P.phone, function () { P.phone = false; render(); }),
         h('button', { class: 'chip', type: 'button', onclick: paint }, '↻ ' + t('refresh')))));
     box.appendChild(h('p', { class: 'hint' }, t('previewHint')));
     box.appendChild(wrap); paint();
     return box;
   };
-  window.addEventListener('message', function (e) { if (e.data && e.data.alexiaLang && S.tab === 'preview') { S.prev.lang = LG.indexOf(e.data.alexiaLang) > -1 ? e.data.alexiaLang : 'en'; render(); } });
+  window.addEventListener('message', function (e) {
+    if (!e.data || !e.data.alexiaHref || S.tab !== 'preview') return;
+    var hr = e.data.alexiaHref, c = S.content, found = null;
+    LG.forEach(function (l) { if (B.LANGS[l].file === hr) found = { page: 'home', lang: l }; });
+    c.products.forEach(function (p) { LG.forEach(function (l) { if ('product-' + p.id + (l === 'en' ? '' : '-' + l) + '.html' === hr) found = { page: p.id, lang: l }; }); });
+    if (found) { S.prev.page = found.page; S.prev.lang = found.lang; render(); }
+  });
 
   VIEWS.publish = function () {
     var box = h('div'), n = Object.keys(S.pending).length;
@@ -670,7 +826,10 @@
       files['content.json'] = snapshot;
       return gh('/git/commits/' + headSha);
     }).then(function (cm) {
-      treeSha = cm.tree.sha; var tree = [], names = Object.keys(files), imgs = Object.keys(pend);
+      treeSha = cm.tree.sha;
+      return gh('/git/trees/' + treeSha + '?recursive=1').catch(function () { return null; });
+    }).then(function (old) {
+      var tree = [], names = Object.keys(files), imgs = Object.keys(pend);
       logTo(logEl, '3/6 Uploading ' + (names.length + imgs.length) + ' files…');
       var jobs = names.map(function (nm) { return gh('/git/blobs', { method: 'POST', body: { content: files[nm], encoding: 'utf-8' } }).then(function (b) { tree.push({ path: nm, mode: '100644', type: 'blob', sha: b.sha }); }); })
       ;
@@ -678,7 +837,10 @@
         return imgs.reduce(function (chain, p) {
           return chain.then(function () { logTo(logEl, '   ' + p); return gh('/git/blobs', { method: 'POST', body: { content: pend[p], encoding: 'base64' } }).then(function (b) { tree.push({ path: p, mode: '100644', type: 'blob', sha: b.sha }); }); });
         }, Promise.resolve());
-      }).then(function () { return tree; });
+      }).then(function () {
+        ((old && old.tree) || []).forEach(function (e) { if (e.type === 'blob' && /^product-[^\/]+\.html$/.test(e.path) && !files[e.path]) tree.push({ path: e.path, mode: '100644', type: 'blob', sha: null }); });
+        return tree;
+      });
     }).then(function (tree) {
       logTo(logEl, '4/6 Creating version…');
       return gh('/git/trees', { method: 'POST', body: { base_tree: treeSha, tree: tree } });
@@ -719,7 +881,7 @@
   };
 
   /* ---------- shell ---------- */
-  var TABS = ['overview', 'products', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
+  var TABS = ['overview', 'layout', 'products', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
   function setDir() { document.documentElement.lang = S.ui; document.documentElement.dir = S.ui === 'ar' ? 'rtl' : 'ltr'; }
   function toggleLang() { S.ui = S.ui === 'ar' ? 'en' : 'ar'; LS.set('alexia_ui', S.ui); setDir(); render(); }
 

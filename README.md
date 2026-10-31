@@ -37,3 +37,8 @@ Without the dashboard: edit `content.json`, then run `node tools/build.js` and c
 ## Notes
 - To use a custom domain, add a `CNAME` file, then set the new address in the dashboard under Contact and publish.
 - The seasonal calendar is a rough guide. Check the months before relying on it.
+
+## Order, image size and product pages
+- Dashboard tab **Order**: move homepage sections, menu links, banner slides, products and every list up or down, and hide sections.
+- Every photo/video has a size choice: *Dashboard standard size* (fills the frame) or *Keep same uploaded size* (whole picture, no crop).
+- Every product has its own page (`product-<id>.html`, plus `-ar`, `-fr`, `-es`), edited under *Products → Product page details* (origin, availability, applications, specifications, packaging, TDS/COA documents in `docs/`, extra sections). Pages of deleted products are removed on publish.
