@@ -3350,11 +3350,11 @@
   ],
   "layout": [
     {
-      "id": "hero",
+      "id": "banner",
       "hidden": false
     },
     {
-      "id": "banner",
+      "id": "hero",
       "hidden": false
     },
     {
