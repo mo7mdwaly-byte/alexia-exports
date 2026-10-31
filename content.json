@@ -902,6 +902,132 @@
       "ar": "يختلف نطاق الشهادات وصلاحيتها حسب المصنع والمنتج. المستندات متاحة عند الطلب.",
       "fr": "La portée et la validité des certifications varient selon le site et le produit. Les documents sont disponibles sur demande.",
       "es": "El alcance y la vigencia de las certificaciones varían según la planta y el producto. Los documentos están disponibles previa solicitud."
+    },
+    "pd_view": {
+      "en": "View details",
+      "ar": "عرض التفاصيل",
+      "fr": "Voir les détails",
+      "es": "Ver detalles"
+    },
+    "pd_home": {
+      "en": "Home",
+      "ar": "الرئيسية",
+      "fr": "Accueil",
+      "es": "Inicio"
+    },
+    "pd_back": {
+      "en": "All products",
+      "ar": "كل المنتجات",
+      "fr": "Tous les produits",
+      "es": "Todos los productos"
+    },
+    "pd_cat": {
+      "en": "Category",
+      "ar": "الفئة",
+      "fr": "Catégorie",
+      "es": "Categoría"
+    },
+    "pd_origin": {
+      "en": "Country of origin",
+      "ar": "بلد المنشأ",
+      "fr": "Pays d’origine",
+      "es": "País de origen"
+    },
+    "pd_avail": {
+      "en": "Availability",
+      "ar": "التوفر",
+      "fr": "Disponibilité",
+      "es": "Disponibilidad"
+    },
+    "pd_a_yes": {
+      "en": "Available",
+      "ar": "متوفر",
+      "fr": "Disponible",
+      "es": "Disponible"
+    },
+    "pd_a_seasonal": {
+      "en": "Seasonal",
+      "ar": "موسمي",
+      "fr": "Saisonnier",
+      "es": "De temporada"
+    },
+    "pd_a_no": {
+      "en": "Not available now",
+      "ar": "غير متوفر حاليًا",
+      "fr": "Indisponible actuellement",
+      "es": "No disponible por ahora"
+    },
+    "pd_apps": {
+      "en": "Main applications",
+      "ar": "الاستخدامات الرئيسية",
+      "fr": "Principales applications",
+      "es": "Aplicaciones principales"
+    },
+    "pd_specs": {
+      "en": "Specifications",
+      "ar": "المواصفات",
+      "fr": "Spécifications",
+      "es": "Especificaciones"
+    },
+    "pd_pack": {
+      "en": "Packaging",
+      "ar": "التعبئة",
+      "fr": "Conditionnement",
+      "es": "Embalaje"
+    },
+    "pd_docs": {
+      "en": "Technical documents",
+      "ar": "المستندات الفنية",
+      "fr": "Documents techniques",
+      "es": "Documentos técnicos"
+    },
+    "pd_download": {
+      "en": "Download",
+      "ar": "تحميل",
+      "fr": "Télécharger",
+      "es": "Descargar"
+    },
+    "pd_more": {
+      "en": "More details",
+      "ar": "تفاصيل إضافية",
+      "fr": "Détails complémentaires",
+      "es": "Más detalles"
+    },
+    "pd_gallery": {
+      "en": "Gallery",
+      "ar": "معرض الصور",
+      "fr": "Galerie",
+      "es": "Galería"
+    },
+    "pd_quote": {
+      "en": "Request a quote",
+      "ar": "اطلب عرض سعر",
+      "fr": "Demander un devis",
+      "es": "Solicitar cotización"
+    },
+    "pd_wa": {
+      "en": "Ask on WhatsApp",
+      "ar": "اسأل عبر واتساب",
+      "fr": "Demander sur WhatsApp",
+      "es": "Preguntar por WhatsApp"
+    },
+    "pd_related": {
+      "en": "Other products",
+      "ar": "منتجات أخرى",
+      "fr": "Autres produits",
+      "es": "Otros productos"
+    },
+    "pd_note": {
+      "en": "Specifications are indicative and are confirmed in each offer.",
+      "ar": "المواصفات استرشادية وتُؤكَّد في كل عرض سعر.",
+      "fr": "Les spécifications sont indicatives et confirmées dans chaque offre.",
+      "es": "Las especificaciones son orientativas y se confirman en cada oferta."
+    },
+    "pd_wa_msg": {
+      "en": "Hello ALEXIA EXPORTS, I would like information about: {p}",
+      "ar": "مرحبًا ALEXIA EXPORTS، أرغب في معلومات عن: {p}",
+      "fr": "Bonjour ALEXIA EXPORTS, je souhaite des informations sur : {p}",
+      "es": "Hola ALEXIA EXPORTS, me gustaría recibir información sobre: {p}"
     }
   },
   "lists": {
@@ -2032,7 +2158,33 @@
           "type": "image",
           "src": "images/citrus-mvhq2l7q.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "grapes",
@@ -2084,7 +2236,33 @@
           "type": "image",
           "src": "images/grapes-mvhxuu92.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "fruits",
@@ -2136,7 +2314,33 @@
           "type": "image",
           "src": "images/fruits-mvhzxp3yc8e.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "veg",
@@ -2188,7 +2392,33 @@
           "type": "image",
           "src": "images/veg-mvhzxyvxvbg.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "olives",
@@ -2240,7 +2470,33 @@
           "type": "image",
           "src": "images/olives-mvhzy8cnmoi.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "oils",
@@ -2288,7 +2544,33 @@
           "type": "image",
           "src": "images/oils-mvhzyhx3ket.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "frozen",
@@ -2348,7 +2630,33 @@
           "type": "image",
           "src": "images/frozen-mvi06qiwe5g.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "dates",
@@ -2456,7 +2764,33 @@
           "type": "image",
           "src": "images/dates-mvifyx919tt.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "salt",
@@ -2499,7 +2833,33 @@
           "Granel / sacos"
         ]
       },
-      "media": []
+      "media": [],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "ingr",
@@ -2575,7 +2935,33 @@
           "type": "image",
           "src": "images/ingr-mvruoe3t6ix.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "processed",
@@ -2647,7 +3033,33 @@
           "type": "image",
           "src": "images/processed-mvvk7lwwaih.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     },
     {
       "id": "dairy",
@@ -2691,7 +3103,33 @@
           "type": "image",
           "src": "images/dairy-mvvk70shdyh.jpg"
         }
-      ]
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
     }
   ],
   "seasons": [
@@ -2909,5 +3347,59 @@
     "ar",
     "fr",
     "es"
+  ],
+  "layout": [
+    {
+      "id": "hero",
+      "hidden": false
+    },
+    {
+      "id": "banner",
+      "hidden": false
+    },
+    {
+      "id": "trust",
+      "hidden": false
+    },
+    {
+      "id": "products",
+      "hidden": false
+    },
+    {
+      "id": "seasons",
+      "hidden": false
+    },
+    {
+      "id": "certs",
+      "hidden": false
+    },
+    {
+      "id": "about",
+      "hidden": false
+    },
+    {
+      "id": "process",
+      "hidden": false
+    },
+    {
+      "id": "packing",
+      "hidden": false
+    },
+    {
+      "id": "terms",
+      "hidden": false
+    },
+    {
+      "id": "faq",
+      "hidden": false
+    },
+    {
+      "id": "partner",
+      "hidden": false
+    },
+    {
+      "id": "contact",
+      "hidden": false
+    }
   ]
 }
