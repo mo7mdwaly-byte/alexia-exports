@@ -513,3 +513,17 @@ html[lang="fr"] nav.main a.nl,html[lang="es"] nav.main a.nl{font-size:.88rem;pad
 .mc.banner-mc.banner-full{width:100%;border-radius:0;box-shadow:none;aspect-ratio:var(--ar,3/4);max-height:none}
 .banner-full .mc-slide img,.banner-full .mc-slide video,.banner-full .mc-slide.fit-orig img,.banner-full .mc-slide.fit-orig video{object-fit:cover}
 @media (min-width:900px){.mc.banner-mc.banner-full{aspect-ratio:16/9;max-height:min(80vh,760px)}}
+
+/* social links */
+.social{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:1rem 0 0}
+.social a{width:2.7rem;height:2.7rem;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);color:#fff;transition:background .2s,color .2s,transform .2s}
+.social a svg{width:1.25rem;height:1.25rem}
+.social a:hover,.social a:focus-visible{background:var(--gold,#C9971C);border-color:var(--gold,#C9971C);color:#1a1200;transform:translateY(-2px)}
+.follow{margin-top:1.2rem}
+.follow>b{display:block;color:var(--navy);font-size:.95rem}
+.follow .social{margin-top:.6rem}
+.follow .social a{border-color:var(--navy);color:var(--navy)}
+.follow .social a:hover,.follow .social a:focus-visible{background:var(--navy);color:#fff;border-color:var(--navy)}
+footer.site .fbrand .social{display:flex;flex-direction:row;flex-wrap:wrap;gap:.5rem}
+footer.site .social li{margin:0;padding:0;display:block}
+footer.site .fbrand .social{margin-top:1rem}

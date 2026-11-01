@@ -23,6 +23,14 @@
   };
   var SMALL = {
     leaf: '<path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19c4-4 7-7 11-9"/>',
+    facebook: '<path d="M14 8.5h3V4.5h-3a4 4 0 0 0-4 4V11H7v4h3v6h4v-6h3l1-4h-4V9a.5.5 0 0 1 .5-.5z"/>',
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',
+    youtube: '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/>',
+    linkedin: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.6v.01M12 16v-5.5M12 13a2.5 2.5 0 0 1 5 0v3"/>',
+    x: '<path d="M4 4l16 16M20 4L4 20"/>',
+    tiktok: '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.3 2.5 2 4.2 5 4.5"/>',
+    telegram: '<path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l12-9"/>',
+    pinterest: '<circle cx="12" cy="12" r="9"/><path d="M11.5 17.5l1.6-7M10 14a3 3 0 1 1 3.2-3"/>',
     globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9z"/>',
     tag: '<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/>',
     shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
@@ -104,6 +112,7 @@
     'msg.city': B2('City', 'المدينة'),
     'msg.volume': B2('Monthly volume', 'الكمية الشهرية'),
     'msg.details': B2('Business details', 'نبذة عن النشاط'),
+    'follow': B4('Follow us', 'تابعنا', 'Suivez-nous', 'Síguenos'),
     'pd_view': B4('View details', 'عرض التفاصيل', 'Voir les détails', 'Ver detalles'),
     'pd_home': B4('Home', 'الرئيسية', 'Accueil', 'Inicio'),
     'pd_back': B4('All products', 'كل المنتجات', 'Tous les produits', 'Todos los productos'),
@@ -168,6 +177,13 @@
   function docLink(u) {
     u = String(u || '').trim();
     return /^(https?:\/\/|docs\/[A-Za-z0-9_.\-]+$)/i.test(u) ? u : '';
+  }
+  var SOCIALS = [['facebook', 'Facebook'], ['instagram', 'Instagram'], ['youtube', 'YouTube'], ['linkedin', 'LinkedIn'], ['x', 'X'], ['tiktok', 'TikTok'], ['telegram', 'Telegram'], ['pinterest', 'Pinterest']];
+  function socialUrl(u) {
+    u = String(u || '').trim();
+    if (!u) return '';
+    if (!/^https?:\/\//i.test(u)) u = 'https://' + u.replace(/^\/+/, '');
+    return /^https?:\/\/[^\s"'<>]+\.[^\s"'<>]+$/i.test(u) ? u : '';
   }
   function arrow() { return sm('arrow', 'arrow'); }
   function ltr(s) { return '<span class="ltr">' + s + '</span>'; }
@@ -307,6 +323,10 @@
             return '<article class="pack">' + img + '<div class="pack-b"><h3>' + esc(pick(pk.title)) + '</h3><p>' + esc(pick(pk.text)) + '</p></div></article>';
           }).join('') + '</div>\n  </div>\n</section>\n\n';
       }
+      var soc = content.company.social || {};
+      var socLinks = SOCIALS.filter(function (x) { return socialUrl(soc[x[0]]); });
+      var socialUl = socLinks.length ? '<ul class="social">' + socLinks.map(function (x) { return '<li><a href="' + esc(socialUrl(soc[x[0]])) + '" target="_blank" rel="noopener me" aria-label="' + x[1] + '" title="' + x[1] + '">' + sm(x[0]) + '</a></li>'; }).join('') + '</ul>' : '';
+      var followHtml = socialUl ? '      <div class="follow"><b>' + esc(T('follow')) + '</b>' + socialUl + '</div>\n' : '';
       var pts = list('partnerpoints');
       var partnerHtml = '<section class="sec partner" id="partner">\n  <div class="wrap partner-wrap">\n    <div><p class="eyebrow">' + esc(T('pt_eye')) + '</p><h2>' + esc(T('pt_h')) + '</h2><p class="lede">' + esc(T('pt_lede')) + '</p>' +
         (pts.length ? '<ul class="checks">' + pts.map(function (x) { return '<li>' + sm('check') + esc(pick(x.text)) + '</li>'; }).join('') + '</ul>' : '') + '</div>\n' +
@@ -364,6 +384,7 @@
       var jsonld = {
         '@context': 'https://schema.org', '@type': 'Organization', name: 'ALEXIA EXPORTS', slogan: T('bar.0'), url: BASE, logo: BASE + 'logo.png',
         email: EMAIL, telephone: PH1T, description: T('jsonld_desc'), address: { '@type': 'PostalAddress', addressCountry: 'EG' },
+        sameAs: socLinks.map(function (x) { return socialUrl(soc[x[0]]); }),
         contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: EMAIL, telephone: PH1T, availableLanguage: enabled.map(function (l) { return LANGS[l].name; }) }]
       };
       var urlOf = function (l) { return prod ? BASE + pfile(prod, l) : (l === 'en' ? BASE : BASE + fileOf(l)); };
@@ -413,7 +434,7 @@
 '        <a class="ccard" href="mailto:' + esc(EMAIL) + '"><span class="ico">' + sm('mail') + '</span><span><small>' + esc(T('c_email')) + '</small><b>' + esc(EMAIL) + '</b></span></a>\n' +
 '        <a class="ccard" href="tel:' + PH1T + '"><span class="ico">' + sm('phone') + '</span><span><small>' + esc(T('c_call')) + '</small><b>' + ltr(esc(PH1)) + '</b></span></a>\n' +
 (PH2 ? '        <a class="ccard" href="tel:' + PH2T + '"><span class="ico">' + sm('phone') + '</span><span><small>' + esc(T('c_more')) + '</small><b>' + ltr(esc(PH2)) + '</b></span></a>\n' : '') +
-'        <div class="ccard"><span class="ico">' + sm('pin') + '</span><span><small>' + esc(T('c_based')) + '</small><b>' + esc(T('c_egypt')) + '</b></span></div>\n      </div>\n    </div>\n' +
+'        <div class="ccard"><span class="ico">' + sm('pin') + '</span><span><small>' + esc(T('c_based')) + '</small><b>' + esc(T('c_egypt')) + '</b></span></div>\n      </div>\n' + followHtml + '    </div>\n' +
 '    <div class="formcard">\n      <h3>' + esc(T('fm_h')) + '</h3>\n      <p>' + esc(T('fm_p')) + '</p>\n      <form id="qform">\n' +
 '        <div class="f"><label for="name">' + esc(T('fl.name')) + '</label><input id="name" name="name" autocomplete="name" required></div>\n' +
 '        <div class="f"><label for="company">' + esc(T('fl.company')) + '</label><input id="company" name="company" autocomplete="organization" required></div>\n' +
@@ -502,7 +523,7 @@ enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" hr
 (enabled.length > 1 ? '    <details class="lang-menu"><summary aria-label="Language">' + sm('globe') + '<span>' + esc(langKey.toUpperCase()) + '</span></summary><ul>' + enabled.filter(function (l) { return l !== langKey; }).map(function (l) { return '<li><a class="lang-link" href="' + (prod ? pfile(prod, l) : fileOf(l)) + '" hreflang="' + l + '" lang="' + l + '">' + esc(LANGS[l].label) + '</a></li>'; }).join('') + '</ul></details>\n' : '') +
 '    <a class="btn btn-gold btn-sm" href="#contact" data-open="quote-dialog">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  ' + (prod ? '' : '<div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>') + '\n</header>\n\n' +
 '<main id="top">\n' + mainBody + '</main>\n\n' +
-'<footer class="site"><div class="wrap">\n  <div class="fgrid">\n    <div class="fbrand"><img src="logo.png" alt="' + esc(alt) + '" width="130" height="70" loading="lazy"><p>' + esc(T('foot_p')) + '</p></div>\n' +
+'<footer class="site"><div class="wrap">\n  <div class="fgrid">\n    <div class="fbrand"><img src="logo.png" alt="' + esc(alt) + '" width="130" height="70" loading="lazy"><p>' + esc(T('foot_p')) + '</p>' + socialUl + '</div>\n' +
 '    <div><h4>' + esc(T('f_explore')) + '</h4><ul>' + flinks + '</ul></div>\n    <div><h4>' + esc(T('f_cats')) + '</h4><ul>' + fcats + '</ul></div>\n' +
 '    <div><h4>' + esc(T('f_contact')) + '</h4><ul><li><a href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a></li><li><a href="tel:' + PH1T + '">' + ltr(esc(PH1)) + '</a></li>' +
 (PH2 ? '<li><a href="tel:' + PH2T + '">' + ltr(esc(PH2)) + '</a></li>' : '') + '<li>' + esc(T('egypt_line')) + '</li></ul></div>\n  </div>\n' +
@@ -528,5 +549,5 @@ dialogsHtml +
     return out;
   }
 
-  return { build: build, layoutOf: layoutOf, DEFAULT_ORDER: DEFAULT_ORDER, LANG_ORDER: LANG_ORDER, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
+  return { build: build, SOCIALS: SOCIALS, layoutOf: layoutOf, DEFAULT_ORDER: DEFAULT_ORDER, LANG_ORDER: LANG_ORDER, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
 });

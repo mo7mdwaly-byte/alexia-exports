@@ -6,7 +6,17 @@
     "phone2": "+20 109 331 9608",
     "whatsapp": "201042703542",
     "base_url": "https://alexiaexports.com/",
-    "whatsapp_ar": "201093319608"
+    "whatsapp_ar": "201093319608",
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "youtube": "",
+      "linkedin": "",
+      "x": "",
+      "tiktok": "",
+      "telegram": "",
+      "pinterest": ""
+    }
   },
   "text": {
     "title": {

@@ -731,6 +731,17 @@
     return box;
   };
 
+  function socialCard() {
+    var co = S.content.company; co.social = co.social && typeof co.social === 'object' ? co.social : {};
+    var card = h('div', { class: 'card' }, h('h3', null, L('Social media', 'التواصل الاجتماعي')), h('p', { class: 'hint' }, L('Paste the full link of each page (for example https://facebook.com/yourpage). Leave a box empty to hide that icon. Icons appear in the website footer and in the Contact section.', 'الصق الرابط الكامل لكل صفحة (مثل https://facebook.com/yourpage). اترك الخانة فارغة لإخفاء الأيقونة. تظهر الأيقونات أسفل الموقع وفي قسم التواصل.')));
+    var ph = { facebook: 'https://facebook.com/…', instagram: 'https://instagram.com/…', youtube: 'https://youtube.com/@…', linkedin: 'https://linkedin.com/company/…', x: 'https://x.com/…', tiktok: 'https://tiktok.com/@…', telegram: 'https://t.me/…', pinterest: 'https://pinterest.com/…' };
+    B.SOCIALS.forEach(function (x) {
+      var wrap = h('div', { class: 'field' }), inp = h('input', { type: 'url', dir: 'ltr', placeholder: ph[x[0]], value: co.social[x[0]] || '', autocomplete: 'off', autocapitalize: 'off' });
+      inp.addEventListener('input', function () { co.social[x[0]] = inp.value.trim(); touch(); });
+      wrap.appendChild(h('label', null, x[1])); wrap.appendChild(inp); card.appendChild(wrap);
+    });
+    return card;
+  }
   function langCard() {
     var c = S.content, names = { en: 'English', ar: 'العربية', fr: 'Français', es: 'Español' };
     var card = h('div', { class: 'card' }, h('h3', null, S.ui === 'ar' ? 'لغات الموقع' : 'Website languages'), h('p', { class: 'hint' }, S.ui === 'ar' ? 'اختر اللغات التي تظهر للزوار. الإنجليزية دائمًا مفعّلة.' : 'Choose which languages visitors can switch to. English is always on.'));
@@ -759,7 +770,7 @@
     return h('div', null, h('div', { class: 'head' }, h('h2', null, t('companyH'))), h('div', { class: 'card' },
       strField(co, 'email', t('email'), { type: 'email' }), h('div', { class: 'grid2' }, strField(co, 'phone1', t('phone1'), { type: 'text' }), strField(co, 'phone2', t('phone2'), { type: 'text' })),
       h('div', { class: 'grid2' }, strField(co, 'whatsapp', t('whatsappEn'), { inputmode: 'numeric' }), strField(co, 'whatsapp_ar', t('whatsappAr'), { inputmode: 'numeric' })),
-      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), langCard(), help);
+      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), socialCard(), langCard(), help);
   };
 
   VIEWS.preview = function () {
