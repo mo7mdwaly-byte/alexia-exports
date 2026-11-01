@@ -208,6 +208,7 @@
     var fileOf = function (l) { return LANGS[l].file; };
     var imageSrc = opts.imageSrc || function (p) { return p; };
     var co = content.company;
+    var LOGO = String(content.company.logo || 'logo.png').replace(/[^A-Za-z0-9_.\/\-]/g, '');
     var AV = String(content.assetv || '1').replace(/[^A-Za-z0-9]/g, '');
     var BASE = co.base_url.replace(/\/?$/, '/');
     var EMAIL = co.email.trim();
@@ -382,7 +383,7 @@
       });
       var data = { names: names, months: G.months, sep: T('s_sep'), nothing: T('s_none'), ui: uiObj, msg: msgObj, email: EMAIL, wa: WA };
       var jsonld = {
-        '@context': 'https://schema.org', '@type': 'Organization', name: 'ALEXIA EXPORTS', slogan: T('bar.0'), url: BASE, logo: BASE + 'logo.png',
+        '@context': 'https://schema.org', '@type': 'Organization', name: 'ALEXIA EXPORTS', slogan: T('bar.0'), url: BASE, logo: BASE + LOGO,
         email: EMAIL, telephone: PH1T, description: T('jsonld_desc'), address: { '@type': 'PostalAddress', addressCountry: 'EG' },
         sameAs: socLinks.map(function (x) { return socialUrl(soc[x[0]]); }),
         contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: EMAIL, telephone: PH1T, availableLanguage: enabled.map(function (l) { return LANGS[l].name; }) }]
@@ -421,7 +422,7 @@
       SEC.certs = certsHtml;
       SEC.about = '<section class="sec" id="about">\n  <div class="wrap about">\n    <div class="about-copy">\n      <p class="eyebrow">' + esc(T('a_eye')) + '</p>\n      <h2>' + esc(T('a_h')) + '</h2>\n      ' + ap + '\n' +
 '      <a class="btn btn-navy" href="#contact">' + esc(T('a_btn')) + arrow() + '</a>\n    </div>\n' +
-'    <div class="plaque"><img src="logo.png" alt="' + esc(alt) + '" width="352" height="186" loading="lazy"><p>' + esc(T('plaque')) + '</p><div class="values">' + values + '</div></div>\n  </div>\n</section>\n\n';
+'    <div class="plaque"><img src="' + esc(imageSrc(LOGO)) + '" alt="' + esc(alt) + '" loading="lazy"><p>' + esc(T('plaque')) + '</p><div class="values">' + values + '</div></div>\n  </div>\n</section>\n\n';
       SEC.process = '<section class="sec process" id="process">\n  <div class="wrap">\n    <div class="head"><p class="eyebrow">' + esc(T('pr_eye')) + '</p><h2>' + esc(T('pr_h')) + '</h2><p class="lede">' + esc(T('pr_lede')) + '</p></div>\n' +
 '    <ol class="steps">' + steps + '</ol>\n  </div>\n</section>\n\n';
       SEC.packing = packsHtml;
@@ -516,14 +517,14 @@ enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" hr
 '<div class="strip"><div class="wrap">\n  <span><b>✦</b> ' + esc(T('strip_l')) + '</span>\n' +
 '  <span class="links"><span>' + esc(T('strip_r')) + '</span> <a href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a> <a href="tel:' + PH1T + '">' + ltr(esc(PH1)) + '</a></span>\n</div></div>\n\n' +
 '<header class="top"><div class="wrap">\n' +
-'  <a class="brand" href="' + (prod ? home : '#top') + '" aria-label="' + esc(T('brand')) + '"><img src="logo.png" width="106" height="56" alt="' + esc(alt) + '"></a>\n' +
+'  <a class="brand" href="' + (prod ? home : '#top') + '" aria-label="' + esc(T('brand')) + '"><img src="' + esc(imageSrc(LOGO)) + '" alt="' + esc(alt) + '"></a>\n' +
 (prod ? '' : '  <button class="search-btn" type="button" aria-label="' + esc(T('search')) + '" aria-expanded="false" aria-controls="gsearch-bar">' + sm('search') + '</button>\n') +
 '  <button class="menu-btn" type="button" aria-label="' + esc(T('menu')) + '" aria-expanded="false" aria-controls="nav"><span></span></button>\n' +
 '  <nav class="main" id="nav" aria-label="' + esc(T('menu')) + '">' + nav + '\n' +
 (enabled.length > 1 ? '    <details class="lang-menu"><summary aria-label="Language">' + sm('globe') + '<span>' + esc(langKey.toUpperCase()) + '</span></summary><ul>' + enabled.filter(function (l) { return l !== langKey; }).map(function (l) { return '<li><a class="lang-link" href="' + (prod ? pfile(prod, l) : fileOf(l)) + '" hreflang="' + l + '" lang="' + l + '">' + esc(LANGS[l].label) + '</a></li>'; }).join('') + '</ul></details>\n' : '') +
 '    <a class="btn btn-gold btn-sm" href="#contact" data-open="quote-dialog">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  ' + (prod ? '' : '<div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>') + '\n</header>\n\n' +
 '<main id="top">\n' + mainBody + '</main>\n\n' +
-'<footer class="site"><div class="wrap">\n  <div class="fgrid">\n    <div class="fbrand"><img src="logo.png" alt="' + esc(alt) + '" width="130" height="70" loading="lazy"><p>' + esc(T('foot_p')) + '</p>' + socialUl + '</div>\n' +
+'<footer class="site"><div class="wrap">\n  <div class="fgrid">\n    <div class="fbrand"><img src="' + esc(imageSrc(LOGO)) + '" alt="' + esc(alt) + '" loading="lazy"><p>' + esc(T('foot_p')) + '</p>' + socialUl + '</div>\n' +
 '    <div><h4>' + esc(T('f_explore')) + '</h4><ul>' + flinks + '</ul></div>\n    <div><h4>' + esc(T('f_cats')) + '</h4><ul>' + fcats + '</ul></div>\n' +
 '    <div><h4>' + esc(T('f_contact')) + '</h4><ul><li><a href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a></li><li><a href="tel:' + PH1T + '">' + ltr(esc(PH1)) + '</a></li>' +
 (PH2 ? '<li><a href="tel:' + PH2T + '">' + ltr(esc(PH2)) + '</a></li>' : '') + '<li>' + esc(T('egypt_line')) + '</li></ul></div>\n  </div>\n' +

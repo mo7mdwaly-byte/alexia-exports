@@ -731,6 +731,38 @@
     return box;
   };
 
+  function resizeLogo(file, max) {
+    return new Promise(function (res, rej) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var w = img.naturalWidth, hgt = img.naturalHeight, k = Math.min(1, max / Math.max(w, hgt));
+        var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w * k)); c.height = Math.max(1, Math.round(hgt * k));
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+        res(c.toDataURL('image/png').split(',')[1]);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); rej(new Error('image')); };
+      img.src = url;
+    });
+  }
+  function logoCard() {
+    var co = S.content.company, cur = co.logo || 'logo.png';
+    var prev = h('img', { src: imgUrl(cur), alt: 'Logo', style: 'max-height:5rem;max-width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.5rem' });
+    var card = h('div', { class: 'card' }, h('h3', null, L('Logo', 'الشعار')), h('p', { class: 'hint' }, L('Upload your new logo (PNG with a transparent background looks best; JPG or WebP also work). It replaces the logo in the header, the footer and the About section on every page. The small browser-tab icon is not changed.', 'ارفع شعارك الجديد (يفضّل PNG بخلفية شفافة، ويدعم JPG وWebP). يستبدل الشعار في أعلى الصفحة وأسفلها وقسم من نحن في كل الصفحات. أيقونة تبويب المتصفح الصغيرة لا تتغير.')), h('div', { class: 'field' }, prev));
+    var status = h('span', { class: 'muted small' });
+    card.appendChild(h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap;align-items:center' },
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
+        pickFiles('image/png,image/jpeg,image/webp', false, function (files) {
+          status.textContent = t('processing');
+          resizeLogo(files[0], 900).then(function (b64) {
+            if (co.logo) dropMedia(co.logo);
+            var path = 'images/logo-' + uid() + '.png'; S.pending[path] = b64; S.blobs[path] = URL.createObjectURL(new Blob([Uint8Array.from(atob(b64), function (ch) { return ch.charCodeAt(0); })], { type: 'image/png' }));
+            co.logo = path; touch(); rerender();
+          }, function () { status.textContent = ''; alert(t('badMedia')); });
+        });
+      } }, L('Upload new logo', 'رفع شعار جديد')),
+      co.logo ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () { dropMedia(co.logo); co.logo = ''; touch(); rerender(); } }, L('Back to original logo', 'العودة للشعار الأصلي')) : null, status));
+    return card;
+  }
   function socialCard() {
     var co = S.content.company; co.social = co.social && typeof co.social === 'object' ? co.social : {};
     var card = h('div', { class: 'card' }, h('h3', null, L('Social media', 'التواصل الاجتماعي')), h('p', { class: 'hint' }, L('Paste the full link of each page (for example https://facebook.com/yourpage). Leave a box empty to hide that icon. Icons appear in the website footer and in the Contact section.', 'الصق الرابط الكامل لكل صفحة (مثل https://facebook.com/yourpage). اترك الخانة فارغة لإخفاء الأيقونة. تظهر الأيقونات أسفل الموقع وفي قسم التواصل.')));
@@ -770,7 +802,7 @@
     return h('div', null, h('div', { class: 'head' }, h('h2', null, t('companyH'))), h('div', { class: 'card' },
       strField(co, 'email', t('email'), { type: 'email' }), h('div', { class: 'grid2' }, strField(co, 'phone1', t('phone1'), { type: 'text' }), strField(co, 'phone2', t('phone2'), { type: 'text' })),
       h('div', { class: 'grid2' }, strField(co, 'whatsapp', t('whatsappEn'), { inputmode: 'numeric' }), strField(co, 'whatsapp_ar', t('whatsappAr'), { inputmode: 'numeric' })),
-      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), socialCard(), langCard(), help);
+      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), logoCard(), socialCard(), langCard(), help);
   };
 
   VIEWS.preview = function () {
