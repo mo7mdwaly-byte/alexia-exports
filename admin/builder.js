@@ -455,7 +455,7 @@
         var d = p.detail || {};
         var n = pick(p.name), gl = glabel[p.group] || '';
         var media = mediaOf(p);
-        var visual = media.length ? carousel(media, { label: n, interval: 5000, cls: 'pd-mc', T: T }) : '<div class="pd-ph">' + big(p.icon) + '</div>';
+        var visual = media.length ? carousel(media, { label: n, interval: 5000, cls: 'pd-mc' + (media.some(function (m) { return m.size === 'original'; }) ? ' pd-adapt' : ''), T: T }) : '<div class="pd-ph">' + big(p.icon) + '</div>';
         var av = ['yes', 'seasonal', 'no'].indexOf(d.availability) > -1 ? d.availability : 'yes';
         var origin = pick(d.origin) || (({ en: 'Egypt', ar: 'مصر', fr: 'Égypte', es: 'Egipto' })[langKey]);
         var availNote = pick(d.avail_note);

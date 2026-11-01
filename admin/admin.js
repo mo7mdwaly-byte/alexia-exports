@@ -267,7 +267,7 @@
   /* per-file size choice: keep the uploaded size/proportions, or the dashboard standard frame */
   function sizeSel(m, base, max) {
     var sel = h('select', { 'aria-label': L('Size', 'الحجم') });
-    [['standard', L('Dashboard standard size', 'حجم لوحة التحكم القياسي')], ['original', L('Keep same uploaded size', 'الحفاظ على حجم الرفع')]].forEach(function (o) { var op = h('option', { value: o[0] }, o[1]); if ((m.size || 'standard') === o[0]) op.selected = true; sel.appendChild(op); });
+    [['standard', L('Standard frame (fills the frame, may crop)', 'إطار قياسي (يملأ الإطار وقد يقص)')], ['original', L('Full picture (bigger, no crop, no bars)', 'الصورة كاملة (أكبر، دون قص أو أشرطة)')]].forEach(function (o) { var op = h('option', { value: o[0] }, o[1]); if ((m.size || 'standard') === o[0]) op.selected = true; sel.appendChild(op); });
     sel.addEventListener('change', function () {
       var mode = sel.value, f = S.origFiles[m.src];
       if (f && m.type === 'image') {
@@ -278,7 +278,7 @@
   }
   function sizeDefaultBar() {
     var bar = h('div', { class: 'chips', style: 'margin:.2rem 0 .6rem;align-items:center' }, h('span', { class: 'small muted' }, L('New uploads:', 'الرفع الجديد:')));
-    [['standard', L('Dashboard standard size', 'حجم لوحة التحكم القياسي')], ['original', L('Keep same uploaded size', 'الحفاظ على حجم الرفع')]].forEach(function (o) {
+    [['standard', L('Standard frame (fills the frame, may crop)', 'إطار قياسي (يملأ الإطار وقد يقص)')], ['original', L('Full picture (bigger, no crop, no bars)', 'الصورة كاملة (أكبر، دون قص أو أشرطة)')]].forEach(function (o) {
       bar.appendChild(h('button', { class: 'chip', type: 'button', 'aria-pressed': S.sizeMode === o[0] ? 'true' : 'false', onclick: function () { S.sizeMode = o[0]; LS.set('alexia_sizemode', o[0]); rerender(); } }, o[1]));
     });
     return bar;
@@ -329,7 +329,7 @@
       h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { add('image/*', true); } }, '+ ' + t('addPhotos')),
       o.video === false ? null : h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { add('video/mp4,video/webm,video/quicktime,video/*', false); } }, '+ ' + t('addVideo')), status));
     wrap.appendChild(sizeDefaultBar());
-    wrap.appendChild(h('p', { class: 'hint' }, t('mediaHint') + ' ' + L('“Keep same uploaded size” shows the whole picture without cropping; “Dashboard standard size” fills the standard frame.', '«الحفاظ على حجم الرفع» يعرض الصورة كاملة دون قص، و«حجم لوحة التحكم القياسي» يملأ الإطار القياسي.')));
+    wrap.appendChild(h('p', { class: 'hint' }, t('mediaHint') + ' ' + L('“Full picture” shows the whole photo or video at its own shape: no cropping and no bars (the frame follows the picture, and the product page photo can be tapped to enlarge). “Standard frame” fills a fixed frame and may crop the edges.', '«الصورة كاملة» تعرض الصورة أو الفيديو بشكلها الأصلي دون قص أو أشرطة (يتبع الإطار شكل الصورة، ويمكن الضغط على صورة صفحة المنتج لتكبيرها). «إطار قياسي» يملأ إطارًا ثابتًا وقد يقص الحواف.')));
     return wrap;
   }
   function imgUrl(p) {
