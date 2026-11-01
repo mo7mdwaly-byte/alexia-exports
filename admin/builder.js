@@ -209,6 +209,8 @@
     var imageSrc = opts.imageSrc || function (p) { return p; };
     var co = content.company;
     var LOGO = String(content.company.logo || 'logo.png').replace(/[^A-Za-z0-9_.\/\-]/g, '');
+    var clean = function (v, d) { return String(v || d).replace(/[^A-Za-z0-9_.\/\-]/g, ''); };
+    var FAV = clean(content.company.favicon, 'favicon.png'), FAVA = clean(content.company.favicon_apple, 'apple-touch-icon.png');
     var AV = String(content.assetv || '1').replace(/[^A-Za-z0-9]/g, '');
     var BASE = co.base_url.replace(/\/?$/, '/');
     var EMAIL = co.email.trim();
@@ -509,7 +511,7 @@
 enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" href="' + urlOf(l) + '">\n'; }).join('') + '<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n<meta property="og:locale" content="' + G.locale + '">\n' +
 '<meta property="og:type" content="website">\n<meta property="og:site_name" content="ALEXIA EXPORTS">\n<meta property="og:title" content="' + esc(title) + '">\n<meta property="og:description" content="' + esc(desc) + '">\n' +
 '<meta property="og:url" content="' + thisUrl + '">\n<meta property="og:image" content="' + ogimg + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
-'<link rel="icon" type="image/png" href="favicon.png">\n<link rel="apple-touch-icon" href="apple-touch-icon.png">\n<link rel="manifest" href="manifest.webmanifest">\n' +
+'<link rel="icon" type="image/png" href="' + esc(imageSrc(FAV)) + '">\n<link rel="apple-touch-icon" href="' + esc(imageSrc(FAVA)) + '">\n<link rel="manifest" href="manifest.webmanifest">\n' +
 '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
 '<link rel="stylesheet" href="' + G.fonts + '">\n<link rel="stylesheet" href="style.css?v=' + AV + '">\n' +
 '<script type="application/ld+json">' + jsonForScript(jsonld) + '</script>\n</head>\n<body>\n' +

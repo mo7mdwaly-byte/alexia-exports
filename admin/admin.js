@@ -744,6 +744,41 @@
       img.src = url;
     });
   }
+  function squareIcon(file, size, bg) {
+    return new Promise(function (res, rej) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var c = document.createElement('canvas'); c.width = c.height = size; var cx = c.getContext('2d');
+        if (bg) { cx.fillStyle = bg; cx.fillRect(0, 0, size, size); }
+        var pad = size * 0.08, box = size - pad * 2, k = Math.min(box / img.naturalWidth, box / img.naturalHeight), w = img.naturalWidth * k, hh = img.naturalHeight * k;
+        cx.drawImage(img, (size - w) / 2, (size - hh) / 2, w, hh); URL.revokeObjectURL(url);
+        res(c.toDataURL('image/png').split(',')[1]);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); rej(new Error('image')); };
+      img.src = url;
+    });
+  }
+  function b64Blob(b64) { return URL.createObjectURL(new Blob([Uint8Array.from(atob(b64), function (ch) { return ch.charCodeAt(0); })], { type: 'image/png' })); }
+  function faviconCard() {
+    var co = S.content.company, cur = co.favicon || 'favicon.png';
+    var prev = h('img', { src: imgUrl(cur), alt: 'Favicon', style: 'width:48px;height:48px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px;object-fit:contain' });
+    var card = h('div', { class: 'card' }, h('h3', null, L('Browser tab icon (favicon)', 'أيقونة تبويب المتصفح (فافيكون)')), h('p', { class: 'hint' }, L('The small icon shown in the browser tab, in bookmarks and when someone adds your site to their phone home screen. Upload a square or simple picture (your logo mark works well). It is resized for you.', 'الأيقونة الصغيرة التي تظهر في تبويب المتصفح وفي المفضلة وعند إضافة موقعك لشاشة الهاتف. ارفع صورة مربعة أو بسيطة (رمز الشعار مناسب). تُضبط أحجامها تلقائيًا.')), h('div', { class: 'field' }, prev));
+    var status = h('span', { class: 'muted small' });
+    card.appendChild(h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap;align-items:center' },
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
+        pickFiles('image/png,image/jpeg,image/webp', false, function (files) {
+          status.textContent = t('processing');
+          Promise.all([squareIcon(files[0], 128, null), squareIcon(files[0], 180, '#ffffff')]).then(function (r) {
+            [co.favicon, co.favicon_apple].forEach(function (x) { if (x) dropMedia(x); });
+            var id = uid(), p1 = 'images/favicon-' + id + '.png', p2 = 'images/apple-icon-' + id + '.png';
+            S.pending[p1] = r[0]; S.blobs[p1] = b64Blob(r[0]); S.pending[p2] = r[1]; S.blobs[p2] = b64Blob(r[1]);
+            co.favicon = p1; co.favicon_apple = p2; touch(); rerender();
+          }, function () { status.textContent = ''; alert(t('badMedia')); });
+        });
+      } }, L('Upload new icon', 'رفع أيقونة جديدة')),
+      co.favicon ? h('button', { class: 'btn sm danger', type: 'button', onclick: function () { [co.favicon, co.favicon_apple].forEach(function (x) { if (x) dropMedia(x); }); co.favicon = ''; co.favicon_apple = ''; touch(); rerender(); } }, L('Back to original icon', 'العودة للأيقونة الأصلية')) : null, status));
+    return card;
+  }
   function logoCard() {
     var co = S.content.company, cur = co.logo || 'logo.png';
     var prev = h('img', { src: imgUrl(cur), alt: 'Logo', style: 'max-height:5rem;max-width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.5rem' });
@@ -802,7 +837,7 @@
     return h('div', null, h('div', { class: 'head' }, h('h2', null, t('companyH'))), h('div', { class: 'card' },
       strField(co, 'email', t('email'), { type: 'email' }), h('div', { class: 'grid2' }, strField(co, 'phone1', t('phone1'), { type: 'text' }), strField(co, 'phone2', t('phone2'), { type: 'text' })),
       h('div', { class: 'grid2' }, strField(co, 'whatsapp', t('whatsappEn'), { inputmode: 'numeric' }), strField(co, 'whatsapp_ar', t('whatsappAr'), { inputmode: 'numeric' })),
-      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), logoCard(), socialCard(), langCard(), help);
+      strField(co, 'base_url', t('baseUrl'), { type: 'url', hint: t('baseHint') })), logoCard(), faviconCard(), socialCard(), langCard(), help);
   };
 
   VIEWS.preview = function () {
