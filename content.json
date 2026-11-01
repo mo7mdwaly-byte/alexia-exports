@@ -1038,6 +1038,12 @@
       "ar": "مرحبًا ALEXIA EXPORTS، أرغب في معلومات عن: {p}",
       "fr": "Bonjour ALEXIA EXPORTS, je souhaite des informations sur : {p}",
       "es": "Hola ALEXIA EXPORTS, me gustaría recibir información sobre: {p}"
+    },
+    "follow": {
+      "en": "Follow us",
+      "ar": "تابعنا",
+      "fr": "Suivez-nous",
+      "es": "Síguenos"
     }
   },
   "lists": {
@@ -2940,22 +2946,6 @@
       "media": [
         {
           "type": "image",
-          "src": "images/ingr-mvruoe249ky.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/ingr-mvruoe2ffhq.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/ingr-mvruoe2pkcn.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/ingr-mvruoe2w230.jpg"
-        },
-        {
-          "type": "image",
           "src": "images/ingr-mvruoe3431g.jpg"
         },
         {
@@ -2969,6 +2959,131 @@
         {
           "type": "image",
           "src": "images/ingr-mvruoe3t6ix.jpg"
+        }
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      }
+    },
+    {
+      "id": "ingr-2",
+      "group": "ingredients",
+      "icon": "flask",
+      "image": "",
+      "hidden": false,
+      "discuss": false,
+      "name": {
+        "en": "Agricultural & Food Ingredients (copy)",
+        "ar": "المكونات الزراعية والغذائية",
+        "fr": "Ingrédients agricoles et alimentaires",
+        "es": "Ingredientes agrícolas y alimentarios"
+      },
+      "desc": {
+        "en": "Ingredient and commodity sourcing for manufacturers and professional buyers, subject to specification and availability.",
+        "ar": "توريد المكونات والسلع لمصنّعي الأغذية والمشترين المحترفين، حسب المواصفات والتوفر.",
+        "fr": "Approvisionnement en ingrédients et matières premières pour fabricants et acheteurs professionnels, selon les spécifications et la disponibilité.",
+        "es": "Abastecimiento de ingredientes y materias primas para fabricantes y compradores profesionales, según especificaciones y disponibilidad."
+      },
+      "tags": {
+        "en": [
+          "Commodities",
+          "Ingredients",
+          "Bulk supply"
+        ],
+        "ar": [
+          "سلع",
+          "مكونات",
+          "توريد بالجملة"
+        ],
+        "fr": [
+          "Matières premières",
+          "Ingrédients",
+          "Approvisionnement en vrac"
+        ],
+        "es": [
+          "Materias primas",
+          "Ingredientes",
+          "Suministro a granel"
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87ql9fhr.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87s1b8wf.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87u2j8i8.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87v8s229.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87y1ca4x.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87wytwkk.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy87zljgzi.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy880pdqh0.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy882jd4i3.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy883j843c.jpg",
+          "size": "original"
+        },
+        {
+          "type": "image",
+          "src": "images/ingr-2-mvy884ljb13.jpg",
+          "size": "original"
         }
       ],
       "detail": {
@@ -3439,5 +3554,5 @@
       "hidden": false
     }
   ],
-  "assetv": "m1a2"
+  "assetv": "mvy88t7v"
 }
