@@ -3345,7 +3345,7 @@
     "slides": [
       {
         "type": "video",
-        "src": "videos/banner-mvvd0vnhn4q.mov",
+        "src": "videos/banner-main.mp4",
         "title": {
           "en": "",
           "ar": "",
@@ -3365,7 +3365,7 @@
           "es": ""
         },
         "link": "",
-        "size": "standard"
+        "size": "original"
       }
     ]
   },

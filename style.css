@@ -506,3 +506,9 @@ html[lang="fr"] nav.main a.nl,html[lang="es"] nav.main a.nl{font-size:.88rem;pad
 .pd-acts .btn svg{width:1.15rem;height:1.15rem;flex:none}
 .pd-acts .btn-ghost{min-height:2.9rem}
 .lang-menu summary::after{content:none!important}
+
+/* adaptive banner: follows the media shape, blurred backdrop instead of bars */
+.mc.banner-mc.banner-adapt{aspect-ratio:var(--ar,16/10);max-height:min(82vh,760px);width:100%;margin-inline:auto}
+.banner-adapt .mc-slide.fit-orig .mc-bg{position:absolute;inset:-8%;width:116%;height:116%;max-width:none;object-fit:cover;filter:blur(26px) saturate(1.1) brightness(.82);transform:translateZ(0);pointer-events:none}
+.banner-adapt .mc-slide.fit-orig img:not(.mc-bg),.banner-adapt .mc-slide.fit-orig video:not(.mc-bg){position:relative;z-index:1;object-fit:contain}
+.banner-adapt .mc-cap{z-index:2}

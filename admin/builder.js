@@ -350,7 +350,7 @@
           if (!hd && !tx && !(cta && lk)) return '';
           return '<div class="mc-cap">' + (hd ? '<h3>' + esc(hd) + '</h3>' : '') + (tx ? '<p>' + esc(tx) + '</p>' : '') + (cta && lk ? '<a class="btn btn-gold btn-sm" href="' + esc(lk) + '">' + esc(cta) + arrow() + '</a>' : '') + '</div>';
         });
-        bannerHtml = '<section class="banner" aria-label="ALEXIA EXPORTS"><div class="wrap">' + carousel(bslides, { label: pick(bslides[0].title) || 'ALEXIA EXPORTS', interval: Math.max(2, Math.min(30, Number(bnr.interval) || 5)) * 1000, cls: 'banner-mc', T: T, captions: caps }) + '</div></section>\n\n';
+        bannerHtml = '<section class="banner" aria-label="ALEXIA EXPORTS"><div class="wrap">' + carousel(bslides, { label: pick(bslides[0].title) || 'ALEXIA EXPORTS', interval: Math.max(2, Math.min(30, Number(bnr.interval) || 5)) * 1000, cls: 'banner-mc' + (bslides.some(function (x) { return x.size === 'original'; }) ? ' banner-adapt' : ''), T: T, captions: caps }) + '</div></section>\n\n';
       }
 
       var uiObj = {}, msgObj = {};
