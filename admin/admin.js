@@ -811,6 +811,7 @@
   function publish(note, logEl, btn) {
     if (S.busy) return;
     S.busy = true; S.log = ''; btn.disabled = true; btn.textContent = t('publishing');
+    S.content.assetv = Date.now().toString(36);
     var branch = S.cfg.branch, ref = 'heads/' + encodeURIComponent(branch).replace(/%2F/g, '/'), snapshot = canon(S.content), pend = JSON.parse(JSON.stringify(S.pending)), files, headSha, treeSha;
     logTo(logEl, '1/6 Checking latest version…');
     gh('/git/ref/' + ref).then(function (r) {

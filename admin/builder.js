@@ -192,6 +192,7 @@
     var fileOf = function (l) { return LANGS[l].file; };
     var imageSrc = opts.imageSrc || function (p) { return p; };
     var co = content.company;
+    var AV = String(content.assetv || '1').replace(/[^A-Za-z0-9]/g, '');
     var BASE = co.base_url.replace(/\/?$/, '/');
     var EMAIL = co.email.trim();
     var PH1 = co.phone1.trim(), PH2 = (co.phone2 || '').trim();
@@ -488,7 +489,7 @@ enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" hr
 '<meta property="og:url" content="' + thisUrl + '">\n<meta property="og:image" content="' + ogimg + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
 '<link rel="icon" type="image/png" href="favicon.png">\n<link rel="apple-touch-icon" href="apple-touch-icon.png">\n<link rel="manifest" href="manifest.webmanifest">\n' +
 '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
-'<link rel="stylesheet" href="' + G.fonts + '">\n<link rel="stylesheet" href="style.css">\n' +
+'<link rel="stylesheet" href="' + G.fonts + '">\n<link rel="stylesheet" href="style.css?v=' + AV + '">\n' +
 '<script type="application/ld+json">' + jsonForScript(jsonld) + '</script>\n</head>\n<body>\n' +
 '<a class="skip" href="#top">' + esc(T('skip')) + '</a>\n\n' +
 '<div class="strip"><div class="wrap">\n  <span><b>✦</b> ' + esc(T('strip_l')) + '</span>\n' +
@@ -509,7 +510,7 @@ enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" hr
 dialogsHtml +
 '<button class="float pillb" id="pillb" type="button" hidden>' + esc(T('pill')) + ' <b>0</b></button>\n' +
 '<a class="float wa" href="https://wa.me/' + WA + '?text=' + waText + '" target="_blank" rel="noopener" aria-label="' + esc(T('float_wa')) + '">' + sm('wa') + '<span class="lbl2">' + esc(T('float_wa')) + '</span></a>\n\n' +
-'<script>window.ALEXIA=' + jsonForScript(data) + ';</script>\n<script src="app.js" defer></script>\n</body>\n</html>\n';
+'<script>window.ALEXIA=' + jsonForScript(data) + ';</script>\n<script src="app.js?v=' + AV + '" defer></script>\n</body>\n</html>\n';
     }
 
     var out = {};
