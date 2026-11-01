@@ -507,8 +507,9 @@ html[lang="fr"] nav.main a.nl,html[lang="es"] nav.main a.nl{font-size:.88rem;pad
 .pd-acts .btn-ghost{min-height:2.9rem}
 .lang-menu summary::after{content:none!important}
 
-/* adaptive banner: follows the media shape, blurred backdrop instead of bars */
-.mc.banner-mc.banner-adapt{aspect-ratio:var(--ar,16/10);max-height:min(82vh,760px);width:100%;margin-inline:auto}
-.banner-adapt .mc-slide.fit-orig .mc-bg{position:absolute;inset:-8%;width:116%;height:116%;max-width:none;object-fit:cover;filter:blur(26px) saturate(1.1) brightness(.82);transform:translateZ(0);pointer-events:none}
-.banner-adapt .mc-slide.fit-orig img:not(.mc-bg),.banner-adapt .mc-slide.fit-orig video:not(.mc-bg){position:relative;z-index:1;object-fit:contain}
-.banner-adapt .mc-cap{z-index:2}
+/* full-width banner: edge to edge, no frame, no bars */
+.banner.banner-bleed{margin-block:0}
+.banner-bleed>.wrap{max-width:none;padding-inline:0}
+.mc.banner-mc.banner-full{width:100%;border-radius:0;box-shadow:none;aspect-ratio:var(--ar,3/4);max-height:none}
+.banner-full .mc-slide img,.banner-full .mc-slide video,.banner-full .mc-slide.fit-orig img,.banner-full .mc-slide.fit-orig video{object-fit:cover}
+@media (min-width:900px){.mc.banner-mc.banner-full{aspect-ratio:16/9;max-height:min(80vh,760px)}}

@@ -173,29 +173,13 @@
     else start(true);
     document.addEventListener('visibilitychange', run);
   };
-  /* banner that keeps the picture or video's own shape: frame follows the media, soft blurred backdrop fills the sides */
-  $$('.banner-adapt').forEach(function (root) {
-    var slides = $$('.mc-slide', root), single = slides.length === 1;
+  /* full-width banner: on phones the frame follows the media's own shape */
+  $$('.banner-full').forEach(function (root) {
+    var m0 = $('.mc-slide video,.mc-slide img', root);
     var setAr = function (w, h) { if (w && h) root.style.setProperty('--ar', Math.max(0.6, Math.min(2.6, w / h)).toFixed(3)); };
-    var m0 = slides[0] && slides[0].querySelector('video,img');
-    if (m0) {
-      if (m0.tagName === 'VIDEO') { if (m0.videoWidth) setAr(m0.videoWidth, m0.videoHeight); else m0.addEventListener('loadedmetadata', function () { setAr(m0.videoWidth, m0.videoHeight); }); }
-      else if (m0.complete && m0.naturalWidth) setAr(m0.naturalWidth, m0.naturalHeight); else m0.addEventListener('load', function () { setAr(m0.naturalWidth, m0.naturalHeight); });
-    }
-    slides.forEach(function (sl) {
-      var el = sl.querySelector('video,img'); if (!el || !sl.classList.contains('fit-orig')) return;
-      if (el.tagName === 'VIDEO' && !single) return;
-      var bg = el.cloneNode(true); bg.className = 'mc-bg'; bg.setAttribute('aria-hidden', 'true'); bg.removeAttribute('aria-label'); bg.tabIndex = -1;
-      if (bg.tagName === 'IMG') { bg.alt = ''; bg.removeAttribute('loading'); }
-      sl.appendChild(bg);
-      if (el.tagName === 'VIDEO') {
-        bg.muted = true; bg.loop = true; bg.preload = 'auto'; bg.playsInline = true;
-        if (!el.paused) { var r0 = bg.play(); if (r0 && r0.catch) r0.catch(function () {}); }
-        el.addEventListener('play', function () { var r = bg.play(); if (r && r.catch) r.catch(function () {}); });
-        el.addEventListener('pause', function () { bg.pause(); });
-        el.addEventListener('timeupdate', function () { if (Math.abs(bg.currentTime - el.currentTime) > 0.5) { try { bg.currentTime = el.currentTime; } catch (e) {} } });
-      }
-    });
+    if (!m0) return;
+    if (m0.tagName === 'VIDEO') { if (m0.videoWidth) setAr(m0.videoWidth, m0.videoHeight); else m0.addEventListener('loadedmetadata', function () { setAr(m0.videoWidth, m0.videoHeight); }); }
+    else if (m0.complete && m0.naturalWidth) setAr(m0.naturalWidth, m0.naturalHeight); else m0.addEventListener('load', function () { setAr(m0.naturalWidth, m0.naturalHeight); });
   });
   $$('.mc').forEach(initMc);
 
