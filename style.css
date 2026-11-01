@@ -538,3 +538,11 @@ dialog.lightbox{border:0;padding:0;background:transparent;max-width:98vw;max-hei
 dialog.lightbox::backdrop{background:rgba(5,15,40,.92)}
 dialog.lightbox img{display:block;max-width:96vw;max-height:92vh;margin:auto;border-radius:10px;cursor:zoom-out}
 .lb-x{position:fixed;top:.9rem;inset-inline-end:.9rem;z-index:5;width:2.8rem;height:2.8rem;border-radius:50%;border:0;background:#fff;color:var(--navy);font-size:1.7rem;line-height:1;cursor:pointer}
+
+/* top strip on phones: compact, two tidy centred rows */
+@media (max-width:620px){
+  .strip{font-size:.78rem}
+  .strip .wrap{flex-direction:column;flex-wrap:nowrap;gap:.1rem;padding-block:.45rem}
+  .strip .links{flex-wrap:nowrap;justify-content:center;gap:0 1rem;white-space:nowrap}
+  .strip .links>span{display:none}
+}
