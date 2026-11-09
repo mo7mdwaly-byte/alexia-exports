@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Rebuilds index.html, ar.html, sitemap.xml and robots.txt from content.json.
+/* Rebuilds every page, sitemap.xml, robots.txt and the IndexNow key file from content.json.
    Usage: node tools/build.js   (run from the repository root) */
 const fs = require('fs');
 const path = require('path');

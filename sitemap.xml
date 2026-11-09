@@ -1,339 +1,852 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://alexiaexports.com/</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/"/>
   </url>
   <url><loc>https://alexiaexports.com/ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/"/>
   </url>
   <url><loc>https://alexiaexports.com/fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/"/>
   </url>
   <url><loc>https://alexiaexports.com/es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/"/>
   </url>
   <url><loc>https://alexiaexports.com/product-citrus.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-citrus.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-citrus-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-citrus-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-citrus-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-citrus.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-oranges-export-carton.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-citrus-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-citrus.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-citrus-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-citrus-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-citrus-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-citrus.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-oranges-export-carton.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-citrus-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-citrus.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-citrus-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-citrus-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-citrus-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-citrus.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-oranges-export-carton.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-citrus-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-citrus.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-citrus-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-citrus-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-citrus-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-citrus.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-oranges-export-carton.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-grapes.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-grapes.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-grapes-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-grapes-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-grapes-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-grapes.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-grapes-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-grapes-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-grapes.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-grapes-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-grapes-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-grapes-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-grapes.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-grapes-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-grapes-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-grapes.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-grapes-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-grapes-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-grapes-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-grapes.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-grapes-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-grapes-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-grapes.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-grapes-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-grapes-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-grapes-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-grapes.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-grapes-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-fruits.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-fruits.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-fruits-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-fruits-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-fruits-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-fruits.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-seasonal-fruits-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-fruits-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-fruits.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-fruits-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-fruits-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-fruits-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-fruits.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-seasonal-fruits-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-fruits-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-fruits.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-fruits-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-fruits-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-fruits-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-fruits.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-seasonal-fruits-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-fruits-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-fruits.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-fruits-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-fruits-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-fruits-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-fruits.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-seasonal-fruits-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-veg.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-veg.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-veg-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-veg-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-veg-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-veg.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-vegetables-herbs-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-veg-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-veg.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-veg-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-veg-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-veg-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-veg.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-vegetables-herbs-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-veg-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-veg.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-veg-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-veg-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-veg-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-veg.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-vegetables-herbs-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-veg-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-veg.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-veg-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-veg-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-veg-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-veg.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-vegetables-herbs-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-olives.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-olives.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-olives-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-olives-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-olives-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-olives.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-olives-olive-oil-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-olives-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-olives.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-olives-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-olives-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-olives-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-olives.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-olives-olive-oil-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-olives-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-olives.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-olives-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-olives-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-olives-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-olives.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-olives-olive-oil-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-olives-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-olives.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-olives-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-olives-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-olives-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-olives.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-olives-olive-oil-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-oils.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-oils.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-oils-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-oils-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-oils-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-oils.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-edible-oils-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-oils-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-oils.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-oils-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-oils-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-oils-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-oils.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-edible-oils-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-oils-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-oils.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-oils-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-oils-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-oils-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-oils.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-edible-oils-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-oils-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-oils.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-oils-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-oils-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-oils-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-oils.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-edible-oils-export-2.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-frozen.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-frozen.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-frozen-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-frozen-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-frozen-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-frozen.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-strawberries-iqf-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-blueberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-raspberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-mixed-berries-iqf.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-frozen-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-frozen.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-frozen-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-frozen-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-frozen-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-frozen.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-strawberries-iqf-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-blueberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-raspberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-mixed-berries-iqf.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-frozen-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-frozen.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-frozen-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-frozen-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-frozen-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-frozen.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-strawberries-iqf-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-blueberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-raspberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-mixed-berries-iqf.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-frozen-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-frozen.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-frozen-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-frozen-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-frozen-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-frozen.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-strawberries-iqf-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-blueberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-raspberries-iqf.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-frozen-mixed-berries-iqf.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dates.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dates.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dates-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dates-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dates-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dates.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-06.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-07.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-08.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-09.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-10.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-12.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-13.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-14.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-15.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dates-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dates.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dates-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dates-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dates-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dates.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-06.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-07.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-08.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-09.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-10.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-12.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-13.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-14.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-15.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dates-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dates.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dates-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dates-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dates-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dates.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-06.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-07.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-08.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-09.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-10.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-12.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-13.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-14.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-15.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dates-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dates.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dates-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dates-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dates-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dates.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-06.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-07.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-08.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-09.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-10.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-12.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-13.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-14.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dates-dried-fruits-15.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-salt.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-salt.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-salt-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-salt-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-salt-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-salt.html"/>
   </url>
   <url><loc>https://alexiaexports.com/product-salt-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-salt.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-salt-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-salt-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-salt-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-salt.html"/>
   </url>
   <url><loc>https://alexiaexports.com/product-salt-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-salt.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-salt-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-salt-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-salt-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-salt.html"/>
   </url>
   <url><loc>https://alexiaexports.com/product-salt-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-salt.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-salt-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-salt-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-salt-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-salt.html"/>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-sesame-seeds-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-peanuts-pouch.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-sesame-seeds-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-peanuts-pouch.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-sesame-seeds-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-peanuts-pouch.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-sesame-seeds-pouch.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-peanuts-pouch.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-2.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr-2.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-2-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-2-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-2-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr-2.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-green-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-fava-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dark-red-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-red-kidney-beans-azuki-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-brown-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-2-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr-2.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-2-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-2-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-2-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr-2.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-green-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-fava-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dark-red-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-red-kidney-beans-azuki-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-brown-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-2-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr-2.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-2-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-2-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-2-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr-2.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-green-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-fava-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dark-red-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-red-kidney-beans-azuki-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-brown-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-ingr-2-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-ingr-2.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-ingr-2-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-ingr-2-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-ingr-2-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-ingr-2.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-green-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-fava-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dark-red-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-red-kidney-beans-azuki-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-brown-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-yellow-lentils-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-chickpeas.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-chickpeas-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-chickpeas-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-chickpeas-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-chickpeas-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-chickpeas-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-chickpeas-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-chickpeas-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-chickpeas-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-chickpeas-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-chickpeas-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-chickpeas-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-chickpeas-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-chickpeas-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-chickpeas-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-chickpeas-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-chickpeas.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-8mm-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-chickpeas-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-white-kidney-beans.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-white-kidney-beans-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-white-kidney-beans-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-white-kidney-beans-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-white-kidney-beans-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-white-kidney-beans-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-white-kidney-beans-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-white-kidney-beans-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-white-kidney-beans-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-white-kidney-beans-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-white-kidney-beans-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-white-kidney-beans-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-white-kidney-beans-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-white-kidney-beans-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-white-kidney-beans-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-white-kidney-beans-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-white-kidney-beans.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-25kg-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-white-kidney-beans-bag.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dry-white-beans-pouch.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-rice.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-rice.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-rice-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-rice-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-rice-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-rice.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-rice-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-rice.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-rice-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-rice-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-rice-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-rice.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-rice-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-rice.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-rice-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-rice-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-rice-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-rice.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/product-rice-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-rice.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-rice-ar.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-rice-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-rice-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-rice.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-premium-rice-bag-6.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-processed.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-processed.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-processed-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-processed-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-processed-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-processed.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-fava-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-green-peas-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-white-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-sweet-corn-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-red-kidney-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-haricots-blancs-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-tomato-paste-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-processed-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-processed.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-processed-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-processed-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-processed-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-processed.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-fava-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-green-peas-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-white-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-sweet-corn-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-red-kidney-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-haricots-blancs-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-tomato-paste-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-processed-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-processed.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-processed-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-processed-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-processed-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-processed.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-fava-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-green-peas-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-white-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-sweet-corn-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-red-kidney-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-haricots-blancs-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-tomato-paste-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-processed-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-processed.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-processed-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-processed-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-processed-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-processed.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-fava-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-green-peas-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-white-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-sweet-corn-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-red-kidney-beans-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-haricots-blancs-export.jpg</image:loc></image:image>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-canned-tomato-paste-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dairy.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dairy.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dairy-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dairy-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dairy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dairy.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dairy-foodstuffs-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dairy-ar.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dairy.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dairy-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dairy-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dairy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dairy.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dairy-foodstuffs-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dairy-fr.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dairy.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dairy-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dairy-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dairy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dairy.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dairy-foodstuffs-export.jpg</image:loc></image:image>
   </url>
   <url><loc>https://alexiaexports.com/product-dairy-es.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-dairy.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://alexiaexports.com/product-dairy-ar.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://alexiaexports.com/product-dairy-fr.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://alexiaexports.com/product-dairy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-dairy.html"/>
+    <image:image><image:loc>https://alexiaexports.com/images/egyptian-dairy-foodstuffs-export.jpg</image:loc></image:image>
+  </url>
+  <url><loc>https://alexiaexports.com/about-us.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/about-us.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/egyptian-food-exporter.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/egyptian-food-exporter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/egyptian-food-exporter.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/products.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/products.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/product-specifications.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/product-specifications.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/product-specifications.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/packaging-options.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/packaging-options.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/packaging-options.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/export-markets.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/export-markets.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/export-markets.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/quality-control.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/quality-control.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/quality-control.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/export-process.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/export-process.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/export-process.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/insights.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/insights.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/egyptian-orange-season-guide.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/egyptian-orange-season-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/egyptian-orange-season-guide.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/incoterms-for-food-exports.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/incoterms-for-food-exports.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/incoterms-for-food-exports.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/how-to-write-an-rfq-for-food-import.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/how-to-write-an-rfq-for-food-import.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/how-to-write-an-rfq-for-food-import.html"/>
+  </url>
+  <url><loc>https://alexiaexports.com/dry-chickpeas-and-white-kidney-beans-buyers-guide.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alexiaexports.com/dry-chickpeas-and-white-kidney-beans-buyers-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alexiaexports.com/dry-chickpeas-and-white-kidney-beans-buyers-guide.html"/>
   </url>
 </urlset>

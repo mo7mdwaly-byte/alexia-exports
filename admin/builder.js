@@ -201,6 +201,92 @@
     '<g><circle class="node" cx="400" cy="400" r="4.5"/><circle class="pulse" cx="400" cy="400" r="5" style="animation-delay:1.1s"/></g>' +
     '<circle class="origin" cx="150" cy="330" r="8"/><circle class="pulse" cx="150" cy="330" r="8" style="stroke:var(--gold-light)"/></svg>';
 
+  /* ---------- SEO engine (shared by the builder and the dashboard) ---------- */
+  var SUF = {
+    en: ['{n} Supplier & Exporter from Egypt', '{n} Supplier from Egypt', '{n} from Egypt', '{n}'],
+    fr: ['{n} – Fournisseur et exportateur égyptien', '{n} – Fournisseur égyptien', '{n} d’Égypte', '{n}'],
+    es: ['{n} – Proveedor y exportador de Egipto', '{n} – Proveedor de Egipto', '{n} de Egipto', '{n}'],
+    ar: ['{n} – مورّد ومصدّر من مصر', '{n} – مورّد من مصر', '{n} من مصر', '{n}']
+  };
+  var DX = {
+    en: [' Request specifications and a quote from ALEXIA EXPORTS, Egypt.', ' Request a quote from ALEXIA EXPORTS.'],
+    fr: [' Demandez les spécifications et un devis à ALEXIA EXPORTS, Égypte.', ' Demandez un devis à ALEXIA EXPORTS.'],
+    es: [' Solicite especificaciones y una cotización a ALEXIA EXPORTS, Egipto.', ' Solicite una cotización a ALEXIA EXPORTS.'],
+    ar: [' اطلب المواصفات وعرض السعر من ألكسيا للتصدير في مصر.', ' اطلب عرض سعر من ألكسيا للتصدير.']
+  };
+  var DX2 = {
+    en: [' Packaging and trade terms on request.', ' Export from Egypt.'], fr: [' Conditionnement et Incoterms sur demande.', ' Export depuis l’Égypte.'],
+    es: [' Envases y términos comerciales a pedido.', ' Exportación desde Egipto.'], ar: [' التعبئة وشروط التجارة عند الطلب.', ' تصدير من مصر.']
+  };
+  var FROMEG = { en: 'from Egypt', ar: 'من مصر', fr: 'd’Égypte', es: 'de Egipto' };
+  function txo(c, k, l) { var o = c.text && c.text[k]; return o ? String(o[l] || o.en || '') : ''; }
+  function pickL(o, l) { return o && typeof o === 'object' ? String(o[l] || o.en || '') : ''; }
+  function fitTitle(n, l, brand) {
+    var v = SUF[l] || SUF.en;
+    for (var i = 0; i < v.length; i++) { var s = v[i].replace('{n}', n) + ' | ' + brand; if (s.length <= 60) return s; }
+    return n.length > 60 ? n.slice(0, 57) + '…' : n;
+  }
+  function fitDesc(base, l) {
+    base = String(base || '').replace(/\s+/g, ' ').trim();
+    if (base.length > 160) { var cut = base.slice(0, 157), sp = cut.lastIndexOf(' '); return (sp > 100 ? cut.slice(0, sp) : cut).replace(/[ ,.;:–-]+$/, '') + '…'; }
+    [DX, DX2].forEach(function (lst) {
+      if (base.length >= 140) return;
+      var ex = (lst[l] || lst.en).slice().sort(function (a, b) { return b.length - a.length; });
+      for (var i = 0; i < ex.length; i++) { var s = base + ex[i]; if (s.length <= 160) { base = s; return; } }
+    });
+    return base;
+  }
+  function seoOf(c, kind, entry, l) {
+    var s = (kind === 'home' ? (c.seo && c.seo.home) : entry && entry.seo) || {};
+    var g = function (k) { var o = s[k]; return o && typeof o === 'object' ? String(o[l] || '').trim() : ''; };
+    var brand = l === 'ar' ? txo(c, 'brand', 'ar') : 'ALEXIA EXPORTS', d = {};
+    if (kind === 'home') { d.title = txo(c, 'title', l); d.desc = fitDesc(txo(c, 'desc', l), l); d.h1 = txo(c, 'h1a', l) + ' ' + txo(c, 'h1b', l); }
+    else if (kind === 'product') { var n = pickL(entry.name, l); d.title = fitTitle(n, l, brand); d.desc = fitDesc(pickL(entry.desc, l) || txo(c, 'desc', l), l); d.h1 = n; }
+    else { var t = pickL(entry.title, l); d.title = (t + ' | ' + brand).length <= 60 ? t + ' | ' + brand : t; d.desc = fitDesc(pickL(entry.desc, l) || pickL(entry.intro, l), l); d.h1 = t; }
+    var ro = String(s.robots || 'index,follow').replace(/[^a-z,\- ]/gi, '');
+    return {
+      title: g('title') || d.title, desc: g('desc') || d.desc, h1: d.h1, focus: g('focus'),
+      secondary: g('secondary').split(/[,،]/).map(function (x) { return x.trim(); }).filter(Boolean),
+      canonical: /^https:\/\//i.test(String(s.canonical || '').trim()) ? String(s.canonical).trim() : '',
+      robots: ro || 'index,follow', ogTitle: g('og_title'), ogDesc: g('og_desc'), ogImage: String(s.og_image || '').replace(/[^A-Za-z0-9_.\/\-]/g, ''),
+      alt: g('alt'), schema: String(s.schema || '').trim(), customTitle: !!g('title'), customDesc: !!g('desc')
+    };
+  }
+  function words(s) { return (String(s || '').match(/[^\s]+/g) || []).length; }
+  function bodyText(c, kind, entry, l) {
+    if (kind === 'home') return txo(c, 'h1a', l) + ' ' + txo(c, 'h1b', l) + ' ' + txo(c, 'desc', l);
+    if (kind === 'product') { var d = entry.detail || {}; return [pickL(entry.desc, l), pickL(d.long, l)].concat((d.specs || []).map(function (r) { return pickL(r.label, l) + ' ' + pickL(r.value, l); }), (d.extra || []).map(function (r) { return pickL(r.title, l) + ' ' + pickL(r.text, l); })).join(' '); }
+    return [pickL(entry.intro, l)].concat((entry.sections || []).map(function (x) { return pickL(x.h, l) + ' ' + pickL(x.p, l); })).join(' ');
+  }
+  function seoReport(c, kind, entry, l) {
+    var S = seoOf(c, kind, entry, l), items = [], body = bodyText(c, kind, entry, l), lc = function (x) { return String(x || '').toLowerCase(); };
+    var add = function (st, w, en, ar) { items.push({ st: st, w: w, en: en, ar: ar }); };
+    var tl = S.title.length, dl = S.desc.length;
+    add(tl >= 50 && tl <= 60 ? 'pass' : (tl >= 40 && tl <= 65 ? 'warn' : 'fail'), 2, 'SEO title is ' + tl + ' characters (aim for 50–60).', 'طول عنوان السيو ' + tl + ' حرفًا (المستهدف 50–60).');
+    add(dl >= 140 && dl <= 160 ? 'pass' : (dl >= 110 && dl <= 175 ? 'warn' : 'fail'), 2, 'Meta description is ' + dl + ' characters (aim for 140–160).', 'طول الوصف ' + dl + ' حرفًا (المستهدف 140–160).');
+    if (!S.focus) add('fail', 2, 'Add a focus keyword (the phrase a buyer would search for).', 'أضف كلمة مفتاحية رئيسية (العبارة التي يبحث عنها المشتري).');
+    else {
+      var f = lc(S.focus);
+      add(lc(S.title).indexOf(f) > -1 ? 'pass' : 'warn', 2, 'Focus keyword in the SEO title.', 'الكلمة المفتاحية في عنوان السيو.');
+      add(lc(S.desc).indexOf(f) > -1 ? 'pass' : 'warn', 1, 'Focus keyword in the meta description.', 'الكلمة المفتاحية في الوصف.');
+      add(lc(S.h1).indexOf(f) > -1 || lc(body).indexOf(f) > -1 ? 'pass' : 'warn', 1, 'Focus keyword appears in the page heading or text.', 'الكلمة المفتاحية في عنوان الصفحة أو نصها.');
+    }
+    add(/noindex/i.test(S.robots) ? 'warn' : 'pass', 1, /noindex/i.test(S.robots) ? 'Set to noindex: this page will not appear in search results.' : 'Page can be indexed.', /noindex/i.test(S.robots) ? 'الصفحة بوضع noindex ولن تظهر في نتائج البحث.' : 'يمكن فهرسة الصفحة.');
+    if (kind === 'product') {
+      add(S.ogImage || (entry.media || []).some(function (m) { return m.type === 'image'; }) ? 'pass' : 'warn', 1, 'Has a share/preview image.', 'توجد صورة للمشاركة.');
+      add(S.alt ? 'pass' : 'warn', 1, S.alt ? 'Custom image ALT text set.' : 'Image ALT text is generated automatically; add your own for better relevance.', S.alt ? 'تم ضبط نص ALT مخصص.' : 'نص ALT يُنشأ تلقائيًا؛ أضف نصك لملاءمة أفضل.');
+      var d = entry.detail || {}, rich = pickL(d.long, l).length > 80 || (d.specs || []).length > 0;
+      add(rich ? 'pass' : 'warn', 2, rich ? 'Page has detailed unique content.' : 'Add a detailed description or specifications so the page has unique content.', rich ? 'الصفحة تحتوي محتوى مفصلًا فريدًا.' : 'أضف وصفًا تفصيليًا أو مواصفات ليكون للصفحة محتوى فريد.');
+    } else if (kind === 'page') {
+      var wc = words(body), lk = (body.match(/\]\((page|product):/g) || []).length;
+      add(wc >= 300 ? 'pass' : (wc >= 150 ? 'warn' : 'fail'), 2, 'Page has ' + wc + ' words (aim for 300+).', 'عدد كلمات الصفحة ' + wc + ' (المستهدف 300+).');
+      add(lk >= 2 ? 'pass' : 'warn', 1, 'Internal links in the text: ' + lk + ' (aim for 2+).', 'روابط داخلية في النص: ' + lk + ' (المستهدف 2+).');
+    }
+    if (S.schema) { var ok = true; try { JSON.parse(S.schema); } catch (e) { ok = false; } add(ok ? 'pass' : 'fail', 1, ok ? 'Custom structured data is valid JSON.' : 'Custom structured data is not valid JSON.', ok ? 'البيانات المنظمة المخصصة صالحة.' : 'البيانات المنظمة المخصصة ليست JSON صالحًا.'); }
+    var tot = 0, got = 0; items.forEach(function (i) { tot += i.w; got += i.w * (i.st === 'pass' ? 1 : i.st === 'warn' ? 0.5 : 0); });
+    return { score: tot ? Math.round(100 * got / tot) : 0, items: items, seo: S };
+  }
+
   function build(content, opts) {
     opts = opts || {};
     withDefaults(content);
@@ -226,8 +312,8 @@
       var slides = items.map(function (m, i) {
         var src = esc(imageSrc(m.src));
         var inner = m.type === 'video'
-          ? '<video src="' + src + '#t=0.1" muted playsinline preload="metadata"' + (multi ? '' : ' loop') + ' aria-label="' + esc(o.label) + '"></video>'
-          : '<img src="' + src + '" alt="' + esc(o.label) + '"' + (i ? ' loading="lazy"' : '') + '>';
+          ? '<video src="' + src + '#t=0.1" muted playsinline preload="metadata"' + (m.poster ? ' poster="' + esc(imageSrc(m.poster)) + '"' : '') + (multi ? '' : ' loop') + ' aria-label="' + esc((o.alts && o.alts[i]) || o.label) + '"></video>'
+          : '<img src="' + src + '" alt="' + esc((o.alts && o.alts[i]) || o.label) + '"' + (m.w && m.h ? ' width="' + Number(m.w) + '" height="' + Number(m.h) + '"' : '') + (i ? ' loading="lazy" decoding="async"' : (o.lcp ? ' fetchpriority="high"' : '')) + '>';
         return '<div class="mc-slide' + (i === 0 ? ' is-active' : '') + (m.size === 'original' ? ' fit-orig' : '') + '"' + (i === 0 ? '' : ' aria-hidden="true"') + '>' + inner + ((o.captions && o.captions[i]) || '') + '</div>';
       }).join('');
       var nav = multi
@@ -242,7 +328,18 @@
     }
 
     var pfile = function (p, l) { return 'product-' + p.id + (l === 'en' ? '' : '-' + l) + '.html'; };
-    function page(langKey, prod) {
+    var pgfile = function (g, l) { return String(g.slug || g.id).replace(/[^a-z0-9-]/g, '') + (l === 'en' ? '' : '-' + l) + '.html'; };
+    var pgHas = function (g, l) { return l === 'en' || !!(g.title && String(g.title[l] || '').trim()); };
+    var PAGES = (content.pages || []).filter(function (g) { return !g.hidden && g.title && String(g.title.en || '').trim(); });
+    var hubOf = function (kind) { return PAGES.filter(function (g) { return g.kind === kind; })[0]; };
+    var UX = {
+      en: { insights: 'Insights', guides: 'Buying information', published: 'Published', updated: 'Updated', ctaH: 'Need specifications or a quote?', ctaP: 'Tell us the product, destination country and estimated quantity and we will reply with a tailored proposal.', all: 'All product pages' },
+      ar: { insights: 'مقالات ورؤى', guides: 'معلومات للمشترين', published: 'نُشر', updated: 'حُدّث', ctaH: 'تحتاج مواصفات أو عرض سعر؟', ctaP: 'أخبرنا بالمنتج وبلد الوجهة والكمية التقديرية وسنرد عليك بعرض مناسب.', all: 'كل صفحات المنتجات' },
+      fr: { insights: 'Analyses', guides: 'Informations acheteurs', published: 'Publié', updated: 'Mis à jour', ctaH: 'Besoin de spécifications ou d’un devis ?', ctaP: 'Indiquez-nous le produit, le pays de destination et la quantité estimée et nous vous répondrons avec une proposition adaptée.', all: 'Toutes les fiches produits' },
+      es: { insights: 'Artículos', guides: 'Información para compradores', published: 'Publicado', updated: 'Actualizado', ctaH: '¿Necesita especificaciones o una cotización?', ctaP: 'Indíquenos el producto, el país de destino y la cantidad estimada y le responderemos con una propuesta a medida.', all: 'Todas las páginas de producto' }
+    };
+    var today = String(content.seo && content.seo.site_updated || '').slice(0, 10);
+    function page(langKey, prod, pg) {
       var WA = langKey === 'ar' ? WA_AR : WA_EN;
       var G = LANGS[langKey], ar = langKey === 'ar';
       var pick = function (o) { return o ? (o[langKey] || o.en || '') : ''; };
@@ -255,7 +352,8 @@
       var names = {};
       visible.forEach(function (p) { names[p.id] = pick(p.name); });
 
-      var home = prod ? fileOf(langKey) : '';
+      var home = (prod || pg) ? fileOf(langKey) : '';
+      var UXl = UX[langKey] || UX.en, hubP = hubOf('hub-products'), hubI = hubOf('hub-insights');
       var hasPage = function (p) { return !p.hidden && !p.nopage; };
       var nav = list('nav').map(function (n) { return '<a class="nl" href="' + home + '#' + esc(n.id) + '">' + esc(pick(n.label)) + '</a>'; }).join('');
       var trust = list('trust').map(function (t) { return '<article><div class="ico">' + sm(t.icon) + '</div><div><h3>' + esc(pick(t.title)) + '</h3><p>' + esc(pick(t.text)) + '</p></div></article>'; }).join('');
@@ -267,7 +365,7 @@
         var tags = (p.tags && p.tags[langKey] && p.tags[langKey].length ? p.tags[langKey] : (p.tags && p.tags.en) || []);
         var gl = glabel[p.group] || '';
         var text = (n + ' ' + d + ' ' + tags.join(' ') + ' ' + gl).toLowerCase();
-        var photo = carousel(mediaOf(p), { label: n, interval: 4000, cls: 'card-mc', T: T });
+        var photo = carousel(mediaOf(p), { label: n, alts: altsFor(p), interval: 4000, cls: 'card-mc', T: T });
         return '<article class="card" data-group="' + esc(p.group) + '" data-text="' + esc(text) + '">' + photo + '<div class="top"><div class="ic">' + big(p.icon) + '</div><span class="grp">' + esc(gl) + '</span></div>' +
           '<h3>' + (hasPage(p) ? '<a href="' + pfile(p, langKey) + '">' + esc(n) + '</a>' : esc(n)) + '</h3><p>' + esc(d) + '</p><ul class="tags">' + tags.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>' +
           '<div class="card-acts">' + (hasPage(p) ? '<a class="more" href="' + pfile(p, langKey) + '">' + esc(T('pd_view')) + '</a>' : '') + '<button class="qv" type="button" data-id="' + esc(p.id) + '">' + esc(T('qv')) + '</button><button class="add" type="button" data-id="' + esc(p.id) + '" aria-pressed="false"><span class="off">' + esc(p.discuss ? T('discuss') : T('add')) + '</span><span class="on">' + esc(T('added')) + '</span>' + sm('plus') + '</button></div></article>';
@@ -305,6 +403,7 @@
       var packopts = list('packopts').map(function (o, i) { return '<option value="' + i + '">' + esc(pick(o.text)) + '</option>'; }).join('');
       var termopts = list('termopts').map(function (o, i) { return '<option value="' + i + '">' + esc(pick(o.text)) + '</option>'; }).join('');
       var flinks = list('footerlinks').map(function (l) { return '<li><a href="' + home + '#' + esc(l.id) + '">' + esc(pick(l.label)) + '</a></li>'; }).join('');
+      var pgLinks = PAGES.filter(function (g) { return g.footer && pgHas(g, langKey); }).map(function (g) { return '<li><a href="' + pgfile(g, langKey) + '">' + esc(pick(g.title)) + '</a></li>'; }).join('');
       var fcats = list('categories').map(function (c) { return '<li>' + esc(pick(c.text)) + '</li>'; }).join('');
       var checks = list('checks').map(function (c) { return '<li>' + sm('check') + esc(pick(c.text)) + '</li>'; }).join('');
 
@@ -375,7 +474,7 @@
           return '<div class="mc-cap">' + (hd ? '<h3>' + esc(hd) + '</h3>' : '') + (tx ? '<p>' + esc(tx) + '</p>' : '') + (cta && lk ? '<a class="btn btn-gold btn-sm" href="' + esc(lk) + '">' + esc(cta) + arrow() + '</a>' : '') + '</div>';
         });
         var fullB = bslides.some(function (x) { return x.size === 'original'; });
-        bannerHtml = '<section class="banner' + (fullB ? ' banner-bleed' : '') + '" aria-label="ALEXIA EXPORTS"><div class="wrap">' + carousel(bslides, { label: pick(bslides[0].title) || 'ALEXIA EXPORTS', interval: Math.max(2, Math.min(30, Number(bnr.interval) || 5)) * 1000, cls: 'banner-mc' + (bslides.some(function (x) { return x.size === 'original'; }) ? ' banner-full' : ''), T: T, captions: caps }) + '</div></section>\n\n';
+        bannerHtml = '<section class="banner' + (fullB ? ' banner-bleed' : '') + '" aria-label="ALEXIA EXPORTS"><div class="wrap">' + carousel(bslides, { lcp: true, label: pick(bslides[0].title) || 'ALEXIA EXPORTS', interval: Math.max(2, Math.min(30, Number(bnr.interval) || 5)) * 1000, cls: 'banner-mc' + (bslides.some(function (x) { return x.size === 'original'; }) ? ' banner-full' : ''), T: T, captions: caps }) + '</div></section>\n\n';
       }
 
       var uiObj = {}, msgObj = {};
@@ -384,19 +483,42 @@
         if (k.indexOf('msg.') === 0) msgObj[k.slice(4)] = T(k);
       });
       var data = { names: names, months: G.months, sep: T('s_sep'), nothing: T('s_none'), ui: uiObj, msg: msgObj, email: EMAIL, wa: WA };
-      var jsonld = {
-        '@context': 'https://schema.org', '@type': 'Organization', name: 'ALEXIA EXPORTS', slogan: T('bar.0'), url: BASE, logo: BASE + LOGO,
+      var kindS = prod ? 'product' : pg ? 'page' : 'home', entryS = prod || pg || null;
+      var SEOx = seoOf(content, kindS, entryS, langKey);
+      var availL = enabled.filter(function (l) { return prod || !pg ? true : pgHas(pg, l); });
+      var urlOf = function (l) { return prod ? BASE + pfile(prod, l) : pg ? BASE + pgfile(pg, l) : (l === 'en' ? BASE : BASE + fileOf(l)); };
+      var thisUrl = urlOf(langKey), enUrl = urlOf('en'), canon = SEOx.canonical || thisUrl;
+      var alt = T('alt'), title = SEOx.title, desc = SEOx.desc;
+      var pm0 = prod ? mediaOf(prod).filter(function (m) { return m.type === 'image'; })[0] : null;
+      var ogimg = SEOx.ogImage ? BASE + SEOx.ogImage : pm0 ? BASE + pm0.src : BASE + 'og-image.png';
+      var isArticle = !!(pg && pg.kind === 'article');
+      var crumbs = [[T('pd_home'), langKey === 'en' ? BASE : BASE + fileOf(langKey)]];
+      if (prod) { if (hubP && pgHas(hubP, langKey)) crumbs.push([pick(hubP.title), BASE + pgfile(hubP, langKey)]); crumbs.push([pick(prod.name), thisUrl]); }
+      else if (pg) { if (isArticle && hubI && pgHas(hubI, langKey)) crumbs.push([pick(hubI.title), BASE + pgfile(hubI, langKey)]); crumbs.push([pick(pg.title), thisUrl]); }
+      var ORG = BASE + '#organization', WEB = BASE + '#website';
+      var graph = [{
+        '@type': 'Organization', '@id': ORG, name: 'ALEXIA EXPORTS', slogan: T('bar.0'), url: BASE, logo: { '@type': 'ImageObject', url: BASE + LOGO },
         email: EMAIL, telephone: PH1T, description: T('jsonld_desc'), address: { '@type': 'PostalAddress', addressCountry: 'EG' },
         sameAs: socLinks.map(function (x) { return socialUrl(soc[x[0]]); }),
-        contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: EMAIL, telephone: PH1T, availableLanguage: enabled.map(function (l) { return LANGS[l].name; }) }]
-      };
-      var urlOf = function (l) { return prod ? BASE + pfile(prod, l) : (l === 'en' ? BASE : BASE + fileOf(l)); };
-      var thisUrl = urlOf(langKey), enUrl = urlOf('en');
-      var alt = T('alt'), title = prod ? pick(prod.name) + ' | ALEXIA EXPORTS' : T('title'), desc = prod ? (pick(prod.desc) || T('desc')) : T('desc');
-      var pm0 = prod ? mediaOf(prod).filter(function (m) { return m.type === 'image'; })[0] : null;
-      var ogimg = pm0 ? BASE + pm0.src : BASE + 'og-image.png';
+        contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: EMAIL, telephone: PH1T, availableLanguage: enabled.map(function (l) { return LANGS[l].name; }) }].concat(PH2 ? [{ '@type': 'ContactPoint', contactType: 'customer service', telephone: PH2T, availableLanguage: enabled.map(function (l) { return LANGS[l].name; }) }] : [])
+      }, { '@type': 'WebSite', '@id': WEB, url: BASE, name: 'ALEXIA EXPORTS', inLanguage: enabled, publisher: { '@id': ORG } },
+      { '@type': pg && pg.kind === 'hub-products' ? 'CollectionPage' : pg && pg.id === 'about-us' ? 'AboutPage' : 'WebPage', '@id': thisUrl + '#webpage', url: thisUrl, name: title, description: desc, inLanguage: G.lang, isPartOf: { '@id': WEB }, about: { '@id': ORG }, primaryImageOfPage: { '@type': 'ImageObject', url: ogimg } }];
+      if (!graph[0].sameAs.length) delete graph[0].sameAs;
+      if (crumbs.length > 1) graph.push({ '@type': 'BreadcrumbList', '@id': thisUrl + '#breadcrumb', itemListElement: crumbs.map(function (cb, i) { return { '@type': 'ListItem', position: i + 1, name: cb[0], item: cb[1] }; }) });
       if (prod) {
-        jsonld = { '@context': 'https://schema.org', '@type': 'Product', name: pick(prod.name), description: pick(prod.desc), category: glabel[prod.group] || undefined, image: mediaOf(prod).filter(function (m) { return m.type === 'image'; }).map(function (m) { return BASE + m.src; }), url: thisUrl, brand: { '@type': 'Organization', name: 'ALEXIA EXPORTS' } };
+        var pdt = prod.detail || {};
+        var prodLd = { '@type': 'Product', '@id': thisUrl + '#product', name: pick(prod.name), description: pick(pdt.long) || pick(prod.desc), category: glabel[prod.group] || undefined, image: mediaOf(prod).filter(function (m) { return m.type === 'image'; }).map(function (m) { return BASE + m.src; }), url: thisUrl, brand: { '@type': 'Brand', name: 'ALEXIA EXPORTS' }, countryOfOrigin: { '@type': 'Country', name: pick(pdt.origin) || 'Egypt' } };
+        var props = (pdt.specs || []).filter(function (r) { return pick(r.label) && pick(r.value); }).map(function (r) { return { '@type': 'PropertyValue', name: pick(r.label), value: pick(r.value) }; });
+        if (props.length) prodLd.additionalProperty = props;
+        if (!prodLd.image.length) delete prodLd.image;
+        graph.push(prodLd);
+      }
+      if (isArticle) graph.push({ '@type': 'Article', '@id': thisUrl + '#article', headline: pick(pg.title).slice(0, 110), description: desc, inLanguage: G.lang, datePublished: pg.date || today || undefined, dateModified: pg.updated || pg.date || today || undefined, author: { '@type': 'Organization', name: 'ALEXIA EXPORTS', url: BASE }, publisher: { '@id': ORG }, mainEntityOfPage: { '@id': thisUrl + '#webpage' }, image: ogimg });
+      if (SEOx.schema) { try { var ex = JSON.parse(SEOx.schema); (Array.isArray(ex) ? ex : [ex]).forEach(function (o) { if (o && typeof o === 'object') { delete o['@context']; graph.push(o); } }); } catch (e0) {} }
+      var jsonld = { '@context': 'https://schema.org', '@graph': graph };
+      function altsFor(p) {
+        var so = seoOf(content, 'product', p, langKey), nm = pick(p.name), base = so.alt || (nm + ' ' + (FROMEG[langKey] || FROMEG.en));
+        return mediaOf(p).map(function (m, i) { return i ? base + ' – ' + (i + 1) : base; });
       }
       var waText = encodeURIComponent(T('wa_text'));
       var h1 = esc(T('h1a')) + ' <em>' + esc(T('h1b')) + '</em>';
@@ -458,7 +580,7 @@
         var d = p.detail || {};
         var n = pick(p.name), gl = glabel[p.group] || '';
         var media = mediaOf(p);
-        var visual = media.length ? carousel(media, { label: n, interval: 5000, cls: 'pd-mc' + (media.some(function (m) { return m.size === 'original'; }) ? ' pd-adapt' : ''), T: T }) : '<div class="pd-ph">' + big(p.icon) + '</div>';
+        var visual = media.length ? carousel(media, { label: n, alts: altsFor(p), lcp: true, interval: 5000, cls: 'pd-mc' + (media.some(function (m) { return m.size === 'original'; }) ? ' pd-adapt' : ''), T: T }) : '<div class="pd-ph">' + big(p.icon) + '</div>';
         var av = ['yes', 'seasonal', 'no'].indexOf(d.availability) > -1 ? d.availability : 'yes';
         var origin = pick(d.origin) || (({ en: 'Egypt', ar: 'مصر', fr: 'Égypte', es: 'Egipto' })[langKey]);
         var availNote = pick(d.avail_note);
@@ -488,29 +610,60 @@
         var longd = pick(d.long);
         var rel = visible.filter(function (o) { return o.id !== p.id && hasPage(o); });
         rel.sort(function (a, b) { return (b.group === p.group) - (a.group === p.group); });
+        var guideList = PAGES.filter(function (g) { return g.related && g.kind === 'page' && pgHas(g, langKey); });
+        var guidesHtml = guideList.length ? '<section class="pd-sec pd-guides"><h2>' + esc(UXl.guides) + '</h2><ul class="cp-list">' + guideList.map(function (g) { return '<li><a href="' + pgfile(g, langKey) + '">' + esc(pick(g.title)) + '</a></li>'; }).join('') + '</ul></section>' : '';
         var relHtml = rel.slice(0, 4).length ? '<section class="pd-sec pd-rel"><h2>' + esc(T('pd_related')) + '</h2><div class="rel-grid">' + rel.slice(0, 4).map(function (o) {
           var m0 = mediaOf(o).filter(function (m) { return m.type === 'image'; })[0];
           var th = m0 ? '<img src="' + esc(imageSrc(m0.src)) + '" alt="" loading="lazy">' : '<span class="rel-ic">' + big(o.icon) + '</span>';
           return '<a class="rel" href="' + pfile(o, langKey) + '">' + th + '<b>' + esc(pick(o.name)) + '</b></a>';
         }).join('') + '</div></section>' : '';
-        return '<nav class="crumbs" aria-label="breadcrumb"><div class="wrap"><a href="' + home + '">' + esc(T('pd_home')) + '</a><span>›</span><a href="' + home + '#products">' + esc(T('p_eye')) + '</a><span>›</span><b>' + esc(n) + '</b></div></nav>\n' +
+        return '<nav class="crumbs" aria-label="breadcrumb"><div class="wrap"><a href="' + home + '">' + esc(T('pd_home')) + '</a><span>›</span><a href="' + (hubP && pgHas(hubP, langKey) ? pgfile(hubP, langKey) : home + '#products') + '">' + esc(hubP && pgHas(hubP, langKey) ? pick(hubP.title) : T('p_eye')) + '</a><span>›</span><b>' + esc(n) + '</b></div></nav>\n' +
           '<article class="pd"><div class="wrap pd-top"><div class="pd-vis">' + visual + '</div><div class="pd-info"><p class="grp">' + esc(gl) + '</p><h1>' + esc(n) + '</h1><p class="pd-short">' + esc(pick(p.desc)) + '</p>' + facts + acts + '</div></div>\n' +
           '<div class="wrap pd-body">' + (longd ? '<section class="pd-sec"><p>' + esc(longd).replace(/\n/g, '<br>') + '</p></section>' : '') + appsHtml +
           (specs ? '<section class="pd-sec"><h2>' + esc(T('pd_specs')) + '</h2>' + specs + '<p class="pd-note">' + esc(T('pd_note')) + '</p></section>' : '') +
-          (pkg ? '<section class="pd-sec"><h2>' + esc(T('pd_pack')) + '</h2>' + pkg + '</section>' : '') + docsHtml + extra + relHtml +
+          (pkg ? '<section class="pd-sec"><h2>' + esc(T('pd_pack')) + '</h2>' + pkg + '</section>' : '') + docsHtml + extra + guidesHtml + relHtml +
           '<p class="pd-back"><a href="' + home + '#products">' + esc(T('pd_back')) + '</a></p></div></article>\n';
       }
-      var mainBody = prod ? productMain(prod) : layoutOf(content).filter(function (x) { return !x.hidden; }).map(function (x) { return SEC[x.id] || ''; }).join('');
+      function inl(x) {
+        x = esc(x).replace(/\[([^\]]+)\]\((page|product):([a-z0-9-]+)\)/g, function (m, tx, ty, id) {
+          var u = '';
+          if (ty === 'page') { var g = PAGES.filter(function (q) { return q.id === id || q.slug === id; })[0]; if (g && pgHas(g, langKey)) u = pgfile(g, langKey); }
+          else { var q = content.products.filter(function (o) { return o.id === id; })[0]; if (q && hasPage(q)) u = pfile(q, langKey); }
+          return u ? '<a href="' + u + '">' + tx + '</a>' : tx;
+        });
+        return x.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      }
+      function md(src) {
+        return String(src || '').replace(/\r/g, '').split(/\n{2,}/).map(function (b) {
+          b = b.trim(); if (!b) return '';
+          var ls = b.split('\n');
+          if (ls.every(function (l) { return /^\s*[-•]\s+/.test(l); })) return '<ul class="cp-list">' + ls.map(function (l) { return '<li>' + inl(l.replace(/^\s*[-•]\s+/, '')) + '</li>'; }).join('') + '</ul>';
+          return '<p>' + ls.map(inl).join('<br>') + '</p>';
+        }).join('');
+      }
+      function pageMain(g) {
+        var t = pick(g.title), intro = pick(g.intro);
+        var cr = '<nav class="crumbs" aria-label="breadcrumb"><div class="wrap"><a href="' + home + '">' + esc(T('pd_home')) + '</a><span>›</span>' + (isArticle && hubI && pgHas(hubI, langKey) ? '<a href="' + pgfile(hubI, langKey) + '">' + esc(pick(hubI.title)) + '</a><span>›</span>' : '') + '<b>' + esc(t) + '</b></div></nav>\n';
+        var meta = isArticle && g.date ? '<p class="cp-meta">' + esc(UXl.published) + ' <time datetime="' + esc(g.date) + '">' + esc(g.date) + '</time>' + (g.updated && g.updated !== g.date ? ' · ' + esc(UXl.updated) + ' <time datetime="' + esc(g.updated) + '">' + esc(g.updated) + '</time>' : '') + '</p>' : '';
+        var secs = (g.sections || []).filter(function (x) { return pick(x.h) || pick(x.p); }).map(function (x) { return '<section class="pd-sec">' + (pick(x.h) ? '<h2>' + esc(pick(x.h)) + '</h2>' : '') + md(pick(x.p)) + '</section>'; }).join('');
+        var extra = '';
+        if (g.kind === 'hub-products') extra = '<div class="cp-grid">' + visible.filter(hasPage).map(function (o) { var m0 = mediaOf(o).filter(function (m) { return m.type === 'image'; })[0]; return '<a class="cp-card" href="' + pfile(o, langKey) + '">' + (m0 ? '<img src="' + esc(imageSrc(m0.src)) + '" alt="' + esc(altsFor(o)[0] || pick(o.name)) + '"' + (m0.w && m0.h ? ' width="' + Number(m0.w) + '" height="' + Number(m0.h) + '"' : '') + ' loading="lazy" decoding="async">' : '') + '<b>' + esc(pick(o.name)) + '</b><span>' + esc(pick(o.desc)) + '</span></a>'; }).join('') + '</div>';
+        if (g.kind === 'hub-insights') extra = '<div class="cp-grid cp-list-grid">' + PAGES.filter(function (o) { return o.kind === 'article' && pgHas(o, langKey); }).sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); }).map(function (o) { return '<a class="cp-card" href="' + pgfile(o, langKey) + '"><b>' + esc(pick(o.title)) + '</b>' + (o.date ? '<small>' + esc(o.date) + '</small>' : '') + '<span>' + esc(pick(o.desc) || pick(o.intro)) + '</span></a>'; }).join('') + '</div>';
+        var cta = '<aside class="cp-cta"><h2>' + esc(UXl.ctaH) + '</h2><p>' + esc(UXl.ctaP) + '</p><div class="pd-acts"><button class="btn btn-gold" type="button" data-open="quote-dialog">' + esc(T('pd_quote')) + arrow() + '</button><a class="btn btn-ghost" href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a></div></aside>';
+        return cr + '<article class="pd cp"><div class="wrap cp-wrap"><header class="cp-head"><h1>' + esc(t) + '</h1>' + (intro ? '<p class="pd-short">' + esc(intro) + '</p>' : '') + meta + '</header>' + secs + extra + cta + '</div></article>\n';
+      }
+      var mainBody = prod ? productMain(prod) : pg ? pageMain(pg) : layoutOf(content).filter(function (x) { return !x.hidden; }).map(function (x) { return SEC[x.id] || ''; }).join('');
 
       return '<!doctype html>\n' +
 '<html lang="' + G.lang + '" dir="' + G.dir + '">\n<head>\n<meta charset="utf-8">\n' +
 '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' +
 '<title>' + esc(title) + '</title>\n' +
-'<meta name="description" content="' + esc(desc) + '">\n<meta name="theme-color" content="#0A2A66">\n' +
-'<link rel="canonical" href="' + thisUrl + '">\n' +
-enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" href="' + urlOf(l) + '">\n'; }).join('') + '<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n<meta property="og:locale" content="' + G.locale + '">\n' +
-'<meta property="og:type" content="website">\n<meta property="og:site_name" content="ALEXIA EXPORTS">\n<meta property="og:title" content="' + esc(title) + '">\n<meta property="og:description" content="' + esc(desc) + '">\n' +
-'<meta property="og:url" content="' + thisUrl + '">\n<meta property="og:image" content="' + ogimg + '">\n<meta name="twitter:card" content="summary_large_image">\n' +
+'<meta name="description" content="' + esc(desc) + '">\n<meta name="robots" content="' + esc(SEOx.robots + (/noindex/i.test(SEOx.robots) ? '' : ',max-image-preview:large,max-snippet:-1,max-video-preview:-1')) + '">\n<meta name="theme-color" content="#0A2A66">\n' +
+((content.seo && content.seo.verify_google) ? '<meta name="google-site-verification" content="' + esc(content.seo.verify_google) + '">\n' : '') + ((content.seo && content.seo.verify_bing) ? '<meta name="msvalidate.01" content="' + esc(content.seo.verify_bing) + '">\n' : '') +
+'<link rel="canonical" href="' + esc(canon) + '">\n' +
+availL.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" href="' + urlOf(l) + '">\n'; }).join('') + '<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n<meta property="og:locale" content="' + G.locale + '">\n' +
+'<meta property="og:type" content="' + (isArticle ? 'article' : prod ? 'product' : 'website') + '">\n<meta property="og:site_name" content="ALEXIA EXPORTS">\n<meta property="og:title" content="' + esc(SEOx.ogTitle || title) + '">\n<meta property="og:description" content="' + esc(SEOx.ogDesc || desc) + '">\n' +
+'<meta property="og:url" content="' + esc(canon) + '">\n<meta property="og:image" content="' + ogimg + '">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="' + esc(SEOx.ogTitle || title) + '">\n<meta name="twitter:description" content="' + esc(SEOx.ogDesc || desc) + '">\n<meta name="twitter:image" content="' + ogimg + '">\n' +
 '<link rel="icon" type="image/png" href="' + esc(imageSrc(FAV)) + '">\n<link rel="apple-touch-icon" href="' + esc(imageSrc(FAVA)) + '">\n<link rel="manifest" href="manifest.webmanifest">\n' +
 '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
 '<link rel="stylesheet" href="' + G.fonts + '">\n<link rel="stylesheet" href="style.css?v=' + AV + '">\n' +
@@ -523,11 +676,11 @@ enabled.map(function (l) { return '<link rel="alternate" hreflang="' + l + '" hr
 (prod ? '' : '  <button class="search-btn" type="button" aria-label="' + esc(T('search')) + '" aria-expanded="false" aria-controls="gsearch-bar">' + sm('search') + '</button>\n') +
 '  <button class="menu-btn" type="button" aria-label="' + esc(T('menu')) + '" aria-expanded="false" aria-controls="nav"><span></span></button>\n' +
 '  <nav class="main" id="nav" aria-label="' + esc(T('menu')) + '">' + nav + '\n' +
-(enabled.length > 1 ? '    <details class="lang-menu"><summary aria-label="Language">' + sm('globe') + '<span>' + esc(langKey.toUpperCase()) + '</span></summary><ul>' + enabled.filter(function (l) { return l !== langKey; }).map(function (l) { return '<li><a class="lang-link" href="' + (prod ? pfile(prod, l) : fileOf(l)) + '" hreflang="' + l + '" lang="' + l + '">' + esc(LANGS[l].label) + '</a></li>'; }).join('') + '</ul></details>\n' : '') +
+(availL.length > 1 ? '    <details class="lang-menu"><summary aria-label="Language">' + sm('globe') + '<span>' + esc(langKey.toUpperCase()) + '</span></summary><ul>' + availL.filter(function (l) { return l !== langKey; }).map(function (l) { return '<li><a class="lang-link" href="' + (prod ? pfile(prod, l) : pg ? pgfile(pg, l) : fileOf(l)) + '" hreflang="' + l + '" lang="' + l + '">' + esc(LANGS[l].label) + '</a></li>'; }).join('') + '</ul></details>\n' : '') +
 '    <a class="btn btn-gold btn-sm" href="#contact" data-open="quote-dialog">' + esc(T('quote')) + '</a>\n  </nav>\n</div>\n  ' + (prod ? '' : '<div class="gsearch" id="gsearch-bar" hidden><div class="wrap"><div class="search">' + sm('search') + '<input id="gsearch" type="search" placeholder="' + esc(T('search_ph')) + '" aria-label="' + esc(T('search')) + '" autocomplete="off"></div></div></div>') + '\n</header>\n\n' +
 '<main id="top">\n' + mainBody + '</main>\n\n' +
 '<footer class="site"><div class="wrap">\n  <div class="fgrid">\n    <div class="fbrand"><img src="' + esc(imageSrc(LOGO)) + '" alt="' + esc(alt) + '" loading="lazy"><p>' + esc(T('foot_p')) + '</p>' + socialUl + '</div>\n' +
-'    <div><h4>' + esc(T('f_explore')) + '</h4><ul>' + flinks + '</ul></div>\n    <div><h4>' + esc(T('f_cats')) + '</h4><ul>' + fcats + '</ul></div>\n' +
+'    <div><h4>' + esc(T('f_explore')) + '</h4><ul>' + flinks + pgLinks + '</ul></div>\n    <div><h4>' + esc(T('f_cats')) + '</h4><ul>' + fcats + '</ul></div>\n' +
 '    <div><h4>' + esc(T('f_contact')) + '</h4><ul><li><a href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a></li><li><a href="tel:' + PH1T + '">' + ltr(esc(PH1)) + '</a></li>' +
 (PH2 ? '<li><a href="tel:' + PH2T + '">' + ltr(esc(PH2)) + '</a></li>' : '') + '<li>' + esc(T('egypt_line')) + '</li></ul></div>\n  </div>\n' +
 '  <div class="fbottom"><span>' + esc(T('copy_l')) + '</span><span>' + esc(T('copy_r')) + '</span></div>\n</div></footer>\n\n' +
@@ -541,16 +694,28 @@ dialogsHtml +
     enabled.forEach(function (l) { out[fileOf(l)] = page(l); });
     var pagesOf = content.products.filter(function (p) { return !p.hidden && !p.nopage; });
     pagesOf.forEach(function (p) { enabled.forEach(function (l) { out[pfile(p, l)] = page(l, p); }); });
-    out['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
-      enabled.map(function (l) {
-        var u = l === 'en' ? BASE : BASE + fileOf(l);
-        return '  <url><loc>' + u + '</loc>\n' + enabled.map(function (m) { return '    <xhtml:link rel="alternate" hreflang="' + m + '" href="' + (m === 'en' ? BASE : BASE + fileOf(m)) + '"/>\n'; }).join('') + '  </url>\n';
-      }).join('') + pagesOf.map(function (p) {
-        return enabled.map(function (l) { return '  <url><loc>' + BASE + pfile(p, l) + '</loc>\n' + enabled.map(function (m) { return '    <xhtml:link rel="alternate" hreflang="' + m + '" href="' + BASE + pfile(p, m) + '"/>\n'; }).join('') + '  </url>\n'; }).join('');
-      }).join('') + '</urlset>\n';
-    out['robots.txt'] = 'User-agent: *\nAllow: /\nSitemap: ' + BASE + 'sitemap.xml\n';
+    PAGES.forEach(function (g) { enabled.forEach(function (l) { if (pgHas(g, l)) out[pgfile(g, l)] = page(l, null, g); }); });
+    /* sitemap: only indexable pages, with language alternates, lastmod and product images */
+    var groups = [];
+    groups.push({ kind: 'home', e: null, url: function (l) { return l === 'en' ? BASE : BASE + fileOf(l); }, has: function () { return true; }, mod: today, imgs: [] });
+    pagesOf.forEach(function (p) { groups.push({ kind: 'product', e: p, url: function (l) { return BASE + pfile(p, l); }, has: function () { return true; }, mod: today, imgs: mediaOf(p).filter(function (m) { return m.type === 'image'; }).map(function (m) { return BASE + m.src; }) }); });
+    PAGES.forEach(function (g) { groups.push({ kind: 'page', e: g, url: function (l) { return BASE + pgfile(g, l); }, has: function (l) { return pgHas(g, l); }, mod: String(g.updated || g.date || today || '').slice(0, 10), imgs: [] }); });
+    var smx = '';
+    groups.forEach(function (gr) {
+      var ls = enabled.filter(gr.has);
+      var ok = ls.filter(function (l) { var S = seoOf(content, gr.kind, gr.e, l); return !/noindex/i.test(S.robots) && (!S.canonical || S.canonical === gr.url(l)); });
+      ok.forEach(function (l) {
+        smx += '  <url><loc>' + gr.url(l) + '</loc>\n' + (gr.mod ? '    <lastmod>' + gr.mod + '</lastmod>\n' : '') + ok.map(function (m) { return '    <xhtml:link rel="alternate" hreflang="' + m + '" href="' + gr.url(m) + '"/>\n'; }).join('') +
+          (ok.indexOf('en') > -1 ? '    <xhtml:link rel="alternate" hreflang="x-default" href="' + gr.url('en') + '"/>\n' : '') +
+          gr.imgs.map(function (u) { return '    <image:image><image:loc>' + esc(u) + '</image:loc></image:image>\n'; }).join('') + '  </url>\n';
+      });
+    });
+    out['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + smx + '</urlset>\n';
+    out['robots.txt'] = 'User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ' + BASE + 'sitemap.xml\n';
+    var ink = String(content.seo && content.seo.indexnow_key || '');
+    if (/^[A-Za-z0-9-]{8,128}$/.test(ink)) out[ink + '.txt'] = ink;
     return out;
   }
 
-  return { build: build, SOCIALS: SOCIALS, layoutOf: layoutOf, DEFAULT_ORDER: DEFAULT_ORDER, LANG_ORDER: LANG_ORDER, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
+  return { build: build, SOCIALS: SOCIALS, layoutOf: layoutOf, seoOf: seoOf, seoReport: seoReport, DEFAULT_ORDER: DEFAULT_ORDER, LANG_ORDER: LANG_ORDER, withDefaults: withDefaults, DEFAULT_TEXT: DEFAULT_TEXT, DEFAULT_LISTS: DEFAULT_LISTS, ICONS: ICONS, SMALL: SMALL, ICON_NAMES: Object.keys(ICONS), TRUST_ICONS: TRUST_ICONS, LANGS: LANGS, esc: esc };
 });

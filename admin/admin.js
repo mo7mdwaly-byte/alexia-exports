@@ -7,7 +7,7 @@
   /* ---------- interface language ---------- */
   var I = {
     en: {
-      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', layout: 'Order', products: 'Products', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
+      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', layout: 'Order', products: 'Products', pages: 'Pages & Insights', seo: 'SEO', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
       connectH: 'Connect your website', connectP: 'This dashboard edits your website directly on GitHub. It needs a private access key (token) that only works for this one repository. You create it once.',
       s1: 'Open GitHub in Safari (desktop site) and go to Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.',
       s2: 'Name it “Alexia dashboard”, set expiration to 1 year, and under “Repository access” choose Only select repositories → alexia-exports.',
@@ -32,7 +32,7 @@
       draftFound: 'Found unpublished edits from your last visit. Restore them?', copied: 'Copied', saved: 'Draft saved on this device', langBtn: 'العربية', leave: 'You have unpublished changes.'
     },
     ar: {
-      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', layout: 'الترتيب', products: 'المنتجات', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
+      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', layout: 'الترتيب', products: 'المنتجات', pages: 'الصفحات والمقالات', seo: 'السيو', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
       connectH: 'اربط موقعك', connectP: 'تعدّل هذه اللوحة موقعك مباشرة على GitHub. تحتاج إلى مفتاح وصول خاص (Token) يعمل لهذا المستودع فقط. تنشئه مرة واحدة.',
       s1: 'افتح GitHub في Safari (نسخة الكمبيوتر) ثم Settings ← Developer settings ← Personal access tokens ← Fine-grained tokens ← Generate new token.',
       s2: 'سمِّه “Alexia dashboard” واجعل الصلاحية سنة، وفي “Repository access” اختر Only select repositories ← alexia-exports.',
@@ -87,6 +87,13 @@
       ['avail_note', 'long'].forEach(function (k) { if (!d[k] || typeof d[k] !== 'object') d[k] = EMP(); });
       ['apps', 'specs', 'packaging', 'docs', 'extra'].forEach(function (k) { if (!Array.isArray(d[k])) d[k] = []; });
     });
+    c.seo = (c.seo && typeof c.seo === 'object') ? c.seo : {};
+    ['verify_google', 'verify_bing', 'indexnow_key', 'site_updated'].forEach(function (k) { if (typeof c.seo[k] !== 'string') c.seo[k] = ''; });
+    if (!c.seo.indexnow_key) c.seo.indexnow_key = Array.prototype.map.call(crypto.getRandomValues(new Uint8Array(16)), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+    c.seo.home = ensureSeo(c.seo.home);
+    (c.products || []).forEach(function (p) { p.seo = ensureSeo(p.seo); });
+    c.pages = Array.isArray(c.pages) ? c.pages : [];
+    c.pages.forEach(function (g) { ['title', 'intro', 'desc'].forEach(function (k) { ensureBi(g, k); }); if (!Array.isArray(g.sections)) g.sections = []; g.sections.forEach(function (x) { ensureBi(x, 'h'); ensureBi(x, 'p'); }); g.seo = ensureSeo(g.seo); if (!g.slug) g.slug = g.id; });
     c.layout = B.layoutOf ? B.layoutOf(c) : (c.layout || []);
     if (B.withDefaults) B.withDefaults(c);
     return c;
@@ -246,7 +253,15 @@
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 5); }
   function readB64(file) { return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.onerror = rej; r.readAsDataURL(file); }); }
   var MAX_ORIG_IMG = 6 * 1024 * 1024, MAX_DOC = 10 * 1024 * 1024;
+  function imgDims(file) {
+    return new Promise(function (res) { var u = URL.createObjectURL(file), im = new Image(); im.onload = function () { URL.revokeObjectURL(u); res([im.naturalWidth, im.naturalHeight]); }; im.onerror = function () { URL.revokeObjectURL(u); res(null); }; im.src = u; });
+  }
   function addMedia(file, base, maxPx, mode) {
+    var r = addMedia0(file, base, maxPx, mode);
+    if (!/^image\//.test(file.type)) return r;
+    return r.then(function (it) { return imgDims(file).then(function (d) { if (d) { var sc = it.size === 'original' && file.size <= MAX_ORIG_IMG ? 1 : Math.min(1, (it.size === 'original' ? 2800 : maxPx) / Math.max(d[0], d[1])); it.w = Math.round(d[0] * sc); it.h = Math.round(d[1] * sc); } return it; }); });
+  }
+  function addMedia0(file, base, maxPx, mode) {
     mode = mode || S.sizeMode;
     if (/^image\//.test(file.type)) {
       var keep = mode === 'original' && file.size <= MAX_ORIG_IMG && /^image\/(jpeg|png|webp|gif)$/.test(file.type);
@@ -538,8 +553,9 @@
     sel.addEventListener('change', function () { p.group = sel.value; touch(); });
     body.push(h('div', { class: 'field' }, h('label', null, t('group')), sel));
     body.push(iconPicker(p, 'icon', B.ICON_NAMES, false));
-    body.push(mediaEditor(p, 'media', { base: p.id, max: 1400 }));
+    body.push(mediaEditor(p, 'media', { base: 'egyptian-' + slug(p.name.en || p.id), max: 1400 }));
     body.push(productPageEditor(p));
+    body.push(seoDetails(p, 'product', 'seo:pi:' + p.id));
     body.push(boolField(p, 'hidden', t('hideP')));
     body.push(boolField(p, 'discuss', t('discussP')));
     body.push(rowActions(c.products, i, function () { touch(); render(); }, { dup: function () {
@@ -889,7 +905,8 @@
   function publish(note, logEl, btn) {
     if (S.busy) return;
     S.busy = true; S.log = ''; btn.disabled = true; btn.textContent = t('publishing');
-    S.content.assetv = Date.now().toString(36);
+    S.content.assetv = Date.now().toString(36); S.content.seo.site_updated = new Date().toISOString().slice(0, 10);
+    var prevFiles = {}; try { prevFiles = B.build(JSON.parse(S.raw)); } catch (e1) {}
     var branch = S.cfg.branch, ref = 'heads/' + encodeURIComponent(branch).replace(/%2F/g, '/'), snapshot = canon(S.content), pend = JSON.parse(JSON.stringify(S.pending)), files, headSha, treeSha;
     logTo(logEl, '1/6 Checking latest version…');
     gh('/git/ref/' + ref).then(function (r) {
@@ -917,7 +934,7 @@
           return chain.then(function () { logTo(logEl, '   ' + p); return gh('/git/blobs', { method: 'POST', body: { content: pend[p], encoding: 'base64' } }).then(function (b) { tree.push({ path: p, mode: '100644', type: 'blob', sha: b.sha }); }); });
         }, Promise.resolve());
       }).then(function () {
-        ((old && old.tree) || []).forEach(function (e) { if (e.type === 'blob' && /^product-[^\/]+\.html$/.test(e.path) && !files[e.path]) tree.push({ path: e.path, mode: '100644', type: 'blob', sha: null }); });
+        ((old && old.tree) || []).forEach(function (e) { if (e.type === 'blob' && ((/^product-[^\/]+\.html$/.test(e.path)) || (prevFiles[e.path] && /\.(html|txt)$/.test(e.path) && e.path !== 'robots.txt')) && !files[e.path]) tree.push({ path: e.path, mode: '100644', type: 'blob', sha: null }); });
         return tree;
       });
     }).then(function (tree) {
@@ -959,8 +976,137 @@
     return box;
   };
 
+  /* ---------- SEO and pages ---------- */
+  function ensureSeo(o) {
+    o = o && typeof o === 'object' ? o : {};
+    ['title', 'desc', 'focus', 'secondary', 'og_title', 'og_desc', 'alt'].forEach(function (k) { ensureBi(o, k); });
+    ['canonical', 'og_image', 'schema'].forEach(function (k) { if (typeof o[k] !== 'string') o[k] = ''; });
+    if (!o.robots) o.robots = 'index,follow';
+    return o;
+  }
+  function scoreBadge(r) { return h('span', { class: 'badge score ' + (r.score >= 80 ? 'sc-good' : r.score >= 55 ? 'sc-mid' : 'sc-bad') }, 'SEO ' + r.score + '/100'); }
+  function pageUrl(kind, owner) {
+    var base = S.content.company.base_url.replace(/\/?$/, '/');
+    if (kind === 'home') return base;
+    if (kind === 'product') return base + 'product-' + owner.id + '.html';
+    return base + (owner.slug || owner.id) + '.html';
+  }
+  function seoEditor(owner, kind) {
+    var c = S.content, sd = kind === 'home' ? c.seo.home : (owner.seo = ensureSeo(owner.seo));
+    var box = h('div'), rep = h('div', { class: 'seo-rep' });
+    var paint = function () {
+      var r = B.seoReport(c, kind, owner, 'en'); rep.innerHTML = '';
+      rep.appendChild(h('div', { class: 'seo-score' }, scoreBadge(r), h('span', { class: 'muted small' }, L('Checked on the English page. Empty fields are filled automatically.', 'يُفحص على الصفحة الإنجليزية. الحقول الفارغة تُملأ تلقائيًا.'))));
+      var ul = h('ul', { class: 'seo-list' });
+      r.items.forEach(function (i) { ul.appendChild(h('li', { class: 'st-' + i.st }, (i.st === 'pass' ? '✓ ' : i.st === 'warn' ? '! ' : '✕ ') + (S.ui === 'ar' ? i.ar : i.en))); });
+      rep.appendChild(ul);
+      rep.appendChild(h('div', { class: 'serp', dir: 'ltr' }, h('b', null, r.seo.title), h('i', null, (r.seo.canonical || pageUrl(kind, owner))), h('span', null, r.seo.desc)));
+    };
+    box.appendChild(rep);
+    box.appendChild(h('p', { class: 'hint' }, L('Leave a field empty to use the automatic version. Aim for a 50–60 character title and a 140–160 character description.', 'اترك الحقل فارغًا لاستخدام النسخة التلقائية. الهدف: عنوان 50–60 حرفًا ووصف 140–160 حرفًا.')));
+    box.appendChild(biField(sd, 'title', L('SEO title', 'عنوان السيو')));
+    box.appendChild(biField(sd, 'desc', L('Meta description', 'الوصف (ميتا)'), true));
+    box.appendChild(biField(sd, 'focus', L('Focus keyword', 'الكلمة المفتاحية الرئيسية')));
+    box.appendChild(biField(sd, 'secondary', L('Secondary keywords (comma separated)', 'كلمات مفتاحية ثانوية (مفصولة بفواصل)')));
+    box.appendChild(strField(sd, 'canonical', L('Canonical URL (leave empty for automatic)', 'الرابط الأساسي Canonical (اتركه فارغًا للتلقائي)'), { hint: L('Only change this if the same content lives at another address.', 'لا تغيّره إلا إذا كان نفس المحتوى موجودًا على عنوان آخر.') }));
+    var sel = h('select');
+    [['index,follow', L('Index, follow (recommended)', 'فهرسة + تتبع الروابط (موصى به)')], ['noindex,follow', L('Hide from search, follow links', 'إخفاء من البحث مع تتبع الروابط')], ['noindex,nofollow', L('Hide from search, do not follow', 'إخفاء من البحث دون تتبع')], ['index,nofollow', L('Index, do not follow links', 'فهرسة دون تتبع الروابط')]].forEach(function (o) { var op = h('option', { value: o[0] }, o[1]); if (sd.robots === o[0]) op.selected = true; sel.appendChild(op); });
+    sel.addEventListener('change', function () { sd.robots = sel.value; touch(); paint(); });
+    box.appendChild(h('div', { class: 'field' }, h('label', null, L('Search engine visibility (meta robots)', 'ظهور الصفحة في محركات البحث (meta robots)')), sel));
+    box.appendChild(biField(sd, 'og_title', L('Social share title (Open Graph)', 'عنوان المشاركة الاجتماعية')));
+    box.appendChild(biField(sd, 'og_desc', L('Social share description', 'وصف المشاركة الاجتماعية'), true));
+    box.appendChild(strField(sd, 'og_image', L('Social share image path (e.g. images/name.jpg; empty = first product photo)', 'مسار صورة المشاركة (مثل images/name.jpg؛ فارغ = أول صورة)')));
+    if (kind === 'product') box.appendChild(biField(sd, 'alt', L('Image ALT text (describe the product photo)', 'نص بديل للصور ALT (صف صورة المنتج)')));
+    var ta = h('textarea', { dir: 'ltr', rows: 4, placeholder: '{"@type":"FAQPage", …}' }); ta.value = sd.schema || '';
+    ta.addEventListener('input', function () { sd.schema = ta.value; touch(); paint(); });
+    box.appendChild(h('div', { class: 'field' }, h('label', null, L('Extra structured data (JSON-LD, optional, advanced)', 'بيانات منظمة إضافية (JSON-LD، اختياري، متقدم)')), ta));
+    box.addEventListener('input', function () { paint(); });
+    paint();
+    return box;
+  }
+  function seoDetails(owner, kind, key) {
+    var r = B.seoReport(S.content, kind, owner, 'en');
+    var d = h('details', { class: 'item sub-item' }, h('summary', null, h('span', { class: 'tt' }, '🔎 ' + L('SEO settings', 'إعدادات السيو')), scoreBadge(r)), h('div', { class: 'body' }, seoEditor(owner, kind)));
+    if (S.open[key]) d.open = true; d.addEventListener('toggle', function () { S.open[key] = d.open; });
+    return d;
+  }
+  function indexNowSend(urls, logEl) {
+    var key = S.content.seo.indexnow_key, base = S.content.company.base_url.replace(/\/?$/, '/');
+    if (!/^[A-Za-z0-9-]{8,128}$/.test(key || '')) { logTo(logEl, L('Set an IndexNow key first.', 'أدخل مفتاح IndexNow أولًا.')); return; }
+    var n = 0, i = 0;
+    var next = function () {
+      if (i >= urls.length) { logTo(logEl, L('Sent ' + n + ' address(es) to IndexNow. Your browser cannot read the answer, so check Bing Webmaster Tools to confirm.', 'تم إرسال ' + n + ' عنوانًا إلى IndexNow. لا يستطيع المتصفح قراءة الرد، فتأكد من Bing Webmaster Tools.')); return; }
+      var batch = urls.slice(i, i + 8); i += 8;
+      Promise.all(batch.map(function (u) { return fetch('https://api.indexnow.org/indexnow?url=' + encodeURIComponent(u) + '&key=' + encodeURIComponent(key) + '&keyLocation=' + encodeURIComponent(base + key + '.txt'), { mode: 'no-cors' }).then(function () { n++; }, function () {}); })).then(next);
+    };
+    next();
+  }
+  VIEWS.seo = function () {
+    var c = S.content, box = h('div'), sd = c.seo;
+    box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.seo'))));
+    box.appendChild(h('p', { class: 'hint' }, L('Search settings for every page. Titles, descriptions and structured data are generated automatically; use these controls to sharpen any page. The score is a guide, not a ranking guarantee.', 'إعدادات البحث لكل صفحة. العناوين والأوصاف والبيانات المنظمة تُنشأ تلقائيًا؛ استخدم هذه الأدوات لتحسين أي صفحة. الدرجة إرشادية وليست ضمانًا للترتيب.')));
+    var log = h('pre', { class: 'log hide' });
+    var site = h('div', { class: 'card' },
+      h('h3', null, L('Site-wide: search engines', 'إعدادات الموقع: محركات البحث')),
+      strField(sd, 'verify_google', L('Google Search Console verification code', 'كود تحقق Google Search Console'), { hint: L('Paste only the content="…" value of the verification meta tag (optional if you verified by DNS).', 'الصق قيمة content فقط من وسم التحقق (اختياري إذا تحققت عبر DNS).') }),
+      strField(sd, 'verify_bing', L('Bing Webmaster Tools verification code', 'كود تحقق Bing Webmaster Tools')),
+      strField(sd, 'indexnow_key', L('IndexNow key (already generated; the key file is published automatically)', 'مفتاح IndexNow (تم إنشاؤه؛ ملف المفتاح يُنشر تلقائيًا)')),
+      h('p', { class: 'hint' }, L('Sitemap: ', 'خريطة الموقع: ') + c.company.base_url.replace(/\/?$/, '/') + 'sitemap.xml'),
+      h('button', { class: 'btn sm ghost', type: 'button', onclick: function () {
+        var files = B.build(JSON.parse(JSON.stringify(c))), urls = (files['sitemap.xml'].match(/<loc>[^<]+<\/loc>/g) || []).map(function (x) { return x.replace(/<\/?loc>/g, ''); });
+        if (!confirm(L('Publish your changes first, then send ' + urls.length + ' addresses to Bing and other IndexNow search engines?', 'انشر تغييراتك أولًا، ثم أرسل ' + urls.length + ' عنوانًا إلى Bing ومحركات IndexNow؟'))) return;
+        log.classList.remove('hide'); log.textContent = ''; S.log = ''; indexNowSend(urls, log);
+      } }, L('Notify Bing & IndexNow (after publishing)', 'إخطار Bing وIndexNow (بعد النشر)')), log);
+    box.appendChild(site);
+    var rows = [{ t: L('Home page', 'الصفحة الرئيسية'), kind: 'home', o: null, key: 'seo:home' }];
+    (c.pages || []).forEach(function (g) { rows.push({ t: (g.title.en || g.id) + (g.kind === 'article' ? ' · ' + L('article', 'مقال') : ''), kind: 'page', o: g, key: 'seo:pg:' + g.id }); });
+    c.products.forEach(function (p) { rows.push({ t: p.name.en || p.id, kind: 'product', o: p, key: 'seo:p:' + p.id }); });
+    rows.forEach(function (r) {
+      var rp = B.seoReport(c, r.kind, r.o, 'en');
+      var d = h('details', { class: 'item' }, h('summary', null, h('span', { class: 'tt' }, r.t), scoreBadge(rp)), h('div', { class: 'body' }, seoEditor(r.o, r.kind)));
+      if (S.open[r.key]) d.open = true; d.addEventListener('toggle', function () { S.open[r.key] = d.open; });
+      box.appendChild(d);
+    });
+    return box;
+  };
+  function newPage(kind) {
+    var id = 'new-' + (kind === 'article' ? 'article' : 'page'), ids = (S.content.pages || []).map(function (g) { return g.id; }), n = 2, b = id;
+    while (ids.indexOf(id) > -1) id = b + '-' + n++;
+    return { id: id, slug: id, kind: kind, hidden: false, footer: false, related: false, date: new Date().toISOString().slice(0, 10), updated: new Date().toISOString().slice(0, 10), title: EMP(), intro: EMP(), desc: EMP(), sections: [{ h: EMP(), p: EMP() }], seo: ensureSeo({}) };
+  }
+  function pageItem(g, i) {
+    var c = S.content, body = [];
+    var KIND = { page: L('Page', 'صفحة'), article: L('Article', 'مقال'), 'hub-products': L('Products list page', 'صفحة قائمة المنتجات'), 'hub-insights': L('Articles list page', 'صفحة قائمة المقالات') };
+    body.push(h('p', { class: 'hint' }, L('Type: ', 'النوع: ') + (KIND[g.kind] || g.kind) + ' · ' + L('Address: ', 'العنوان: ') + (g.slug || g.id) + '.html. ' + L('Pages in French, Spanish or Arabic are only created when you fill that language.', 'تُنشأ الصفحات بالعربية أو الفرنسية أو الإسبانية فقط عند تعبئة تلك اللغة.')));
+    body.push(biField(g, 'title', L('Title (H1)', 'العنوان (H1)')));
+    body.push(biField(g, 'intro', L('Introduction (shown under the title)', 'مقدمة (تظهر تحت العنوان)'), true));
+    body.push(biField(g, 'desc', L('Short summary (used for search snippet and article lists)', 'ملخص قصير (للبحث وقوائم المقالات)'), true));
+    body.push(h('p', { class: 'hint' }, L('In section text: blank line = new paragraph; lines starting with “- ” = bullet list; **bold**; links: [text](page:page-address) or [text](product:product-id).', 'في نص الأقسام: سطر فارغ = فقرة جديدة؛ سطر يبدأ بـ «- » = نقطة؛ **غامق**؛ الروابط: [النص](page:عنوان-الصفحة) أو [النص](product:معرف-المنتج).')));
+    body.push(rowsEditor(g, 'sections', L('Sections', 'الأقسام'), '', function () { return { h: EMP(), p: EMP() }; }, [{ k: 'h', type: 'bi', label: L('Heading (H2)', 'عنوان القسم (H2)') }, { k: 'p', type: 'bit', label: L('Text', 'النص') }], g.id));
+    body.push(strField(g, 'slug', L('Page address (letters, numbers, dashes)', 'عنوان الصفحة (حروف وأرقام وشرطات)'), { hint: L('Changing it changes the web address.', 'تغييره يغيّر عنوان الصفحة.') }));
+    if (g.kind === 'article') { body.push(strField(g, 'date', L('Publish date (YYYY-MM-DD)', 'تاريخ النشر (YYYY-MM-DD)'))); body.push(strField(g, 'updated', L('Last updated (YYYY-MM-DD)', 'آخر تحديث (YYYY-MM-DD)'))); }
+    body.push(boolField(g, 'footer', L('Show a link in the website footer', 'إظهار رابط في أسفل الموقع')));
+    if (g.kind === 'page') body.push(boolField(g, 'related', L('List on every product page under “Buying information”', 'إدراجها في كل صفحة منتج تحت «معلومات للمشترين»')));
+    body.push(boolField(g, 'hidden', L('Hide this page (not published)', 'إخفاء هذه الصفحة (غير منشورة)')));
+    body.push(seoDetails(g, 'page', 'seo:pgi:' + g.id));
+    body.push(rowActions(c.pages, i, function () { touch(); render(); }, {}));
+    var r = B.seoReport(c, 'page', g, 'en');
+    return detailsItem('pg:' + g.id, [h('span', { class: 'tt' }, (g.title.en || g.id)), h('span', { class: 'badge' }, g.kind === 'article' ? L('Article', 'مقال') : g.kind === 'page' ? L('Page', 'صفحة') : L('List', 'قائمة')), g.hidden ? h('span', { class: 'badge off' }, t('hiddenBadge')) : null, scoreBadge(r)], body);
+  }
+  VIEWS.pages = function () {
+    var c = S.content, box = h('div');
+    c.pages = c.pages || [];
+    box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.pages')),
+      h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap' },
+        h('button', { class: 'btn gold', type: 'button', onclick: function () { c.pages.push(newPage('page')); S.open['pg:' + c.pages[c.pages.length - 1].id] = true; touch(); render(); } }, '+ ' + L('Page', 'صفحة')),
+        h('button', { class: 'btn gold', type: 'button', onclick: function () { c.pages.push(newPage('article')); S.open['pg:' + c.pages[c.pages.length - 1].id] = true; touch(); render(); } }, '+ ' + L('Article', 'مقال')))));
+    box.appendChild(h('p', { class: 'hint' }, L('Information pages and articles that help buyers find and trust you. Write real, useful content: no keyword stuffing. They appear in the sitemap automatically.', 'صفحات معلومات ومقالات تساعد المشترين على إيجادك والوثوق بك. اكتب محتوى حقيقيًا ومفيدًا دون حشو كلمات. تظهر في خريطة الموقع تلقائيًا.')));
+    c.pages.forEach(function (g, i) { box.appendChild(pageItem(g, i)); });
+    return box;
+  };
+
   /* ---------- shell ---------- */
-  var TABS = ['overview', 'layout', 'products', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
+  var TABS = ['overview', 'layout', 'products', 'pages', 'seo', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
   function setDir() { document.documentElement.lang = S.ui; document.documentElement.dir = S.ui === 'ar' ? 'rtl' : 'ltr'; }
   function toggleLang() { S.ui = S.ui === 'ar' ? 'en' : 'ar'; LS.set('alexia_ui', S.ui); setDir(); render(); }
 

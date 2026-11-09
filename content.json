@@ -2173,8 +2173,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/citrus-mvhq2l7q.jpg",
-          "size": "original"
+          "src": "images/egyptian-oranges-export-carton.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 747
         }
       ],
       "detail": {
@@ -2202,6 +2204,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Egyptian Oranges Exporter | Navel & Valencia Oranges",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Egyptian oranges exporter: Navel and Valencia oranges, mandarins, lemons and grapefruit for retail and wholesale importers. Request a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian oranges exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "navel oranges egypt, valencia oranges supplier",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian oranges packed in an export carton",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2252,8 +2302,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/grapes-mvhxuu92.jpg",
-          "size": "original"
+          "src": "images/egyptian-grapes-export.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 667
         }
       ],
       "detail": {
@@ -2281,6 +2333,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian grapes exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian fresh grapes in a wooden crate",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2331,8 +2431,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/fruits-mvhzxp3yc8e.jpg",
-          "size": "original"
+          "src": "images/egyptian-seasonal-fruits-export.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 667
         }
       ],
       "detail": {
@@ -2360,6 +2462,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian fruits exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian seasonal fruits",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2410,8 +2560,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/veg-mvwsw7k2k4h.png",
-          "size": "original"
+          "src": "images/egyptian-vegetables-herbs-export-2.jpg",
+          "size": "original",
+          "w": 1536,
+          "h": 1024
         }
       ],
       "detail": {
@@ -2439,6 +2591,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian vegetables exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian vegetables and herbs",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2489,8 +2689,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/olives-mvhzy8cnmoi.jpg",
-          "size": "original"
+          "src": "images/egyptian-olives-olive-oil-export.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 1000
         }
       ],
       "detail": {
@@ -2518,6 +2720,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian olives exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian table olives and olive oil",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2564,8 +2814,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/oils-mw33y3c4f1e.jpg",
-          "size": "standard"
+          "src": "images/egyptian-edible-oils-export-2.jpg",
+          "size": "standard",
+          "w": 1254,
+          "h": 1254
         }
       ],
       "detail": {
@@ -2593,6 +2845,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian edible oils exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian edible oils: olive, soybean and sunflower oil bottles",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2639,23 +2939,31 @@
       "media": [
         {
           "type": "image",
-          "src": "images/frozen-mvi06qg8smv.jpg",
-          "size": "original"
+          "src": "images/egyptian-frozen-strawberries-iqf-2.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/frozen-mvi06qh4fon.jpg",
-          "size": "original"
+          "src": "images/egyptian-frozen-blueberries-iqf.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/frozen-mvi06qhzuj8.jpg",
-          "size": "original"
+          "src": "images/egyptian-frozen-raspberries-iqf.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/frozen-mvi06qiwe5g.jpg",
-          "size": "original"
+          "src": "images/egyptian-frozen-mixed-berries-iqf.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 667
         }
       ],
       "detail": {
@@ -2683,6 +2991,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Egyptian Frozen Strawberries Supplier | IQF Berries",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Egyptian frozen strawberries supplier: IQF strawberries, blueberries, raspberries and mixed berries for importers and manufacturers. Request a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian frozen strawberries supplier",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "iqf strawberries egypt, frozen berries exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian IQF frozen strawberries in a retail bag",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2733,78 +3089,108 @@
       "media": [
         {
           "type": "image",
-          "src": "images/dates-mvifyx1f1tz.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-01.jpg",
+          "size": "original",
+          "w": 768,
+          "h": 995
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx1zsae.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-02.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx2jok8.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-03.jpg",
+          "size": "original",
+          "w": 772,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx32azd.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-04.jpg",
+          "size": "original",
+          "w": 772,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx3l4en.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-05.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx44mrp.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-06.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx4ojch.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-07.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx57emq.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-08.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx5r55z.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-09.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx6ctqw.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-10.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx6v48t.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-11.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx7eysk.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-12.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx7yopy.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-13.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx8hjpx.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-14.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         },
         {
           "type": "image",
-          "src": "images/dates-mvifyx919tt.jpg",
-          "size": "original"
+          "src": "images/egyptian-dates-dried-fruits-15.jpg",
+          "size": "original",
+          "w": 747,
+          "h": 1000
         }
       ],
       "detail": {
@@ -2832,6 +3218,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian dates exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "medjool dates egypt, dried fruits supplier",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian Medjool dates and dried fruit in retail pouches",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2901,6 +3335,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian salt exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -2947,19 +3429,27 @@
       "media": [
         {
           "type": "image",
-          "src": "images/ingr-mvruoe3431g.jpg"
+          "src": "images/egyptian-yellow-lentils-pouch.jpg",
+          "w": 1000,
+          "h": 558
         },
         {
           "type": "image",
-          "src": "images/ingr-mvruoe3cty6.jpg"
+          "src": "images/egyptian-dry-white-beans-pouch.jpg",
+          "w": 1000,
+          "h": 558
         },
         {
           "type": "image",
-          "src": "images/ingr-mvruoe3khmu.jpg"
+          "src": "images/egyptian-sesame-seeds-pouch.jpg",
+          "w": 1000,
+          "h": 558
         },
         {
           "type": "image",
-          "src": "images/ingr-mvruoe3t6ix.jpg"
+          "src": "images/egyptian-peanuts-pouch.jpg",
+          "w": 1000,
+          "h": 558
         }
       ],
       "detail": {
@@ -2987,6 +3477,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Bulk Food Ingredients Supplier from Egypt | ALEXIA",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Bulk food ingredients supplier in Egypt: commodity and ingredient sourcing for manufacturers and professional buyers. Request specifications and a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "bulk food ingredients supplier",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "food ingredients egypt, commodity sourcing",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian bulk food ingredients in export pouches",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -3033,58 +3571,80 @@
       "media": [
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8c8x5h01.jpg",
-          "size": "original"
+          "src": "images/egyptian-dry-chickpeas-8mm-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8caii3z7.jpg",
-          "size": "original"
+          "src": "images/egyptian-green-beans-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8cc75oci.jpg",
-          "size": "original"
+          "src": "images/egyptian-fava-beans-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8cda195h.jpg",
-          "size": "original"
+          "src": "images/egyptian-white-kidney-beans-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8cf8qt1c.jpg",
-          "size": "original"
+          "src": "images/egyptian-dark-red-kidney-beans-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8cgarq1r.jpg",
-          "size": "original"
+          "src": "images/egyptian-red-kidney-beans-azuki-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8chuxcde.jpg",
-          "size": "original"
+          "src": "images/egyptian-brown-lentils-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8civ0eyf.jpg",
-          "size": "original"
+          "src": "images/egyptian-yellow-lentils-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8ckmgr1s.jpg",
-          "size": "original"
+          "src": "images/egyptian-premium-rice-bag-4.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8clrxyin.jpg",
-          "size": "original"
+          "src": "images/egyptian-premium-rice-bag-5.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         },
         {
           "type": "image",
-          "src": "images/ingr-2-mvy8cmwpg6i.jpg",
-          "size": "original"
+          "src": "images/egyptian-premium-rice-bag-6.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
         }
       ],
       "detail": {
@@ -3112,6 +3672,444 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Dry Legumes & Pulses Exporter from Egypt | ALEXIA",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Dry legumes and pulses from Egypt: chickpeas, white and red kidney beans, fava beans, lentils and more for importers and packers. Request a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "dry legumes exporter egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "pulses supplier egypt, bulk legumes",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian dry legumes and pulses in export bags",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "chickpeas",
+      "group": "ingredients",
+      "icon": "flask",
+      "image": "",
+      "hidden": false,
+      "discuss": false,
+      "name": {
+        "en": "Dry Chickpeas (8 mm)",
+        "ar": "حمص جاف (8 مم)",
+        "fr": "Pois chiches secs (8 mm)",
+        "es": "Garbanzos secos (8 mm)"
+      },
+      "desc": {
+        "en": "Dry chickpeas, 8 mm, for importers, packers and food manufacturers, offered in export bags such as 25 kg. Specification and availability on request.",
+        "ar": "حمص جاف مقاس 8 مم للمستوردين ومصانع التعبئة والأغذية، بعبوات تصدير مثل 25 كجم. المواصفات والتوفر عند الطلب.",
+        "fr": "Pois chiches secs de 8 mm pour importateurs, conditionneurs et industriels, en sacs export comme 25 kg. Spécifications et disponibilité sur demande.",
+        "es": "Garbanzos secos de 8 mm para importadores, envasadores e industria alimentaria, en sacos de exportación como 25 kg. Especificaciones y disponibilidad bajo solicitud."
+      },
+      "tags": {
+        "en": [],
+        "ar": [],
+        "fr": [],
+        "es": []
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "images/egyptian-dry-chickpeas-8mm-25kg-bag.jpg",
+          "size": "original",
+          "w": 704,
+          "h": 1525
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-dry-chickpeas-8mm-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-dry-chickpeas-pouch.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 558
+        }
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Egyptian Chickpeas Supplier | Dry Chickpeas 8mm Export",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Egyptian chickpeas supplier: dry chickpeas 8 mm for importers, packers and food manufacturers, in export bags such as 25 kg. Request a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian chickpeas supplier",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "dry chickpeas 8mm export, chickpeas exporter egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian dry chickpeas 8 mm in a 25 kg export bag",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "white-kidney-beans",
+      "group": "ingredients",
+      "icon": "flask",
+      "image": "",
+      "hidden": false,
+      "discuss": false,
+      "name": {
+        "en": "White Kidney Beans (Cannellini)",
+        "ar": "فاصوليا بيضاء (كانيليني)",
+        "fr": "Haricots blancs (Cannellini)",
+        "es": "Alubias blancas (Cannellini)"
+      },
+      "desc": {
+        "en": "Dry white kidney beans (cannellini) for importers, packers and food manufacturers, offered in export bags such as 25 kg. Specification on request.",
+        "ar": "فاصوليا بيضاء جافة (كانيليني) للمستوردين ومصانع التعبئة والأغذية، بعبوات تصدير مثل 25 كجم. المواصفات عند الطلب.",
+        "fr": "Haricots blancs secs (cannellini) pour importateurs, conditionneurs et industriels, en sacs export comme 25 kg. Spécifications sur demande.",
+        "es": "Alubias blancas secas (cannellini) para importadores, envasadores e industria alimentaria, en sacos de exportación como 25 kg. Especificaciones bajo solicitud."
+      },
+      "tags": {
+        "en": [],
+        "ar": [],
+        "fr": [],
+        "es": []
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "images/egyptian-white-kidney-beans-25kg-bag.jpg",
+          "size": "original",
+          "w": 704,
+          "h": 1525
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-white-kidney-beans-bag.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-dry-white-beans-pouch.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 558
+        }
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Egyptian White Kidney Beans Supplier | White Beans Exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Egyptian white kidney beans supplier and white beans exporter from Egypt: dry cannellini beans in export bags such as 25 kg. Request a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian white kidney beans supplier",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "white beans exporter from egypt, cannellini beans egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian dry white kidney beans (cannellini) in a 25 kg export bag",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "rice",
+      "group": "ingredients",
+      "icon": "flask",
+      "image": "",
+      "hidden": false,
+      "discuss": false,
+      "name": {
+        "en": "Egyptian Rice (Premium Grain)",
+        "ar": "أرز مصري (حبة ممتازة)",
+        "fr": "Riz égyptien (grain premium)",
+        "es": "Arroz egipcio (grano premium)"
+      },
+      "desc": {
+        "en": "Egyptian premium-grain rice for importers, distributors and packers, offered in export bags of several sizes. Specification and availability on request.",
+        "ar": "أرز مصري بحبة ممتازة للمستوردين والموزعين ومصانع التعبئة، بعبوات تصدير بأحجام متعددة. المواصفات والتوفر عند الطلب.",
+        "fr": "Riz égyptien à grain premium pour importateurs, distributeurs et conditionneurs, en sacs export de plusieurs tailles. Spécifications et disponibilité sur demande.",
+        "es": "Arroz egipcio de grano premium para importadores, distribuidores y envasadores, en sacos de exportación de varios tamaños. Especificaciones y disponibilidad bajo solicitud."
+      },
+      "tags": {
+        "en": [],
+        "ar": [],
+        "fr": [],
+        "es": []
+      },
+      "media": [
+        {
+          "type": "image",
+          "src": "images/egyptian-premium-rice-bag-1.jpg",
+          "size": "original",
+          "w": 704,
+          "h": 1525
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-premium-rice-bag-2.jpg",
+          "size": "original",
+          "w": 704,
+          "h": 1525
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-premium-rice-bag-3.jpg",
+          "size": "original",
+          "w": 704,
+          "h": 1525
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-premium-rice-bag-4.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-premium-rice-bag-5.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-premium-rice-bag-6.jpg",
+          "size": "original",
+          "w": 646,
+          "h": 1400
+        }
+      ],
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "yes",
+        "avail_note": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "long": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "apps": [],
+        "specs": [],
+        "packaging": [],
+        "docs": [],
+        "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "Egyptian Rice Exporter | Premium Grain Rice from Egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "Egyptian rice exporter for importers, distributors and packers: premium-grain rice in export bags of several sizes. Request specifications and a quote.",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian rice exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "rice supplier egypt, egyptian premium rice",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian premium-grain rice in an export bag",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -3158,31 +4156,45 @@
       "media": [
         {
           "type": "image",
-          "src": "images/processed-mvvk7lrvqc8.jpg"
+          "src": "images/egyptian-canned-fava-beans-export.jpg",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/processed-mvvk7lsqk7g.jpg"
+          "src": "images/egyptian-canned-green-peas-export.jpg",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/processed-mvvk7ltkvqu.jpg"
+          "src": "images/egyptian-canned-white-beans-export.jpg",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/processed-mvvk7lueynj.jpg"
+          "src": "images/egyptian-canned-sweet-corn-export.jpg",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/processed-mvvk7lv7pqi.jpg"
+          "src": "images/egyptian-canned-red-kidney-beans-export.jpg",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/processed-mvvk7lw0sll.jpg"
+          "src": "images/egyptian-canned-haricots-blancs-export.jpg",
+          "w": 1000,
+          "h": 667
         },
         {
           "type": "image",
-          "src": "images/processed-mvvk7lwwaih.jpg"
+          "src": "images/egyptian-canned-tomato-paste-export.jpg",
+          "w": 1000,
+          "h": 667
         }
       ],
       "detail": {
@@ -3210,6 +4222,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian canned foods exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian canned beans, peas, corn and tomato paste",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     },
     {
@@ -3252,8 +4312,10 @@
       "media": [
         {
           "type": "image",
-          "src": "images/dairy-mvvk70shdyh.jpg",
-          "size": "original"
+          "src": "images/egyptian-dairy-foodstuffs-export.jpg",
+          "size": "original",
+          "w": 1000,
+          "h": 500
         }
       ],
       "detail": {
@@ -3281,6 +4343,54 @@
         "packaging": [],
         "docs": [],
         "extra": []
+      },
+      "seo": {
+        "title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian foodstuffs exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "Egyptian dairy products and foodstuffs",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
       }
     }
   ],
@@ -3491,7 +4601,8 @@
           "es": ""
         },
         "link": "",
-        "size": "original"
+        "size": "original",
+        "poster": "images/banner-poster.jpg"
       }
     ]
   },
@@ -3555,5 +4666,1704 @@
       "hidden": false
     }
   ],
-  "assetv": "mw33ydu7"
+  "assetv": "seo1",
+  "seo": {
+    "verify_google": "",
+    "verify_bing": "",
+    "indexnow_key": "0818dacffef04f5189649871e710f7f8",
+    "site_updated": "2026-11-09",
+    "home": {
+      "title": {
+        "en": "Egyptian Food & Agricultural Products Exporter | ALEXIA",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "ALEXIA EXPORTS is an Egyptian foodstuff and agricultural products export company: fresh produce, frozen berries, dry legumes, oils and more. Request a quote.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "focus": {
+        "en": "egyptian agricultural products exporter",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "secondary": {
+        "en": "egyptian foodstuff export company, bulk food ingredients supplier",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "canonical": "",
+      "robots": "index,follow",
+      "og_title": {
+        "en": "",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "og_desc": {
+        "en": "",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "og_image": "",
+      "alt": {
+        "en": "",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "schema": ""
+    }
+  },
+  "pages": [
+    {
+      "id": "about-us",
+      "slug": "about-us",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "About ALEXIA EXPORTS",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "ALEXIA EXPORTS is an Egypt-based export company that helps international buyers source agricultural, food and mineral products.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "About ALEXIA EXPORTS, an Egyptian export company supplying agricultural, food and mineral products to importers, distributors and manufacturers worldwide.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "What we do",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We support importers, distributors, packers and food manufacturers who want dependable access to Egyptian agricultural and food products. We start from your specification, target market and shipment requirements, then coordinate a supply proposal with partner producers and factories.\n\nOur [product range](page:products) covers fresh produce, frozen fruit, dry legumes, edible oils, dates, processed foods, salt and food ingredients.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "How we work",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Every enquiry is handled the same way:\n\n- **Buyer-led sourcing:** your requirements guide the proposal.\n- **Clear specifications:** product, grade and pack are aligned before you commit.\n- **Export coordination:** documents and logistics are planned with you, following the trade term you choose.\n\nRead the full [export process](page:export-process) and our approach to [quality control](page:quality-control).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Egyptian origin, global outlook",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Egypt combines long growing seasons, Mediterranean and Red Sea ports and a broad agricultural base. That makes it a practical origin for buyers in Europe, the Gulf, North Africa and Asia. See the [markets we plan shipments for](page:export-markets).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Work with us",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Tell us the product, destination country and estimated quantity. We reply with the available options, packing choices and commercial terms.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "About ALEXIA EXPORTS | Egyptian Food & Agri Exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian food and agricultural exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "egyptian-food-exporter",
+      "slug": "egyptian-food-exporter",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Egyptian Food & Agricultural Products Exporter",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "From fresh citrus to frozen berries and dry legumes, ALEXIA EXPORTS organises Egyptian food and agricultural products for export.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "ALEXIA EXPORTS is an Egyptian foodstuff and agricultural products export company serving importers, wholesalers, distributors and food manufacturers.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Product categories we export",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Browse the products we supply from Egypt:\n\n- [Citrus & oranges](product:citrus), [grapes](product:grapes) and [seasonal fruits](product:fruits)\n- [Vegetables & herbs](product:veg), [olives](product:olives) and [edible oils](product:oils)\n- [Frozen fruits & vegetables](product:frozen), including IQF berries\n- [Dates & dried fruits](product:dates)\n- [Dry legumes & pulses](product:ingr-2): [chickpeas](product:chickpeas), [white kidney beans](product:white-kidney-beans) and [rice](product:rice)\n- [Processed foods](product:processed), [dairy & foodstuffs](product:dairy), [salt & minerals](product:salt) and [food ingredients](product:ingr)\n\nThe complete list is on our [products page](page:products).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Who we supply",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We work with importers, wholesalers, distributors, packers, food-service buyers and food manufacturers. Quantities, grades and packaging are tailored to the buyer rather than fixed in advance.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Why source from Egypt",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "- Long seasons: Navel oranges, Valencia oranges, mandarins, grapes, strawberries and pomegranates are harvested in different months. See the [orange season guide](page:egyptian-orange-season-guide).\n- Port access on the Mediterranean and the Red Sea for sea freight to Europe, the Gulf, Africa and Asia.\n- Wide range: fresh, frozen, dry and processed products from one coordinated supplier.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Start an enquiry",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Read how an order works in our [export process](page:export-process), check [packaging options](page:packaging-options), then send your requirements through the quote form.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Egyptian Foodstuff Export Company | ALEXIA EXPORTS",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian foodstuff export company",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "products",
+      "slug": "products",
+      "kind": "hub-products",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Egyptian Food & Agricultural Products for Export",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "Every product page includes category, origin, availability and an enquiry option. Specifications and documents are added as they are confirmed.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Browse all ALEXIA EXPORTS products from Egypt: fresh produce, frozen berries, dry legumes, rice, oils, dates, processed foods and ingredients.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "About these products",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Varieties, grades, packaging, quantities and availability can be tailored to your market. See [product specifications](page:product-specifications) for what we confirm before an order and [packaging options](page:packaging-options) for pack choices.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Egyptian Food Products for Export | ALEXIA EXPORTS",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian agricultural products exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "product-specifications",
+      "slug": "product-specifications",
+      "kind": "page",
+      "hidden": false,
+      "footer": false,
+      "related": true,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Product Specifications for Egyptian Export Orders",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "Specifications are agreed with the buyer before an order. This page explains what is typically defined and how to request documents.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "What buyers define in an export specification for Egyptian fresh, frozen and dry products, and how to request a TDS and COA from ALEXIA EXPORTS.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Why a written specification matters",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "A written specification keeps the buyer, the supplier and the inspector working to the same definition of the product. It reduces disputes at the port and speeds up approval of the shipment.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Parameters buyers commonly specify",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "- **Fresh produce:** variety, size or calibre, grade, colour, packing type and net weight, target shelf life.\n- **Dry legumes and rice:** size (for example in mm), moisture, foreign matter, damaged or split grains, colour and bag size.\n- **Frozen products:** IQF or block, size, defects, pack size and storage temperature.\n- **Oils and processed foods:** type, container size, labelling and shelf life.\n\nThese are typical buying parameters, not published values. Confirmed values are added to each product page, for example [dry chickpeas](product:chickpeas) or [frozen fruit](product:frozen).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Technical data sheets and certificates of analysis",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "A Technical Data Sheet (TDS) describes the product. A Certificate of Analysis (COA) reports test results for a specific lot. Ask for the documents relevant to your product when you send your enquiry, and see [quality control](page:quality-control) for the wider document list.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Request a specification",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Send the product, destination and the parameters that matter to you. We will confirm what can be supplied and in which packaging, see [packaging options](page:packaging-options).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Product Specifications for Egyptian Food Exports",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "product specifications egyptian exports",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "packaging-options",
+      "slug": "packaging-options",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": true,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Packaging Options for Egyptian Food Exports",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "Cartons, crates, bags, pouches and bulk packs: the packing is chosen to suit the product and your market.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Packaging options for Egyptian food exports from ALEXIA EXPORTS: cartons, crates, bags, retail pouches and bulk packs for fresh, frozen and dry goods.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Choosing the right pack",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "The right pack depends on the product, the sales channel and the transport. Retail, food-service and bulk or industrial formats are all possible, and buyer specifications can be discussed.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Typical packs by product type",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "- **Fresh fruit and vegetables:** strong cartons and ventilated plastic crates, for example [citrus](product:citrus) and [grapes](product:grapes).\n- **Dry legumes and rice:** export bags such as 25 kg and smaller retail pouches, see [chickpeas](product:chickpeas), [white kidney beans](product:white-kidney-beans) and [rice](product:rice).\n- **Frozen berries:** retail bags and larger cartons for manufacturers, see [frozen fruits](product:frozen).\n- **Oils and canned foods:** bottles, tins and cartons, see [edible oils](product:oils) and [processed foods](product:processed).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Palletising and containers",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Goods are normally palletised and loaded into containers. Fresh and frozen products ship in temperature-controlled (reefer) containers, dry goods in standard containers. Loading plans follow the trade term you select, see [export process](page:export-process).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Labelling",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Labelling and marking can be aligned with the rules of the destination market. Tell us the market when you ask for a quote, and review [export markets](page:export-markets).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Packaging Options for Egyptian Food Exports | ALEXIA",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "packaging options egyptian food export",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "export-markets",
+      "slug": "export-markets",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Export Markets: Europe, UK, Gulf, North Africa and Asia",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "ALEXIA EXPORTS plans shipments from Egypt for buyers in Europe, the United Kingdom, the Gulf states, North Africa and Asia.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Export markets served from Egypt by ALEXIA EXPORTS: Europe, the UK, UAE, Saudi Arabia, Qatar, Kuwait, Oman, North Africa and Asia.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Europe and the United Kingdom",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Importers in Europe and the UK usually ask for clear specifications, traceability and documents that match import rules. We prepare the documents with you, see [quality control](page:quality-control). Popular enquiries include [oranges](product:citrus), [frozen berries](product:frozen) and [dry legumes](product:ingr-2).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Gulf: UAE, Saudi Arabia, Qatar, Kuwait and Oman",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Gulf buyers often source rice, legumes, dates, oils and fresh produce. Halal documentation is commonly requested; tell us at enquiry stage so we can confirm which partner can supply it. See [rice](product:rice), [dates](product:dates) and [edible oils](product:oils).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "North Africa",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Egypt's position makes shorter sea routes possible to neighbouring North African markets. Packaging and labelling can be adapted to each destination.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Asia",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Long-haul sea freight needs careful packing and the right container type. We plan temperature control for fresh and frozen goods and agree the trade term early, see [incoterms for food exports](page:incoterms-for-food-exports).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "How we quote",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Quotes are prepared per destination, product and quantity. Start from the [export process](page:export-process) or send an enquiry directly.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Egyptian Food Export Markets: Europe, Gulf & Africa",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian food export markets",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "quality-control",
+      "slug": "quality-control",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": true,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Quality Control and Export Documents",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "Quality is agreed in the specification, checked before loading and supported by the documents your market requires.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "How ALEXIA EXPORTS approaches quality control for Egyptian food exports: specifications, inspection, certificates of analysis and export documents.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Quality starts with the specification",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We agree the product definition with the buyer first, see [product specifications](page:product-specifications). Packing, labelling and shipment requirements are confirmed in the same step.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Partner factories and certificates",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We work with partner factories. The certifications held differ by product and factory, so ask us which certificates apply to the product you want and we will confirm them before you order.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Inspection before shipment",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Buyers may appoint an independent inspection company of their choice to check the goods before loading. We coordinate access and timing as part of the [export process](page:export-process).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Export documents",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Depending on the product, destination and trade term, the document set can include:\n\n- Commercial invoice and packing list\n- Certificate of origin\n- Phytosanitary certificate for plant products\n- Certificate of analysis (COA)\n- Bill of lading or airway bill\n\nThe exact list is confirmed for your destination, see [export markets](page:export-markets).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Quality Control & Export Documents | ALEXIA EXPORTS",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "quality control food export egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "export-process",
+      "slug": "export-process",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": true,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Export Process: From Enquiry to Shipment",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "How an order works with ALEXIA EXPORTS, from the first enquiry to documents and shipping.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "The ALEXIA EXPORTS export process for Egyptian food and agricultural products: enquiry, proposal, samples, order, packing, documents and shipping.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "1. Share your requirements",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Tell us the product, destination country, estimated quantity and any required specification. A preferred trade term and packaging preference help us reply faster.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "2. Review the proposal",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We discuss product options, packing, availability, documentation and commercial terms. Check [product specifications](page:product-specifications) and [packaging options](page:packaging-options) while you decide.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "3. Samples, where needed",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "For new buyers or new products, sample arrangements can be discussed before the order.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "4. Confirm the order",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Quantity, specification, packing, trade term, payment terms and shipment window are written down and agreed. Read about [incoterms for food exports](page:incoterms-for-food-exports) to choose a term.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "5. Packing, loading and documents",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Goods are packed, inspected if requested and loaded. Documents are prepared for your destination, see [quality control](page:quality-control).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "6. Shipment and delivery",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We follow the shipment with you until delivery planning is complete. See the [markets we plan for](page:export-markets).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Export Process from Egypt: Enquiry to Shipment",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "export process from egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "insights",
+      "slug": "insights",
+      "kind": "hub-insights",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Export Insights: Guides for Food Importers",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "Practical guides for buyers who source food and agricultural products from Egypt.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Guides for food importers sourcing from Egypt: seasons, trade terms, enquiry checklists and product buying guides from ALEXIA EXPORTS.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "en": "Export Insights & Guides for Food Importers | ALEXIA",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "guides for food importers",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "egyptian-orange-season-guide",
+      "slug": "egyptian-orange-season-guide",
+      "kind": "article",
+      "hidden": false,
+      "footer": false,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Egyptian Orange Season Guide: Navel, Valencia and Mandarins",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "When each Egyptian citrus variety is in season, and how to plan orders around the calendar.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Egyptian orange season guide: when Navel oranges, Valencia oranges and mandarins are in season, and how importers can plan their orders.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Seasons at a glance",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "On our seasonal calendar:\n\n- **Navel oranges:** November to April\n- **Valencia oranges:** February to June\n- **Mandarins:** October to February\n\nAvailability can vary with the weather and the crop in a given year, so confirm before you plan promotions.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Navel or Valencia?",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Navel oranges are usually bought for eating, as they are seedless and easy to peel. Valencia oranges are widely used for juice and are available later in the season. Many buyers combine both to cover the year.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Plan your order",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Share the variety, size range, carton type, quantity and delivery window. Fresh oranges are normally shipped in reefer containers. See our [citrus page](product:citrus), [packaging options](page:packaging-options) and [export process](page:export-process).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Egyptian Orange Season Guide: Navel, Valencia & More",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "egyptian orange season",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "incoterms-for-food-exports",
+      "slug": "incoterms-for-food-exports",
+      "kind": "article",
+      "hidden": false,
+      "footer": false,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Incoterms for Food Exports: EXW, FOB, CFR and CIF Explained",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "A plain-language comparison of the four trade terms most used for food shipments from Egypt.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Incoterms for food exports explained: how EXW, FOB, CFR and CIF divide cost and risk between buyer and seller in Egyptian food shipments.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Why the trade term matters",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "The trade term decides who arranges and pays for transport and export or import clearance, and where risk passes from seller to buyer. Choose it before you compare prices, because offers on different terms are not comparable.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "The four terms",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "- **EXW (Ex Works):** the goods are made available at the seller's premises. The buyer arranges everything after that.\n- **FOB (Free On Board):** the seller clears the goods for export and loads them on the vessel. The buyer pays the main freight.\n- **CFR (Cost and Freight):** the seller also pays the sea freight to the destination port. Risk still passes at loading.\n- **CIF (Cost, Insurance and Freight):** as CFR, plus the seller buys minimum insurance.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Which to choose",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Buyers with their own forwarder often prefer FOB. Buyers who want one delivered-to-port price choose CFR or CIF. Tell us your preference in the enquiry, or ask us to advise. See the [export process](page:export-process) and [export markets](page:export-markets).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Incoterms for Food Exports: EXW, FOB, CFR, CIF",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "incoterms for food exports",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "how-to-write-an-rfq-for-food-import",
+      "slug": "how-to-write-an-rfq-for-food-import",
+      "kind": "article",
+      "hidden": false,
+      "footer": false,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "How to Write an Enquiry (RFQ) for Food Imports",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "A checklist of what to include so a supplier can quote accurately the first time.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "A checklist for importers writing a request for quotation (RFQ) for food and agricultural products, so suppliers can quote accurately and fast.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Why details matter",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "A vague enquiry leads to a vague quote. The more precise the request, the fewer rounds of questions before you have a usable price.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "The checklist",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "- Product and variety\n- Size or grade and any key parameters, see [product specifications](page:product-specifications)\n- Quantity per shipment and expected annual volume\n- Packaging type and size, see [packaging options](page:packaging-options)\n- Destination country and port\n- Preferred trade term, see [incoterms for food exports](page:incoterms-for-food-exports)\n- Delivery window\n- Certificates or documents required\n- Payment terms you can offer",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Send it",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Use the quote form on our site or message us on WhatsApp. For an overview of what happens next, read the [export process](page:export-process).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "How to Write an RFQ for Food Imports | ALEXIA EXPORTS",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "rfq for food imports",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "dry-chickpeas-and-white-kidney-beans-buyers-guide",
+      "slug": "dry-chickpeas-and-white-kidney-beans-buyers-guide",
+      "kind": "article",
+      "hidden": false,
+      "footer": false,
+      "related": false,
+      "date": "2026-11-09",
+      "updated": "2026-11-09",
+      "title": {
+        "en": "Dry Chickpeas and White Kidney Beans: A Buyer's Guide",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "What importers usually define when buying dry chickpeas and white kidney beans from Egypt.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Buyer's guide to dry chickpeas and white kidney beans from Egypt: size, moisture, purity, packing and how to request a specification.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Chickpeas",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Chickpeas are commonly traded by size, expressed in millimetres, so the first parameter to agree is the size, for example 8 mm. Buyers also specify moisture, foreign matter, and the share of broken or damaged beans. See our [dry chickpeas page](product:chickpeas).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "White kidney beans",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "White kidney beans, also called cannellini, are specified by size, colour and cleanliness. Packers and canners often have their own size and defect limits. See our [white kidney beans page](product:white-kidney-beans).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Packing and storage",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Dry legumes are commonly shipped in bags such as 25 kg and stored in dry, cool conditions. Pouches suit retail packing. More choices are in [packaging options](page:packaging-options).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "Ask for the specification",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Tell us the size, packing and quantity you need, plus the destination. We confirm what can be supplied. Browse all [dry legumes & pulses](product:ingr-2).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Dry Chickpeas & White Kidney Beans Buyer's Guide",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "dry chickpeas buyers guide",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    }
+  ]
 }

@@ -546,3 +546,19 @@ dialog.lightbox img{display:block;max-width:96vw;max-height:92vh;margin:auto;bor
   .strip .links{flex-wrap:nowrap;justify-content:center;gap:0 1rem;white-space:nowrap}
   .strip .links>span{display:none}
 }
+
+/* content pages and insights */
+.cp-wrap{max-width:60rem;margin-inline:auto;padding-block:2.2rem 3rem}
+.cp-head h1{margin:0 0 .6rem}
+.cp-meta{color:var(--muted,#5b6b84);font-size:.9rem;margin:.4rem 0 0}
+.cp .pd-sec{margin-top:1.8rem}
+.cp .pd-sec p,.cp .pd-sec li,.pd-guides li{line-height:1.7}
+.cp-list{padding-inline-start:1.2rem;margin:.6rem 0;display:grid;gap:.45rem}
+.cp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem;margin-top:1.8rem}
+.cp-card{display:flex;flex-direction:column;gap:.4rem;padding:1rem;border:1px solid rgba(10,42,102,.14);border-radius:.9rem;background:#fff;color:inherit;text-decoration:none}
+.cp-card:hover{border-color:#0A2A66}
+.cp-card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:.6rem}
+.cp-card b{font-size:1.02rem}.cp-card span,.cp-card small{font-size:.9rem;color:#5b6b84;line-height:1.5}
+.cp-cta{margin-top:2.4rem;padding:1.4rem;border-radius:1rem;background:#0A2A66;color:#fff}
+.cp-cta h2{color:#fff;margin:0 0 .4rem}.cp-cta p{margin:0 0 1rem;opacity:.9}
+.cp a:not(.btn):not(.cp-card){text-decoration:underline;text-underline-offset:.15em}
