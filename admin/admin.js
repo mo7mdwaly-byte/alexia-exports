@@ -1194,7 +1194,9 @@
     return h('div', { class: 'connect' }, h('img', { class: 'logo', src: '../logo.png', alt: 'ALEXIA EXPORTS' }),
       h('div', { class: 'head' }, h('h2', null, t('connectH')), h('button', { class: 'btn sm ghost', type: 'button', onclick: toggleLang }, t('langBtn'))),
       h('div', { class: 'card' }, h('p', null, t('connectP')), h('ol', { class: 'steps' }, h('li', null, t('s1')), h('li', null, t('s2')), h('li', null, t('s3')), h('li', null, t('s4'))),
-        h('div', { class: 'field' }, h('label', null, t('token')), tok), h('div', { class: 'grid2' }, h('div', { class: 'field' }, h('label', null, t('repo')), repo), h('div', { class: 'field' }, h('label', null, t('branch')), br)), msg, btn));
+        h('div', { class: 'field' }, h('label', null, t('token')), tok, h('div', { style: 'display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem' },
+          h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { if (navigator.clipboard && navigator.clipboard.readText) navigator.clipboard.readText().then(function (v) { tok.value = String(v || '').trim(); tok.dispatchEvent(new Event('input')); }, function () { alert(L('Your browser blocked the paste button. Press and hold inside the field, then choose Paste.', 'منع المتصفح زر اللصق. اضغط مطولًا داخل الحقل ثم اختر لصق.')); }); } }, L('Paste from clipboard', 'لصق من الحافظة')),
+          h('button', { class: 'btn sm ghost', type: 'button', onclick: function () { tok.type = tok.type === 'password' ? 'text' : 'password'; } }, L('Show / hide', 'إظهار / إخفاء')))), h('div', { class: 'grid2' }, h('div', { class: 'field' }, h('label', null, t('repo')), repo), h('div', { class: 'field' }, h('label', null, t('branch')), br)), msg, btn));
   }
   function connect() {
     return gh('').then(function (r) {
