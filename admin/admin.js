@@ -7,7 +7,7 @@
   /* ---------- interface language ---------- */
   var I = {
     en: {
-      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', layout: 'Order', products: 'Products', pages: 'Pages & Insights', seo: 'SEO', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
+      title: 'Website dashboard', signout: 'Sign out', tabs: { overview: 'Overview', layout: 'Order', products: 'Products', pages: 'Pages & Insights', more: 'More sections', seo: 'SEO', banner: 'Banner', seasons: 'Seasons', texts: 'Page texts', blocks: 'Sections', company: 'Contact', preview: 'Preview', publish: 'Publish', history: 'History' },
       connectH: 'Connect your website', connectP: 'This dashboard edits your website directly on GitHub. It needs a private access key (token) that only works for this one repository. You create it once.',
       s1: 'Open GitHub in Safari (desktop site) and go to Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.',
       s2: 'Name it “Alexia dashboard”, set expiration to 1 year, and under “Repository access” choose Only select repositories → alexia-exports.',
@@ -32,7 +32,7 @@
       draftFound: 'Found unpublished edits from your last visit. Restore them?', copied: 'Copied', saved: 'Draft saved on this device', langBtn: 'العربية', leave: 'You have unpublished changes.'
     },
     ar: {
-      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', layout: 'الترتيب', products: 'المنتجات', pages: 'الصفحات والمقالات', seo: 'السيو', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
+      title: 'لوحة تحكم الموقع', signout: 'تسجيل الخروج', tabs: { overview: 'نظرة عامة', layout: 'الترتيب', products: 'المنتجات', pages: 'الصفحات والمقالات', more: 'أقسام إضافية', seo: 'السيو', banner: 'البانر', seasons: 'المواسم', texts: 'نصوص الصفحة', blocks: 'الأقسام', company: 'التواصل', preview: 'معاينة', publish: 'نشر', history: 'السجل' },
       connectH: 'اربط موقعك', connectP: 'تعدّل هذه اللوحة موقعك مباشرة على GitHub. تحتاج إلى مفتاح وصول خاص (Token) يعمل لهذا المستودع فقط. تنشئه مرة واحدة.',
       s1: 'افتح GitHub في Safari (نسخة الكمبيوتر) ثم Settings ← Developer settings ← Personal access tokens ← Fine-grained tokens ← Generate new token.',
       s2: 'سمِّه “Alexia dashboard” واجعل الصلاحية سنة، وفي “Repository access” اختر Only select repositories ← alexia-exports.',
@@ -94,6 +94,12 @@
     (c.products || []).forEach(function (p) { p.seo = ensureSeo(p.seo); });
     c.pages = Array.isArray(c.pages) ? c.pages : [];
     c.pages.forEach(function (g) { ['title', 'intro', 'desc'].forEach(function (k) { ensureBi(g, k); }); if (!Array.isArray(g.sections)) g.sections = []; g.sections.forEach(function (x) { ensureBi(x, 'h'); ensureBi(x, 'p'); }); g.seo = ensureSeo(g.seo); if (!g.slug) g.slug = g.id; });
+    if (!Array.isArray(c.stats)) c.stats = []; if (!Array.isArray(c.services)) c.services = []; if (!Array.isArray(c.testimonials)) c.testimonials = []; if (!Array.isArray(c.team)) c.team = [];
+    c.gallery = c.gallery && typeof c.gallery === 'object' ? c.gallery : {}; if (!Array.isArray(c.gallery.media)) c.gallery.media = []; ensureBi(c.gallery, 'alt');
+    c.story = c.story && typeof c.story === 'object' ? c.story : {}; ensureBi(c.story, 'title'); ensureBi(c.story, 'text'); if (!Array.isArray(c.story.milestones)) c.story.milestones = [];
+    c.stats.forEach(function (x) { ensureBi(x, 'label'); }); c.services.forEach(function (x) { ensureBi(x, 'title'); ensureBi(x, 'text'); });
+    c.testimonials.forEach(function (x) { ensureBi(x, 'role'); ensureBi(x, 'quote'); if (!Array.isArray(x.media)) x.media = []; }); c.team.forEach(function (x) { ensureBi(x, 'role'); if (!Array.isArray(x.media)) x.media = []; });
+    c.story.milestones.forEach(function (x) { ensureBi(x, 'text'); });
     c.layout = B.layoutOf ? B.layoutOf(c) : (c.layout || []);
     if (B.withDefaults) B.withDefaults(c);
     return c;
@@ -481,6 +487,9 @@
         if (f.type === 'bi') inner.appendChild(biField(it, f.k, f.label));
         else if (f.type === 'bit') inner.appendChild(biField(it, f.k, f.label, true));
         else if (f.type === 'doc') inner.appendChild(docField(it, base));
+        else if (f.type === 'str') inner.appendChild(strField(it, f.k, f.label));
+        else if (f.type === 'icon') inner.appendChild(iconPicker(it, f.k, B.ICON_NAMES, false));
+        else if (f.type === 'media') inner.appendChild(mediaEditor(it, 'media', { base: base || 'photo', max: 900 }));
       });
       inner.appendChild(rowActions(arr, i, function () { touch(); rerender(); }, { onDelete: function () { if (it.src) dropMedia(it.src); } }));
       wrap.appendChild(inner);
@@ -567,7 +576,7 @@
 
 
   /* ---------- order of everything ---------- */
-  var SEC_LABELS = { hero: ['Hero (top of page)', 'الواجهة الرئيسية'], trust: ['Trust highlights', 'مزايا الثقة'], banner: ['Banner', 'البانر'], products: ['Products', 'المنتجات'], seasons: ['Seasons calendar', 'تقويم المواسم'], certs: ['Quality assurance', 'ضمان الجودة'], about: ['About us', 'من نحن'], process: ['How we work', 'طريقة عملنا'], packing: ['Packing solutions', 'حلول التعبئة'], terms: ['Trade terms', 'شروط التجارة'], faq: ['FAQ', 'الأسئلة الشائعة'], partner: ['Distribution partner', 'شريك التوزيع'], contact: ['Contact & enquiry form', 'التواصل ونموذج الاستفسار'] };
+  var SEC_LABELS = { strip: ['Category strip', 'شريط الفئات'], showcase: ['Brand/category tabs', 'تبويبات الفئات'], stats: ['Stats counters', 'عدّادات الأرقام'], services: ['Services', 'الخدمات'], story: ['Our story', 'قصتنا'], gallery: ['Gallery', 'المعرض'], testimonials: ['Testimonials', 'آراء العملاء'], team: ['Team', 'الفريق'], hero: ['Hero (top of page)', 'الواجهة الرئيسية'], trust: ['Trust highlights', 'مزايا الثقة'], banner: ['Banner', 'البانر'], products: ['Products', 'المنتجات'], seasons: ['Seasons calendar', 'تقويم المواسم'], certs: ['Quality assurance', 'ضمان الجودة'], about: ['About us', 'من نحن'], process: ['How we work', 'طريقة عملنا'], packing: ['Packing solutions', 'حلول التعبئة'], terms: ['Trade terms', 'شروط التجارة'], faq: ['FAQ', 'الأسئلة الشائعة'], partner: ['Distribution partner', 'شريك التوزيع'], contact: ['Contact & enquiry form', 'التواصل ونموذج الاستفسار'] };
   function orderRows(arr, label, o) {
     o = o || {};
     var box = h('div', { class: 'orows' });
@@ -1069,6 +1078,37 @@
     });
     return box;
   };
+
+  VIEWS.more = function () {
+    var c = S.content, box = h('div');
+    box.appendChild(h('div', { class: 'head' }, h('h2', null, t('tabs.more'))));
+    box.appendChild(h('p', { class: 'hint' }, L('Extra sections for the home page. A section stays hidden until you add content to it, so nothing empty or invented is shown. Use the Order tab to move them.', 'أقسام إضافية للصفحة الرئيسية. يبقى القسم مخفيًا حتى تضيف له محتوى، فلا يظهر شيء فارغ أو مختلق. استخدم تبويب الترتيب لتحريكها.')));
+    var card = function (id, title, kids) { var d = h('details', { class: 'item' }, h('summary', null, h('span', { class: 'tt' }, title)), h('div', { class: 'body' }, kids)); if (S.open['more:' + id]) d.open = true; d.addEventListener('toggle', function () { S.open['more:' + id] = d.open; }); return d; };
+    box.appendChild(card('show', L('Category strip and brand tabs', 'شريط الفئات وتبويبات الفئات'), [
+      h('p', { class: 'hint' }, L('Both are built automatically from your products and product groups.', 'يُبنيان تلقائيًا من منتجاتك ومجموعاتها.')),
+      boolField(c, 'strip_off', L('Hide the scrolling category strip', 'إخفاء شريط الفئات المتحرك')),
+      boolField(c, 'showcase_off', L('Hide the brand/category tabs', 'إخفاء تبويبات الفئات'))]));
+    box.appendChild(card('stats', L('Stats counters', 'عدّادات الأرقام'), [
+      h('p', { class: 'hint' }, L('Examples: value 15+ with label “Countries served”. Only add figures that are true.', 'مثال: القيمة +15 والوصف «دول نخدمها». أضف أرقامًا صحيحة فقط.')),
+      rowsEditor(c, 'stats', L('Numbers', 'الأرقام'), '', function () { return { value: '', label: EMP() }; }, [{ k: 'value', type: 'str', label: L('Value (e.g. 15+ or 1,200)', 'القيمة (مثل +15 أو 1,200)') }, { k: 'label', type: 'bi', label: L('Label', 'الوصف') }])]));
+    box.appendChild(card('svc', L('Services (home section + Services page)', 'الخدمات (قسم رئيسي + صفحة الخدمات)'), [
+      rowsEditor(c, 'services', L('Services', 'الخدمات'), '', function () { return { icon: 'globe', title: EMP(), text: EMP() }; }, [{ k: 'icon', type: 'icon' }, { k: 'title', type: 'bi', label: L('Title', 'العنوان') }, { k: 'text', type: 'bit', label: L('Description', 'الوصف') }])]));
+    box.appendChild(card('story', L('Our story and timeline', 'قصتنا والجدول الزمني'), [
+      biField(c.story, 'title', L('Section title (optional)', 'عنوان القسم (اختياري)')),
+      biField(c.story, 'text', L('Story text (blank line = new paragraph)', 'نص القصة (سطر فارغ = فقرة جديدة)'), true),
+      rowsEditor(c.story, 'milestones', L('Milestones', 'المحطات'), '', function () { return { year: '', text: EMP() }; }, [{ k: 'year', type: 'str', label: L('Year', 'السنة') }, { k: 'text', type: 'bit', label: L('What happened', 'ماذا حدث') }])]));
+    box.appendChild(card('gal', L('Gallery (home section + Gallery page)', 'المعرض (قسم رئيسي + صفحة المعرض)'), [
+      h('p', { class: 'hint' }, L('Upload real photos and videos of your products, packing and shipments. The Gallery page appears automatically once you add one.', 'ارفع صورًا وفيديوهات حقيقية لمنتجاتك وتعبئتك وشحناتك. تظهر صفحة المعرض تلقائيًا بعد إضافة أول ملف.')),
+      biField(c.gallery, 'alt', L('Image description (ALT, optional)', 'وصف الصور (ALT، اختياري)')),
+      mediaEditor(c.gallery, 'media', { base: 'alexia-exports-gallery', max: 1600 })]));
+    box.appendChild(card('tm', L('Testimonials', 'آراء العملاء'), [
+      h('p', { class: 'hint' }, L('Only add real quotes you have permission to publish.', 'أضف فقط اقتباسات حقيقية لديك إذن بنشرها.')),
+      rowsEditor(c, 'testimonials', L('Testimonials', 'الآراء'), '', function () { return { name: '', role: EMP(), company: '', country: '', quote: EMP(), media: [] }; }, [{ k: 'name', type: 'str', label: L('Name', 'الاسم') }, { k: 'role', type: 'bi', label: L('Role', 'المسمى') }, { k: 'company', type: 'str', label: L('Company', 'الشركة') }, { k: 'country', type: 'str', label: L('Country', 'الدولة') }, { k: 'quote', type: 'bit', label: L('Quote', 'الاقتباس') }, { k: 'media', type: 'media' }], 'alexia-exports-client')]));
+    box.appendChild(card('team', L('Team', 'الفريق'), [
+      rowsEditor(c, 'team', L('Team members', 'أعضاء الفريق'), '', function () { return { name: '', role: EMP(), media: [] }; }, [{ k: 'name', type: 'str', label: L('Name', 'الاسم') }, { k: 'role', type: 'bi', label: L('Role', 'المسمى') }, { k: 'media', type: 'media' }], 'alexia-exports-team')]));
+    box.appendChild(h('p', { class: 'hint' }, L('Careers, Services and Gallery pages are edited in the “Pages & Insights” tab.', 'تُعدَّل صفحات الوظائف والخدمات والمعرض من تبويب «الصفحات والمقالات».')));
+    return box;
+  };
   function newPage(kind) {
     var id = 'new-' + (kind === 'article' ? 'article' : 'page'), ids = (S.content.pages || []).map(function (g) { return g.id; }), n = 2, b = id;
     while (ids.indexOf(id) > -1) id = b + '-' + n++;
@@ -1076,7 +1116,7 @@
   }
   function pageItem(g, i) {
     var c = S.content, body = [];
-    var KIND = { page: L('Page', 'صفحة'), article: L('Article', 'مقال'), 'hub-products': L('Products list page', 'صفحة قائمة المنتجات'), 'hub-insights': L('Articles list page', 'صفحة قائمة المقالات') };
+    var KIND = { page: L('Page', 'صفحة'), article: L('Article', 'مقال'), 'hub-products': L('Products list page', 'صفحة قائمة المنتجات'), 'hub-insights': L('Articles list page', 'صفحة قائمة المقالات'), 'hub-services': L('Services page (cards from “More sections”)', 'صفحة الخدمات (من «أقسام إضافية»)'), 'hub-gallery': L('Gallery page (from “More sections”)', 'صفحة المعرض (من «أقسام إضافية»)') };
     body.push(h('p', { class: 'hint' }, L('Type: ', 'النوع: ') + (KIND[g.kind] || g.kind) + ' · ' + L('Address: ', 'العنوان: ') + (g.slug || g.id) + '.html. ' + L('Pages in French, Spanish or Arabic are only created when you fill that language.', 'تُنشأ الصفحات بالعربية أو الفرنسية أو الإسبانية فقط عند تعبئة تلك اللغة.')));
     body.push(biField(g, 'title', L('Title (H1)', 'العنوان (H1)')));
     body.push(biField(g, 'intro', L('Introduction (shown under the title)', 'مقدمة (تظهر تحت العنوان)'), true));
@@ -1106,7 +1146,7 @@
   };
 
   /* ---------- shell ---------- */
-  var TABS = ['overview', 'layout', 'products', 'pages', 'seo', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
+  var TABS = ['overview', 'layout', 'products', 'pages', 'more', 'seo', 'banner', 'seasons', 'texts', 'blocks', 'company', 'preview', 'publish', 'history'];
   function setDir() { document.documentElement.lang = S.ui; document.documentElement.dir = S.ui === 'ar' ? 'rtl' : 'ltr'; }
   function toggleLang() { S.ui = S.ui === 'ar' ? 'en' : 'ar'; LS.set('alexia_ui', S.ui); setDir(); render(); }
 

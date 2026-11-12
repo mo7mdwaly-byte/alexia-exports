@@ -6364,6 +6364,372 @@
         },
         "schema": ""
       }
+    },
+    {
+      "id": "services",
+      "slug": "services",
+      "kind": "hub-services",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-12",
+      "updated": "2026-11-12",
+      "title": {
+        "en": "Export Services: Sourcing, Packing, Documents and Shipping",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "How ALEXIA EXPORTS supports importers from first enquiry to shipment.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Export services from ALEXIA EXPORTS: product sourcing, packing, quality support, export documents and shipping coordination for Egyptian food products.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "en": "Export Services from Egypt: Sourcing to Shipping",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "export services egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "gallery",
+      "slug": "gallery",
+      "kind": "hub-gallery",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-12",
+      "updated": "2026-11-12",
+      "title": {
+        "en": "Gallery",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "Photos and videos from ALEXIA EXPORTS.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Photo and video gallery from ALEXIA EXPORTS: Egyptian products, packing and shipments.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [],
+      "seo": {
+        "title": {
+          "en": "Gallery | ALEXIA EXPORTS Egyptian Food Exporter",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
+    },
+    {
+      "id": "careers",
+      "slug": "careers",
+      "kind": "page",
+      "hidden": false,
+      "footer": true,
+      "related": false,
+      "date": "2026-11-12",
+      "updated": "2026-11-12",
+      "title": {
+        "en": "Careers at ALEXIA EXPORTS",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "intro": {
+        "en": "We are always interested in hearing from people who care about quality and trade.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "desc": {
+        "en": "Careers at ALEXIA EXPORTS: send your CV if you work in export sales, sourcing, quality, logistics or trade documentation.",
+        "ar": "",
+        "fr": "",
+        "es": ""
+      },
+      "sections": [
+        {
+          "h": {
+            "en": "Who we want to hear from",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "We welcome CVs from people with experience in:\n\n- Export sales and customer service\n- Sourcing and supplier relations for food and agricultural products\n- Quality control and inspection\n- Logistics, shipping and trade documentation\n- Digital marketing for B2B trade\n\nLearn about our work in [About us](page:about-us) and our [export process](page:export-process).",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        },
+        {
+          "h": {
+            "en": "How to apply",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          },
+          "p": {
+            "en": "Send your CV and a short note about the role you are interested in to the email shown below. Please write the role in the subject line.",
+            "ar": "",
+            "fr": "",
+            "es": ""
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Careers at ALEXIA EXPORTS | Export Jobs in Egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "focus": {
+          "en": "export jobs egypt",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "secondary": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "canonical": "",
+        "robots": "index,follow",
+        "og_title": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_desc": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "og_image": "",
+        "alt": {
+          "en": "",
+          "ar": "",
+          "fr": "",
+          "es": ""
+        },
+        "schema": ""
+      }
     }
-  ]
+  ],
+  "services": [
+    {
+      "icon": "globe",
+      "title": {
+        "en": "Product sourcing",
+        "ar": "توريد المنتجات",
+        "fr": "Approvisionnement",
+        "es": "Abastecimiento"
+      },
+      "text": {
+        "en": "We match your specification with Egyptian producers and partner factories.",
+        "ar": "نطابق مواصفاتك مع المنتجين والمصانع الشريكة في مصر.",
+        "fr": "Nous faisons correspondre vos spécifications avec des producteurs et usines partenaires égyptiens.",
+        "es": "Ajustamos sus especificaciones con productores y fábricas asociadas en Egipto."
+      }
+    },
+    {
+      "icon": "tag",
+      "title": {
+        "en": "Packing and labelling",
+        "ar": "التعبئة والتغليف",
+        "fr": "Conditionnement et étiquetage",
+        "es": "Envasado y etiquetado"
+      },
+      "text": {
+        "en": "Cartons, crates, bags and pouches chosen for your product and market.",
+        "ar": "كراتين وصناديق وأكياس مناسبة لمنتجك وسوقك.",
+        "fr": "Cartons, caisses, sacs et pochons adaptés à votre produit et à votre marché.",
+        "es": "Cajas, cajones, sacos y bolsas elegidos para su producto y mercado."
+      }
+    },
+    {
+      "icon": "shield",
+      "title": {
+        "en": "Quality and inspection support",
+        "ar": "دعم الجودة والفحص",
+        "fr": "Qualité et inspection",
+        "es": "Calidad e inspección"
+      },
+      "text": {
+        "en": "Agreed specifications, and access for the independent inspector of your choice.",
+        "ar": "مواصفات متفق عليها، وتسهيل عمل جهة الفحص المستقلة التي تختارها.",
+        "fr": "Spécifications convenues et accès pour l’inspecteur indépendant de votre choix.",
+        "es": "Especificaciones acordadas y acceso para el inspector independiente de su elección."
+      }
+    },
+    {
+      "icon": "doc",
+      "title": {
+        "en": "Export documentation",
+        "ar": "مستندات التصدير",
+        "fr": "Documents d’exportation",
+        "es": "Documentación de exportación"
+      },
+      "text": {
+        "en": "Invoices, packing lists, certificates and shipping documents for your destination.",
+        "ar": "فواتير وقوائم تعبئة وشهادات ومستندات شحن حسب وجهتك.",
+        "fr": "Factures, listes de colisage, certificats et documents d’expédition pour votre destination.",
+        "es": "Facturas, listas de empaque, certificados y documentos de envío para su destino."
+      }
+    },
+    {
+      "icon": "leaf",
+      "title": {
+        "en": "Shipping coordination",
+        "ar": "تنسيق الشحن",
+        "fr": "Coordination du transport",
+        "es": "Coordinación del envío"
+      },
+      "text": {
+        "en": "Container loading and shipment planning under the trade term you choose.",
+        "ar": "تحميل الحاويات وتخطيط الشحنة وفق شرط التجارة الذي تختاره.",
+        "fr": "Chargement des conteneurs et planification selon l’Incoterm choisi.",
+        "es": "Carga de contenedores y planificación según el término comercial elegido."
+      }
+    }
+  ],
+  "stats": [],
+  "testimonials": [],
+  "team": [],
+  "gallery": {
+    "media": [],
+    "alt": {
+      "en": "",
+      "ar": "",
+      "fr": "",
+      "es": ""
+    }
+  },
+  "story": {
+    "title": {
+      "en": "",
+      "ar": "",
+      "fr": "",
+      "es": ""
+    },
+    "text": {
+      "en": "",
+      "ar": "",
+      "fr": "",
+      "es": ""
+    },
+    "milestones": []
+  },
+  "strip_off": false,
+  "showcase_off": false
 }

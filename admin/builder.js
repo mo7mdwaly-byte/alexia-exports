@@ -78,14 +78,37 @@
 
   var B2 = function (en, ar) { return { en: en, ar: ar }; };
   var B4 = function (en, ar, fr, es) { return { en: en, ar: ar, fr: fr, es: es }; };
-  var DEFAULT_ORDER = ['hero', 'trust', 'banner', 'products', 'seasons', 'certs', 'about', 'process', 'packing', 'terms', 'faq', 'partner', 'contact'];
+  var DEFAULT_ORDER = ['hero', 'strip', 'trust', 'banner', 'showcase', 'products', 'stats', 'services', 'story', 'seasons', 'certs', 'about', 'gallery', 'testimonials', 'team', 'process', 'packing', 'terms', 'faq', 'partner', 'contact'];
   function layoutOf(c) {
     var seen = {}, out = [];
     ((c && c.layout) || []).forEach(function (x) { if (x && DEFAULT_ORDER.indexOf(x.id) > -1 && !seen[x.id]) { seen[x.id] = 1; out.push({ id: x.id, hidden: !!x.hidden }); } });
-    DEFAULT_ORDER.forEach(function (id) { if (!seen[id]) out.push({ id: id, hidden: false }); });
+    DEFAULT_ORDER.forEach(function (id, i) {
+      if (seen[id]) return;
+      var at = out.length; for (var k = i + 1; k < DEFAULT_ORDER.length; k++) { var f = -1; out.forEach(function (o, j) { if (o.id === DEFAULT_ORDER[k]) f = j; }); if (f > -1) { at = f; break; } }
+      out.splice(at, 0, { id: id, hidden: false }); seen[id] = 1;
+    });
     return out;
   }
   var DEFAULT_TEXT = {
+    'x_strip_aria': B4('Product categories', 'فئات المنتجات', 'Catégories de produits', 'Categorías de productos'),
+    'x_sc_eye': B4('Our range', 'مجموعتنا', 'Notre gamme', 'Nuestra gama'),
+    'x_sc_h': B4('Explore by category', 'تصفح حسب الفئة', 'Explorer par catégorie', 'Explorar por categoría'),
+    'x_sc_more': B4('Find more products', 'اكتشف المزيد من المنتجات', 'Voir plus de produits', 'Ver más productos'),
+    'x_st_eye': B4('In numbers', 'بالأرقام', 'En chiffres', 'En cifras'),
+    'x_st_h': B4('Our business at a glance', 'نشاطنا بنظرة سريعة', 'Notre activité en un coup d’œil', 'Nuestro negocio de un vistazo'),
+    'x_sv_eye': B4('Services', 'الخدمات', 'Services', 'Servicios'),
+    'x_sv_h': B4('How we support your supply', 'كيف ندعم توريداتك', 'Comment nous soutenons vos approvisionnements', 'Cómo apoyamos su suministro'),
+    'x_sv_lede': B4('From sourcing to shipping documents, we coordinate each step with you.', 'من التوريد إلى مستندات الشحن، ننسق كل خطوة معك.', 'De l’approvisionnement aux documents d’expédition, nous coordonnons chaque étape avec vous.', 'Del abastecimiento a los documentos de envío, coordinamos cada paso con usted.'),
+    'x_sy_eye': B4('Our story', 'قصتنا', 'Notre histoire', 'Nuestra historia'),
+    'x_sy_h': B4('Our journey', 'مسيرتنا', 'Notre parcours', 'Nuestro recorrido'),
+    'x_gal_eye': B4('Gallery', 'معرض الصور', 'Galerie', 'Galería'),
+    'x_gal_h': B4('From the field to the container', 'من المزرعة إلى الحاوية', 'Du champ au conteneur', 'Del campo al contenedor'),
+    'x_gal_more': B4('View full gallery', 'عرض المعرض كاملًا', 'Voir toute la galerie', 'Ver toda la galería'),
+    'x_gal_alt': B4('ALEXIA EXPORTS gallery photo', 'صورة من معرض ألكسيا للتصدير', 'Photo de la galerie ALEXIA EXPORTS', 'Foto de la galería de ALEXIA EXPORTS'),
+    'x_tm_eye': B4('Testimonials', 'آراء العملاء', 'Témoignages', 'Testimonios'),
+    'x_tm_h': B4('What our buyers say', 'ماذا يقول عملاؤنا', 'Ce que disent nos clients', 'Lo que dicen nuestros compradores'),
+    'x_te_eye': B4('Our team', 'فريقنا', 'Notre équipe', 'Nuestro equipo'),
+    'x_te_h': B4('The people behind your shipments', 'الفريق وراء شحناتك', 'Les personnes derrière vos expéditions', 'Las personas detrás de sus envíos'),
     'qv': B2('Quick view', 'نظرة سريعة'),
     'qv_quote': B2('Request a quote for this product', 'اطلب عرض سعر لهذا المنتج'),
     'close': B2('Close', 'إغلاق'),
@@ -330,7 +353,7 @@
     var pfile = function (p, l) { return 'product-' + p.id + (l === 'en' ? '' : '-' + l) + '.html'; };
     var pgfile = function (g, l) { return String(g.slug || g.id).replace(/[^a-z0-9-]/g, '') + (l === 'en' ? '' : '-' + l) + '.html'; };
     var pgHas = function (g, l) { return l === 'en' || !!(g.title && String(g.title[l] || '').trim()); };
-    var PAGES = (content.pages || []).filter(function (g) { return !g.hidden && g.title && String(g.title.en || '').trim(); });
+    var PAGES = (content.pages || []).filter(function (g) { return !g.hidden && g.title && String(g.title.en || '').trim() && !(g.kind === 'hub-gallery' && !mediaOf(content.gallery || {}).length) && !(g.kind === 'hub-services' && !(content.services || []).some(function (x) { return x.title && (x.title.en || '').trim(); })); });
     var hubOf = function (kind) { return PAGES.filter(function (g) { return g.kind === kind; })[0]; };
     var UX = {
       en: { insights: 'Insights', guides: 'Buying information', published: 'Published', updated: 'Updated', ctaH: 'Need specifications or a quote?', ctaP: 'Tell us the product, destination country and estimated quantity and we will reply with a tailored proposal.', all: 'All product pages' },
@@ -624,6 +647,50 @@
           (pkg ? '<section class="pd-sec"><h2>' + esc(T('pd_pack')) + '</h2>' + pkg + '</section>' : '') + docsHtml + extra + guidesHtml + relHtml +
           '<p class="pd-back"><a href="' + home + '#products">' + esc(T('pd_back')) + '</a></p></div></article>\n';
       }
+      /* ---------- extra home sections (each is empty until filled in the dashboard) ---------- */
+      function secHead(eye, hh, lede) { return '<div class="head"><p class="eyebrow">' + esc(eye) + '</p><h2>' + esc(hh) + '</h2>' + (lede ? '<p class="lede">' + esc(lede) + '</p>' : '') + '</div>'; }
+      function firstImg(o) { return mediaOf(o).filter(function (m) { return m.type === 'image'; })[0]; }
+      function dimAttr(m) { return m && m.w && m.h ? ' width="' + Number(m.w) + '" height="' + Number(m.h) + '"' : ''; }
+      var galMedia = mediaOf(content.gallery || {});
+      var galPage = PAGES.filter(function (g) { return g.kind === 'hub-gallery'; })[0];
+      function galItem(m, i, full) {
+        var al = pick((content.gallery || {}).alt) || T('x_gal_alt');
+        return m.type === 'video'
+          ? '<figure class="gi gi-v"><video src="' + esc(imageSrc(m.src)) + '#t=0.1" controls preload="metadata" playsinline' + (m.poster ? ' poster="' + esc(imageSrc(m.poster)) + '"' : '') + ' aria-label="' + esc(al + ' ' + (i + 1)) + '"></video></figure>'
+          : '<figure class="gi"><img src="' + esc(imageSrc(m.src)) + '" alt="' + esc(al + ' ' + (i + 1)) + '"' + dimAttr(m) + ' loading="lazy" decoding="async"></figure>';
+      }
+      var stripItems = function (hid) { return visible.map(function (p) { return '<a class="strip-i" href="' + (hasPage(p) ? pfile(p, langKey) : home + '#products') + '"' + (hid ? ' tabindex="-1" aria-hidden="true"' : '') + '><span class="ico">' + big(p.icon) + '</span><b>' + esc(pick(p.name)) + '</b></a>'; }).join(''); };
+      SEC.strip = content.strip_off || !visible.length ? '' : '<div class="strip" role="region" aria-label="' + esc(T('x_strip_aria')) + '"><div class="strip-track">' + stripItems(false) + stripItems(true) + '</div></div>\n\n';
+      var grpTabs = (content.lists.groups || []).filter(function (g) { return g.id !== 'all' && visible.some(function (p) { return p.group === g.id; }); });
+      SEC.showcase = content.showcase_off || grpTabs.length < 2 ? '' : '<section class="sec showcase" id="showcase"><div class="wrap">' + secHead(T('x_sc_eye'), T('x_sc_h')) +
+        '<div class="sc-tabs" role="tablist">' + grpTabs.map(function (g, i) { return '<button class="sc-tab" type="button" role="tab" id="sct-' + i + '" aria-controls="scp-' + i + '" aria-selected="' + (i === 0 ? 'true' : 'false') + '">' + esc(pick(g.label)) + '</button>'; }).join('') + '</div>' +
+        grpTabs.map(function (g, i) {
+          var ps = visible.filter(function (p) { return p.group === g.id; }), m0 = ps.map(firstImg).filter(Boolean)[0];
+          return '<div class="sc-panel" role="tabpanel" id="scp-' + i + '" aria-labelledby="sct-' + i + '"' + (i ? ' hidden' : '') + '>' + (m0 ? '<div class="sc-img"><img src="' + esc(imageSrc(m0.src)) + '" alt="' + esc(pick(g.label) + ' – ALEXIA EXPORTS') + '"' + dimAttr(m0) + ' loading="lazy" decoding="async"></div>' : '') +
+            '<div class="sc-list"><h3>' + esc(pick(g.label)) + '</h3><ul>' + ps.map(function (p) { return '<li><a href="' + (hasPage(p) ? pfile(p, langKey) : home + '#products') + '">' + esc(pick(p.name)) + '</a></li>'; }).join('') + '</ul><a class="btn btn-navy" href="' + home + '#products">' + esc(T('x_sc_more')) + arrow() + '</a></div></div>';
+        }).join('') + '</div></section>\n\n';
+      var stats = (content.stats || []).filter(function (s) { return String(s.value || '').trim() && pick(s.label); });
+      SEC.stats = !stats.length ? '' : '<section class="sec stats" id="stats"><div class="wrap">' + secHead(T('x_st_eye'), T('x_st_h')) + '<div class="stat-grid">' + stats.map(function (s) {
+        var num = parseFloat(String(s.value).replace(/[^0-9.]/g, ''));
+        return '<div class="stat"><b' + (isNaN(num) ? '' : ' data-count="' + num + '"') + '>' + esc(s.value) + '</b><span>' + esc(pick(s.label)) + '</span></div>'; }).join('') + '</div></div></section>\n\n';
+      var svcs = (content.services || []).filter(function (s) { return pick(s.title); });
+      function svcCards() { return '<div class="svc-grid">' + svcs.map(function (s) { return '<article class="svc"><span class="ico">' + big(s.icon) + '</span><h3>' + esc(pick(s.title)) + '</h3><p>' + esc(pick(s.text)) + '</p></article>'; }).join('') + '</div>'; }
+      var svcPage = PAGES.filter(function (g) { return g.kind === 'hub-services'; })[0];
+      SEC.services = !svcs.length ? '' : '<section class="sec services" id="services"><div class="wrap">' + secHead(T('x_sv_eye'), T('x_sv_h'), T('x_sv_lede')) + svcCards() + (svcPage && pgHas(svcPage, langKey) ? '<p class="sec-more"><a class="btn btn-ghost" href="' + pgfile(svcPage, langKey) + '">' + esc(pick(svcPage.title)) + arrow() + '</a></p>' : '') + '</div></section>\n\n';
+      var st = content.story || {}, miles = (st.milestones || []).filter(function (m) { return String(m.year || '').trim() && pick(m.text); });
+      SEC.story = !(pick(st.text) || miles.length) ? '' : '<section class="sec story" id="story"><div class="wrap">' + secHead(T('x_sy_eye'), pick(st.title) || T('x_sy_h')) + '<div class="story-grid"><div class="story-text">' + md(pick(st.text)) + '</div>' +
+        (miles.length ? '<ol class="timeline">' + miles.map(function (m) { return '<li><b>' + esc(m.year) + '</b><span>' + esc(pick(m.text)) + '</span></li>'; }).join('') + '</ol>' : '') + '</div></div></section>\n\n';
+      SEC.gallery = !galMedia.length ? '' : '<section class="sec gallery" id="gallery"><div class="wrap">' + secHead(T('x_gal_eye'), T('x_gal_h')) + '<div class="gal">' + galMedia.slice(0, 8).map(function (m, i) { return galItem(m, i); }).join('') + '</div>' +
+        (galPage && pgHas(galPage, langKey) ? '<p class="sec-more"><a class="btn btn-ghost" href="' + pgfile(galPage, langKey) + '">' + esc(T('x_gal_more')) + arrow() + '</a></p>' : '') + '</div></section>\n\n';
+      var tms = (content.testimonials || []).filter(function (x) { return pick(x.quote) && String(x.name || '').trim(); });
+      SEC.testimonials = !tms.length ? '' : '<section class="sec testimonials" id="testimonials"><div class="wrap">' + secHead(T('x_tm_eye'), T('x_tm_h')) + '<div class="tm-grid">' + tms.map(function (x) {
+        var m0 = firstImg(x), line = [pick(x.role), x.company, x.country].filter(function (v) { return String(v || '').trim(); }).join(' · ');
+        return '<figure class="tm"><blockquote>' + esc(pick(x.quote)) + '</blockquote><figcaption>' + (m0 ? '<img src="' + esc(imageSrc(m0.src)) + '" alt="' + esc(x.name) + '"' + dimAttr(m0) + ' loading="lazy" decoding="async">' : '<span class="av" aria-hidden="true">' + esc(String(x.name).trim().charAt(0).toUpperCase()) + '</span>') + '<span><b>' + esc(x.name) + '</b><small>' + esc(line) + '</small></span></figcaption></figure>'; }).join('') + '</div></div></section>\n\n';
+      var team = (content.team || []).filter(function (x) { return String(x.name || '').trim(); });
+      SEC.team = !team.length ? '' : '<section class="sec team" id="team"><div class="wrap">' + secHead(T('x_te_eye'), T('x_te_h')) + '<div class="team-grid">' + team.map(function (x) {
+        var m0 = firstImg(x);
+        return '<article class="tmem">' + (m0 ? '<img src="' + esc(imageSrc(m0.src)) + '" alt="' + esc(x.name + (pick(x.role) ? ' – ' + pick(x.role) : '')) + '"' + dimAttr(m0) + ' loading="lazy" decoding="async">' : '<span class="av" aria-hidden="true">' + esc(String(x.name).trim().charAt(0).toUpperCase()) + '</span>') + '<b>' + esc(x.name) + '</b><span>' + esc(pick(x.role)) + '</span></article>'; }).join('') + '</div></div></section>\n\n';
+
       function inl(x) {
         x = esc(x).replace(/\[([^\]]+)\]\((page|product):([a-z0-9-]+)\)/g, function (m, tx, ty, id) {
           var u = '';
@@ -648,6 +715,8 @@
         var secs = (g.sections || []).filter(function (x) { return pick(x.h) || pick(x.p); }).map(function (x) { return '<section class="pd-sec">' + (pick(x.h) ? '<h2>' + esc(pick(x.h)) + '</h2>' : '') + md(pick(x.p)) + '</section>'; }).join('');
         var extra = '';
         if (g.kind === 'hub-products') extra = '<div class="cp-grid">' + visible.filter(hasPage).map(function (o) { var m0 = mediaOf(o).filter(function (m) { return m.type === 'image'; })[0]; return '<a class="cp-card" href="' + pfile(o, langKey) + '">' + (m0 ? '<img src="' + esc(imageSrc(m0.src)) + '" alt="' + esc(altsFor(o)[0] || pick(o.name)) + '"' + (m0.w && m0.h ? ' width="' + Number(m0.w) + '" height="' + Number(m0.h) + '"' : '') + ' loading="lazy" decoding="async">' : '') + '<b>' + esc(pick(o.name)) + '</b><span>' + esc(pick(o.desc)) + '</span></a>'; }).join('') + '</div>';
+        if (g.kind === 'hub-services') extra = svcCards();
+        if (g.kind === 'hub-gallery') extra = '<div class="gal">' + galMedia.map(function (m, i) { return galItem(m, i); }).join('') + '</div>';
         if (g.kind === 'hub-insights') extra = '<div class="cp-grid cp-list-grid">' + PAGES.filter(function (o) { return o.kind === 'article' && pgHas(o, langKey); }).sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); }).map(function (o) { return '<a class="cp-card" href="' + pgfile(o, langKey) + '"><b>' + esc(pick(o.title)) + '</b>' + (o.date ? '<small>' + esc(o.date) + '</small>' : '') + '<span>' + esc(pick(o.desc) || pick(o.intro)) + '</span></a>'; }).join('') + '</div>';
         var cta = '<aside class="cp-cta"><h2>' + esc(UXl.ctaH) + '</h2><p>' + esc(UXl.ctaP) + '</p><div class="pd-acts"><button class="btn btn-gold" type="button" data-open="quote-dialog">' + esc(T('pd_quote')) + arrow() + '</button><a class="btn btn-ghost" href="mailto:' + esc(EMAIL) + '">' + esc(EMAIL) + '</a></div></aside>';
         return cr + '<article class="pd cp"><div class="wrap cp-wrap"><header class="cp-head"><h1>' + esc(t) + '</h1>' + (intro ? '<p class="pd-short">' + esc(intro) + '</p>' : '') + meta + '</header>' + secs + extra + cta + '</div></article>\n';

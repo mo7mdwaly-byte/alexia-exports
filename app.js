@@ -226,9 +226,27 @@
       openDlg(d);
     });
   });
+  /* showcase tabs */
+  $$('.sc-tabs').forEach(function (bar) {
+    var tb = $$('.sc-tab', bar), pn = $$('.sc-panel', bar.parentNode);
+    tb.forEach(function (b, i) { b.addEventListener('click', function () { tb.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); }); pn.forEach(function (p, k) { p.hidden = k !== i; }); }); });
+  });
+  /* animated counters */
+  var cnt = $$('[data-count]');
+  if (cnt.length && 'IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches)) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return; io.unobserve(e.target);
+        var el = e.target, to = parseFloat(el.getAttribute('data-count')), txt = el.textContent, pre = txt.match(/^[^0-9]*/)[0], suf = txt.replace(/^[^0-9]*[0-9.,\s]*/, ''), t0 = null, fmt = /[.,]\d{3}/.test(txt) || to >= 10000;
+        var step = function (ts) { t0 = t0 || ts; var k = Math.min(1, (ts - t0) / 1400), v = Math.round(to * (1 - Math.pow(1 - k, 3))); el.textContent = pre + (fmt ? v.toLocaleString('en-US') : v) + suf; if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    cnt.forEach(function (el) { io.observe(el); });
+  }
   /* product page: click a photo to see it large */
   var lb = null;
-  $$('.pd-mc .mc-slide img:not(.mc-bg)').forEach(function (img) {
+  $$('.pd-mc .mc-slide img:not(.mc-bg), .gal .gi img').forEach(function (img) {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', function () {
       if (!lb) {
