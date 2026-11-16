@@ -1045,6 +1045,120 @@
       "ar": "تابعنا",
       "fr": "Suivez-nous",
       "es": "Síguenos"
+    },
+    "x_strip_aria": {
+      "en": "Product categories",
+      "ar": "فئات المنتجات",
+      "fr": "Catégories de produits",
+      "es": "Categorías de productos"
+    },
+    "x_sc_eye": {
+      "en": "Our range",
+      "ar": "مجموعتنا",
+      "fr": "Notre gamme",
+      "es": "Nuestra gama"
+    },
+    "x_sc_h": {
+      "en": "Explore by category",
+      "ar": "تصفح حسب الفئة",
+      "fr": "Explorer par catégorie",
+      "es": "Explorar por categoría"
+    },
+    "x_sc_more": {
+      "en": "Find more products",
+      "ar": "اكتشف المزيد من المنتجات",
+      "fr": "Voir plus de produits",
+      "es": "Ver más productos"
+    },
+    "x_st_eye": {
+      "en": "In numbers",
+      "ar": "بالأرقام",
+      "fr": "En chiffres",
+      "es": "En cifras"
+    },
+    "x_st_h": {
+      "en": "Our business at a glance",
+      "ar": "نشاطنا بنظرة سريعة",
+      "fr": "Notre activité en un coup d’œil",
+      "es": "Nuestro negocio de un vistazo"
+    },
+    "x_sv_eye": {
+      "en": "Services",
+      "ar": "الخدمات",
+      "fr": "Services",
+      "es": "Servicios"
+    },
+    "x_sv_h": {
+      "en": "How we support your supply",
+      "ar": "كيف ندعم توريداتك",
+      "fr": "Comment nous soutenons vos approvisionnements",
+      "es": "Cómo apoyamos su suministro"
+    },
+    "x_sv_lede": {
+      "en": "From sourcing to shipping documents, we coordinate each step with you.",
+      "ar": "من التوريد إلى مستندات الشحن، ننسق كل خطوة معك.",
+      "fr": "De l’approvisionnement aux documents d’expédition, nous coordonnons chaque étape avec vous.",
+      "es": "Del abastecimiento a los documentos de envío, coordinamos cada paso con usted."
+    },
+    "x_sy_eye": {
+      "en": "Our story",
+      "ar": "قصتنا",
+      "fr": "Notre histoire",
+      "es": "Nuestra historia"
+    },
+    "x_sy_h": {
+      "en": "Our journey",
+      "ar": "مسيرتنا",
+      "fr": "Notre parcours",
+      "es": "Nuestro recorrido"
+    },
+    "x_gal_eye": {
+      "en": "Gallery",
+      "ar": "معرض الصور",
+      "fr": "Galerie",
+      "es": "Galería"
+    },
+    "x_gal_h": {
+      "en": "From the field to the container",
+      "ar": "من المزرعة إلى الحاوية",
+      "fr": "Du champ au conteneur",
+      "es": "Del campo al contenedor"
+    },
+    "x_gal_more": {
+      "en": "View full gallery",
+      "ar": "عرض المعرض كاملًا",
+      "fr": "Voir toute la galerie",
+      "es": "Ver toda la galería"
+    },
+    "x_gal_alt": {
+      "en": "ALEXIA EXPORTS gallery photo",
+      "ar": "صورة من معرض ألكسيا للتصدير",
+      "fr": "Photo de la galerie ALEXIA EXPORTS",
+      "es": "Foto de la galería de ALEXIA EXPORTS"
+    },
+    "x_tm_eye": {
+      "en": "Testimonials",
+      "ar": "آراء العملاء",
+      "fr": "Témoignages",
+      "es": "Testimonios"
+    },
+    "x_tm_h": {
+      "en": "What our buyers say",
+      "ar": "ماذا يقول عملاؤنا",
+      "fr": "Ce que disent nos clients",
+      "es": "Lo que dicen nuestros compradores"
+    },
+    "x_te_eye": {
+      "en": "Our team",
+      "ar": "فريقنا",
+      "fr": "Notre équipe",
+      "es": "Nuestro equipo"
+    },
+    "x_te_h": {
+      "en": "The people behind your shipments",
+      "ar": "الفريق وراء شحناتك",
+      "fr": "Les personnes derrière vos expéditions",
+      "es": "Las personas detrás de sus envíos"
     }
   },
   "lists": {
@@ -4622,11 +4736,31 @@
       "hidden": false
     },
     {
+      "id": "strip",
+      "hidden": false
+    },
+    {
       "id": "trust",
       "hidden": false
     },
     {
+      "id": "showcase",
+      "hidden": false
+    },
+    {
       "id": "products",
+      "hidden": false
+    },
+    {
+      "id": "stats",
+      "hidden": false
+    },
+    {
+      "id": "services",
+      "hidden": false
+    },
+    {
+      "id": "story",
       "hidden": false
     },
     {
@@ -4639,6 +4773,18 @@
     },
     {
       "id": "about",
+      "hidden": false
+    },
+    {
+      "id": "gallery",
+      "hidden": false
+    },
+    {
+      "id": "testimonials",
+      "hidden": false
+    },
+    {
+      "id": "team",
       "hidden": false
     },
     {
@@ -4666,12 +4812,12 @@
       "hidden": false
     }
   ],
-  "assetv": "mw8ir573",
+  "assetv": "mwjknpaz",
   "seo": {
-    "verify_google": "",
-    "verify_bing": "",
+    "verify_google": "D_AwI93Nf2lZOsFNOIKXQOoQf9oDzs42DjfwtkCrnWs",
+    "verify_bing": "FFAA42B0FC6DF7CEA3069891B3E15B1F",
     "indexnow_key": "0818dacffef04f5189649871e710f7f8",
-    "site_updated": "2026-11-09",
+    "site_updated": "2026-11-16",
     "home": {
       "title": {
         "en": "Egyptian Food & Agricultural Products Exporter | ALEXIA",
