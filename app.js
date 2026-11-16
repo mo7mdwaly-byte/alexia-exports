@@ -232,12 +232,12 @@
     tb.forEach(function (b, i) { b.addEventListener('click', function () { tb.forEach(function (x, k) { x.setAttribute('aria-selected', k === i ? 'true' : 'false'); }); pn.forEach(function (p, k) { p.hidden = k !== i; }); }); });
   });
   /* animated counters */
-  var cnt = $$('[data-count]');
+  var cnt = $$('[data-countup]');
   if (cnt.length && 'IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches)) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return; io.unobserve(e.target);
-        var el = e.target, to = parseFloat(el.getAttribute('data-count')), txt = el.textContent, pre = txt.match(/^[^0-9]*/)[0], suf = txt.replace(/^[^0-9]*[0-9.,\s]*/, ''), t0 = null, fmt = /[.,]\d{3}/.test(txt) || to >= 10000;
+        var el = e.target, to = parseFloat(el.getAttribute('data-countup')), txt = el.textContent, pre = txt.match(/^[^0-9]*/)[0], suf = txt.replace(/^[^0-9]*[0-9.,\s]*/, ''), t0 = null, fmt = /[.,]\d{3}/.test(txt) || to >= 10000;
         var step = function (ts) { t0 = t0 || ts; var k = Math.min(1, (ts - t0) / 1400), v = Math.round(to * (1 - Math.pow(1 - k, 3))); el.textContent = pre + (fmt ? v.toLocaleString('en-US') : v) + suf; if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
         requestAnimationFrame(step);
       });

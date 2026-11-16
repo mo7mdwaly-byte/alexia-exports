@@ -672,7 +672,7 @@
       var stats = (content.stats || []).filter(function (s) { return String(s.value || '').trim() && pick(s.label); });
       SEC.stats = !stats.length ? '' : '<section class="sec stats" id="stats"><div class="wrap">' + secHead(T('x_st_eye'), T('x_st_h')) + '<div class="stat-grid">' + stats.map(function (s) {
         var num = parseFloat(String(s.value).replace(/[^0-9.]/g, ''));
-        return '<div class="stat"><b' + (isNaN(num) ? '' : ' data-count="' + num + '"') + '>' + esc(s.value) + '</b><span>' + esc(pick(s.label)) + '</span></div>'; }).join('') + '</div></div></section>\n\n';
+        return '<div class="stat"><b' + (isNaN(num) ? '' : ' data-countup="' + num + '"') + '>' + esc(s.value) + '</b><span>' + esc(pick(s.label)) + '</span></div>'; }).join('') + '</div></div></section>\n\n';
       var svcs = (content.services || []).filter(function (s) { return pick(s.title); });
       function svcCards() { return '<div class="svc-grid">' + svcs.map(function (s) { return '<article class="svc"><span class="ico">' + big(s.icon) + '</span><h3>' + esc(pick(s.title)) + '</h3><p>' + esc(pick(s.text)) + '</p></article>'; }).join('') + '</div>'; }
       var svcPage = PAGES.filter(function (g) { return g.kind === 'hub-services'; })[0];
