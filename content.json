@@ -2240,6 +2240,225 @@
   },
   "products": [
     {
+      "id": "new-product",
+      "group": "fresh",
+      "icon": "citrus",
+      "image": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "images/egyptian-fresh-bell-peppers-red-yellow-mwmi3jcv7le.jpg",
+          "size": "original",
+          "w": 1264,
+          "h": 848
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-fresh-bell-peppers-red-yellow-mwmi3krqmqw.jpg",
+          "size": "original",
+          "w": 1264,
+          "h": 848
+        },
+        {
+          "type": "image",
+          "src": "images/egyptian-fresh-bell-peppers-red-yellow-mwmi3lpc3a3.jpg",
+          "size": "original",
+          "w": 1264,
+          "h": 848
+        }
+      ],
+      "hidden": false,
+      "discuss": false,
+      "name": {
+        "en": "Fresh Bell Peppers (Red & Yellow)",
+        "ar": "فلفل رومي طازج (أحمر وأصفر)",
+        "fr": "Poivrons Frais (Rouges et Jaunes)",
+        "es": "Pimientos Frescos (Rojos y Amarillos)"
+      },
+      "desc": {
+        "en": "Export-grade fresh Egyptian red and yellow bell peppers, carefully sorted, packed in ventilated branded cartons, and shipped in temperature-controlled containers for importers and food-service buyers.",
+        "ar": "فلفل رومي مصري طازج (أحمر وأصفر) بدرجة تصدير ممتازة، يتم فرزه بعناية وتعبئته في كراتين مخصصة للتهوية وشحنه في حاويات مبردة للمستوردين وقطاع الخدمات الغذائية.",
+        "fr": "Poivrons frais d'Égypte (rouges et jaunes) de qualité export, soigneusement triés, emballés dans des cartons ventilés et expédiés en conteneurs réfrigérés pour importateurs et professionnels.",
+        "es": "Pimientos frescos de Egipto (rojos y amarillos) de calidad de exportación, cuidadosamente seleccionados, empacados en cajas ventiladas y enviados en contenedores refrigerados para importadores."
+      },
+      "tags": {
+        "en": [
+          "fresh bell peppers",
+          "red bell peppers",
+          "yellow bell peppers",
+          "Egyptian vegetables",
+          "fresh produce export",
+          "wholesale peppers"
+        ],
+        "ar": [
+          "فلفل رومي طازج",
+          "فلفل أحمر",
+          "فلفل أصفر",
+          "خضروات مصرية",
+          "تصدير خضروات طازجة",
+          "فلفل بالجملة"
+        ],
+        "fr": [
+          "poivrons frais",
+          "poivrons rouges",
+          "poivrons jaunes",
+          "légumes égyptiens",
+          "exportation produits frais",
+          "poivrons en gros"
+        ],
+        "es": [
+          "pimientos frescos",
+          "pimientos rojos",
+          "pimientos amarillos",
+          "verduras egipcias",
+          "exportación productos frescos",
+          "pimientos al por mayor"
+        ]
+      },
+      "detail": {
+        "origin": {
+          "en": "Egypt",
+          "ar": "مصر",
+          "fr": "Égypte",
+          "es": "Egipto"
+        },
+        "availability": "seasonal",
+        "avail_note": {
+          "en": "Nov – Jun (Peak Season)",
+          "ar": "نوفمبر – يونيو (موسم الذروة)",
+          "fr": "Nov – Juin (Pleine Saison)",
+          "es": "Nov – Jun (Temporada Alta)"
+        },
+        "long": {
+          "en": "ALEXIA EXPORTS supplies premium fresh red and yellow bell peppers harvested from certified Egyptian farms. Each batch undergoes strict quality inspection, size grading, and manual sorting in our packinghouse before being packed into ventilated corrugated export cartons. Pallets are securely stretch-wrapped and loaded directly into pre-cooled reefer containers to preserve crispness, vibrant color, and maximum shelf life upon arrival.",
+          "ar": "توفر شركة أليكسيا إكسبورتس فلفل رومي طازج عالي الجودة باللونين الأحمر والأصفر، يتم حصاده من مزارع مصرية معتمدة. تخضع كل شحنة لفحص جودة صارم وتدريج للأحجام وفرز يدوي داخل محطة التعبئة قبل تعبئتها في كراتين تصدير مضلعة ومزودة بفتحات تهوية. يتم تغليف الطبليات بإحكام وتحميلها مباشرة في حاويات مبردة للحفاظ على النضارة واللون الزاهي وأطول فترة صلاحية عند الوصول.",
+          "fr": "ALEXIA EXPORTS fournit des poivrons frais rouges et jaunes de premier choix, récoltés dans des fermes égyptiennes certifiées. Chaque lot fait l'objet d'un contrôle qualité rigoureux, d'un calibrage et d'un tri manuel dans notre station de conditionnement avant d'être emballé dans des cartons d'exportation ventilés. Les palettes sont filmées avec soin et chargées directement dans des conteneurs frigorifiques pré-refroidis afin de préserver leur fraîcheur et leur croquant.",
+          "es": "ALEXIA EXPORTS suministra pimientos frescos rojos y amarillos de primera calidad cosechados en granjas egipcias certificadas. Cada lote pasa por una estricta inspección de calidad, calibración y selección manual en nuestra planta de empaque antes de ser embalado en cajas de cartón corrugado ventiladas. Los pallets se envuelven de forma segura y se cargan directamente en contenedores refrigerados preenfriados para conservar su frescura y firmeza."
+        },
+        "apps": [
+          {
+            "text": {
+              "en": "Retail supermarket chains, Wholesale produce markets, Food-service & hospitality (HoReCa), Fresh-cut & food processing",
+              "ar": "سلاسل السوبر ماركت والتجزئة، أسواق الجملة للخضروات، الفنادق والمطاعم والتموين (HoReCa)، التصنيع الغذائي والتجهيز",
+              "fr": "Chaînes de supermarchés, Marchés de gros, Restauration et hôtellerie (CHR), Transformation alimentaire",
+              "es": "Cadenas de supermercados, Mercados mayoristas, Hostelería y restauración (HoReCa), Procesamiento de alimentos"
+            }
+          }
+        ],
+        "specs": [
+          {
+            "label": {
+              "en": "Varieties / Colors",
+              "ar": "الأصناف / الألوان",
+              "fr": "Variétés / Couleurs",
+              "es": "Variedades / Colores"
+            },
+            "value": {
+              "en": "Red & Yellow Blocky Bell Peppers",
+              "ar": "فلفل رومي مربع (أحمر وأصفر)",
+              "fr": "Poivrons carrés rouges et jaunes",
+              "es": "Pimientos cuadrados rojos y amarillos"
+            }
+          }
+        ],
+        "packaging": [
+          {
+            "label": {
+              "en": "Carton",
+              "ar": "كرتونة",
+              "fr": "Carton",
+              "es": "Caja"
+            },
+            "value": {
+              "en": "5 kg net weight (ventilated corrugated export carton)",
+              "ar": " 5 كجم وزن صافي (كرتونة تصدير مضلعة بفتحات تهوية)",
+              "fr": "5 kg poids net (carton d'exportation ondulé et ventilé)",
+              "es": "5 kg peso neto (caja de cartón corrugado ventilada de exportación)"
+            }
+          }
+        ],
+        "docs": [],
+        "extra": [
+          {
+            "title": {
+              "en": "Pallet",
+              "ar": "الطبلية (البالتة)",
+              "fr": "Palette",
+              "es": "Pallet"
+            },
+            "text": {
+              "en": "120 – 140 cartons (stretch-wrapped with corner boards)",
+              "ar": " 120 – 140 كرتونة (مغلفة بالاسترتش مع زوايا حماية)",
+              "fr": "120 – 140 cartons (filmée sous film étirable avec cornières)",
+              "es": "120 – 140 cajas (envuelta en film estirable con esquineros)"
+            }
+          },
+          {
+            "title": {
+              "en": "Container Load",
+              "ar": "حمولة الحاوية",
+              "fr": "Chargement conteneur",
+              "es": "Carga de contenedor"
+            },
+            "text": {
+              "en": "20 pallets per 40ft High Cube reefer container",
+              "ar": " 20 طبلية لكل حاوية مبردة 40 قدم هاي كيوب",
+              "fr": "20 palettes par conteneur frigorifique 40 pieds High Cube",
+              "es": "20 pallets por contenedor refrigerado de 40 pies High Cube"
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": {
+          "en": "Fresh Egyptian Bell Peppers Supplier & Exporter | ALEXIA",
+          "ar": "مورد ومصدر فلفل رومي مصري طازج | أليكسيا إكسبورتس",
+          "fr": "Fournisseur et Exportateur de Poivrons d'Égypte | ALEXIA",
+          "es": "Proveedor y Exportador de Pimientos de Egipto | ALEXIA"
+        },
+        "desc": {
+          "en": "Source fresh red and yellow bell peppers from Egypt. Export-grade sorting, custom carton packaging, and reefer container shipping by ALEXIA EXPORTS.",
+          "ar": "استورد فلفل رومي مصري طازج (أحمر وأصفر) بدرجة تصدير ممتازة. فرز دقيق، تعبئة في كراتين مخصصة، وشحن بالحاويات المبردة من أليكسيا إكسبورتس.",
+          "fr": "Approvisionnez-vous en poivrons frais rouges et jaunes d'Égypte. Tri qualité export, cartons sur mesure et expédition réfrigérée par ALEXIA EXPORTS.",
+          "es": "Importe pimientos frescos rojos y amarillos de Egipto. Selección de exportación, cajas personalizadas y envío refrigerado por ALEXIA EXPORTS."
+        },
+        "focus": {
+          "en": "fresh Egyptian bell peppers exporter",
+          "ar": "تصدير فلفل رومي مصري طازج",
+          "fr": "exportateur poivrons frais Égypte",
+          "es": "exportador pimientos frescos Egipto"
+        },
+        "secondary": {
+          "en": "red and yellow bell peppers Egypt, wholesale sweet peppers supplier, fresh vegetables exporter Egypt",
+          "ar": "فلفل ألوان مصري للتصدير، مورد خضروات طازجة مصر، فلفل رومي بالجملة",
+          "fr": "poivrons rouges et jaunes Égypte, fournisseur poivrons en gros, exportation légumes frais",
+          "es": "pimientos rojos y amarillos Egipto, proveedor pimientos al por mayor, exportación verduras frescas"
+        },
+        "og_title": {
+          "en": "Fresh Egyptian Bell Peppers (Red & Yellow) | ALEXIA EXPORTS",
+          "ar": "فلفل رومي مصري طازج (أحمر وأصفر) | أليكسيا إكسبورتس",
+          "fr": "Poivrons Frais d'Égypte (Rouges et Jaunes) | ALEXIA EXPORTS",
+          "es": "Pimientos Frescos de Egipto (Rojos y Amarillos) | ALEXIA EXPORTS"
+        },
+        "og_desc": {
+          "en": "Export-grade fresh red and yellow bell peppers sorted, packed, and shipped in reefer containers directly from Egypt. Request a quote today.",
+          "ar": "فلفل رومي مصري طازج (أحمر وأصفر) بدرجة تصدير ممتازة، يتم فرزه وتعبئته وشحنه في حاويات مبردة مباشرة من مصر. اطلب عرض سعر اليوم.",
+          "fr": "Poivrons frais rouges et jaunes de qualité export, triés, emballés et expédiés en conteneurs réfrigérés directement depuis l'Égypte. Demandez un devis dès aujourd'hui.",
+          "es": "Pimientos frescos rojos y amarillos de calidad de exportación, seleccionados, empacados y enviados en contenedores refrigerados directamente desde Egipto. Solicite una cotización hoy."
+        },
+        "alt": {
+          "en": "Workers sorting and packing fresh red and yellow Egyptian bell peppers into ALEXIA EXPORTS cartons",
+          "ar": "عمال يفرزون ويعبئون الفلفل الرومي المصري الطازج الأحمر والأصفر في كراتين أليكسيا إكسبورتس",
+          "fr": "Ouvriers triant et emballant des poivrons frais rouges et jaunes d'Égypte dans des cartons ALEXIA EXPORTS",
+          "es": "Trabajadores seleccionando y empacando pimientos frescos rojos y amarillos de Egipto en cajas de ALEXIA EXPORTS"
+        },
+        "canonical": "",
+        "og_image": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What varieties and sizes of fresh bell peppers does ALEXIA EXPORTS supply?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"ALEXIA EXPORTS supplies Class I export-grade fresh red and yellow blocky bell peppers harvested from certified Egyptian farms, graded in 70–90 mm and 80–100 mm sizes.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"How are the fresh bell peppers packaged and palletized for export?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The bell peppers are packed in ventilated corrugated export cartons (5 kg net weight), stacked 120 to 140 cartons per standard export pallet with corner boards and stretch wrap, and loaded 20 pallets per 40ft High Cube reefer container.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What is the peak export season and shelf life for Egyptian bell peppers?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"The peak export season runs from November through June. When stored and shipped under proper cold-chain conditions at 7°C–10°C with 90–95% relative humidity, shelf life is 21 to 28 days.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"What export documentation is provided with each shipment?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Every container dispatch includes full batch traceability, phytosanitary certificates, Certificate of Origin, commercial invoice, and packing list.\"\n      }\n    }\n  ]\n}",
+        "robots": "index,follow"
+      }
+    },
+    {
       "id": "citrus",
       "group": "fresh",
       "icon": "citrus",
@@ -4812,12 +5031,12 @@
       "hidden": false
     }
   ],
-  "assetv": "mwjknpaz",
+  "assetv": "mwmk1dcf",
   "seo": {
     "verify_google": "D_AwI93Nf2lZOsFNOIKXQOoQf9oDzs42DjfwtkCrnWs",
     "verify_bing": "FFAA42B0FC6DF7CEA3069891B3E15B1F",
     "indexnow_key": "0818dacffef04f5189649871e710f7f8",
-    "site_updated": "2026-11-16",
+    "site_updated": "2026-11-18",
     "home": {
       "title": {
         "en": "Egyptian Food & Agricultural Products Exporter | ALEXIA",
